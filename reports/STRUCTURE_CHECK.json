@@ -1,0 +1,12 @@
+{
+  "version": "19.0.0",
+  "kind": "Source and template execution checks; not browser rendering",
+  "routesExecuted": 123,
+  "linksChecked": 8600,
+  "chapters": 13,
+  "topicTabs": 81,
+  "portfolioRecords": 21,
+  "errors": [],
+  "browserQA": "Not performed: control-browser unavailable in the managed environment",
+  "readerValidation": "Not performed"
+}

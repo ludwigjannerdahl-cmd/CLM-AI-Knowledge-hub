@@ -1,0 +1,98 @@
+{
+  "validator": "jsonschema Draft202012Validator",
+  "schema_source": "Unchanged schemas/explanation_spec.schema.json from full sensemaking-explanation-architecture_v1.0.0.zip",
+  "schema_sha256": "272ddec8afa3ca0f7ab76620850ec51569da6797af72bea4e3ca051e64503e19",
+  "original_error_count": 17,
+  "corrected_error_count": 0,
+  "original_errors": [
+    {
+      "path": "metadata/status",
+      "validator": "enum",
+      "value": "candidate_planning_only"
+    },
+    {
+      "path": "metadata/mode",
+      "validator": "enum",
+      "value": "System explanation with visual, narrative and multi-audience projections; secondary decision support"
+    },
+    {
+      "path": "epistemic_register/0/status",
+      "validator": "enum",
+      "value": "source_fact"
+    },
+    {
+      "path": "epistemic_register/0/confidence",
+      "validator": "enum",
+      "value": "High as a reading of the supplied version; no assertion of current currency or local maturity"
+    },
+    {
+      "path": "epistemic_register/1/status",
+      "validator": "enum",
+      "value": "user_report"
+    },
+    {
+      "path": "epistemic_register/3/status",
+      "validator": "enum",
+      "value": "adopted_design_requirement"
+    },
+    {
+      "path": "epistemic_register/4/status",
+      "validator": "enum",
+      "value": "reasoned_design_requirement"
+    },
+    {
+      "path": "epistemic_register/5/status",
+      "validator": "enum",
+      "value": "source_backed_diagnosis"
+    },
+    {
+      "path": "epistemic_register/6/status",
+      "validator": "enum",
+      "value": "synthetic_example"
+    },
+    {
+      "path": "epistemic_register/7/status",
+      "validator": "enum",
+      "value": "user_requirement"
+    },
+    {
+      "path": "epistemic_register/8/status",
+      "validator": "enum",
+      "value": "reported_verification"
+    },
+    {
+      "path": "decision_spaces/0/reversibility",
+      "validator": "enum",
+      "value": "Prefer a bounded reversible evaluation where feasible; no operational action in this Hub"
+    },
+    {
+      "path": "candidate_frames/0/verdict",
+      "validator": "enum",
+      "value": "Selected as artifact/specimen relationship composition; avoid dense network geometry"
+    },
+    {
+      "path": "candidate_frames/1/verdict",
+      "validator": "enum",
+      "value": "Supporting meaning projection populated by the selected example"
+    },
+    {
+      "path": "candidate_frames/2/verdict",
+      "validator": "enum",
+      "value": "Supporting trace where order matters; specimen pair can be clearer for source/output"
+    },
+    {
+      "path": "candidate_frames/3/verdict",
+      "validator": "enum",
+      "value": "Do not use as opening; only a bounded mechanism if actually established"
+    },
+    {
+      "path": "validation/overall_status",
+      "validator": "enum",
+      "value": "Planning handoff only; no application build, visual QA, native interaction, legal approval or human comprehension result"
+    }
+  ],
+  "schema_modified": false,
+  "webpage_or_reader_validation": false,
+  "validator_version": "4.26.0",
+  "refinement": "Mentor context and image direction"
+}

@@ -1,0 +1,56 @@
+{
+  "corpus": [
+    {
+      "id": "sec-exec",
+      "title": "Executive Summary"
+    },
+    {
+      "id": "sec-model",
+      "title": "The CLM AI Operating Model"
+    },
+    {
+      "id": "sec-people",
+      "title": "Culture & People"
+    },
+    {
+      "id": "sec-lifecycle",
+      "title": "From Idea to Production \u2014 The Use Case Lifecycle"
+    },
+    {
+      "id": "sec-risk",
+      "title": "Navigating Risk & Compliance"
+    },
+    {
+      "id": "sec-arch",
+      "title": "AI, Agents & MCP in CLM"
+    },
+    {
+      "id": "sec-tech",
+      "title": "Technology & Platform"
+    },
+    {
+      "id": "sec-portfolio",
+      "title": "Portfolio & Applications"
+    },
+    {
+      "id": "sec-insights",
+      "title": "Industry Synthesis"
+    },
+    {
+      "id": "sec-datalayer",
+      "title": "PWMFO Data Layer"
+    },
+    {
+      "id": "sec-intelmodel",
+      "title": "CLM Intelligence Model"
+    },
+    {
+      "id": "sec-classifier",
+      "title": "AI Use Case Classifier"
+    },
+    {
+      "id": "sec-refs",
+      "title": "References & Sources"
+    }
+  ]
+}

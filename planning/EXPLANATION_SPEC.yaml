@@ -1,0 +1,1768 @@
+spec_version: 1.0.0
+metadata:
+  title: 'CLM AI Hub: useful work, reviewed context and bounded extension'
+  created_at: '2026-10-14'
+  owner: Prepared for Ludwig; institutional task, artifact and service owners require actual appointment
+  status: candidate
+  mode: high_stakes
+  domain: PWM&FO / CLM
+  version_notes: 'Visual/context refinement: Mentor response, general opening, scoped FenX references, output/annotation
+    separation and dated status repairs. Planning only.'
+  work_classification: System explanation with visual, narrative and multi-audience projections; secondary decision
+    support
+purpose:
+  audiences:
+  - stakeholder
+  - practitioner
+  - reviewer
+  target_outcomes:
+  - Shared orientation without Ludwig reconnecting separate chapters.
+  - Understand immediate development value, conditional reuse and additional shared-service conditions.
+  - Reach extensive original content through the relevant task, concept and source.
+  decisions_enabled:
+  - Choose a bounded task and identify its actual inputs, conditions, reviewer and unresolved questions.
+  - Decide whether to evaluate a reviewed artifact for another task before seeking broader integration.
+  reasoning_operations:
+  - locate
+  - trace
+  - explain
+  - compare
+  - diagnose
+  - challenge
+  - decide
+  - teach_back
+  non_goals:
+  - Production approval, formal legal/risk classification or customer assessment.
+  - An exhaustive initiative inventory or enterprise architecture as the opening.
+  - Measured productivity, staffing comparisons or automatic compounding.
+  - A new application in front of an archived Hub.
+  artifact_constraints:
+  - Existing Hub destination; V16 visual language; stable identities; source before generated output.
+  - One navigation/search/theme/history system with substantial integrated depth.
+  - 'Approved SEB Sans Serif assets absent; deep green #003824; no fabricated font.'
+  - Normal scrolling, accessible precise labels, mobile projection and reduced-motion meaning.
+  - Concept image is art direction, not the build or factual contract; no duplicate action grids, slogans, fabricated
+    counters or enterprise screenshots.
+  - Internal C3 Mentor packet is builder context; do not automatically copy it into static/public build assets.
+  cost_of_misunderstanding:
+  - Preparation mistaken for risk assessment, approval or authoritative record update.
+  - An accepted output mistaken for reusable approved knowledge.
+  - Platform availability mistaken for data access or shared-service release permission.
+competency_questions:
+- question_id: CQ1
+  question: What does this Hub explain, and where would you start?
+  priority: primary
+  reasoning_operation: locate
+  success_condition: Identifies broad CLM purpose and a recognizable route without coaching.
+- question_id: CQ2
+  question: How does reviewed FenX context support this Kaicy preparation?
+  priority: primary
+  reasoning_operation: trace
+  success_condition: Connects source, instruction, field meaning, method, output, gaps and human responsibility.
+- question_id: CQ3
+  question: Does an AI-assisted deterministic feature need AI in production?
+  priority: primary
+  reasoning_operation: explain
+  success_condition: Separates development assistance from the actual delivered runtime and release route.
+- question_id: CQ4
+  question: Can an accepted task output be used in a different task?
+  priority: primary
+  reasoning_operation: challenge
+  success_condition: Identifies distinct reuse review, applicability, ownership, maintenance and permitted consumption.
+- question_id: CQ5
+  question: What changes when an interface or operating condition is missing?
+  priority: primary
+  reasoning_operation: diagnose
+  success_condition: Distinguishes supplied-input assistance, current-data retrieval and shared-service readiness;
+    missing permission blocks its action.
+- question_id: CQ6
+  question: What happens to evidence when an instruction changes?
+  priority: primary
+  reasoning_operation: trace
+  success_condition: Preserves prior version/scope and identifies impact review rather than automatic revalidation.
+- question_id: CQ7
+  question: Where is the detailed explanation and supporting source?
+  priority: primary
+  reasoning_operation: locate
+  success_condition: Finds substantial relevant content, inspects provenance and returns with task/context intact.
+- question_id: CQ8
+  question: How would you frame an unfamiliar CLM task and its next step?
+  priority: primary
+  reasoning_operation: decide
+  success_condition: Transfers the relationship model, identifies a real unknown and proposes a bounded enquiry
+    or evaluation without inventing permission.
+- question_id: CQ9
+  question: Which field belongs to this subject, and what is extraction versus judgement or Hub annotation?
+  priority: primary
+  reasoning_operation: challenge
+  success_condition: Keeps subject/version identity, unresolved lookup and human judgement distinct; evidence pointers
+    and typed output are not verification results.
+- question_id: CQ10
+  question: How would a future assistant consume additional reviewed knowledge?
+  priority: secondary
+  reasoning_operation: explain
+  success_condition: Identifies a defined permitted/tested consumption path; personal Mentor context, policy inputs
+    and adding files elsewhere do not establish that path.
+scope:
+  included:
+  - bounded_clm_work
+  - reviewed_artifact_reuse
+  - versioned_evidence
+  - task_specific_conditions
+  - existing_hub_depth
+  - advisory_scoping
+  excluded:
+  - live_enterprise_connection
+  - provisioning
+  - access_changes
+  - external_publication
+  - operational_actions
+  - Named-system defect headline in the opening
+  - Plan B platform contingency as a primary AI operating-model option
+  system_boundary: A static explanatory Hub and synthetic demonstrations, not an enterprise execution system or
+    knowledge authority.
+  temporal_boundary: Planning as of 14 October 2026; primary supplied strategy version dated 8 May 2026; historical
+    records retain actual dates.
+  abstraction_level: Common work relationship with representative mechanism and inspectable detailed objects.
+audience_models:
+- audience_id: stakeholder
+  label: Intelligent non-specialist stakeholder
+  domain_expertise: mixed
+  current_mental_model: Tools and initiatives are visible; reusable knowledge and operating conditions may not be
+    connected.
+  attention_budget: A clear first overview, with elective depth; no fixed claimed reading-time result.
+  must_retain:
+  - useful_work
+  - conditional_reuse
+  - human_responsibility
+  - access_operation_distinction
+  may_defer:
+  - full_platform_detail
+  - detailed_governance_tables
+  - full_source_text
+  expertise_note: Business/CLM knowledge varies; technical AI vocabulary cannot be assumed.
+- audience_id: practitioner
+  label: CLM colleague or builder
+  domain_expertise: mixed
+  must_retain:
+  - task_context
+  - method_scope
+  - requirements_evidence
+  - versions
+  - missing_conditions
+  may_defer:
+  - broad_industry_synthesis
+  expertise_note: May understand a particular process/system deeply and arrive through search.
+- audience_id: reviewer
+  label: Knowledge, data, risk, compliance or platform reviewer
+  domain_expertise: mixed
+  must_retain:
+  - authority
+  - applicability
+  - ownership
+  - permitted_action
+  - evidence_scope
+  may_defer:
+  - introductory_guidance
+  expertise_note: High expertise within a control domain; not necessarily the entire CLM technical landscape.
+sources:
+- source_id: S_USER
+  title: Latest user instructions and reported CLM working experience
+  locator: IMPLEMENTATION_BRIEF.md, sections 1–3; captured requirements from the visible conversation
+  source_type: user_requirement_and_report
+  authority_class: Authoritative for requested scope/preferences; reported for operational experience
+  version_or_date: Latest visible requirements through 2026-10-14
+  freshness: Current task scope; no claim of full transcript retrieval
+  notes: Latest design context keeps the opening general; Kaicy is a concrete deeper route, not the strategy headline.
+- source_id: S_STRATEGY
+  title: SEB AI sub-strategy v1.0
+  locator: grounding/SEB_AI_sub_strategy_v1.0.pdf; sections 5, 6, 8, 9 and 10; horizon boundaries also sections
+    1 and 10
+  source_type: supplied_internal_primary_strategy
+  authority_class: Primary supplied strategic grounding; not local permission
+  version_or_date: 2026-05-08 / 1.0
+  owner_or_publisher: Group Technology — Strategy & Change
+  freshness: Supplied version; current institutional currency unverified
+- source_id: S_OPERATING
+  title: CLM AI Operating Model Knowledge v1.0
+  locator: grounding/CLM_AI_Operating_Model_Knowledge_v1.0.md
+  source_type: working_synthesis
+  authority_class: CLM semantic input; not approved policy/architecture
+  version_or_date: 2026-10-09 / 1.0
+- source_id: S_UI
+  title: UI Intelligence and Insight Design Knowledge v1.1
+  locator: grounding/UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md
+  source_type: candidate_design_synthesis
+  authority_class: Information-design input; dated capability claims require verification
+  version_or_date: 2026-10-09 / 1.1
+- source_id: S_HUB
+  title: Attached CLM AI Knowledge Hub, 14 October 2026
+  locator: grounding/CLM_AI_Knowledge_Hub_2026_10_14.html
+  source_type: authored_hub_snapshot
+  authority_class: Content/behaviour source, mixed claim status
+  version_or_date: 2026-10-14 attachment; thirteen sections including draft sec-intelmodel
+  notes: Concrete content baseline; mixed claim status; does not establish Git state or corrected V16 assets.
+- source_id: S_AUTHORITY
+  title: Source Authority
+  locator: context_only/Presentation_Partner/02_SOURCE_AUTHORITY.md
+  source_type: supplied_module
+  authority_class: Presentation Partner context only; not a CLM Hub requirement
+  source_role: context_only
+  permitted_transfer: Production gates, ownership and release-record patterns only where present and relevant; CLM-specific
+    confirmation required
+  excluded_transfer: Agent runtime choice, Office artifact tests, exact Custom Agents deployment route and presentation
+    visual rules
+- source_id: S_RUNTIME
+  title: Runtime and Harness Compatibility
+  locator: context_only/Presentation_Partner/05_RUNTIME_AND_HARNESS_COMPATIBILITY.md
+  source_type: supplied_module
+  authority_class: Presentation Partner context only; not a CLM Hub requirement
+  source_role: context_only
+  permitted_transfer: Production gates, ownership and release-record patterns only where present and relevant; CLM-specific
+    confirmation required
+  excluded_transfer: Agent runtime choice, Office artifact tests, exact Custom Agents deployment route and presentation
+    visual rules
+- source_id: S_GOVERNANCE
+  title: Production Governance
+  locator: context_only/Presentation_Partner/06_PRODUCTION_GOVERNANCE.md
+  source_type: supplied_module
+  authority_class: Presentation Partner context only; not a CLM Hub requirement
+  source_role: context_only
+  permitted_transfer: Production gates, ownership and release-record patterns only where present and relevant; CLM-specific
+    confirmation required
+  excluded_transfer: Agent runtime choice, Office artifact tests, exact Custom Agents deployment route and presentation
+    visual rules
+- source_id: S_EVALUATION
+  title: Evaluation and Observability
+  locator: context_only/Presentation_Partner/07_EVALUATION_AND_OBSERVABILITY.md
+  source_type: supplied_module
+  authority_class: Presentation Partner context only; not a CLM Hub requirement
+  source_role: context_only
+  permitted_transfer: Production gates, ownership and release-record patterns only where present and relevant; CLM-specific
+    confirmation required
+  excluded_transfer: Agent runtime choice, Office artifact tests, exact Custom Agents deployment route and presentation
+    visual rules
+- source_id: S_AUDIT
+  title: Current attached Hub classifier source audit
+  locator: SOURCE_AUDIT_2026_10_14.md and classifier_source_probe_results.json
+  source_type: source_inspection_and_pure_function_probe
+  authority_class: Findings about this attachment; no fixes, browser reproduction or legal determination
+- source_id: S_METHOD
+  title: Sensemaking and Explanation Architecture v1.0.0
+  locator: method/SKILL.md and selectively relevant method modules
+  source_type: supplied_method
+  authority_class: Method input; not validation of this Hub
+- source_id: S_DESTINATION
+  title: Other work environment's source verification reported in feedback
+  locator: START_HERE.md, Destination; IMPLEMENTATION_BRIEF.md, section 2
+  source_type: reported_external_environment_verification
+  authority_class: Reported verified local state; actual bytes unavailable here
+  version_or_date: Latest Mentor response reports last Hub commit 8277618 with uncommitted sec-intelmodel; actual
+    current Git membership remains unverified here.
+  notes: Attached draft bytes now available. Exact Git membership and corrected V16 package still require implementation-environment
+    inspection.
+- source_id: S_INTEL
+  title: Draft CLM Intelligence Model in attached Hub
+  locator: 'grounding/CLM_AI_Knowledge_Hub_2026_10_14.html: sec-intelmodel and intel-* topics'
+  source_type: draft_working_synthesis
+  authority_class: CLM explanation input; explicitly not approved architecture
+  version_or_date: v0.1 draft in 2026-10-14 attachment
+- source_id: S_USER_CORRECTION
+  title: User corrections to the planning handoff
+  locator: FINAL_BUILD_PLAN_FOR_ASTRA.md section 2; visible user clarification dated 14 October 2026
+  source_type: user_report_and_requirement
+  authority_class: Task requirements and reported internal context; not a measured-benefit record
+- source_id: S_V17
+  title: V17 legacy classifier audit donor
+  locator: context_only/CLASSIFIER_AUDIT_V17.md
+  source_type: donor_audit
+  authority_class: V17 source-backed findings only; not verification of current attached Hub fixes
+  source_role: context_only
+- source_id: S_MENTOR_PACKET
+  title: Context response from the Hub-authoring Mentor Agent v1.0
+  locator: builder_inputs/CONTEXT_RESPONSE_FOR_ASTRA_v1.0.md
+  source_type: source_reported_context_packet
+  authority_class: Secondary packet reporting configuration/code/primary readings and interpretations; those private
+    primary artifacts were not inspected here
+  version_or_date: 2026-10-14 response; individual underlying sources retain their dates
+  information_class: Internal C3
+  source_role: reported_context
+  notes: Preserve original reported status separately; source_fact in this packet is not this assistant's direct
+    verification.
+- source_id: S_DESIGN_IMAGE
+  title: Supplied CLM AI Knowledge Hub UI concept
+  locator: builder_inputs/CLM_AI_Knowledge_Hub_concept.png
+  source_type: visual_reference
+  authority_class: Art direction only; no authority for counts, freshness, permission or enterprise implementation
+  source_role: visual_only
+terminology:
+  concepts:
+  - concept_id: work
+    preferred_label: CLM work
+    alternate_labels:
+    - CLM task
+    type: activity
+    definition: A bounded analysis, development, change or preparation task with a purpose, inputs and responsible
+      role.
+    current_or_target: both
+    scope_note: Reported current work; instances have their own status
+  - concept_id: colleague
+    preferred_label: Responsible colleague
+    type: actor
+    definition: Accountable person/role for task direction, review or a relevant decision; actual appointment is
+      not inferred.
+    current_or_target: both
+  - concept_id: ai-assistance
+    preferred_label: AI assistance
+    type: capability
+    definition: Bounded support using actual permitted inputs and tools; not autonomous institutional authority.
+    current_or_target: both
+  - concept_id: output
+    preferred_label: Task output
+    type: object
+    definition: Result prepared for the current task, with its source and scope retained.
+    domain_kind: artifact
+    current_or_target: both
+  - concept_id: task-review
+    preferred_label: Review for this task
+    type: activity
+    definition: Checks whether the result is suitable for the current purpose; distinct from approval for reuse.
+    current_or_target: both
+  - concept_id: artifact
+    preferred_label: Candidate reusable artifact
+    type: object
+    definition: Selected instruction, context, requirement, mapping, method or evidence from work; candidate does
+      not imply approval.
+    domain_kind: artifact
+    current_or_target: both
+  - concept_id: reuse-review
+    preferred_label: Review for reuse
+    type: activity
+    definition: Examines meaning, applicability, source/version, ownership, maintenance and permitted consumption
+      for another task.
+    current_or_target: both
+  - concept_id: reuse-scope
+    preferred_label: Scope of reuse
+    type: constraint
+    definition: Recorded boundaries within which an artifact may inform another task; does not grant access or action
+      permissions.
+    domain_kind: condition
+    current_or_target: both
+  - concept_id: other-work
+    preferred_label: Another CLM task
+    type: activity
+    definition: A distinct purpose for which the artifact's applicability must be established.
+    current_or_target: both
+  - concept_id: rules
+    preferred_label: Rules and instructions
+    type: concept
+    definition: What applies and why; law, internal interpretation, policy and instruction remain different authority
+      classes.
+    domain_kind: knowledge
+    current_or_target: both
+  - concept_id: context
+    preferred_label: CLM and FenX context
+    type: concept
+    definition: Process/system/field meaning and relevant facts, with their different origins and freshness explicit.
+    domain_kind: knowledge
+    current_or_target: both
+  - concept_id: operational-facts
+    preferred_label: Operational information
+    type: object
+    definition: Current case/system information from an actually permitted route; not knowledge about the system.
+    domain_kind: data
+    current_or_target: both
+  - concept_id: requirement
+    preferred_label: Requirement
+    type: object
+    definition: Expected behaviour linked to its applicable input and acceptance logic; authority and review state
+      explicit.
+    domain_kind: artifact
+    current_or_target: both
+  - concept_id: implementation
+    preferred_label: Implemented behaviour
+    type: state
+    definition: What a delivered solution actually does; not inferred from a requirement or demonstration.
+    domain_kind: system_behaviour
+    current_or_target: both
+  - concept_id: test
+    preferred_label: Test
+    type: concept
+    definition: Checks defined behaviour for a particular version, input and scope; test does not grant approval.
+    domain_kind: method
+    current_or_target: both
+  - concept_id: evidence
+    preferred_label: Recorded evidence
+    type: object
+    definition: Observation/result with version, time, scope and limitations; old evidence is not silently rebound
+      to a new requirement.
+    domain_kind: artifact
+    current_or_target: both
+  - concept_id: operating-plane
+    preferred_label: Requirements and evidence
+    alternate_labels:
+    - Operating plane
+    type: concept
+    definition: Implementation, controls, mappings, tests, evidence and ownership; not GCP or a vendor platform.
+    domain_kind: conceptual_group
+    current_or_target: both
+  - concept_id: method
+    preferred_label: Method
+    type: concept
+    definition: How to perform a bounded task; a document is not automatically an installed executable skill.
+    domain_kind: knowledge
+    current_or_target: both
+  - concept_id: tool
+    preferred_label: Tool
+    type: capability
+    definition: A capability invoked in the task, distinct from the knowledge that informs it.
+    current_or_target: both
+  - concept_id: harness
+    preferred_label: Harness
+    type: object
+    definition: Coordinates and constrains execution, context and tool use within the actual environment.
+    domain_kind: execution_component
+    current_or_target: both
+  - concept_id: runtime
+    preferred_label: Runtime
+    type: object
+    definition: Actual environment where assistance executes; a scenario choice does not provision it.
+    domain_kind: execution_environment
+    current_or_target: both
+  - concept_id: interface
+    preferred_label: Permitted information route
+    alternate_labels:
+    - Data interface
+    type: interface
+    definition: An actual permitted means to obtain the needed information with defined scope; an environment alone
+      does not create it.
+    current_or_target: both
+  - concept_id: data-product
+    preferred_label: Data product
+    type: capability
+    definition: A maintained package of data for a defined purpose, with clear meaning, owner, quality/freshness
+      expectations and a permitted way to use it.
+    domain_kind: maintained_data_capability
+    current_or_target: both
+  - concept_id: service
+    preferred_label: Shared assistant/service
+    type: capability
+    definition: Assistance intended for colleagues through an actual release/support route; requires task-specific
+      conditions and ownership.
+    domain_kind: operated_capability
+    current_or_target: both
+  - concept_id: controls
+    preferred_label: Applicable controls
+    type: constraint
+    definition: Relevant access, privacy, authority, evaluation, risk, release, monitoring, recovery and responsibility
+      requirements; not one interchangeable tier.
+    domain_kind: condition
+    current_or_target: both
+  - concept_id: permission
+    preferred_label: Permitted action
+    type: constraint
+    definition: Actual authority/access to perform a defined action; missing mandatory permission stops that action.
+    domain_kind: condition
+    current_or_target: both
+  - concept_id: feedback
+    preferred_label: Observed feedback
+    type: evidence
+    definition: Input to evaluation or a review candidate, not an authoritative knowledge update.
+    domain_kind: observation
+    current_or_target: both
+  - concept_id: change-candidate
+    preferred_label: Review candidate
+    type: object
+    definition: Proposed correction or improvement retaining source and rationale for a responsible review.
+    domain_kind: artifact
+    current_or_target: both
+  - concept_id: authoritative-record
+    preferred_label: Authoritative customer record
+    alternate_labels:
+    - Golden fields
+    type: object
+    definition: Customer record maintained through the applicable authorised process; outside AI inference/feedback
+      authority, not necessarily physically separate.
+    domain_kind: authority_boundary
+    current_or_target: both
+  scope_collisions:
+  - Delivery status, artifact authority, reuse review and evidence strength are distinct.
+  - Scenario assumption is not permission.
+  - Knowledge about FenX, retrieved case facts and a maintained data product are distinct.
+epistemic_register:
+- claim_id: C_STRATEGY
+  statement: The supplied strategy supports governed machine-readable knowledge, AI-assisted development, shared
+    capabilities and local lifecycle ownership. Its horizons run concurrently.
+  status: fact
+  source_refs:
+  - S_STRATEGY
+  confidence: high
+  current_or_target: both
+  caveat: Strategic alignment is not permission, deployment or measured benefit.
+  evidence_kind: source_fact
+  confidence_scope: High as a reading of the supplied version; no assertion of current currency or local maturity
+  state_note: Document direction spans current work and target ambitions
+- claim_id: C_WORK_REPORT
+  statement: Ludwig reports using FenX, SOP/policy and other knowledge artifacts as context for Kaicy-related work
+    and AI-assisted development/change work.
+  status: observed_evidence
+  source_refs:
+  - S_USER
+  current_or_target: both
+  caveat: Not independently measured performance or live system integration.
+  evidence_kind: user_report
+  state_note: current_reported
+- claim_id: C_REUSE
+  statement: Selected artifacts can inform another task when meaning, applicability, ownership, maintenance and
+    permitted consumption are established.
+  status: working_interpretation
+  source_refs:
+  - S_USER
+  - S_OPERATING
+  - S_INTEL
+  current_or_target: both
+  caveat: Possibility, not automatic transfer, savings or approval.
+  state_note: proposed_scoped_mechanism
+- claim_id: C_REVIEWS
+  statement: Suitability of an output for this task and suitability of an artifact for reuse are separate review
+    questions.
+  status: authoritative_requirement
+  source_refs:
+  - S_USER
+  - S_METHOD
+  - S_INTEL
+  current_or_target: target
+  caveat: Two distinctions are not an exhaustive governance gate list.
+  evidence_kind: adopted_design_requirement
+  state_note: target_explanation
+- claim_id: C_CONDITIONS
+  statement: Conditions affect the reach of a named task; they are not a universal gate on all useful AI work.
+  status: working_interpretation
+  source_refs:
+  - S_STRATEGY
+  - S_USER
+  - S_INTEL
+  derived_from:
+  - CF_NO_INTERFACE
+  - CF_DETERMINISTIC
+  current_or_target: both
+  caveat: Mandatory permissions remain hard constraints for the relevant action.
+  evidence_kind: reasoned_design_requirement
+  state_note: target_explanation
+- claim_id: C_LOOP
+  statement: The original Compounding Loop uses unconditional capture/value language whose scope is ambiguous beside
+    its golden-field proposal boundary.
+  status: working_interpretation
+  source_refs:
+  - S_HUB
+  current_or_target: both
+  caveat: Raw untrusted capture could differ from authoritative promotion; this is not evidence of an operational
+    breach.
+  revalidate_when: Actual destination wording or data lifecycle clarifies the scope.
+  evidence_kind: source_backed_diagnosis
+  state_note: inherited_explanation
+- claim_id: C_SPECIMENS
+  statement: The named demonstration objects illustrate preparation, change and reuse.
+  status: proposal
+  source_refs:
+  - S_USER
+  - S_OPERATING
+  current_or_target: target
+  caveat: No actual policy quotation, schema, live test result, customer assessment or release.
+  evidence_kind: synthetic_example
+  state_note: proposed_demonstration
+- claim_id: C_INTEGRATION
+  statement: The original Hub's useful material must participate in the main explanation through shared topic blocks
+    and behaviours.
+  status: authoritative_requirement
+  source_refs:
+  - S_USER
+  current_or_target: target
+  evidence_kind: user_requirement
+- claim_id: C_DESTINATION
+  statement: The latest Mentor response reports last Hub commit 8277618 with dirty Section 11 and unrelated files;
+    actual current checkout membership and V16 assets still need inspection.
+  status: observed_evidence
+  source_refs:
+  - S_MENTOR_PACKET
+  - S_DESTINATION
+  current_or_target: both
+  caveat: Attached draft content now inspected; actual Git membership and corrected V16 assets remain unverified.
+  evidence_kind: reported_verification
+  state_note: intended_destination
+- claim_id: C_DRAFT
+  statement: The attached HTML contains thirteen section identities and nine sec-intelmodel topics; the model calls
+    itself a v0.1 discussion synthesis, not approved architecture.
+  status: fact
+  source_refs:
+  - S_HUB
+  - S_INTEL
+  confidence: high
+  current_or_target: current
+- claim_id: C_AUTOMATION
+  statement: Ludwig reports Automation Legal Entities is work in progress as of 14 October 2026. Its Q3 insertion-point
+    statement is historical roadmap context, not a new deadline or sole AI mandate.
+  status: observed_evidence
+  evidence_kind: user_report
+  source_refs:
+  - S_USER_CORRECTION
+  confidence: high
+  current_or_target: current
+  caveat: Underlying roadmap source still to retrieve; no replacement delivery date inferred.
+- claim_id: C_BAIN_ORIGIN
+  statement: Ludwig confirms that the 31% time-reduction figure is an original estimate developed together with
+    Bain.
+  status: observed_evidence
+  evidence_kind: user_report
+  source_refs:
+  - S_USER_CORRECTION
+  - S_HUB
+  confidence: high
+  current_or_target: current
+  caveat: Confirmation of model origin, not of realised benefit.
+- claim_id: C_BAIN_ESTIMATE
+  statement: The original model estimates potential time reduction; its 31% figure is not a measured SEB outcome
+    or headcount reduction.
+  status: forecast
+  source_refs:
+  - S_USER_CORRECTION
+  - S_HUB
+  - S_MENTOR_PACKET
+  confidence: unknown
+  current_or_target: target
+  benefit_kind: modelled_estimate
+  is_external_benchmark: false
+  is_measured_seb_result: false
+  reported_percentage: 31
+  metric: time reduction for the modelled KYC activity
+  scope_note: Outreach effort is reported by the collected Bain summary. Sub-step coverage, minutes/cases baseline,
+    population, adoption and exact model date remain unavailable.
+  caveat: Use potential capacity release; do not infer staffing or realised percentage.
+- claim_id: C_CLASSIFIER
+  statement: Pure-function probes of the attached classifier assign Tier 1 to unknown autonomy, influence and data
+    values.
+  status: observed_evidence
+  source_refs:
+  - S_AUDIT
+  - S_HUB
+  confidence: high
+  current_or_target: current
+  caveat: Pure rules only; native interactions untested and no defect fixed.
+- claim_id: C_MENTOR
+  statement: The response identifies the Mentor as a personal VS Code author/retrieval agent, separate from Presentation
+    Partner; it says the static Hub has no live agent runtime.
+  status: observed_evidence
+  evidence_kind: supplied_context_report
+  source_refs:
+  - S_MENTOR_PACKET
+  confidence: high
+  confidence_scope: Confidence about what the packet says, not independent verification of its private configuration
+  current_or_target: current
+- claim_id: C_FIELD_REFERENCE
+  statement: The packet reports subject-specific FenX fields and separate versioned journey/policy references; exact
+    NP lookup/SOP text and judgement-field alias mappings remain unresolved.
+  status: observed_evidence
+  evidence_kind: reported_source_reading
+  source_refs:
+  - S_MENTOR_PACKET
+  confidence: medium
+  current_or_target: both
+  caveat: Do not promote a report to a verified current field contract or use LE wording as NP policy authority.
+- claim_id: C_EXTRACTION
+  statement: The packet reports extraction output limited to field_key, value, evidence_line_ids, confidence_level
+    and notes; gap/reuse annotations are outside that reported output.
+  status: observed_evidence
+  evidence_kind: reported_code_reading_2026-09-21
+  source_refs:
+  - S_MENTOR_PACKET
+  confidence: medium
+  current_or_target: current
+  caveat: The actual code/schema was not inspected here; typed output and saved INVALID items are not verified results.
+- claim_id: C_CURRENT_STATUS
+  statement: Kaicy approval/production/integration and SensAIa condition closure/current operation are unresolved
+    in the supplied packet; a reuse reviewer is not assigned.
+  status: open_question
+  source_refs:
+  - S_MENTOR_PACKET
+  confidence: unknown
+  current_or_target: current
+  caveat: Configuration, code existence and old conditional approval do not establish current operation.
+- claim_id: C_PLATFORM_SCOPE
+  statement: The packet reports a workplace-tool versus engineered-workload C4 scope conflict; the attached classifier
+    recommends Vertex AI with DPA without establishing task permission.
+  status: working_interpretation
+  source_refs:
+  - S_MENTOR_PACKET
+  - S_HUB
+  confidence: medium
+  current_or_target: current
+  caveat: Do not resolve by inference or state platform-wide permission or prohibition without the relevant primary
+    scope.
+- claim_id: C_ESTIMATE_SURFACES
+  statement: The attached HTML presents the 31% estimate as measured at its portfolio label and validated in portfolio
+    data.
+  status: fact
+  source_refs:
+  - S_HUB
+  - S_AUDIT
+  confidence: high
+  current_or_target: current
+  caveat: Fact about source wording; not evidence that the benefit was measured.
+uncertainty_register:
+- uncertainty_id: U_SOURCE
+  object_ref: C_DESTINATION
+  type: epistemic
+  description: Attached thirteen-section draft content is available; actual checkout membership, later local changes
+    and corrected V16 asset set still require inspection.
+  decision_effect: Inspect/freeze actual implementation source; no longer treat draft content as unavailable.
+  resolution_path: Freeze actual source including dirty changes and inventory stable identities.
+  uncertainty_kind: unavailable_local_bytes
+- uncertainty_id: U_FONT
+  object_ref: S_UI
+  type: epistemic
+  description: Approved SEB Sans Serif binaries absent in inspected assets.
+  decision_effect: Typography preservation must be qualified.
+  resolution_path: Use approved binaries if supplied; otherwise label the fallback honestly.
+  uncertainty_kind: missing_asset
+- uncertainty_id: U_DOMAIN
+  object_ref: C_SPECIMENS
+  type: epistemic
+  description: Reported FenX keys and subject distinctions available; actual NP lookup/SOP text, exact confidence/schema
+    conventions and mappings between versioned judgement-field names remain unverified.
+  decision_effect: Demonstration stays conceptual/synthetic.
+  resolution_path: Inspect appropriate governed source and responsible owner before operational use.
+  uncertainty_kind: domain_mapping_unknown
+- uncertainty_id: U_LIVE
+  object_ref: service
+  type: epistemic
+  description: Actual platform access, interfaces, release status and operational support not established.
+  decision_effect: No current shared-service claim.
+  resolution_path: Verify conditions for a selected task; no provisioning in this scope.
+  uncertainty_kind: current_state_unknown
+- uncertainty_id: U_PORTFOLIO
+  object_ref: S_HUB
+  type: epistemic
+  description: Bain estimate scope partially resolved as outreach; baseline/population/assumptions unavailable.
+    Automation LE WIP and historical alignment are reported; Plan B meaning resolved as a separate CDD platform
+    contingency.
+  decision_effect: Do not present inferred inventory or obsolete commitment as current.
+  resolution_path: Request only remaining relevant primary sources; no Plan B programme narrative or invented date.
+  uncertainty_kind: inventory_and_status_unknown
+- uncertainty_id: U_READER
+  object_ref: C_INTEGRATION
+  type: epistemic
+  description: No native render or reader test of this proposed design.
+  decision_effect: Cannot call the plan usable or assign quality scores.
+  resolution_path: Implement a vertical slice, inspect permitted renders and conduct competency/retell tests.
+  uncertainty_kind: usability_unknown
+semantic_model:
+  relationship_vocabulary_version: 1.0.0
+  relationship_extensions: []
+  relationships:
+  - relationship_id: R01
+    source: colleague
+    relation: performs
+    target: work
+    source_refs:
+    - S_USER
+    current_or_target: both
+    caveat: Specific appointments remain instance-level.
+    state_note: reported_work
+  - relationship_id: R02
+    source: work
+    relation: uses
+    target: ai-assistance
+    source_refs:
+    - S_USER
+    - S_STRATEGY
+    condition: Actual permitted tools and inputs; not every task must use AI.
+  - relationship_id: R03
+    source: work
+    relation: produces
+    target: output
+    source_refs:
+    - S_USER
+    condition: Defined task and scoped output.
+  - relationship_id: R04
+    source: colleague
+    relation: performs
+    target: task-review
+    source_refs:
+    - S_USER
+    condition: Within the relevant mandate and workflow.
+  - relationship_id: R05
+    source: task-review
+    relation: verifies
+    target: output
+    source_refs:
+    - S_USER
+    - S_OPERATING
+    - S_INTEL
+    caveat: Checks suitability; not automatically system permission or institutional approval.
+  - relationship_id: R06
+    source: artifact
+    relation: derived_from
+    target: work
+    source_refs:
+    - S_USER
+    - S_OPERATING
+    condition: Selected artifacts only; not every output becomes reusable knowledge.
+  - relationship_id: R07
+    source: colleague
+    relation: performs
+    target: reuse-review
+    source_refs:
+    - S_USER
+    - S_OPERATING
+    - S_INTEL
+    caveat: Actual artifact owner/reviewer may differ from the first task performer.
+  - relationship_id: R08
+    source: reuse-review
+    relation: informs
+    target: reuse-scope
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    condition: Responsible review disposition recorded; missing conditions stay explicit.
+  - relationship_id: R09
+    source: reuse-scope
+    relation: constrains
+    target: artifact
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    caveat: No permission granted merely by presence of metadata.
+  - relationship_id: R10
+    source: artifact
+    relation: informs
+    target: other-work
+    source_refs:
+    - S_USER
+    - S_OPERATING
+    condition: Applicability, ownership, maintenance and permitted consumption established.
+    caveat: May fail to fit the other task.
+  - relationship_id: R11
+    source: rules
+    relation: governs
+    target: requirement
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    condition: Applicable authority/review state and scope established; synthetic example has demonstrator scope
+      only.
+  - relationship_id: R12
+    source: context
+    relation: informs
+    target: work
+    source_refs:
+    - S_OPERATING
+    - S_USER
+    condition: Relevant version and meaning.
+  - relationship_id: R13
+    source: requirement
+    relation: constrains
+    target: implementation
+    source_refs:
+    - S_OPERATING
+    caveat: Expected behaviour is not proof of actual behaviour.
+  - relationship_id: R14
+    source: test
+    relation: verifies
+    target: implementation
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    condition: Actual run with stated scope/version; demonstration cannot verify live FenX.
+  - relationship_id: R15
+    source: work
+    relation: produces
+    target: evidence
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    condition: Recorded observation/result; missing evidence not fabricated.
+  - relationship_id: R16
+    source: operating-plane
+    relation: contains
+    target: requirement
+    source_refs:
+    - S_OPERATING
+    caveat: Conceptual grouping, not a deployed service.
+  - relationship_id: R17
+    source: operating-plane
+    relation: contains
+    target: evidence
+    source_refs:
+    - S_OPERATING
+  - relationship_id: R18
+    source: method
+    relation: informs
+    target: work
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    caveat: Method document not automatically executable.
+  - relationship_id: R19
+    source: ai-assistance
+    relation: uses
+    target: tool
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    condition: Actual tool availability and permission.
+  - relationship_id: R20
+    source: harness
+    relation: constrains
+    target: ai-assistance
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    condition: Where the actual solution contains a harness.
+  - relationship_id: R21
+    source: ai-assistance
+    relation: depends_on
+    target: runtime
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    caveat: Development AI needs an actual environment; the delivered deterministic feature need not contain AI.
+  - relationship_id: R22
+    source: interface
+    relation: enables
+    target: operational-facts
+    source_refs:
+    - S_STRATEGY
+    - S_OPERATING
+    - S_INTEL
+    condition: Defined retrieval purpose and actual access controls.
+    caveat: Enables obtaining facts; does not generate or guarantee their quality.
+  - relationship_id: R23
+    source: operational-facts
+    relation: informs
+    target: work
+    source_refs:
+    - S_OPERATING
+    condition: Permitted use, relevant case and adequate freshness.
+  - relationship_id: R24
+    source: controls
+    relation: constrains
+    target: service
+    source_refs:
+    - S_STRATEGY
+    - S_OPERATING
+    - S_INTEL
+    condition: Task-specific controls and actual release/operation requirements.
+  - relationship_id: R25
+    source: permission
+    relation: constrains
+    target: work
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    caveat: Missing permission blocks its relevant action, not every separately permitted task.
+  - relationship_id: R26
+    source: feedback
+    relation: informs
+    target: change-candidate
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    caveat: Does not approve the change or update authoritative knowledge.
+  - relationship_id: R27
+    source: change-candidate
+    relation: triggers
+    target: reuse-review
+    source_refs:
+    - S_OPERATING
+    - S_INTEL
+    condition: Candidate is submitted under the relevant review route; no automatic disposition.
+  - relationship_id: R28
+    source: controls
+    relation: governs
+    target: authoritative-record
+    source_refs:
+    - S_HUB
+    - S_OPERATING
+    - S_INTEL
+    caveat: Record update requires its own authorised verified route; synthetic preparation has no update action.
+argument_models:
+- argument_id: A_INTEGRATE
+  claim: Build the explanation into the existing Hub, with canonical topic blocks projected in relevant contexts.
+  claim_ref: C_INTEGRATION
+  grounds_refs:
+  - S_USER
+  - S_HUB
+  - S_UI
+  warrant: The reader's difficulty is reconnecting distributed meaning; relocating all depth into an archive retains
+    that reconstruction burden.
+  qualifier: Canonical projection is a design proposal; actual content mapping and reader performance must be tested.
+  rebuttals:
+  - Some long sources warrant a dedicated native reading route.
+  - Some obsolete material should be revised or qualified rather than placed in the opening.
+  falsification_conditions:
+  - Readers still cannot locate relevant depth or preserve context.
+  - Canonical blocks remove necessary source nuance or useful behaviours.
+- argument_id: A_BOUNDED_EVAL
+  claim: A bounded reuse evaluation is a reasonable next decision candidate when the context and owner are known.
+  claim_ref: C_REUSE
+  grounds_refs:
+  - S_USER
+  - S_STRATEGY
+  - S_OPERATING
+  - S_EVALUATION
+  warrant: Testing applicability in one defined task can expose the missing context, review burden and conditions
+    before wider commitments.
+  qualifier: An option, not an approved programme or the Hub's mandatory purpose.
+  rebuttals:
+  - A critical unavailable source or owner may need resolving first.
+  - A deterministic solution or supplied-input method may fit better than a shared assistant.
+  falsification_conditions:
+  - No permitted representative inputs or accountable review route.
+  - Reused context is unsuitable or its maintenance burden defeats the intended purpose.
+decision_spaces:
+- decision_id: D_NEXT
+  question: Which bounded task or missing condition should be examined next?
+  owner: Actual CLM/task owner to establish
+  deadline_or_trigger: After understanding the relationship and inspecting the selected task's gaps; no invented
+    deadline
+  alternatives:
+  - Evaluate reviewed context on a supplied-input task
+  - Verify a necessary information route
+  - Improve a deterministic development artifact
+  - Defer reuse because scope/ownership is unresolved
+  criteria:
+  - Useful defined output
+  - Permitted inputs and actions
+  - Accountable review
+  - Observable quality and review/maintenance effort
+  - Proportionate commitment
+  reversibility: partly_reversible
+  evidence_threshold: Enough source/context to frame and review the test; real release needs its separate controls
+  unresolved:
+  - U_DOMAIN
+  - U_LIVE
+  - U_PORTFOLIO
+  reversibility_note: Prefer a bounded reversible evaluation where feasible; no operational action in this Hub
+misconception_register:
+- misconception_id: M_REUSE
+  belief: Accepted output is automatically reusable truth
+  where_it_breaks: Purpose, version, permission and applicability differ
+  replacement_model: Task acceptance and reuse review are distinct
+  decision_risk_if_retained: Out-of-scope use or false authority
+- misconception_id: M_ENV
+  belief: A suitable platform provides the needed data and a reliable assistant
+  where_it_breaks: Interface and service operation are separate conditions
+  replacement_model: Compare actual information and operating routes for the task
+  decision_risk_if_retained: Unfounded deployment commitment
+- misconception_id: M_LOOP
+  belief: Feedback always improves knowledge and customer records
+  where_it_breaks: Feedback may be wrong or out of scope and needs review
+  replacement_model: Feedback creates a candidate; authoritative promotion has a separate route
+  decision_risk_if_retained: Uncontrolled authority promotion
+- misconception_id: M_AI_RUNTIME
+  belief: Every AI-assisted delivery needs a production AI runtime
+  where_it_breaks: The delivered feature can be deterministic
+  replacement_model: Evaluate the actual solution separately from development assistance
+  decision_risk_if_retained: Unnecessary platform dependence
+reasoning_tasks:
+- task_id: T_ORIENT
+  competency_question_ref: CQ1
+  operation: locate
+  object_or_target: work
+  current_inference_cost: Reader must interpret abstract entry actions and reconstruct distributed topics
+  target_success_condition: Broad relationship and named first route visible before clicking
+  audience_refs:
+  - stakeholder
+- task_id: T_TRACE
+  competency_question_ref: CQ2
+  operation: trace
+  object_or_target: output
+  current_inference_cost: Kaicy/FenX/control material appears in separate chapters
+  target_success_condition: Inspect related objects in one maintained task context
+  audience_refs:
+  - stakeholder
+  - practitioner
+  - reviewer
+- task_id: T_DIAGNOSE
+  competency_question_ref: CQ5
+  operation: diagnose
+  object_or_target: interface
+  current_inference_cost: Platform, data and permission categories appear interchangeable
+  target_success_condition: Identify what still works and what is blocked for a named task
+  audience_refs:
+  - stakeholder
+  - practitioner
+  - reviewer
+- task_id: T_SOURCE
+  competency_question_ref: CQ7
+  operation: locate
+  object_or_target: evidence
+  current_inference_cost: Cross-topic search and loss of originating context
+  target_success_condition: Source and substantial explanation are findable with reliable return
+  audience_refs:
+  - practitioner
+  - reviewer
+- task_id: T_FIELD_SCOPE
+  competency_question_ref: CQ9
+  operation: challenge
+  object_or_target: context
+  current_inference_cost: Similar field names and multiple source versions can be mistaken for interchangeable keys
+  target_success_condition: Reader selects the correct subject and identifies what remains unverified
+  audience_refs:
+  - practitioner
+  - reviewer
+  - stakeholder
+- task_id: T_CONSUMPTION
+  competency_question_ref: CQ10
+  operation: explain
+  object_or_target: harness
+  current_inference_cost: Knowledge files or personal agent capability can be mistaken for an integrated runtime
+  target_success_condition: Reader identifies the extra consumption/interface/control requirements
+  audience_refs:
+  - practitioner
+  - reviewer
+  - stakeholder
+candidate_frames:
+- candidate_id: F_ANCHOR
+  frame_id: concept_map
+  visual_question: How does useful work provide context for other work?
+  makes_salient:
+  - work
+  - artifact
+  - reuse-review
+  - other-work
+  suppresses:
+  - full_chronology
+  - full_platform_topology
+  false_inference_risks:
+  - Every connector is causal
+  - Grouped artifacts are approved
+  verdict: selected
+  rationale: Selected as artifact/specimen relationship composition; avoid dense network geometry
+- candidate_id: F_LAYERS
+  frame_id: layered_architecture
+  visual_question: Which objects express rules, context, implementation/evidence and work?
+  makes_salient:
+  - rules
+  - context
+  - operating-plane
+  - ai-assistance
+  false_inference_risks:
+  - Mandatory sequential construction
+  - Operating plane equals GCP
+  verdict: candidate
+  rationale: Supporting meaning projection populated by the selected example
+- candidate_id: F_TRACE
+  frame_id: workflow_swimlane
+  visual_question: Who prepares, checks and decides in this task?
+  makes_salient:
+  - colleague
+  - work
+  - task-review
+  - output
+  false_inference_risks:
+  - One case is the entire strategy
+  - Every workflow is linear
+  verdict: candidate
+  rationale: Supporting trace where order matters; specimen pair can be clearer for source/output
+- candidate_id: F_LOOP
+  frame_id: reinforcing_feedback_loop
+  visual_question: Does later evidence change a reviewed asset through an actual repeated mechanism?
+  false_inference_risks:
+  - Guaranteed value
+  - Feedback approves knowledge
+  verdict: rejected
+  rationale: Do not use as opening; only a bounded mechanism if actually established
+selected_architecture:
+  explanatory_spine: Useful work produces outputs; selected artifacts may inform further work after scoped review;
+    actual information and operating arrangements determine extension.
+  governing_thesis: AI can assist CLM work and reviewed context can support another task under established conditions;
+    human accountability and evidence boundaries remain visible.
+  key_distinctions:
+  - Task acceptance / reuse review
+  - Knowledge / operational facts / data product
+  - Method / tool / harness / runtime
+  - Preparation / assessment / approval
+  - Authority / delivery status / evidence scope
+  - Access / operation / permission
+  preserved_properties:
+  - Work/output relationships
+  - Human authority
+  - Source/version
+  - Conditional applicability
+  - Original useful depth
+  - Reliable context return
+  deliberate_distortions:
+  - Few specimens represent richer maintained records
+  - Opening suppresses detailed topology and the full portfolio
+  - Artifact grouping is explanatory rather than a deployment/storage claim
+  limitations:
+  - No verified current enterprise integration
+  - Synthetic examples cannot establish benefit or legal compliance
+  - Proposed composition is not reader-validated
+  - The source draft and schemas are inspected; no view is rendered or reader-validated.
+  alternative_interpretations_retained:
+  - Some artifacts are not reusable
+  - Supplied-input work may be sufficient
+  - A deterministic solution may be preferable
+  - Different tasks may need different permitted runtime lanes
+memory_architecture:
+  memory_handles:
+  - Review defines the scope of reuse
+  - An environment does not create an interface
+  - Feedback creates a review candidate
+  reusable_questions:
+  - What is the task and output?
+  - What context applies?
+  - Who checks and decides?
+  - What condition is missing?
+  - What does the evidence actually cover?
+  analogy:
+    selected: false
+    verdict: Literal specimens preferred; no compulsory house, brain or flywheel metaphor.
+views:
+- view_id: V_ORIENTATION
+  name: How AI fits into CLM work
+  audience_refs:
+  - stakeholder
+  - practitioner
+  - reviewer
+  parent_view: null
+  visual_question: What fits together before I click?
+  reasoning_task_refs:
+  - T_ORIENT
+  representation_family: concept_map
+  narrative_role: broad_orientation
+  stable_anchor_concepts:
+  - work
+  - output
+  - artifact
+  - reuse-review
+  - other-work
+  preserves:
+  - Broad CLM purpose
+  - Immediate contribution
+  - Conditional reuse
+  - Human responsibility
+  hides:
+  - Full source corpus
+  - Precise deployment topology
+  - Exhaustive control catalogue
+  deliberate_distortion: Representative specimens show relationships rather than inventory or scale.
+  known_misreading_risks:
+  - Specimen mistaken for enterprise screenshot
+  - Green mistaken for approval
+  visual_semantics:
+    horizontal_position: Explanatory relationship, not roadmap or maturity
+    vertical_position: Supporting grouping, not value rank
+    enclosure: Task-selected context, not authority grant
+    connectors: Explicit applicable verbs; not all causation/interfaces
+    shape: Recognisable artifact type where useful
+    size: Reading hierarchy only; no staffing or value ratios
+    color: V16 deep green selection; status remains text
+  transition_from_parent: null
+  render_form: Calm work/artifact illustration with selective depth, readable labels, one primary route and general
+    future-assistant relationship
+  entry_action: See how context supports a CLM task
+  art_direction_refs:
+  - S_DESIGN_IMAGE
+- view_id: V_PREPARATION
+  name: CLM preparation using reviewed FenX context
+  audience_refs:
+  - stakeholder
+  - practitioner
+  - reviewer
+  parent_view: V_ORIENTATION
+  visual_question: How does context change this preparation task?
+  reasoning_task_refs:
+  - T_TRACE
+  - T_FIELD_SCOPE
+  representation_family: trace_overlay
+  stable_anchor_concepts:
+  - work
+  - output
+  - task-review
+  - context
+  - rules
+  - method
+  preserves:
+  - Source fidelity
+  - Field meaning
+  - Missing facts
+  - Reviewer responsibility
+  - No record update
+  - Reported reference version and subject scope
+  - Extraction proposal / Hub annotation distinction
+  - Unresolved lookup values
+  hides:
+  - Full platform topology
+  deliberate_distortion: Conceptual journey/field terms, not verified FenX screen/schema.
+  known_misreading_risks:
+  - Preparation becomes assessment
+  - Synthetic instruction becomes policy
+  - LE wording used as NP authority
+  - Similar keys collapsed into aliases
+  - Proposed field guard mistaken for current named-system control
+  transition_from_parent: Select named example; retain broad relationship and selected objects; task context persists
+    on further inspection.
+  render_form: Annotated source/output specimen pair plus journey/field projection
+- view_id: V_MEANING
+  name: Context, requirements and evidence
+  audience_refs:
+  - practitioner
+  - reviewer
+  - stakeholder
+  parent_view: V_ORIENTATION
+  visual_question: What does each object mean and what is its authority?
+  representation_family: layered_architecture
+  stable_anchor_concepts:
+  - rules
+  - context
+  - operating-plane
+  - work
+  preserves:
+  - Distinct meaning
+  - Selected example
+  - Source/status/version
+  hides:
+  - Chronology not needed for this question
+  deliberate_distortion: Conceptual layers do not imply sequential horizons or deployment tiers.
+  transition_from_parent: Retain selected task/artifact and highlight its related canonical objects; no independent
+    taxonomy state.
+  render_form: Layered artifact projection with appropriate journey/field/requirement forms
+- view_id: V_CONDITIONS
+  name: What access and operation enable
+  audience_refs:
+  - stakeholder
+  - practitioner
+  - reviewer
+  parent_view: V_ORIENTATION
+  visual_question: What changes for this task if a condition is missing?
+  reasoning_task_refs:
+  - T_DIAGNOSE
+  - T_CONSUMPTION
+  representation_family: comparison_small_multiples
+  stable_anchor_concepts:
+  - work
+  - interface
+  - runtime
+  - service
+  - controls
+  - permission
+  preserves:
+  - Defined task
+  - Assumed condition
+  - Possible output
+  - Blocked action
+  - Bounded next enquiry
+  hides:
+  - All enterprise deployment details
+  deliberate_distortion: Scenario assumptions are explanatory and grant no access.
+  transition_from_parent: Keep selected task; compare consequences on the same dimensions; preserve assumptions
+    through source return.
+  render_form: Aligned condition comparison or controlled routes
+- view_id: V_CHANGE
+  name: Inspect change and evidence
+  audience_refs:
+  - practitioner
+  - reviewer
+  - stakeholder
+  parent_view: V_MEANING
+  visual_question: What must be reconsidered when an instruction changes?
+  representation_family: trace_overlay
+  stable_anchor_concepts:
+  - rules
+  - requirement
+  - test
+  - evidence
+  - colleague
+  preserves:
+  - Actual old scope/version
+  - Proposed new version
+  - Impact review before disposition
+  hides:
+  - Complete regulatory change programme
+  deliberate_distortion: Synthetic change tests the relationship; no live system result.
+  transition_from_parent: Pin old and proposed versions; source reading returns to the same comparison without rebinding
+    evidence.
+  render_form: Versioned requirement/test specimens with impact trace
+- view_id: V_DEPTH
+  name: Integrated topic and source reading
+  audience_refs:
+  - practitioner
+  - reviewer
+  - stakeholder
+  parent_view: V_ORIENTATION
+  visual_question: What is the full relevant explanation and its support?
+  reasoning_task_refs:
+  - T_SOURCE
+  representation_family: narrative_reveal
+  stable_anchor_concepts:
+  - work
+  - artifact
+  - rules
+  - context
+  - requirement
+  - evidence
+  preserves:
+  - Substantial authored depth
+  - Citation target
+  - Selection/scenario/history
+  - Focus and scroll return
+  - Reported versus supplied primary source; builder-only C3 context not automatically exposed
+  hides:
+  - Unrelated topics until selected
+  deliberate_distortion: Summary excerpts are projections; full evidence retains its exact recorded scope.
+  transition_from_parent: Open named relevant detail/source; reveal ancestors; restore originating focus and task
+    context on return.
+  render_form: Native long reading with topic controls, disclosures, precise tables and source access
+narrative_path:
+  mode: Guided reader questions with independent lenses, shared topic identities and search entry
+  steps:
+  - step: 1
+    job: Orient before interaction
+    view_refs:
+    - V_ORIENTATION
+    caveat_or_uncertainty: No benefit/deployment claim
+  - step: 2
+    job: Trace a recognizable preparation example
+    view_refs:
+    - V_PREPARATION
+    caveat_or_uncertainty: Synthetic and bounded; not whole strategy
+  - step: 3
+    job: Inspect context, methods, requirements and review
+    view_refs:
+    - V_MEANING
+    - V_DEPTH
+    caveat_or_uncertainty: Authority/status distinct
+  - step: 4
+    job: Compare a missing condition or source change
+    view_refs:
+    - V_CONDITIONS
+    - V_CHANGE
+    caveat_or_uncertainty: Assumptions are not permissions; old evidence remains scoped
+  - step: 5
+    job: Frame a next enquiry or bounded evaluation
+    argument_refs:
+    - A_BOUNDED_EVAL
+    caveat_or_uncertainty: Optional decision consequence, not predetermined programme approval
+worked_examples:
+- example_id: EX_KAICY
+  name: Source-of-wealth preparation with FenX context; dated Kaicy route in depth
+  type: synthetic
+  why_selected: Concrete reuse of instruction, field/process meaning and method with missing facts.
+  trace:
+  - Inspect reported FENX-CONTEXT@1 within its source version and NP/client subject
+  - Use the synthetic INS-01@1 and METHOD-PREP@1, not unextracted SOP text
+  - SRC-01@1 is an indexed CLIENT line stating a company sale in 2024
+  - DRAFT-01@1 illustrates a candidate event description and pointer to line 14; no invented lookup/amount/verification
+  - Separate Hub annotations retain gaps, applicability and review/reuse questions
+  - REVIEW-01@1 checks this preparation; record change and later reuse have separate authority questions
+  relationships_exercised:
+  - R02
+  - R03
+  - R05
+  - R10
+  - R12
+  - R18
+  - R28
+  breaks_or_gaps_found:
+  - Actual FenX mapping unverified
+  - No measured quality/efficiency
+  - Reuse may be out of scope
+  - Actual NP lookup/required-schema conventions absent
+  - No approved alias mapping between journey and policy judgement fields
+  - Current named-system controls and release unverified
+  transfer_question: What would change for a different field or a source outside this reuse scope?
+  source_route_alias: FenX-to-Kaicy
+- example_id: EX_DEVELOPMENT
+  name: FenX requirement, behaviour and test
+  type: synthetic
+  why_selected: Shows immediate development value alongside potential reuse.
+  trace:
+  - Expert defines expected behaviour
+  - AI assists requirement/test/feature work with permitted inputs
+  - Expert verifies defined acceptance logic
+  - Deterministic feature may be the delivered outcome
+  - Selected context separately considered for reuse
+  relationships_exercised:
+  - R02
+  - R03
+  - R05
+  - R06
+  - R11
+  - R13
+  - R14
+  transfer_question: What control applies to the actual delivered solution rather than the development tool?
+- example_id: EX_CHANGE
+  name: Instruction/AMLR change and evidence
+  type: synthetic_relationship_demonstration
+  why_selected: Tests source authority and historical evidence under change.
+  trace:
+  - INS-01@1 informs REQ-01@1/MAP-01@1
+  - TEST-01@1 defines a check of the synthetic behaviour
+  - EVID-01@1 is an illustrative record structure; no observed run/pass result is supplied
+  - INS-01@2 is a proposed change
+  - Any actual historical evidence retains its recorded version/scope under responsible impact review
+  relationships_exercised:
+  - R11
+  - R13
+  - R14
+  - R15
+  - R26
+  - R27
+  transfer_question: What if the new source conflicts with an existing interpretation?
+counterfactual_tests:
+- test_id: CF_NO_INTERFACE
+  proposition_ref: C_CONDITIONS
+  intervention_or_change: Remove live interface
+  expected_difference: Supplied-input work may remain possible; no current system retrieval
+  observed_or_reasoned_result: Logical desk check only; no operational/reader observation
+  implication: Reject universal all-enablers gate
+- test_id: CF_NO_SERVICE
+  proposition_ref: C_CONDITIONS
+  intervention_or_change: Keep interface; remove release/evaluation/support arrangements
+  expected_difference: Permitted retrieval does not establish a reliable shared service
+  observed_or_reasoned_result: Logical desk check only
+  implication: Separate access and operating conditions
+- test_id: CF_REVISION
+  proposition_ref: C_REVIEWS
+  intervention_or_change: Change instruction after previous evidence
+  expected_difference: Review impact; retain prior evidence version/scope
+  observed_or_reasoned_result: Logical desk check only
+  implication: Version-aware derivation and review candidates
+- test_id: CF_DETERMINISTIC
+  proposition_ref: C_CONDITIONS
+  intervention_or_change: Deliver deterministic feature built with AI assistance
+  expected_difference: Development value does not require a deployed AI runtime
+  observed_or_reasoned_result: Logical desk check only
+  implication: Distinguish delivered architecture from build method
+- test_id: CF_BAD_REUSE
+  proposition_ref: C_REUSE
+  intervention_or_change: Change purpose/jurisdiction/field meaning
+  expected_difference: Good artifact may be unsuitable for reuse
+  observed_or_reasoned_result: Logical desk check only
+  implication: Permit rejected reuse; no automatic compounding
+- test_id: CF_PERMISSION
+  proposition_ref: C_CONDITIONS
+  intervention_or_change: Remove mandatory action permission
+  expected_difference: That action stops; separately permitted preparation is distinct
+  observed_or_reasoned_result: Logical desk check only
+  implication: Never soften mandatory permission into a graded score
+mental_models_used:
+- model_id: cognitive_fit
+  question_it_added: Which form makes this reader operation easiest?
+  insight_or_change: Specimen pair for preparation, field/journey for context, version trace for change, comparison
+    for conditions
+  retained: true
+- model_id: modularity
+  question_it_added: What must remain stable while compositions change?
+  insight_or_change: Canonical topic/object identities and distinct content/provenance/scenario/presentation responsibilities
+  retained: true
+- model_id: provenance
+  question_it_added: What changes when a supporting source changes?
+  insight_or_change: Pin old evidence; identify impact review; maintain traceable claims rather than blanket chapter
+    status
+  retained: true
+provenance_impacts:
+- trigger: Source/instruction version changes
+  affected_refs:
+  - rules
+  - requirement
+  - test
+  - evidence
+  - V_CHANGE
+  action: Identify derived objects for impact review; do not rewrite historical evidence or approval
+- trigger: Reuse purpose/applicability changes
+  affected_refs:
+  - artifact
+  - reuse-scope
+  - other-work
+  action: Review applicability and permitted consumption again
+- trigger: Actual destination inventory differs
+  affected_refs:
+  - C_DESTINATION
+  - C_INTEGRATION
+  action: Expand content/behaviour map without losing dirty-source additions
+action_implications:
+  priorities:
+  - Repair ambiguous compounding language
+  - Complete a real vertical slice
+  - Integrate rich depth before broadening decoration
+  sequencing:
+  - Freeze actual source
+  - Confirm semantic core
+  - Render/inspect vertical slice
+  - Extend paths and content
+  - Verify and package
+  controls:
+  - No source/permission promotion
+  - No golden-record action in demonstration
+  - Unknown advisory inputs remain unresolved
+  evidence_to_monitor:
+  - Reader reasoning errors
+  - Source/return failures
+  - Review/maintenance effort in any later bounded evaluation
+  stop_doing:
+  - Separate Reference application
+  - Caption-only interaction
+  - Unqualified loop/value claims
+  - Styling every concept as a card
+  - Claiming source tests as rendered evidence
+  decentralized_decisions:
+  - Astra may choose better compositions/technology preserving the hard semantic and integration contract
+  escalations:
+  - Missing actual source bytes, conflicting applicability or indispensable unavailable render capability must remain
+    explicit
+validation:
+  competency_questions_answered: []
+  compression:
+    score: null
+    evidence: Candidate architecture only; no reader test
+  fidelity:
+    score: null
+    evidence: Current source and pure classifier inspection; qualified domain assertions; no rendered or operational
+      validation.
+  generativity:
+    score: null
+    evidence: Six logical counterfactual cases; no reader transfer results
+  retellability:
+    score: null
+    evidence: Teach-back and second-hand tests unperformed
+  actionability:
+    score: null
+    evidence: Bounded options proposed; no institutional decision made
+  inference_efficiency:
+    score: null
+    evidence: Local related depth and reliable return specified; findability untested
+  traceability:
+    score: null
+    evidence: Actual v1.0 schema and attached draft available; source/object/relationship references checked; current
+      institutional currency still unverified.
+  teach_back_findings: []
+  second_hand_findings: []
+  adversarial_misreading:
+  - Desk-reviewed preparation/approval, reuse/authority, runtime/interface, feedback/promotion and historical-evidence
+    boundaries; reader performance unknown
+  unresolved_questions:
+  - U_SOURCE
+  - U_FONT
+  - U_DOMAIN
+  - U_LIVE
+  - U_PORTFOLIO
+  - U_READER
+  overall_status: candidate
+  scope_note: Formal/reference/selected semantic-profile checks only. Mentor source labels and configuration/code
+    findings are reports unless corroborated here; no rendered/native/reader validation.
+semantic_contract:
+  task_acceptance_implies_reuse: false
+  scenario_assumption_grants_permission: false
+  environment_creates_interface: false
+  interface_establishes_shared_service: false
+  feedback_updates_authoritative_knowledge: false
+  preparation_is_customer_assessment: false
+  historical_evidence_rebound_to_new_version: false
+  missing_mandatory_permission_blocks_action: true
+  deterministic_delivery_requires_production_ai: false
+  unknown_classifier_input_can_receive_resolved_pattern: false
+  existing_bo_specimen_institutional_approval_established: false
+  le_policy_excerpt_proves_np_applicability: false
+  similar_field_names_are_verified_aliases: false
+  hub_gap_metadata_is_reported_extraction_output: false
+  schema_shaped_output_is_verified_result: false
+  extra_knowledge_files_establish_runtime_consumption: false
+  named_system_guard_verified_here: false
+specimen_scope:
+  CLM-BO-014@3:
+    origin: intel-requirements in attached HTML
+    status: illustrative_existing_example
+    institutional_approval_established: false
+    source_mapping_verified: false
+    owns_real_customer_data: false
+    scope: Beneficial-owner identity example; do not force lineage into source-of-wealth preparation.
+  EVID-01@1:
+    origin: Synthetic handoff specimen
+    status: illustrative_record_structure
+    observed_run_supplied: false
+    pass_result_supplied: false
+  DRAFT-01@1:
+    origin: Synthetic Hub demonstrator informed by reported reference
+    status: illustrative_preparation_not_tested_runtime_response
+    subject: Synthetic natural-person client
+    candidate_event: Client states a company sale in 2024
+    evidence_line_ids:
+    - 14
+    wealth_origin_lookup_value: null
+    net_worth: null
+    verification_outcome: null
+    customer_assessment: false
+    fenx_write: false
+    hub_annotations_are_separate: true
+context_resolution:
+  request: CONTEXT_REQUEST_FOR_HUB_AI.md
+  source_role: Hub-authoring/work AI as context locator; not institutional approval authority
+  known_now:
+  - Mentor identity/configuration and source history reported
+  - Subject-specific field references and extraction shape reported
+  - Bain figure is an outreach estimate; additional contradictory source strings confirmed
+  - Plan B is a separate CDD platform contingency
+  - C4 scope conflict and dated unresolved statuses identified
+  to_retrieve:
+  - Actual NP lookup/policy/SOP text
+  - Verified mapping between versioned field views if required
+  - Bain baseline/population/assumptions and model date
+  - Current Kaicy/SensAIa operation and approvals if material
+  - Current C4 engineered-workload authority
+  - Reuse reviewer assignment if shared reuse is sought
+  blocking_rule: Block only affected indispensable claims/actions; independent synthetic/local UI work continues.
+  response: builder_inputs/CONTEXT_RESPONSE_FOR_ASTRA_v1.0.md
+field_reference_contract:
+  source_ref: S_MENTOR_PACKET
+  evidence_role: reported_reference_not_primary_inspected_here
+  working_identity:
+  - field_key
+  - entity_type
+  - target_entity
+  - party_or_group_index_where_relevant
+  - policy_or_reference_version
+  - category_discriminator_if_required
+  journey_reference_as_of: '2026-08-18'
+  policy_export_as_of: '2026-08-20'
+  client_key: individualSourceOfWealth
+  related_party_key: SourceOfWealth
+  legal_entity_key: legalEntitySourceOfWealth
+  event_text_key: sourceOfWealthSignificantEvent
+  separate_judgement_key_views:
+    journey_reference:
+    - sofVerificationStatus
+    - sowVerificationStatus
+    - plausibilityStatement
+    policy_export:
+    - howWasSourceOfWealthVerified
+    - howWasSourceOfFundsVerified
+    - sourceOfFundsAndWealthAnalystDescription
+    - sourceOfFundsAndWealthPlausibilityStatement
+  alias_mapping_verified: false
+  np_lookup_values_provided: false
+  np_policy_rule_text_provided: false
+  actual_sop_rule_text_provided: false
+extraction_contract:
+  source_ref: S_MENTOR_PACKET
+  code_reading_as_of: '2026-09-21'
+  primary_code_schema_inspected_here: false
+  reported_output_keys:
+  - field_key
+  - value
+  - evidence_line_ids
+  - confidence_level
+  - notes
+  real_schema_supplied: false
+  demo_claims_real_schema_validation: false
+  gap_metadata_native_to_reported_output: false
+  reuse_metadata_native_to_reported_output: false
+  policy_fields_supplied_reported: true
+  broader_knowledge_package_consumption_established: false
+  demonstrator_judgement_boundary: Target/proposed demonstrator holds verification and plausibility conclusions
+    for a colleague; actual named implementation guard is not verified here.
+  demo_lookup_value: null
+  demo_confidence_score: null

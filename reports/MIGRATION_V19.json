@@ -1,0 +1,348 @@
+{
+  "sourceSha256": "25d746a2c00f1f4034692e6666f70d217c123d393aa423783354e6d7fd13e07c",
+  "chapters": [
+    {
+      "id": "sec-exec",
+      "tabs": 0,
+      "headings": 3,
+      "expansions": 0,
+      "citations": 1,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-model",
+      "tabs": 10,
+      "headings": 54,
+      "expansions": 18,
+      "citations": 33,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-people",
+      "tabs": 2,
+      "headings": 24,
+      "expansions": 0,
+      "citations": 3,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-lifecycle",
+      "tabs": 8,
+      "headings": 32,
+      "expansions": 0,
+      "citations": 1,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-risk",
+      "tabs": 9,
+      "headings": 90,
+      "expansions": 58,
+      "citations": 15,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-arch",
+      "tabs": 11,
+      "headings": 96,
+      "expansions": 5,
+      "citations": 5,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-tech",
+      "tabs": 9,
+      "headings": 75,
+      "expansions": 0,
+      "citations": 7,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-portfolio",
+      "tabs": 3,
+      "headings": 10,
+      "expansions": 0,
+      "citations": 0,
+      "portfolioLinks": 23,
+      "illustrations": 0,
+      "networkDetails": 11
+    },
+    {
+      "id": "sec-insights",
+      "tabs": 12,
+      "headings": 124,
+      "expansions": 11,
+      "citations": 2,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-datalayer",
+      "tabs": 3,
+      "headings": 28,
+      "expansions": 0,
+      "citations": 0,
+      "portfolioLinks": 0,
+      "illustrations": 2,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-intelmodel",
+      "tabs": 9,
+      "headings": 46,
+      "expansions": 4,
+      "citations": 4,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-classifier",
+      "tabs": 5,
+      "headings": 49,
+      "expansions": 0,
+      "citations": 0,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    },
+    {
+      "id": "sec-refs",
+      "tabs": 0,
+      "headings": 2,
+      "expansions": 0,
+      "citations": 0,
+      "portfolioLinks": 0,
+      "illustrations": 0,
+      "networkDetails": 0
+    }
+  ],
+  "repairs": [
+    {
+      "kind": "wording-repair",
+      "before": "Every production-relevant agent should answer six operational questions clearly: what it does, what data it uses, which permissions it relies on, what outputs it creates, where its logs live, and who can pause or stop it. Broadly shared Copilot-style assistants belong in a governed Copilot Studio lane. Source-first, C4-heavy, or multi-step CLM agents belong in a tighter Vertex AI / GCP lane.",
+      "after": "Every production-relevant agent should answer six operational questions clearly: what it does, what data it uses, which permissions it relies on, what outputs it creates, where its logs live, and who can pause or stop it. Broadly shared Copilot-style assistants belong in a governed Copilot Studio lane. Source-first or multi-step work may require a controlled execution lane. Strategy direction does not establish workload or data-class permission."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "has enabled 11,000 employees with AI tools, saving an average of three hours per week with 80% daily active usage. They are extending ChatGPT access to 120,000+ employees.",
+      "after": "has enabled a team of employees with AI tools, saving an average of three hours per week with 80% daily active usage. They are extending ChatGPT access to 120,000+ employees."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "has unified experimentation into a single AI platform serving 250,000 employees, combining governance, talent investment and Responsible AI practices.",
+      "after": "has unified experimentation into a single AI platform serving a team of employees, combining governance, talent investment and Responsible AI practices."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\ud83c\udf99\ufe0f SensAI",
+      "after": "\ud83c\udf99\ufe0f SensAIa"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "SensAI and KAICY demonstrate this model in practice: both built by Bain, deployed on GCP, with SEB taking over ownership and operation. SensAI is NPAC-approved and operational. KAICY is developed and undergoing NPAC. Together they show that the division can build and operate production AI when the operating model is right.[5]",
+      "after": "SensAI and KAICY demonstrate this model in practice: both built by Bain, deployed on GCP, with SEB taking over ownership and operation. SensAI is NPAC-reported in the source; current operation is not established. KAICY is developed and undergoing NPAC. Together they show that the division can build and operate production AI when the operating model is right.[5]"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Currently, the most advanced CLM-relevant AI application is KAICY (developed by Bain, NPAC underway). SensAI \u2014 a PWM&FO call transcription tool whose data KAICY consumes, also built by Bain \u2014 is classified as Tier 1 / ACAA Category 1 (minimal risk), NPAC-approved and operational. Not subject to high-risk obligations.",
+      "after": "Currently, the most advanced CLM-relevant AI application is KAICY (developed by Bain, NPAC underway). SensAI \u2014 a PWM&FO call transcription tool whose data KAICY consumes, also built by Bain \u2014 is classified as Tier 1 / ACAA Category 1 (minimal risk), NPAC-reported in the source; current operation is not established. Not subject to high-risk obligations."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Copilot, Vertex AI, SensAI-derived. No custom model training or external API calls.",
+      "after": "Copilot, Vertex AI, SensAIa-derived. No custom model training or external API calls."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Concentration risk: if any AI tool becomes the only bridge between SensAIa and FenX, it becomes infrastructure. This must be addressed through operational resilience (manual fallback, not just technical redundancy).",
+      "after": "Concentration risk: if any AI tool becomes the only bridge between SensAIa and FenX, it becomes infrastructure. This must be addressed through reported in the source; current operation is not established resilience (manual fallback, not just technical redundancy)."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u201cThe Bain savings model shows 31% time reduction in KYC outreach. Where does the freed capacity go? Headcount reduction creates resistance and loses institutional knowledge.\u201d",
+      "after": "\u201cThe The original SEB\u2013Bain model estimates about 31% potential reduction in KYC outreach effort in KYC outreach. Where does the freed capacity go? Headcount reduction creates resistance and loses institutional knowledge.\u201d"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u201cAI saves 31% of time \u2192 reduce headcount by 31%.\u201d This creates resistance, destroys adoption, and loses the domain knowledge that makes AI valuable.",
+      "after": "\u201cAI saves 31% of time \u2192 treat the estimate as a staffing commitment.\u201d This creates resistance, destroys adoption, and loses the domain knowledge that makes AI valuable."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "SensAIa was built by an internal team (SEB\u2019s Data Office). It is operational. This demonstrates SEB\u2019s internal capability to build and maintain AI on GCP.",
+      "after": "SensAIa was built by an internal team (SEB\u2019s Data Office). It is reported in the source; current operation is not established. This demonstrates SEB\u2019s internal capability to build and maintain AI on GCP."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u201c31% savings \u2192 headcount?\u201d",
+      "after": "\u201cHow should potential capacity release be evaluated?\u201d"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "A step-by-step operational checklist for taking KAICY from concept to production, based on the SensAIa precedent (NPAC-approved 27 Aug 2024, NAMIS 018543) and SEB's governance frameworks.",
+      "after": "A step-by-step reported in the source; current operation is not established checklist for taking KAICY from concept to production, based on the SensAIa precedent (NPAC-approved 27 Aug 2024, NAMIS 018543) and SEB's governance frameworks."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "The first version of KAICY was developed by Bain & Company in early 2026 and handed over to SEB. Bain also built SensAI. Demo sessions were held 13 February 2026 covering three user journeys. The FenX integration \u2014 the connection that allows KAICY to read and write KYC data \u2014 is not yet developed. NPAC is currently underway.",
+      "after": "The first version of KAICY was developed by Bain & Company in early 2026 and handed over to SEB. Bain also built SensAIa. Demo sessions were held 13 February 2026 covering three user journeys. The FenX integration \u2014 the connection that allows KAICY to read and write KYC data \u2014 is not yet developed. NPAC is currently underway."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "SensAI call transcripts",
+      "after": "SensAIa call transcripts"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u2014 AI-powered identification and structuring of KYC data points from SensAI call transcripts and meeting notes, ready for FenX ingestion",
+      "after": "\u2014 AI-powered identification and structuring of KYC data points from SensAIa call transcripts and meeting notes, ready for FenX ingestion"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "SensAIa proved that PWM&FO can conceive, build, govern, and operate AI in production \u2014 on GCP, with Gemini, through NPAC. If KAICY resumes, it would not start from zero \u2014 it would extend an established pattern into a new domain (KYC extraction vs. call transcription).",
+      "after": "SensAIa proved that PWM&FO can conceive, build, govern, and operate AI reported in the source; current operation is not established \u2014 on GCP, with Gemini, through NPAC. If KAICY resumes, it would not start from zero \u2014 it would extend an established pattern into a new domain (KYC extraction vs. call transcription)."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Can a team of two own this end-to-end? If not, the scope is too complex \u2014 simplify or split. The builder workstation is designed so that a small team (2\u20133 people) can conceive, build, deploy, and maintain CLM AI tools independently, calling on Data & Analytics for platform-level needs only.",
+      "after": "Can the team sustain ownership across the full lifecycle? If not, the scope is too complex \u2014 simplify or split. The builder workstation is designed so that a small team can conceive, build, deploy, and maintain CLM AI tools independently, calling on Data & Analytics for platform-level needs only."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "GCP is currently the strongest platform candidate for CLM AI workloads. It is the only environment today where C4 client data + Gemini models + VPC Service Controls + IAM + Group Involved Party (GIP) data + FenX API access coexist without cross-boundary complexity. This assessment is point-in-time \u2014 platform landscapes evolve, and this should be revisited annually.",
+      "after": "The source records a GCP/Vertex AI direction for controlled CLM workloads. Its claim that the required data, interfaces and controls coexist is a dated architecture assessment, not verification of a current working interface or workload permission."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Reusing SensAI \u2197",
+      "after": "Reusing SensAIa \u2197"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "KAICY is an AI tool that helps KYC analysts collect, extract, and verify client data. It uses call transcription, document extraction, and gap analysis to reduce manual outreach. A working prototype exists and the governance path has been pre-mapped using the SensAI NPA precedent.",
+      "after": "KAICY is an AI tool that helps KYC analysts collect, extract, and verify client data. It uses call transcription, document extraction, and gap analysis to reduce manual outreach. A working prototype exists and the governance path has been pre-mapped using the SensAIa NPA precedent."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Outreach reduction measured in prototype testing",
+      "after": "Potential outreach effort reduction in the original SEB\u2013Bain estimate; no measured outcome established"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Approval path pre-mapped via SensAI precedent",
+      "after": "Approval path pre-mapped via SensAIa precedent"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "NPAC approval via NAMIS. SensAI precedent (NAMIS 018543) maps the path.",
+      "after": "NPAC approval via NAMIS. SensAIa precedent (NAMIS 018543) maps the path."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "The prototype works. The NPA path is pre-mapped via SensAI precedent. The savings model is validated. The architecture exists. The decision is what sequence of approvals, infrastructure, and staffing converts this validated asset into a production capability.",
+      "after": "The prototype works. The NPA path is pre-mapped via SensAIa precedent. The savings model is an original estimate developed with Bain. The architecture exists. The decision is what sequence of approvals, infrastructure, and staffing converts this prototype and its estimated opportunity into a production capability."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "The April 2026 NPA reform introduces NAMIS-based workflows and revised committee structures. How does this change the approval path for AI use cases already in pipeline? Do existing NPAC conditions (e.g., SensAI\u2019s 8 conditions) carry forward or require re-submission?",
+      "after": "The April 2026 NPA reform introduces NAMIS-based workflows and revised committee structures. How does this change the approval path for AI use cases already in pipeline? Do existing NPAC conditions (e.g., SensAIa\u2019s 8 conditions) carry forward or require re-submission?"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "What\u2019s the right size and skill mix for an internal CLM AI builder team? Starting hypothesis: 2\u20133 builders (ML engineering + domain expertise). Requires validation against portfolio ambition, Data & Analytics capacity, and Deloitte engagement scope.",
+      "after": "What\u2019s the right size and skill mix for an internal CLM AI builder team? The proposed skill mix combines engineering and domain expertise; scope and ownership need to be established. Requires validation against portfolio ambition, Data & Analytics capacity, and Deloitte engagement scope."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Every cycle through the client lifecycle makes the data richer. Every richer dataset makes the next interaction more valuable. This is the feedback mechanism that turns data infrastructure from a cost into a compounding asset.",
+      "after": "Client interactions can produce candidate observations. Verification, permitted record promotion and review for a new purpose determine what can be reused. Later usefulness depends on quality, applicability and maintenance; it must be evaluated."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "New data flows into the layer automatically",
+      "after": "New observations become candidates for verification and permitted promotion. They do not automatically become authoritative records or reusable knowledge."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Joined with existing products, patterns emerge",
+      "after": "Verify meaning, provenance and applicability before joining information"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Sharper insight fuels the next interaction",
+      "after": "Use only within the reviewed scope; evaluate its usefulness"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u21ba Every cycle compounds the value of the layer",
+      "after": "Selected observations may inform later work after verification, permitted promotion and separate reuse review"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "that many runtimes \u2014 Copilot Studio, GCP agents, KAICY, future tools \u2014 can consume. The test of a healthy AI portfolio is not how many agents exist; it is whether every new delivery makes the next one cheaper and safer to build.",
+      "after": "that many runtimes \u2014 Copilot Studio, GCP agents, KAICY, future tools \u2014 can consume. The test of a healthy AI portfolio is not how many agents exist; it is whether selected reviewed artifacts can support another task within an established scope, and whether the benefit exceeds review and maintenance costs."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Why it matters: today the links between obligation, control, FenX capability, test, evidence and owner are often implicit \u2014 scattered across Jira, FenX configuration, test artefacts, SharePoint, spreadsheets and people's knowledge. Making the links explicit turns documentation into continuous assurance, able to answer: which AMLR obligations have no mapped control? Which controls have no test evidence? Which requirements changed but were never retested? Which gaps lack a named owner?",
+      "after": "Explicit links support coverage and change-review questions: which obligations lack a mapped control, which requirements lack test evidence, and which changes need reassessment? Links alone do not establish continuous assurance; valid evidence, actual controls and their maintained scope are still required."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Value once the other layers are reliable: each new agent becomes cheaper and safer because it does not need to rebuild regulatory logic, customer context, data integrations, evidence logic, evaluation, permissions or monitoring.",
+      "after": "A later assistant may reuse maintained knowledge and methods when they fit its purpose and permitted consumption. Reuse is conditional; lower cost, greater safety and better outcomes require evidence."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Authority-State Ladder",
+      "after": "Source authority, review and evidence states"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "requirement_id: CLM-BO-014\nrequirement_type: functional\nstatus: approved\nversion: 3\n\nintent:\n  title: Verify beneficial owner identity\n  business_outcome: \"Beneficial owners are verified using approved\n    evidence before completion where required.\"\n\nsource_lineage:\n  regulatory_obligation_ids: [EU-AMLR-2024-1624-A0XX-P0X-R0X]\n  seb_interpretation_ids: [SEB-INT-BO-00X]\n  policy_requirement_ids: [KYC-POL-BO-00X]\n  sop_ids: [SOP-LE-BO-00X]\n\napplicability:\n  customer_type: [legal_entity]\n  jurisdictions: [SE]\n\nimplementation_mapping:\n  system: FenX\n  capability_ids: [FENX-CAP-BO-VERIFY]\n  data_product_ids: [DP-PARTY, DP-BENEFICIAL-OWNERSHIP]\n\nverification:\n  acceptance_test_ids: [TEST-BO-014-A, TEST-BO-014-B]\n  evidence_required: [identity_verification_result, evidence_source]\n\nownership:\n  business_owner: TBD\n  technical_owner: TBD\n  validation_owner: TBD",
+      "after": "requirement_id: CLM-BO-014\nrequirement_type: functional\nstatus: illustrative_approval_not_established\nversion: 3\n\nintent:\n  title: Verify beneficial owner identity\n  business_outcome: \"Beneficial owners are verified using approved\n    evidence before completion where required.\"\n\nsource_lineage:\n  regulatory_obligation_ids: [EU-AMLR-2024-1624-A0XX-P0X-R0X]\n  seb_interpretation_ids: [SEB-INT-BO-00X]\n  policy_requirement_ids: [KYC-POL-BO-00X]\n  sop_ids: [SOP-LE-BO-00X]\n\napplicability:\n  customer_type: [legal_entity]\n  jurisdictions: [SE]\n\nimplementation_mapping:\n  system: FenX\n  capability_ids: [FENX-CAP-BO-VERIFY]\n  data_product_ids: [DP-PARTY, DP-BENEFICIAL-OWNERSHIP]\n\nverification:\n  acceptance_test_ids: [TEST-BO-014-A, TEST-BO-014-B]\n  evidence_required: [identity_verification_result, evidence_source]\n\nownership:\n  business_owner: TBD\n  technical_owner: TBD\n  validation_owner: TBD"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Knowledge wording change",
+      "after": "Knowledge wording or meaning change"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Knowledge validation",
+      "after": "Knowledge validation and downstream impact assessment"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u2014 One-click export of the full documentation package as structured PDF, formatted for NPAC/governance committee review. Includes classification rationale, all supporting assessments, and a \u201cconditions to satisfy before production\u201d section modelled on SensAI\u2019s 8-condition approval pattern.",
+      "after": "\u2014 One-click export of the full documentation package as structured PDF, formatted for NPAC/governance committee review. Includes classification rationale, all supporting assessments, and a \u201cconditions to satisfy before production\u201d section modelled on SensAIa\u2019s 8-condition approval pattern."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "SensAI (PWM&FO call transcription, Python/FastAPI/React, GCP Cloud Run, NPAC-approved), Axiom (email extraction), AI Showroom, TestPilotX/PerfPilotX, SEBx Agentic AI (NVIDIA, ADK, Global Market Outlook), Privacy-Preserving AI with KTH, AIDA chatbot.",
+      "after": "SensAIa (PWM&FO call transcription, Python/FastAPI/React, GCP Cloud Run, NPAC-approved), Axiom (email extraction), AI Showroom, TestPilotX/PerfPilotX, SEBx Agentic AI (NVIDIA, ADK, Global Market Outlook), Privacy-Preserving AI with KTH, AIDA chatbot."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "KAICY (KYC Steward) \u2014 Comprehensive Knowledge Base (April 2026)Product definition, architecture (SensAIa \u2194 FenX), NPA proposal, functional requirements, 3 user journeys, data lifecycle (progressive PD minimisation), savings model (31% KYC time reduction), end-of-pilot documentation.",
+      "after": "Original SEB\u2013Bain estimate of potential KYC outreach effort reduction: about 31%. This is a planning estimate, not an established measured outcome. Baseline, population, assumptions and exact model date are not supplied."
+    }
+  ],
+  "scope": "Content migration and source inspection; no rendered/native verification"
+}

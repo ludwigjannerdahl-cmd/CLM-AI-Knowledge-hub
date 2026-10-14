@@ -1,0 +1,425 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/sensemaking-explanation-architecture/explanation_spec.schema.json",
+  "title": "Explanation Spec",
+  "description": "Permissive structural contract for v1.0.0. Validates high-value invariants while allowing domain extensions and future-model evolution.",
+  "type": "object",
+  "required": [
+    "spec_version",
+    "metadata",
+    "purpose",
+    "competency_questions"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "spec_version": {
+      "type": "string",
+      "pattern": "^1\\."
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "title",
+        "status",
+        "mode"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "candidate",
+            "validated",
+            "superseded"
+          ]
+        },
+        "mode": {
+          "enum": [
+            "compact",
+            "standard",
+            "high_stakes",
+            "exploratory"
+          ]
+        }
+      }
+    },
+    "purpose": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "audiences": {
+          "type": "array"
+        },
+        "target_outcomes": {
+          "type": "array"
+        },
+        "decisions_enabled": {
+          "type": "array"
+        },
+        "reasoning_operations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reasoningOperation"
+          }
+        }
+      }
+    },
+    "competency_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "question"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "question_id": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reasoning_operation": {
+            "$ref": "#/$defs/reasoningOperation"
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "title"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "source_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "locator": {
+            "type": "string"
+          },
+          "authority_class": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "epistemic_register": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "statement",
+          "status"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "fact",
+              "observed_evidence",
+              "authoritative_requirement",
+              "approved_interpretation",
+              "working_interpretation",
+              "proposal",
+              "target_state",
+              "assumption",
+              "inference",
+              "forecast",
+              "open_question",
+              "contradiction"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confidence": {
+            "enum": [
+              "high",
+              "medium",
+              "low",
+              "unknown"
+            ]
+          },
+          "uncertainty_type": {
+            "$ref": "#/$defs/uncertaintyType"
+          }
+        }
+      }
+    },
+    "semantic_model": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "relationship_vocabulary_version": {
+          "type": "string"
+        },
+        "relationship_extensions": {
+          "type": "array"
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "relationship_id",
+              "source",
+              "relation",
+              "target"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "relationship_id": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "relation": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "confidence": {
+                "enum": [
+                  "high",
+                  "medium",
+                  "low",
+                  "unknown"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "argument_models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "argument_id",
+          "claim"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "argument_id": {
+            "type": "string"
+          },
+          "claim": {
+            "type": "string"
+          },
+          "grounds_refs": {
+            "type": "array"
+          },
+          "warrant": {
+            "type": "string"
+          },
+          "qualifier": {
+            "type": "string"
+          },
+          "rebuttals": {
+            "type": "array"
+          },
+          "falsification_conditions": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "decision_spaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "decision_id",
+          "question"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "decision_id": {
+            "type": "string"
+          },
+          "question": {
+            "type": "string"
+          },
+          "alternatives": {
+            "type": "array"
+          },
+          "criteria": {
+            "type": "array"
+          },
+          "reversibility": {
+            "enum": [
+              "reversible",
+              "partly_reversible",
+              "irreversible",
+              "unknown"
+            ]
+          }
+        }
+      }
+    },
+    "reasoning_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "task_id",
+          "operation"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "task_id": {
+            "type": "string"
+          },
+          "operation": {
+            "$ref": "#/$defs/reasoningOperation"
+          },
+          "competency_question_ref": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "candidate_frames": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "frame_id",
+          "verdict"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "frame_id": {
+            "type": "string"
+          },
+          "verdict": {
+            "enum": [
+              "candidate",
+              "rejected",
+              "selected"
+            ]
+          },
+          "reasoning_task_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "view_id",
+          "visual_question",
+          "representation_family"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "view_id": {
+            "type": "string"
+          },
+          "visual_question": {
+            "type": "string"
+          },
+          "representation_family": {
+            "type": "string"
+          },
+          "reasoning_task_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "stable_anchor_concepts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "overall_status": {
+          "enum": [
+            "not_tested",
+            "revise",
+            "candidate",
+            "validated"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "reasoningOperation": {
+      "enum": [
+        "locate",
+        "identify",
+        "compare",
+        "rank",
+        "trace",
+        "explain",
+        "diagnose",
+        "predict",
+        "decide",
+        "challenge",
+        "simulate",
+        "teach_back"
+      ]
+    },
+    "uncertaintyType": {
+      "enum": [
+        "none",
+        "epistemic",
+        "variability",
+        "disputed",
+        "assumption",
+        "future_state",
+        "unknown"
+      ]
+    }
+  }
+}

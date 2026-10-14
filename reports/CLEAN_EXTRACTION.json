@@ -1,0 +1,9 @@
+{
+  "scope": "Source rebuild and generated-byte comparison; no browser testing",
+  "result": {
+    "rebuild": "passed",
+    "tests": "14 passed",
+    "templateChecks": "123 states passed",
+    "generatedBytes": "identical"
+  }
+}
