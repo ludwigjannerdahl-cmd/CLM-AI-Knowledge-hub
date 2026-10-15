@@ -8,7 +8,7 @@
 - Dependency-free static build to `docs/`, including modular and standalone entry points.
 - 14 automated model/scoping tests: differing condition routes, historical evidence scope, typed source/object references, unknown inputs, amendment/export consistency, replay metadata, storage refusal, escaping, legacy routes and note recovery.
 - Execution of 123 view/template states: overview, three work paths, knowledge projections, conditions, decisions, sources and all chapter/tab routes.
-- 8,600 internal link occurrences checked in generated view strings and canonical topic content; no missing internal destination found.
+- 8,711 internal link occurrences checked in generated view strings and canonical topic content and every secondary panel projection; no missing internal destination found.
 - Mechanical inventory: 13 chapters, 81 tabs, 21 portfolio records, 11 relationship entries. Tab/heading ancestry checks pass.
 - Active topic HTML excludes executable source handlers, scripts, iframe embedding and javascript links. Raw source-page runtime, analytics and captured personal local history are excluded.
 - Distribution sources use an explicit allowlist; the full Internal C3 Mentor context packet is not a downloadable website asset.

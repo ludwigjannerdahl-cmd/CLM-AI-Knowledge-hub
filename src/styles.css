@@ -30,3 +30,6 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
 
 .paper-footer,.folio-meta,.sheet-back>span,.sheet-middle>span,.relationship-label,.relationship-label small{font-size:11px}.artifact-composition{grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr)}.paper-top{font-size:11px}.reuse-caption,.reuse-caption strong{font-size:11px}.source-paper blockquote mark{background:var(--sage);color:var(--forest)}
 @media(max-width:410px){.artifact-composition{grid-template-columns:1fr}.relationship-label{margin:18px 0;flex-direction:row;justify-content:center}.relationship-label .icon{transform:rotate(90deg)}}
+
+/* Tablet keeps the explanatory specimens readable instead of compressing the desktop pair. */
+@media(min-width:721px) and (max-width:1050px){.hero{grid-template-columns:1fr;gap:32px}.hero-copy{max-width:680px}.hero-copy>p:not(.eyebrow):not(.hero-lead):not(.start-caption){max-width:60ch}.hero h1 br{display:none}.hero .explanation-figure{max-width:760px}.hero-lead{max-width:40ch}.explanation-figure .artifact-composition{gap:15px}.explanation-figure .acceptance-line{font-size:12px}}

@@ -37,7 +37,7 @@ def repair_text(text):
  text=text.replace('both built by Bain','with different reported delivery histories; authorship needs source confirmation')
  text=text.replace('turns documentation into <strong>continuous assurance</strong>','supports coverage and change-review questions')
  text=re.sub(r'\b(\d+[–-]\d+|\d[\d,]*)\s+(builders|FTEs?|employees|engineers|developers)\b',r'a team of \2',text,flags=re.I)
- return text
+ return text.replace('The The original SEB–Bain','The original SEB–Bain')
 
 def repair_tree(root,Node):
  log=[]

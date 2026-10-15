@@ -150,6 +150,8 @@ for sid,node in sections.items():
  chapter={'anchors':anchors,'id':sid,'title':next(c['title'] for c in data['corpus'] if c['id']==sid),'html':html,'tabs':tabs,'groups':groups,'headings':headings,'network':network}
  canonical_counts=counts.copy()
  chapter['panels']={tid:('<section class="native-panel" id="native-'+tid+'">'+topic_note(tid)+content(byid[tid])+'</section>') for tid in tabs if tid in byid}
+ if sid=='sec-classifier':
+  for retired in ['clf-tool','clf-history']:chapter['panels'][retired]=render(byid[retired])
  # Deep links to numbered source records in the supplied reference table.
  if sid=='sec-refs':
   row=[0]

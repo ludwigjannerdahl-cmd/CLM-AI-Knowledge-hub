@@ -15,7 +15,8 @@ for(const c of N.chapters){routes.push('#/topic/'+c.id);for(const id of Object.k
 const errors=[];let links=0;
 function checkLinks(html,context){for(const match of html.matchAll(/href="(#[^"]*)"/g)){const r=M.parseRoute(match[1].replace(/&amp;/g,'&'));links++;if(r.view==='topic'){const c=N.chapters.find(c=>c.id===r.id);if(!c)errors.push(context+': missing chapter '+r.id);else if(r.target&&!c.tabs[r.target]&&!c.anchors[r.target]&&!c.html.includes('id="native-'+r.target+'"'))errors.push(context+': missing target '+r.id+'/'+r.target);}else if(r.view==='source'&&!D.sources.some(s=>s.id===r.id))errors.push(context+': missing source '+r.id);else if(r.view==='not-found')errors.push(context+': unknown route '+match[1]);}}
 for(const route of routes){state.route=M.parseRoute(route);const html=views.render();assert.match(html,/<h1/,'Page title: '+route);assert.doesNotMatch(html,/undefined|\[object Object\]/,'Template failure '+route);checkLinks(html,route);}
-for(const c of N.chapters){checkLinks(c.html,c.id);assert.doesNotMatch(c.html,/<script|<iframe|on(?:click|load|error)=|javascript:/i);}
+for(const c of N.chapters){for(const html of [c.html,...Object.values(c.panels)]){checkLinks(html,c.id);assert.doesNotMatch(html,/<script|<iframe|on(?:click|load|error)=|javascript:/i);}}
+const classifier=N.chapters.find(c=>c.id==='sec-classifier');for(const id of ['clf-tool','clf-history']){assert.doesNotMatch(classifier.panels[id],/KPI.Reporting|Ludwig|CLF[-_]?2026|clf-result|clf-form/i);assert.match(classifier.panels[id],/#\/scope/);}
 for(const s of D.sources)if(s.file)assert.ok(existsSync(root+'/docs/'+s.file),'Missing file: '+s.file);
 const full=N.chapters.map(c=>M.plain(c.html)).join('\n')+'\n'+JSON.stringify(N.portfolio);
 assert.doesNotMatch(full,/Outreach reduction measured in prototype testing|31% outreach reduction validated|Every cycle compounds the value|New data flows.*automatically into products/i);
