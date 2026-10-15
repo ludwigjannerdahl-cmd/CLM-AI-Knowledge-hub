@@ -2,136 +2,121 @@
 
 ## Decision
 
-V21 is the semantic and engineering floor. V22 changes the optimization target from coherence to authored visual excellence without weakening V21 source authority, epistemic distinctions, accessibility, interaction correctness, responsive behavior, or deterministic build discipline.
+V21 remains the semantic and engineering floor. The first V22 styling experiment demonstrated that adding an authored CSS layer on top of the existing presentation architecture is **not sufficient** to reach the visual bar established by the supplied/generated design boards.
 
-V22 is not another information-architecture redesign. It is an art-direction and composition pass.
+V22 therefore moves into a **composition-first reset** before any broader production propagation.
 
-## Why this pass exists
-
-The generated design boards establish a higher visual bar than the current runtime: stronger focal hierarchy, deliberate asymmetry, material depth, document fragments, selective annotation, spatial storytelling, varied scale, and representation-specific compositions. V21 already protects the more important truth constraints. The target is therefore:
+The target remains:
 
 > generated-board visual sophistication + V21 semantic discipline
 
-not literal screenshot recreation.
+but the implementation method changes.
 
-## Reference-board policy
+## Governing files
 
-The user-supplied boards are **visual references only**. They may inform composition, depth, materiality, rhythm, typography scale, and illustration ambition. Their generated text, counts, statuses, dates, article numbers, approvals, readiness signals, and enterprise claims are not factual authority.
+For the composition reset, use these in order:
 
-The reference images are intentionally not committed to this public repository in this pass. They remain builder inputs outside the published site unless separately reviewed for publication.
+1. `planning/ASTRA_DESIGN_CONTRACT_V22.md` — short semantic invariants, product goal, visual thesis and model freedom.
+2. `planning/V22_REFERENCE_ATLAS.md` — curated reference lessons; not a mood-board dump.
+3. `planning/V22_SKILL_ROUTER.md` — pull-based use of Sensemaking / visualization skills.
+4. `planning/V22_GOLDEN_SCENE_SPRINT.md` — multiple independent 1920×1200 compositions before production work.
 
-## Research synthesis
+The earlier V22 runtime renders remain useful **failed visual-acceptance evidence**. They proved the visual layer could preserve runtime semantics, but they did not reach the required authored-design level.
 
-External design guidance reinforces four decisions:
+## What is protected
 
-1. **Composition before component repetition.** IBM Design Language recommends deliberate hierarchy, asymmetric balance, negative space, variation within a coherent grid, and focal flow rather than equal-weight repetition.
-2. **Progressive disclosure for complexity.** Nielsen Norman Group recommends showing the primary path first and deferring secondary information, while preserving easy movement between primary and supporting context.
-3. **Overview + detail for information-rich work.** Carbon/IBM guidance supports distinct editorial, product/docs, and high-density modes rather than forcing one density everywhere.
-4. **The representation must carry meaning.** Technical diagrams and complex interfaces should use explicit relationships, visible hierarchy, and detail on demand rather than decorative complexity.
+Do not weaken V21's source authority, epistemic distinctions, accessibility, interaction correctness, object identities, current/target separation, evidence boundaries or deterministic build discipline.
 
-## Design inversion
+## What is not protected
 
-Earlier sequence:
+Existing presentation code is evidence of product semantics, not a design constraint.
 
-`system -> components -> screens`
+During the golden-scene sprint Astra may replace or ignore the current:
 
-V22 sequence:
+- DOM composition;
+- CSS architecture;
+- visualization components;
+- page geometry;
+- illustration implementation;
+- navigation presentation;
+- local interaction pattern.
 
-`exceptional screens -> recurring grammar -> system -> remaining screens`
+Semantic HTML, SVG, Canvas, WebGL, CSS 2.5D and custom illustration are all available when they improve the reasoning representation and remain accessible.
 
-The first compositions are:
+## Canonical canvas
 
-1. **Overview / work landscape** — orient to CLM work, context, AI contribution, human responsibility, evidence, and operating conditions.
-2. **Develop CLM / instruction -> requirement -> adverse test** — make source material, interpreted requirement, test logic, missing implementation evidence, and human responsibility spatially inspectable.
-3. **Govern/change / version -> impact -> evidence boundary** — show what changed, what may be affected, which evidence remains pinned to an earlier version, and where a human decision is still required.
+Primary design and acceptance canvas: **1920×1200 desktop workstation**.
 
-Only after these compositions are accepted should their visual grammar be propagated broadly.
+1600/1440 desktop, tablet and mobile become compatibility projections after the golden compositions are accepted. They are not the design centre of this sprint.
 
-## Broad Hub coverage
+## Golden scenes
 
-The Hub should not become a source-of-wealth product. Source of wealth remains one worked specimen where useful. The visual system must support at least these reasoning families:
+The first three scenes remain:
 
-- orientation to CLM work;
-- source / policy / instruction reading;
-- interpretation and requirement formation;
-- knowledge transformation;
-- bounded AI-assisted work;
-- human / AI / authority boundary;
-- object detail and provenance;
-- typed relationship exploration;
-- versioning and impact analysis;
-- operating conditions and routes;
-- evidence and evaluation;
-- search and contextual discovery.
+1. **How AI fits into CLM work** — orient to real CLM work, context, bounded AI contribution, human responsibility, evidence and operating conditions.
+2. **Knowledge becomes usable** — show how readable material becomes structured, governed and consumable without implying automatic applicability/execution/authority.
+3. **A change propagates** — show version change, candidate downstream impact, historical evidence boundaries, uncertainty and the human decision still required.
 
-A topic may need a different native representation. Reuse visual grammar, not one master layout.
+For each scene Astra must create at least **three independently conceived directions** before writing production presentation code.
 
-## Canonical composition principles
+## Reference policy
 
-### 1. One dominant reasoning operation per scene
+The supplied/generated boards and public reference sites are visual inputs only. They may inform composition, depth, materiality, rhythm, typography scale, illustration ambition and interaction patterns.
 
-Each scene must have a clear reader task: orient, trace, compare, diagnose, inspect, or challenge. Avoid simultaneous dashboard-style competition between unrelated controls.
+They are not factual authority for:
 
-### 2. Authored focal hierarchy
+- counts;
+- dates;
+- owners;
+- approvals;
+- current-state maturity;
+- readiness;
+- integrations;
+- production status;
+- measured benefit.
 
-Every major scene needs an obvious focal point, a secondary path, and quiet supporting material. Equal cards are not a default composition.
+The supplied/generated boards remain outside the public repository unless separately reviewed for publication.
 
-### 3. Materiality encodes object type, not importance
+## Skill policy
 
-Source folios, requirement sheets, evidence records, context objects, and operating routes may use different material treatments. Depth must not imply approval, maturity, or certainty.
+Sensemaking and visualization skills are **pull-based**. The full method library must not be injected into every visual task.
 
-### 4. Relationship verbs stay explicit
+Use only the relevant capability when the problem requires it. The Frame Catalog is a catalogue, not a coverage checklist.
 
-Where a connector matters, it should be readable as a proposition: `informs`, `constrains`, `uses`, `verifies`, `produces evidence for`, or another governed relationship. Avoid ambiguous network decoration.
+## Acceptance gate
 
-### 5. Visible absence is better than invented completeness
+A golden scene must pass two independent gates.
 
-Missing implementation evidence, unresolved ownership, unavailable interfaces, and unsupported claims remain visually present as absences or boundaries. Do not fill them with generated metrics.
+### Visual gate
 
-### 6. Different density regimes are allowed
+- plausibly belongs beside the strongest supplied/generated boards;
+- has one memorable visual idea;
+- communicates materially through geometry rather than prose alone;
+- uses the 1920×1200 canvas intentionally;
+- has authored hierarchy and purposeful negative space;
+- cannot be reduced to a generic heading + cards + icons composition.
 
-- orientation: generous editorial spacing;
-- worked trace: medium-density, guided sequence;
-- object/source/evidence inspection: denser product-reading mode;
-- search/reference: efficient list/table mode.
+### Semantic gate
 
-These are projections of one product, not separate design systems.
+- preserves the hard invariants in `ASTRA_DESIGN_CONTRACT_V22.md`;
+- keeps relationship meaning explicit;
+- preserves current / proposed / historical / uncertain / missing distinctions;
+- keeps human judgement and authority where they act;
+- does not cosmetically complete missing evidence;
+- invents no enterprise facts.
 
-### 7. Responsive semantics before geometry
+No numeric beauty score is used and one gate cannot compensate for failure in the other.
 
-Desktop can show context + relationship + consequence simultaneously. Tablet reduces simultaneous branches. Mobile becomes an ordered sequence. Do not shrink a desktop composition.
+## Production promotion rule
 
-## Visual Ambition acceptance gate
+Do **not** extract or propagate a reusable visual grammar until all three golden scenes have one accepted 1920×1200 composition.
 
-A composition is not accepted because it is polished. Compare the rendered implementation against the strongest reference family and ask:
+Only then:
 
-- Is there a dominant focal point?
-- Is the composition authored rather than a grid of equal rectangles?
-- Does negative space create hierarchy?
-- Does scale variation carry meaning?
-- Does material depth help grouping without implying status?
-- Does the illustration reduce inference cost?
-- Are relationship semantics legible?
-- Would removing the main visual make the explanation materially worse?
-- Does it remain the same product as the reading, search, source, and evidence surfaces?
-- Does responsive transformation preserve meaning?
-- Are unsupported facts, fake counts, and invented readiness absent?
+1. extract recurring principles from what actually worked;
+2. migrate those principles into the production presentation layer;
+3. propagate deliberately into source reading, search, evidence, object detail, operating conditions, relationships and portfolio/value surfaces;
+4. run the full semantic/runtime/browser regression suite;
+5. validate responsive projections separately.
 
-No numeric beauty score is used.
-
-## First implementation artifact
-
-`prototypes/v22-visual-ambition/index.html` is a self-contained working prototype for the new art direction. It covers:
-
-- Overview / broad work landscape;
-- Develop CLM;
-- Govern/change;
-- Knowledge transformation;
-- Operating conditions;
-- Evidence boundary.
-
-It deliberately uses generic/synthetic labels where current Project evidence does not support a stronger enterprise claim. It is not production status, approval evidence, or a replacement for the V21 source model.
-
-## Promotion rule
-
-Do not merge V22 styling into `main` merely because the prototype looks better. First compare the three golden compositions with the user-supplied boards and the V21 semantic contracts. Then migrate accepted patterns into the real shared runtime components and run the existing V21 regression/browser suite plus a new visual-comparison review.
+This is not another information-architecture redesign. It is a reset of the design-development method so a capable model has enough freedom to solve the visual problem rather than merely restyle the existing answer.
