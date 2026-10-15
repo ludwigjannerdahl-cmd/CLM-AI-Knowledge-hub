@@ -1,0 +1,42 @@
+version: 1
+canonical_canvas:
+  width: 1920
+  height: 1200
+scenes:
+  - id: overview
+    title: How AI fits into CLM work
+    min_directions: 3
+  - id: knowledge
+    title: Knowledge becomes usable
+    min_directions: 3
+  - id: change
+    title: A change propagates
+    min_directions: 3
+direction_note_required_fields:
+  - name
+  - reader_question
+  - reasoning_operation
+  - visual_idea
+  - why_geometry_helps
+  - interaction_if_any
+  - false_inference_risk
+  - references_used
+  - what_is_deliberately_not_shown
+render_requirements:
+  - viewport_1920x1200
+  - no_console_errors
+  - no_horizontal_overflow
+  - first_frame_capture
+  - full_page_capture_if_scroll_is_material
+review_requirements:
+  - comparison_sheet
+  - explicit_rejection_of_at_least_one_direction
+  - largest_remaining_visual_gap
+  - largest_semantic_risk
+  - revision_move
+  - revised_selected_direction_render
+promotion:
+  requires_all_three_scenes_accepted: true
+  numeric_beauty_score: false
+  generic_ui_rejection: true
+  production_code_before_acceptance: false
