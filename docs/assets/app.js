@@ -50,6 +50,7 @@
     if(D.workDomains.some(x=>x.id===domain))state.workDomain=domain;
     if(['human','structured','consumed'].includes(representation))state.knowledgeStage=representation;
     const ret=state.route.view==='source'&&history.state?.sourceReturn?'<div class="return-bar">'+button('← Return to '+history.state.sourceReturn.label,'return')+'<span>Source reading · your task context is retained</span></div>':'';
+    app.dataset.surface=state.route.view;document.getElementById('main').dataset.surface=state.route.view;
     app.innerHTML=ret+views.render();
     document.querySelectorAll('.primary-nav a').forEach(a=>{const v=M.parseRoute(a.hash).view;const yes=v===state.route.view;a.toggleAttribute('aria-current',yes);if(yes)a.setAttribute('aria-current','page');});
     document.title=(document.getElementById('page-title')?.textContent||'CLM AI Knowledge Hub')+' · CLM AI';

@@ -1,0 +1,26 @@
+{
+  "commit": "aea3d5b421098a2424bbc9d0e94eb75dac67b108",
+  "build": "Clean git archive, no dependencies, node scripts/build.mjs",
+  "filesCompared": 18,
+  "byteIdentical": true,
+  "docsSha256": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "OPEN_ME_FIRST.html": "bb177243a1bbed6cb7c73452a6c509b464538e80fecc00927488c56f335df7c3",
+    "assets/app.js": "46a9f3fcd971aa874deb176d7ecafddf158310dae5c46e0962f9e8d98981450f",
+    "assets/chapters.js": "2e3e809ce9ef90853768f2183aa7dbc52d1f7fc9e4c622b455a589f947b59672",
+    "assets/data.js": "37d6edb950d336159a695e8bd702189b9c75058ddb643e5612c771177177dd3e",
+    "assets/design-lab.js": "5ffd98f6571133de732fb73e68ae91d907d2f9e0de70a9ea25219e4d413a32aa",
+    "assets/explanation-data.js": "d5be5732228f52b46370e3f65d3b1f62c1e8f4e7920a98c61aa1a4e5328f1de8",
+    "assets/explanations.js": "2e69444d4494b8dc32f3b75893a9fa9db3162263e634f02ca1ab6a64473a6ca9",
+    "assets/favicon.svg": "eb3cf7e9a986696b621a7a2f136d060c2a1cd188f5241961072250c19ee4f9a9",
+    "assets/model.js": "0b067d0b27501d1edc4bf0f512010db42101814bc24e4d58fa4aaeb41875b001",
+    "assets/scoping.js": "b6110610b9cc0734ca5fa35e05647e28ef7d8f075c2ded9ce424abb39b70593e",
+    "assets/source-texts.js": "35230ee6f8f4c6247426da0eb54b354836ea04f1bcfa9f4b0335225b746d4b0a",
+    "assets/styles.css": "b46d30128e24404ef515932ee20bf4fbfe916a32c92ad8db582fbffb201ead24",
+    "assets/views.js": "f85644857f85fde3ecfa2c08458af164543ba5371101be1cefe570a68da66b79",
+    "index.html": "feacfad0a3ea38d06ec2fd62b4844be4624ace6ca7a6334dd3b671d58813e343",
+    "sources/CLM_AI_Operating_Model_Knowledge_v1.0.md": "98831e9b4307b5207d5d7cfee4d960f910736fd2903ccc0460c53585f7939b18",
+    "sources/SEB_AI_sub_strategy_v1.0.pdf": "d3bf1b5408de9a5fc5c32b6cab5ccc706d2330213eda761034ac738c271260cf",
+    "sources/UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md": "6804be3a8fdddfed26069214a1da4eea1a3243d38037b475e4649b8709a21a72"
+  }
+}

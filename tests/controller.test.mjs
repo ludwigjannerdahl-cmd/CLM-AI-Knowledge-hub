@@ -157,3 +157,26 @@ test('Scroll snapshots support Back and Forward without a link click',async()=>{
   assert.equal(env.ctx.scrollY,720);
   assert.match(env.ctx.location.hash,/step=output/);
 });
+
+test('Requirement workbench retains separate source, requirement and unobserved test status',()=>{
+  const env=host('#/work/development?step=requirement');
+  assert.match(env.app.innerHTML,/provenance-workbench/);
+  for(const id of ['INS-01@1','REQ-01@1','TEST-01@1'])assert.ok(env.app.innerHTML.includes(id));
+  assert.match(env.app.innerHTML,/Proposed test · no observed pass/);
+  assert.match(env.app.innerHTML,/production feature may be deterministic/);
+});
+test('Handoff evidence ledger keeps the historical scope and never inherits preparation evidence',()=>{
+  const env=host('#/evidence/CHG-EVID%401');
+  assert.match(env.app.innerHTML,/CHG-INS@1/);
+  assert.match(env.app.innerHTML,/does not verify/);
+  assert.match(env.app.innerHTML,/CHG-INS@2/);
+  assert.doesNotMatch(env.app.innerHTML,/EVID-01@1|TEST-01@1/);
+  assert.match(env.app.innerHTML,/No observed pass/);
+});
+test('Object provenance names source authority beside meaning without assigning a missing owner',async()=>{
+  const env=host('#/work/development');await env.action('object','REQ-01@1');
+  assert.match(env.dialog.innerHTML,/dossier-provenance/);
+  assert.match(env.dialog.innerHTML,/Not supplied for this object/);
+  assert.match(env.dialog.innerHTML,/Source linkage lets you inspect the basis/);
+  assert.match(env.dialog.innerHTML,/not an approved FenX change/);
+});
