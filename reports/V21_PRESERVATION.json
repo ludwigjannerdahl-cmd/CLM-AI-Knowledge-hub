@@ -1,0 +1,32 @@
+[
+  {
+    "path": "src/chapters.json",
+    "unchanged": true,
+    "sha256": "2ffc7c39c402912318c1bdfab9e8dce00c2ad8d63afa049af7d44409c37ec8ac"
+  },
+  {
+    "path": "src/source-texts.json",
+    "unchanged": true,
+    "sha256": "08dc154cd92e5b8c93abb77d24203fd6ba0e081053daf188e96de038736d4c0d"
+  },
+  {
+    "path": "src/scoping.js",
+    "unchanged": true,
+    "sha256": "b6110610b9cc0734ca5fa35e05647e28ef7d8f075c2ded9ce424abb39b70593e"
+  },
+  {
+    "path": "sources/SEB_AI_sub_strategy_v1.0.pdf",
+    "unchanged": true,
+    "sha256": "d3bf1b5408de9a5fc5c32b6cab5ccc706d2330213eda761034ac738c271260cf"
+  },
+  {
+    "path": "sources/CLM_AI_Operating_Model_Knowledge_v1.0.md",
+    "unchanged": true,
+    "sha256": "98831e9b4307b5207d5d7cfee4d960f910736fd2903ccc0460c53585f7939b18"
+  },
+  {
+    "path": "sources/UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md",
+    "unchanged": true,
+    "sha256": "6804be3a8fdddfed26069214a1da4eea1a3243d38037b475e4649b8709a21a72"
+  }
+]

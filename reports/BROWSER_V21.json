@@ -1,0 +1,1653 @@
+{
+  "commit": "d8cc25bff257b9c8914e269f6eda171fd9610ecb",
+  "kind": "Chromium-rendered desktop regression; not reader validation",
+  "primary": {
+    "screen": [
+      1920,
+      1200
+    ],
+    "cssViewport": [
+      1920,
+      1080
+    ],
+    "note": "Headless simulation. User workstation viewport and native browser zoom are UNKNOWN. Zoom-equivalent checks reduce CSS viewport; they are not native zoom."
+  },
+  "results": [
+    {
+      "surface": "overview",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "How AI fitsinto CLM work.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "run",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "What can the source support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "develop",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Make the expected behaviour testable.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "change",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "A changed instruction needs an impact review.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "knowledge",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Make the contextusable by someone else.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "conditions",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "What changes whena condition is missing?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "relationships",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Trace what informsthe selected object.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "evidence",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "What does thisevidence actually support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "source",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "CLM AI operating-model knowledge",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topic",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Knowledge, requirements & evidence",
+        "focus": ""
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topics",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Find the depththat you need.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "scope",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Start with the workand its boundaries.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "next",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Agree one boundedreuse test.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "about",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "A connected explanationwith inspectable sources.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "design-lab",
+      "target": "desktop-primary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1080,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Use the product to test the product.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "overview",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "How AI fitsinto CLM work.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "run",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "What can the source support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "develop",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Make the expected behaviour testable.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "change",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "A changed instruction needs an impact review.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "knowledge",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Make the contextusable by someone else.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "conditions",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "What changes whena condition is missing?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "relationships",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Trace what informsthe selected object.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "evidence",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "What does thisevidence actually support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "source",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "CLM AI operating-model knowledge",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topic",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Knowledge, requirements & evidence",
+        "focus": ""
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topics",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Find the depththat you need.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "scope",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Start with the workand its boundaries.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "next",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Agree one boundedreuse test.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "about",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "A connected explanationwith inspectable sources.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "design-lab",
+      "target": "screen-equivalent",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1920,
+        "innerHeight": 1200,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1920,
+        "clientWidth": 1920,
+        "title": "Use the product to test the product.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "overview",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "How AI fitsinto CLM work.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "run",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "What can the source support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "develop",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "Make the expected behaviour testable.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "change",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "A changed instruction needs an impact review.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "knowledge",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "Make the contextusable by someone else.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "conditions",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "What changes whena condition is missing?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "relationships",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "Trace what informsthe selected object.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "evidence",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "What does thisevidence actually support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "source",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "CLM AI operating-model knowledge",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topic",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "Knowledge, requirements & evidence",
+        "focus": ""
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topics",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "Find the depththat you need.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "scope",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "Start with the workand its boundaries.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "next",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "Agree one boundedreuse test.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "about",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "A connected explanationwith inspectable sources.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "design-lab",
+      "target": "zoom-equivalent-125",
+      "zoomEquivalent": 1.25,
+      "dimensions": {
+        "innerWidth": 1536,
+        "innerHeight": 864,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1536,
+        "clientWidth": 1536,
+        "title": "Use the product to test the product.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "overview",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "How AI fitsinto CLM work.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "run",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "What can the source support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "develop",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "Make the expected behaviour testable.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "change",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "A changed instruction needs an impact review.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "knowledge",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "Make the contextusable by someone else.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "conditions",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "What changes whena condition is missing?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "relationships",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "Trace what informsthe selected object.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "evidence",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "What does thisevidence actually support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "source",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "CLM AI operating-model knowledge",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topic",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "Knowledge, requirements & evidence",
+        "focus": ""
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topics",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "Find the depththat you need.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "scope",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "Start with the workand its boundaries.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "next",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "Agree one boundedreuse test.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "about",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "A connected explanationwith inspectable sources.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "design-lab",
+      "target": "zoom-equivalent-150",
+      "zoomEquivalent": 1.5,
+      "dimensions": {
+        "innerWidth": 1280,
+        "innerHeight": 720,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1280,
+        "clientWidth": 1280,
+        "title": "Use the product to test the product.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "overview",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "How AI fitsinto CLM work.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "run",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "What can the source support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "develop",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "Make the expected behaviour testable.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "change",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "A changed instruction needs an impact review.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "knowledge",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "Make the contextusable by someone else.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "conditions",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "What changes whena condition is missing?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "relationships",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "Trace what informsthe selected object.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "evidence",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "What does thisevidence actually support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "source",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "CLM AI operating-model knowledge",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topic",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "Knowledge, requirements & evidence",
+        "focus": ""
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topics",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "Find the depththat you need.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "scope",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "Start with the workand its boundaries.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "next",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "Agree one boundedreuse test.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "about",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "A connected explanationwith inspectable sources.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "design-lab",
+      "target": "zoom-equivalent-200",
+      "zoomEquivalent": 2,
+      "dimensions": {
+        "innerWidth": 960,
+        "innerHeight": 540,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 960,
+        "clientWidth": 960,
+        "title": "Use the product to test the product.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "overview",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "How AI fitsinto CLM work.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "run",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "What can the source support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "develop",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "Make the expected behaviour testable.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "change",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "A changed instruction needs an impact review.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "knowledge",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "Make the contextusable by someone else.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "conditions",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "What changes whena condition is missing?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "relationships",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "Trace what informsthe selected object.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "evidence",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "What does thisevidence actually support?",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "source",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "CLM AI operating-model knowledge",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topic",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "Knowledge, requirements & evidence",
+        "focus": ""
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "topics",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "Find the depththat you need.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "scope",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "Start with the workand its boundaries.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "next",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "Agree one boundedreuse test.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "about",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "A connected explanationwith inspectable sources.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    },
+    {
+      "surface": "design-lab",
+      "target": "desktop-secondary",
+      "zoomEquivalent": 1,
+      "dimensions": {
+        "innerWidth": 1440,
+        "innerHeight": 1000,
+        "screenWidth": 1920,
+        "screenHeight": 1200,
+        "dpr": 1,
+        "visualScale": 1,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "title": "Use the product to test the product.",
+        "focus": "page-title"
+      },
+      "status": "pass"
+    }
+  ],
+  "interactions": [
+    "Design Lab: actual production controls and worksheet reset",
+    "URL-backed selection and Back/Forward",
+    "Task progression, focus, object inspection and close",
+    "Search → object → return preserves query",
+    "Native disclosures support keyboard",
+    "Multi-page source return restores origin and reading position",
+    "Source excursion restores object and selected panel",
+    "Runtime assumption leaves supplied work unchanged and cannot create live retrieval",
+    "Independent handoff trace and pinned evidence version",
+    "Advisory scope: unresolved/complete transition, amendment, display/export agreement and replay metadata",
+    "Local note persistence, context and actual exported contents",
+    "Visible keyboard focus and sticky navigation"
+  ],
+  "pageErrors": [],
+  "readerComprehension": "UNVERIFIED"
+}

@@ -1,0 +1,7 @@
+{
+  "version": "20.1.0",
+  "kind": "Static HTML parser checks; no layout, browser, native-interaction or accessibility-conformance evidence",
+  "parser": "Python standard-library HTMLParser",
+  "states": 557,
+  "issues": []
+}
