@@ -34,6 +34,9 @@ jobs:
       - name: Build static review output
         run: npm run build
 
+      - name: Verify committed production output matches source
+        run: git diff --exit-code -- docs index.html .nojekyll
+
       - name: Run model and controller tests
         run: npm test
 
@@ -49,8 +52,13 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Run desktop browser and reading-continuity checks
+        env:
+          HUB_BASE_URL: http://127.0.0.1:8000/CLM-AI-Knowledge-hub/docs
+          HUB_ENTRY_URL: http://127.0.0.1:8000/CLM-AI-Knowledge-hub/
         run: |
-          python3 -m http.server 8000 --directory docs >/tmp/clm-hub-server.log 2>&1 &
+          mkdir -p /tmp/clm-pages-preview/CLM-AI-Knowledge-hub
+          cp -R docs index.html .nojekyll /tmp/clm-pages-preview/CLM-AI-Knowledge-hub/
+          python3 -m http.server 8000 --directory /tmp/clm-pages-preview >/tmp/clm-hub-server.log 2>&1 &
           for i in {1..30}; do
             if curl -fsS http://127.0.0.1:8000/ >/dev/null; then break; fi
             sleep 0.5

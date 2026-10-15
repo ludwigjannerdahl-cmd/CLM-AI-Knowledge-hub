@@ -30,6 +30,12 @@ try{
   await page.close();
  }
  const page=await pageFor();
+ if(process.env.HUB_ENTRY_URL){
+  await page.goto(process.env.HUB_ENTRY_URL+'?entry=verification#/work/change?case=handoff&step=impact',{waitUntil:'networkidle'});await page.locator('#page-title').waitFor({state:'visible'});await settle(page);
+  const destination=new URL(page.url());assert.equal(destination.pathname,'/CLM-AI-Knowledge-hub/docs/');assert.equal(destination.search,'?entry=verification');assert.equal(destination.hash,'#/work/change?case=handoff&step=impact');assert.match(await page.locator('#page-title').innerText(),/change/i);
+  const source=await page.request.get(base+'/sources/CLM_AI_Operating_Model_Knowledge_v1.0.md');assert.equal(source.status(),200);const sourceText=await source.text();assert.ok(!sourceText.trim().startsWith('<!DOCTYPE'));assert.match(sourceText,/CLM/);
+  await capture(page,'pages-root-entry-desktop-primary',false);interactions.push('Repository-root entry preserves query/deep link under the GitHub Pages project path; source download remains literal');
+ }
  await load(page,'#/design-system');
  assert.equal(await page.locator('.lab-live-block').count(),5);
  await page.locator('[data-action="work-domain"][data-value="develop"]').click();
