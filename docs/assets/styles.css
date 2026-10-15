@@ -182,8 +182,8 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
 .atlas-review { grid-template-columns:24px minmax(0,1fr) minmax(0,.7fr); padding-block:22px; }
 /* A trace is three different document roles, not seven equivalent boxes. */
 .provenance-workbench { margin:16px 0 34px; }
-.workbench-intro { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:38px; }
-.workbench-intro h2 { font-size:36px; line-height:1.2; }
+.workbench-intro { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:28px; }
+.workbench-intro h2 { font-size:28px; line-height:1.2; }
 .workbench-intro>p { font-size:16px; line-height:1.85; max-width:65ch; color:var(--muted); }
 .provenance-columns { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr) minmax(0,.8fr); gap:42px; align-items:start; }
 .provenance-columns .visual-index { margin-bottom:22px; }
@@ -275,7 +275,7 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
  .evidence-ledger { gap:38px; }.dossier-workspace { gap:28px; }.chapter-layout { gap:36px; }.native-content div:has(>.n-flow-step) { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:1000px) {
- .header-inner { padding-inline:28px; }.main { padding-inline:36px; }.provenance-columns { display:block; }.origin-folio,.requirement-sheet,.test-margin { margin-block:28px; }.test-margin { display:block; }.workbench-intro { gap:30px; }.workbench-intro h2 { font-size:31px; }.authority-roles { gap:22px; }.requirement-sheet dl>div { grid-template-columns:150px 1fr; }
+ .header-inner { padding-inline:28px; }.main { padding-inline:36px; }.provenance-columns { display:block; }.origin-folio,.requirement-sheet,.test-margin { margin-block:28px; }.test-margin { display:block; }.workbench-intro { gap:30px; }.workbench-intro h2 { font-size:25px; }.authority-roles { gap:22px; }.requirement-sheet dl>div { grid-template-columns:150px 1fr; }
  .source-reading-layout { grid-template-columns:1fr; }.source-contents,.source-context-rail { grid-column:1; position:static; }.source-contents nav { display:flex; flex-wrap:wrap; }.dossier-workspace { display:block; }.dossier-provenance { border:0; border-top:1px solid var(--line); padding:24px 0; }.dossier-heading h2 { font-size:31px; }
  .evidence-ledger { grid-template-columns:1fr; gap:26px; }.evidence-judgement { padding-top:0; }.chapter-layout { grid-template-columns:1fr; }.chapter-navigation { position:static; max-height:none; }.chapter-navigation>a { display:inline-block; margin-right:20px; }.chapter-context { display:none; }.chapter-heading h1 { font-size:40px; }
 }

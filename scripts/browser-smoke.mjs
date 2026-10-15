@@ -1,5 +1,5 @@
 import {chromium} from 'playwright';
-import {mkdir,writeFile} from 'node:fs/promises';
+import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 
 const base=process.env.HUB_BASE_URL||'http://127.0.0.1:8000';
@@ -81,10 +81,17 @@ try{
  await capture(page,'handoff-trace-desktop-primary');assert.ok(await page.locator('.provenance-workbench').isVisible());assert.match(await page.locator('.requirement-sheet').innerText(),/CHG-REQ@1/);
  await load(page,'#/evidence/CHG-EVID%401');await page.locator('.evaluation-method summary').click();await capture(page,'evaluation-expanded-desktop-primary');
  assert.match(await page.locator('.evidence-folio').innerText(),/CHG-INS@1/);interactions.push('Independent handoff trace and pinned evidence version');
- await load(page,'#/scope');await page.locator('#scope-form button[type="submit"]').click();assert.match(await page.locator('#scope-output').innerText(),/Incomplete scope/);
- await page.locator('[data-action="scope-example"]').click();await page.locator('#scope-form button[type="submit"]').click();assert.match(await page.locator('#scope-output').innerText(),/Process preparation or automation/);
- const exportButton=page.locator('[data-action="scope-export"]');if(await exportButton.count()){const download=page.waitForEvent('download');await exportButton.click();assert.ok((await download).suggestedFilename().endsWith('.json'));}
- interactions.push('Advisory scoping unresolved/complete transition and download');
+ await load(page,'#/scope');await page.locator('#scope-form button[type="submit"]').click();assert.match(await page.locator('#scope-output').innerText(),/Incomplete scope/i);
+ await page.locator('[data-action="scope-example"]').click();await page.locator('#scope-form button[type="submit"]').click();assert.match(await page.locator('#scope-output').innerText(),/Process preparation or automation/i);
+ await page.locator('#scope-output details summary').click();await page.locator('#override-pattern').selectOption('3');await page.locator('#override-reason').fill('Synthetic review: the proposed scope would inform a decision.');await page.locator('[data-action="scope-amend"]').click();await settle(page);
+ assert.equal(await page.locator('#scope-output h2').innerText(),'Decision support');
+ const exportButton=page.locator('[data-action="scope-export"]');assert.equal(await exportButton.count(),1);const scopeDownload=page.waitForEvent('download');await exportButton.click();const scopeFile=await scopeDownload;
+ assert.ok(scopeFile.suggestedFilename().endsWith('.json'));const exported=JSON.parse(await readFile(await scopeFile.path(),'utf8'));assert.equal(exported.effective.label,await page.locator('#scope-output h2').innerText());assert.equal(exported.result.pattern,2);assert.equal(exported.effective.pattern,3);assert.equal(exported.formalApproval,false);assert.ok(exported.engineVersion&&exported.input&&exported.createdAt);
+ interactions.push('Advisory scope: unresolved/complete transition, amendment, display/export agreement and replay metadata');
+ await load(page,'#/knowledge');await page.locator('.utility [data-action="notes"]').click();await page.locator('dialog [data-action="note"]').first().click();await page.locator('#note-text').fill('Synthetic browser QA note; no business information.');await page.keyboard.press('Escape');
+ await page.locator('.utility [data-action="notes"]').click();await page.locator('.local-note [data-action="note"]').first().click();assert.equal(await page.locator('#note-text').inputValue(),'Synthetic browser QA note; no business information.');
+ const noteDownload=page.waitForEvent('download');await page.locator('[data-action="note-export"]').click();const noteFile=await noteDownload;const note=JSON.parse(await readFile(await noteFile.path(),'utf8'));assert.equal(note.text,'Synthetic browser QA note; no business information.');assert.equal(note.boundary,'Personal working note');await page.keyboard.press('Escape');
+ interactions.push('Local note persistence, context and actual exported contents');
 
  await load(page,'#/');await page.keyboard.press('Tab');assert.ok(await page.evaluate(()=>document.activeElement.matches('a,button,input,summary')));const focus=await page.evaluate(()=>getComputedStyle(document.activeElement).outlineStyle);assert.notEqual(focus,'none');
  await page.evaluate(()=>window.scrollTo(0,900));assert.ok(Math.abs((await page.locator('.masthead').boundingBox()).y)<2);interactions.push('Visible keyboard focus and sticky navigation');
