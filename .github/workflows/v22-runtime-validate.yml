@@ -1,0 +1,154 @@
+name: V22 runtime validation
+
+on:
+  push:
+    branches:
+      - v22-visual-ambition
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'package.json'
+      - '.github/workflows/v22-runtime-validate.yml'
+  pull_request:
+    branches:
+      - v21-design-coherence
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'package.json'
+      - '.github/workflows/v22-runtime-validate.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build static output
+        run: npm run build
+
+      - name: Verify V22 visual layer reached generated CSS
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'V22 Visual Ambition' src/visual-ambition.css
+          grep -q 'Programmatic route focus should preserve orientation' docs/assets/styles.css
+          grep -q 'visualAmbition' <(npm run build --silent)
+
+      - name: Run model and controller tests
+        run: npm test
+
+      - name: Run route and semantic structure checks
+        run: node scripts/check.mjs --html-snapshots /tmp/clm-hub-html.json
+
+      - name: Run generated HTML audit
+        run: python3 scripts/check-html.py /tmp/clm-hub-html.json
+
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Start site and run inherited browser regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8000 --directory docs >/tmp/clm-hub-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8000/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          node scripts/browser-smoke.mjs
+
+      - name: Capture V22 canonical production surfaces
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports/browser-v22
+          python3 -m http.server 8001 --directory docs >/tmp/clm-hub-v22-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8001/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs/promises';
+
+          const browser = await chromium.launch({headless:true});
+          const desktop = await browser.newContext({viewport:{width:1600,height:1100},colorScheme:'light',reducedMotion:'reduce'});
+          const routes = [
+            ['overview','#/'],
+            ['develop','#/work/development'],
+            ['govern-change','#/work/change?case=handoff'],
+            ['knowledge','#/knowledge'],
+            ['conditions','#/conditions'],
+            ['evidence','#/evidence/EVID-01%401']
+          ];
+          const results=[];
+          for (const [name,hash] of routes) {
+            const page=await desktop.newPage();
+            const errors=[];
+            page.on('pageerror',e=>errors.push(String(e)));
+            await page.goto('http://127.0.0.1:8001/'+hash,{waitUntil:'networkidle'});
+            await page.waitForTimeout(250);
+            const metrics=await page.evaluate(()=>({
+              title:document.title,
+              scrollWidth:document.documentElement.scrollWidth,
+              clientWidth:document.documentElement.clientWidth,
+              scrollHeight:document.documentElement.scrollHeight,
+              h1:document.querySelector('h1')?.textContent?.trim()||'',
+              surface:document.querySelector('main')?.dataset?.surface||document.querySelector('#app')?.dataset?.surface||''
+            }));
+            await page.screenshot({path:`reports/browser-v22/${name}-desktop.png`,fullPage:true});
+            results.push({name,hash,metrics,errors,status:errors.length===0&&metrics.scrollWidth<=metrics.clientWidth?'pass':'fail'});
+            await page.close();
+          }
+          await desktop.close();
+
+          const mobile=await browser.newContext({viewport:{width:390,height:844},colorScheme:'light',reducedMotion:'reduce'});
+          const page=await mobile.newPage();
+          const mobileErrors=[];
+          page.on('pageerror',e=>mobileErrors.push(String(e)));
+          await page.goto('http://127.0.0.1:8001/#/',{waitUntil:'networkidle'});
+          await page.waitForTimeout(250);
+          const mobileMetrics=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,clientWidth:document.documentElement.clientWidth,scrollHeight:document.documentElement.scrollHeight,h1:document.querySelector('h1')?.textContent?.trim()||''}));
+          await page.screenshot({path:'reports/browser-v22/overview-mobile.png',fullPage:true});
+          await mobile.close();
+          await browser.close();
+          results.push({name:'overview-mobile',hash:'#/',metrics:mobileMetrics,errors:mobileErrors,status:mobileErrors.length===0&&mobileMetrics.scrollWidth<=mobileMetrics.clientWidth?'pass':'fail'});
+          await fs.writeFile('reports/browser-v22/V22_RENDER.json',JSON.stringify(results,null,2));
+          if(results.some(r=>r.status!=='pass')){console.error(results);process.exit(1)}
+          console.log(JSON.stringify(results,null,2));
+          NODE
+
+      - name: Upload V22 runtime render evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v22-runtime-renders
+          path: |
+            reports/browser-v22
+            reports/browser-v21
+          if-no-files-found: warn
+          retention-days: 30
