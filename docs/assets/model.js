@@ -23,10 +23,22 @@
     if(raw.startsWith('library/'))raw='/topic/'+raw.slice(8);
     if(raw.startsWith('examples/'))raw='/work/'+({kaicy:'preparation',fenx:'development',amlr:'change'}[raw.slice(9)]||raw.slice(9));
     const [path='/',query='']=raw.split('?');
-    let parts;try{parts=path.split('/').filter(Boolean).map(decodeURIComponent);}catch{parts=[];}
+    let parts;try{parts=path.split('/').filter(Boolean).map(decodeURIComponent);}catch{return {view:'not-found',id:'',target:'',params:new URLSearchParams(query),path};}
     const q=new URLSearchParams(query),view=parts[0]||'overview';
     if(!['overview','work','knowledge','conditions','next','topics','topic','source','scope','about','relationships','evidence'].includes(view))return {view:'not-found',id:parts[0],params:q,path};
     return {view,id:parts[1]||'',target:parts[2]||'',params:q,path:path||'/'};
+  }
+  function sourceOrigin(from,to,entry,snapshot,label) {
+    if(parseRoute(to).view!=='source')return null;
+    if(parseRoute(from).view==='source')return entry?.sourceReturn||null;
+    return {hash:from,label:label||'your previous reading',position:entry?.position??null,snapshot};
+  }
+  function sourcePosition(pages,params) {
+    const integer=(value,fallback)=>/^\d+$/.test(value||'')&&Number.isSafeInteger(Number(value))?Number(value):fallback;
+    const page=Math.max(0,Math.min(pages.length-1,integer(params.get('page'),0)));
+    const lines=(pages[page]||'').split(/\r?\n/).length;
+    const line=params.has('line')?Math.max(1,Math.min(lines,integer(params.get('line'),1))):0;
+    return {page,line};
   }
   function routeForTopic(chapter,target=''){return '#/topic/'+encodeURIComponent(chapter)+(target?'/'+encodeURIComponent(target):'');}
   function prepareChapter(c,selection={},target='') {
@@ -43,6 +55,12 @@
   }
   const plain=html=>String(html).replace(/<[^>]+>/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/\s+/g,' ').trim();
   const fold=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  function matchingSourceLine(text,query) {
+    const word=fold(query.trim()).split(/\s+/)[0];
+    if(!word)return 1;
+    const index=text.split(/\r?\n/).findIndex(line=>fold(line).includes(word));
+    return index<0?1:index+1;
+  }
   function search(index,query) {
     const words=fold(query.trim()).split(/\s+/).filter(Boolean);if(!words.length)return [];
     return index.map(x=>{const text=fold(x.title+' '+x.text),title=fold(x.title);return {...x,score:words.every(w=>text.includes(w))?words.reduce((n,w)=>n+(title.includes(w)?8:1),0):0};}).filter(x=>x.score).sort((a,b)=>b.score-a.score).slice(0,45);
@@ -60,5 +78,5 @@
     const edges=all.filter(edge=>distance.has(edge.source)&&distance.has(edge.target)&&(distance.get(edge.source)<limit||distance.get(edge.target)<limit));
     return {selected:id,nodes:[...distance].map(([key,hop])=>({id:key,hop})).sort((a,b)=>a.hop-b.hop||a.id.localeCompare(b.id)),edges};
   }
-  root.CLM_HUB_MODEL={escape,defaultFlags,normalizeFlags,assessConditions,parseRoute,routeForTopic,prepareChapter,chapterMarkup,plain,search,safeRead,safeWrite,normalizeNotes,changeImpact,objectKind,relationshipGraph};
+  root.CLM_HUB_MODEL={escape,defaultFlags,normalizeFlags,assessConditions,parseRoute,sourceOrigin,sourcePosition,matchingSourceLine,routeForTopic,prepareChapter,chapterMarkup,plain,search,safeRead,safeWrite,normalizeNotes,changeImpact,objectKind,relationshipGraph};
 })(typeof window!=='undefined'?window:globalThis);

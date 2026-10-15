@@ -16,6 +16,7 @@
   const state={route:M.parseRoute(location.hash),anchor:'work',workDomain:'run',knowledgeStage:'human',subject:'client',changed:false,transferChanged:false,flags:{...M.defaultFlags},steps:{},tabs:{},disclosures:{},scopeInput:S.blank(),scopeRecord:null,notes:M.normalizeNotes(read('clm-ai-notes',{}).value),history:[],historyUnresolved:[],storageAvailable:true};
   try{const h=S.readHistory(storage());state.history=h.records;state.historyUnresolved=h.unresolved;state.storageAvailable=h.available;}catch{state.storageAvailable=false;}
   let modalKind='',modalReturn=null,lastHash=location.hash||'#/',restoring=false;
+  const readingPositions=new Map();
   let theme=['light','dark','system'].includes(settings.theme)?settings.theme:'system';
   function applyTheme(){document.documentElement.dataset.theme=theme==='system'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):theme;const b=document.querySelector('[data-action="theme"]');b.title='Theme: '+theme+'. Select to change.';b.setAttribute('aria-label',b.title);}
   applyTheme();matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(theme==='system')applyTheme();});
@@ -24,32 +25,46 @@
   function saveLocal(key,value){const ok=M.safeWrite(storage,key,value);if(!ok){state.storageAvailable=false;announce('Browser storage is unavailable. Export remains available in this session.');}return ok;}
   function focusKey(el){if(!el||el===document.body)return null;return el.id?{id:el.id}:{action:el.dataset?.action,value:el.dataset?.value,href:el.getAttribute?.('href')};}
   function focusElement(key){if(!key)return null;if(key.id)return document.getElementById(key.id);return Array.from(document.querySelectorAll('a,button,input,summary')).find(n=>key.action?n.dataset.action===key.action&&n.dataset.value===key.value:key.href?n.getAttribute('href')===key.href:false);}
-  function snapshot(){const overlay=modalKind==='search'?{kind:'search',query:document.getElementById('search-input')?.value||'',filter:dialog.querySelector('[data-action=\"search-filter\"][aria-pressed=\"true\"]')?.dataset.value||'All'}:modalKind==='notes'?{kind:'notes'}:modalKind==='note'?{kind:'note',id:document.getElementById('note-text')?.dataset.noteId}:null;return {overlay,anchor:state.anchor,workDomain:state.workDomain,knowledgeStage:state.knowledgeStage,transferChanged:state.transferChanged,subject:state.subject,changed:state.changed,flags:state.flags,steps:state.steps,tabs:state.tabs,disclosures:state.disclosures,scopeInput:state.scopeInput,scopeRecord:state.scopeRecord,scroll:scrollY,focus:focusKey(document.activeElement)};}
-  function remember(){history.replaceState({...history.state,hub:true,snapshot:snapshot()},'',location.href);}
+  function snapshot(){const overlay=modalKind==='search'?{kind:'search',query:document.getElementById('search-input')?.value||'',filter:dialog.querySelector('[data-action=\"search-filter\"][aria-pressed=\"true\"]')?.dataset.value||'All'}:modalKind==='notes'?{kind:'notes'}:modalKind==='note'?{kind:'note',id:document.getElementById('note-text')?.dataset.noteId}:null;return {overlay,anchor:state.anchor,workDomain:state.workDomain,knowledgeStage:state.knowledgeStage,transferChanged:state.transferChanged,subject:state.subject,changed:state.changed,flags:state.flags,steps:state.steps,tabs:state.tabs,disclosures:state.disclosures,scopeInput:state.scopeInput,scopeRecord:state.scopeRecord,scroll:scrollY,focus:modalKind?modalReturn:focusKey(document.activeElement),modal:modalKind?{kind:modalKind,returnFocus:modalReturn,focus:focusKey(document.activeElement),scroll:dialog.scrollTop}:null};}
+  function remember(){if(Number.isInteger(history.state?.position))readingPositions.set(history.state.position,scrollY);history.replaceState({...history.state,hub:true,snapshot:snapshot()},'',location.href);}
   function restore(s){if(!s)return;for(const k of ['anchor','workDomain','knowledgeStage','transferChanged','subject','changed','steps','tabs','disclosures','scopeInput','scopeRecord'])if(s[k]!==undefined)state[k]=s[k];if(s.flags)state.flags=M.normalizeFlags(s.flags);}
   function routeWith(key,value){const url=new URL(location.href);const r=M.parseRoute(url.hash);if(key==='object')r.params.delete('panel');if(value===null)r.params.delete(key);else r.params.set(key,value);return '#'+r.path+(r.params.size?'?'+r.params:'');}
-  function navigate(hash,{keepScroll=false,focus=null}={}){
+  function navigate(hash,{keepScroll=false,focus=null,savedSnapshot=null,scrollToFocus=false}={}){
     if(hash==='#main'){document.getElementById('main').focus();return;}
-    remember();const prior=location.hash||'#/';const prev=snapshot();const next={...prev,scroll:keepScroll?prev.scroll:0,focus:focus||null};
-    history.pushState({hub:true,snapshot:next,returnHash:prior,returnLabel:document.getElementById('page-title')?.textContent||'previous reading'},'',hash);
-    lastHash=location.hash;render(keepScroll?next:undefined);
+    remember();const prior=location.hash||'#/';const prev=snapshot();
+    const next=savedSnapshot||{...prev,overlay:null,modal:null,scrollToFocus,scroll:keepScroll?prev.scroll:0,focus:focus||null};
+    const sourceReturn=M.sourceOrigin(prior,hash,history.state,prev,document.getElementById('page-title')?.textContent);
+    const position=(history.state?.position||0)+1;readingPositions.delete(position);
+    history.pushState({hub:true,position,snapshot:next,sourceReturn},'',hash);
+    lastHash=location.hash;render(keepScroll||savedSnapshot?next:undefined);
+  }
+  function returnTo(origin){
+    if(!origin)return;
+    const delta=origin.position-history.state?.position;
+    if(Number.isInteger(origin.position)&&Number.isInteger(delta)&&delta<0)history.go(delta);
+    else navigate(origin.hash,{savedSnapshot:origin.snapshot});
   }
   function render(saved){
     restoring=true;state.route=M.parseRoute(location.hash);restore(saved);if(dialog.open)dialog.close();modalKind='';
-    const ret=state.route.view==='source'&&history.state?.returnHash?'<div class="return-bar">'+button('← Return to '+history.state.returnLabel,'return')+'<span>Source reading · your task context is retained</span></div>':'';
+    const domain=state.route.params.get('domain'),representation=state.route.params.get('representation');
+    if(D.workDomains.some(x=>x.id===domain))state.workDomain=domain;
+    if(['human','structured','consumed'].includes(representation))state.knowledgeStage=representation;
+    const ret=state.route.view==='source'&&history.state?.sourceReturn?'<div class="return-bar">'+button('← Return to '+history.state.sourceReturn.label,'return')+'<span>Source reading · your task context is retained</span></div>':'';
     app.innerHTML=ret+views.render();
     document.querySelectorAll('.primary-nav a').forEach(a=>{const v=M.parseRoute(a.hash).view;const yes=v===state.route.view;a.toggleAttribute('aria-current',yes);if(yes)a.setAttribute('aria-current','page');});
     document.title=(document.getElementById('page-title')?.textContent||'CLM AI Knowledge Hub')+' · CLM AI';
     document.querySelectorAll('[data-disclosure]').forEach(n=>{const k=n.dataset.disclosure;if(Object.hasOwn(state.disclosures,k))n.open=state.disclosures[k];});
     initNative(app);document.body.classList.remove('menu-open');document.querySelector('[data-action="menu"]').setAttribute('aria-expanded','false');
-    const target=state.route.view==='topic'&&state.route.target?document.getElementById('native-'+state.route.target):state.route.view==='source'&&state.route.params.has('page')?document.getElementById(state.route.params.has('line')?'source-line-'+(Number(state.route.params.get('page'))||0)+'-'+(Number(state.route.params.get('line'))||1):'source-page-'+(Number(state.route.params.get('page'))||0)):null;
+    const sourcePos=M.sourcePosition(window.CLM_SOURCE_TEXTS?.[state.route.id]||[],state.route.params);
+    const target=state.route.view==='topic'&&state.route.target?document.getElementById('native-'+state.route.target):state.route.view==='source'&&(state.route.params.has('page')||state.route.params.has('line'))?document.getElementById(sourcePos.line?'source-line-'+sourcePos.page+'-'+sourcePos.line:'source-page-'+sourcePos.page):null;
     if(target){let n=target;while(n&&n!==app){if(n.tagName==='DETAILS')n.open=true;n=n.parentElement;}}
     requestAnimationFrame(()=>{
-      if(saved){scrollTo(0,saved.scroll||0);focusElement(saved.focus)?.focus({preventScroll:true});}
+      if(saved){scrollTo(0,saved.scroll||0);focusElement(saved.focus)?.focus({preventScroll:true});if(saved.scrollToFocus)focusElement(saved.focus)?.scrollIntoView({block:'start'});}
       else if(target){target.scrollIntoView({block:'start'});target.focus?.({preventScroll:true});}
       else scrollTo(0,0);
       if(!saved?.focus&&!target&&!state.route.params.has('object'))document.getElementById('page-title')?.focus({preventScroll:true});
       const obj=state.route.params.get('object');if(obj)openObject(obj,false);else if(saved?.overlay?.kind==='search'){search();document.getElementById('search-input').value=saved.overlay.query;dialog.querySelectorAll('[data-action=\"search-filter\"]').forEach(n=>n.setAttribute('aria-pressed',String(n.dataset.value===saved.overlay.filter)));searchResults();}else if(saved?.overlay?.kind==='notes')notes();else if(saved?.overlay?.kind==='note')notes(saved.overlay.id);
+      if(saved?.modal&&saved.modal.kind===modalKind){modalReturn=saved.modal.returnFocus;dialog.scrollTop=saved.modal.scroll||0;focusElement(saved.modal.focus)?.focus({preventScroll:true});}
       restoring=false;
     });
   }
@@ -60,10 +75,17 @@
     dialog.innerHTML='<header class="dialog-header"><span id="dialog-title">'+e(title)+'</span><button data-action="close" aria-label="Close">'+icon('close')+'</button></header><div class="dialog-body">'+body+'</div>';
     if(!already)dialog.showModal();dialog.scrollTop=0;dialog.querySelector('h2')?.setAttribute('tabindex','-1');(dialog.querySelector('h2')||dialog.querySelector('button')).focus();
   }
-  function closeDialog(){const was=modalKind;dialog.close();modalKind='';if(was==='object'&&state.route.params.has('object')){history.replaceState({...history.state,hub:true},'',routeWith('object',null));lastHash=location.hash;state.route=M.parseRoute(location.hash);}const target=focusElement(modalReturn)||document.getElementById('page-title');target?.focus({preventScroll:true});remember();}
-
+  function closeDialog(){
+    if(modalKind==='object'&&history.state?.objectReturn){returnTo(history.state.objectReturn);return;}
+    const was=modalKind;dialog.close();modalKind='';
+    if(was==='object'&&state.route.params.has('object')){history.replaceState({...history.state,hub:true},'',routeWith('object',null));lastHash=location.hash;state.route=M.parseRoute(location.hash);}
+    const target=focusElement(modalReturn)||document.getElementById('page-title');target?.focus({preventScroll:true});remember();
+  }
   function openObject(id,push=true){const o=D.objects[id];if(!o){announce('This object is unavailable.');return;}
-    if(push){remember();history.pushState({hub:true,snapshot:snapshot(),returnHash:location.hash},'',routeWith('object',id));lastHash=location.hash;state.route=M.parseRoute(location.hash);}
+    if(push){remember();const prior=snapshot();const objectReturn={hash:location.hash||'#/',position:history.state?.position??null,snapshot:prior};
+      const position=(history.state?.position||0)+1;readingPositions.delete(position);
+      history.pushState({hub:true,position,snapshot:{...prior,overlay:null,modal:null},sourceReturn:history.state?.sourceReturn||null,objectReturn},'',routeWith('object',id));lastHash=location.hash;state.route=M.parseRoute(location.hash);
+    }
     const panel=state.route.params.get('panel');showDialog('object',o.type,X.dossier(o,['definition','relationships','evidence','history'].includes(panel)?panel:'definition'));
   }
   function download(name,value,type='application/json'){const content=typeof value==='string'?value:JSON.stringify(value,null,2);const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type}));a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),3000);announce('Export prepared.');}
@@ -74,10 +96,10 @@
   for(const p of Object.values(D.paths))index.push({kind:'Use case',title:p.label,text:p.lead+' '+p.eyebrow,href:'#/work/'+p.id,context:p.eyebrow});
   index.push({kind:'Use case',title:'Incomplete onboarding handoff',text:'Independent synthetic change transfer: source, interpretation, instruction, requirement, test and evidence',href:'#/work/change?case=handoff',context:'Govern / change CLM · synthetic transfer'});
   const searchKinds=['All','Requirement','Field','Instruction','Method','Evidence','Use case','Topic','Source'];
-  for(const source of D.sources)for(const [page,text] of (window.CLM_SOURCE_TEXTS?.[source.id]||[]).entries())index.push({kind:'Source',title:source.title+(source.id==='strategy'?' · page '+(page+1):' · full text'),text,href:'#/source/'+source.id+'?page='+page,sourcePage:page,context:'Supplied text extraction · '+source.kind});
+  for(const source of D.sources)for(const [page,text] of (window.CLM_SOURCE_TEXTS?.[source.id]||[]).entries())index.push({kind:'Source',title:source.title+(source.id==='strategy'?' · page '+(page+1):' · full text'),text,href:'#/source/'+source.id+'?page='+page,sourcePage:page,sourceId:source.id,context:'Supplied text extraction · '+source.kind});
   function excerpt(text,query){const clean=M.plain(text),word=query.trim().split(/\s+/)[0]?.toLowerCase()||'',at=clean.toLowerCase().indexOf(word),start=Math.max(0,at-70);return (start?'…':'')+clean.slice(start,start+230)+'…';}
   function search(){showDialog('search','Search the Hub','<div class="search-product-heading"><p class="eyebrow">Search & discovery</p><h2>Find the context behind the work.</h2><p>Keyword matching across full topics, source records and typed objects.</p></div><label class="sr-only" for="search-input">Search the Hub</label><div class="search-head">'+icon('search')+'<input type="search" id="search-input" placeholder="Try a field, requirement, instruction or topic…" autocomplete="off"></div><div class="search-filters" role="group" aria-label="Search type">'+searchKinds.map(x=>'<button data-action="search-filter" data-value="'+x+'" aria-pressed="'+(x==='All')+'">'+e(x==='All'?'All':x==='Use case'?'Use cases':x==='Evidence'?'Evidence':x+'s')+'</button>').join('')+'</div><div class="search-results" id="search-results" aria-live="polite"><p>Search a concept, stable identity or phrase. Select a result to read in context.</p></div>','search-dialog');document.getElementById('search-input').focus();}
-  function searchResults(){const q=document.getElementById('search-input').value,filter=dialog.querySelector('[data-action="search-filter"][aria-pressed="true"]')?.dataset.value||'All';const results=M.search(index.filter(x=>filter==='All'||(filter==='Topic'?['Topic','Chapter'].includes(x.kind):x.kind===filter)),q);const groups=[...new Set(results.map(x=>x.kind))];document.getElementById('search-results').innerHTML=!q.trim()?'<p>Search a concept, stable identity or phrase. Select a result to read in context.</p>':!results.length?'<p>No match. Try a shorter phrase or another object type.</p>':'<p class="search-count">'+results.length+(results.length===45?' leading':'')+' matching records · lexical search</p>'+groups.map(kind=>'<section class="search-group"><h3>'+e(kind==='Chapter'?'Chapters':kind)+'</h3>'+results.filter(x=>x.kind===kind).map(x=>'<'+(x.object?'button data-action="object" data-value="'+e(x.object)+'"':'a href="'+e(x.href)+'"')+' class="search-result"><span class="result-type">'+e(x.kind)+'</span><span><small>'+e(x.context)+'</small><strong>'+e(x.title)+'</strong><p>'+e(excerpt(x.text,q))+'…</p></span>'+icon('arrow')+'</'+(x.object?'button':'a')+'>').join('')+'</section>').join('');}
+  function searchResults(){const q=document.getElementById('search-input').value,filter=dialog.querySelector('[data-action="search-filter"][aria-pressed="true"]')?.dataset.value||'All';const results=M.search(index.filter(x=>filter==='All'||(filter==='Topic'?['Topic','Chapter'].includes(x.kind):x.kind===filter)),q);const groups=[...new Set(results.map(x=>x.kind))];document.getElementById('search-results').innerHTML=!q.trim()?'<p>Search a concept, stable identity or phrase. Select a result to read in context.</p>':!results.length?'<p>No match. Try a shorter phrase or another object type.</p>':'<p class="search-count">'+results.length+(results.length===45?' leading':'')+' matching records · lexical search</p>'+groups.map(kind=>'<section class="search-group"><h3>'+e(kind==='Chapter'?'Chapters':kind)+'</h3>'+results.filter(x=>x.kind===kind).map(x=>'<'+(x.object?'button data-action="object" data-value="'+e(x.object)+'"':'a href="'+e(x.sourceId?'#/source/'+encodeURIComponent(x.sourceId)+'?page='+x.sourcePage+'&line='+M.matchingSourceLine(x.text,q):x.href)+'"')+' class="search-result"><span class="result-type">'+e(x.kind)+'</span><span><small>'+e(x.context)+'</small><strong>'+e(x.title)+'</strong><p>'+e(excerpt(x.text,q))+'</p></span>'+icon('arrow')+'</'+(x.object?'button':'a')+'>').join('')+'</section>').join('');}
   function notes(id){if(!id){showDialog('notes','Your local notes','<h2>Keep your reading context.</h2><p>Notes stay in this browser. They are personal working notes, not approved knowledge or an institutional record.</p><div class="actions">'+button('Note on this reading','note',location.hash||'#/','btn')+button('Export all notes','notes-export')+'</div>'+Object.entries(state.notes).filter(([,v])=>v.text).map(([k,v])=>'<article class="local-note"><small>'+e(k)+'</small><p>'+e(v.text)+'</p>'+button('Edit note','note',k)+'</article>').join(''));return;}
     showDialog('note','Local working note','<h2>Note on this context</h2><p class="small">'+e(id)+'</p><label class="note-field" for="note-text">Your note</label><textarea id="note-text" data-note-id="'+e(id)+'" maxlength="12000">'+e(state.notes[id]?.text||'')+'</textarea><p class="note-status" id="note-status">Saved locally as you type. Export before moving devices.</p><div class="actions">'+button('Export this note','note-export',id)+button('All notes','notes')+'</div>');document.getElementById('note-text').focus();
   }
@@ -111,13 +133,13 @@
     if(action==='chapter-export'){const c=N.chapters.find(c=>c.id===v);download(v+'.txt',c.title+'\n\n'+M.plain(c.html)+'\n\nSource: '+N.sourceSha256,'text/plain');return;}
     if(action==='decision-export'){download('CLM_bounded_decision.txt','Proposed bounded reuse test\n\n'+M.plain(app.innerHTML)+'\n\nExported: '+new Date().toISOString(),'text/plain');return;}
     if(action==='copy-link'){try{await navigator.clipboard.writeText(location.href);announce('Link copied.');}catch{download('CLM_link.txt',location.href,'text/plain');}return;}
-    if(action==='return'){history.back();return;}
+    if(action==='return'){returnTo(history.state?.sourceReturn);return;}
     if(action==='theme'){theme={system:'light',light:'dark',dark:'system'}[theme];applyTheme();saveLocal('clm-ai-settings',{theme});announce('Theme: '+theme);return;}
     if(action==='presentation'){const on=document.body.classList.toggle('presentation');b.setAttribute('aria-pressed',String(on));announce(on?'Presentation view on.':'Presentation view off.');return;}
     if(action==='menu'){const on=document.body.classList.toggle('menu-open');b.setAttribute('aria-expanded',String(on));return;}
     if(action==='inspector-tab'){if(!['definition','relationships','evidence','history'].includes(v))return;history.replaceState({...history.state,hub:true},'',routeWith('panel',v));lastHash=location.hash;state.route=M.parseRoute(location.hash);openObject(state.route.params.get('object'),false);dialog.querySelector('[data-action="inspector-tab"][data-value="'+v+'"]')?.focus({preventScroll:true});return;}
-    if(action==='work-domain'){if(!D.workDomains.some(x=>x.id===v))return;state.workDomain=v;rerender({action,value:v});return;}
-    if(action==='knowledge-stage'){if(!['human','structured','consumed'].includes(v))return;state.knowledgeStage=v;rerender({action,value:v});return;}
+    if(action==='work-domain'){if(!D.workDomains.some(x=>x.id===v))return;navigate(routeWith('domain',v),{keepScroll:true,focus:{action,value:v}});return;}
+    if(action==='knowledge-stage'){if(!['human','structured','consumed'].includes(v))return;navigate(routeWith('representation',v),{keepScroll:true,focus:{action,value:v}});return;}
     if(action==='change-case'){if(!['preparation','handoff'].includes(v))return;navigate(routeWith('case',v),{keepScroll:true,focus:{action,value:v}});return;}
     if(action==='relationship-focus'){if(!D.objects[v])return;navigate('#/relationships/'+encodeURIComponent(v)+'?depth='+(state.route.params.get('depth')==='2'?'2':'1')+'&view='+(state.route.params.get('view')==='list'?'list':'map'));return;}
     if(action==='relationship-depth'){navigate(routeWith('depth',v==='2'?'2':'1'),{keepScroll:true,focus:{action,value:v}});return;}
@@ -125,6 +147,7 @@
     if(action==='anchor'){state.anchor=v;rerender({action,value:v});return;}
     if(action==='subject'){state.subject=v;rerender({action,value:v});return;}
     if(action==='meaning'){navigate('#/knowledge/'+v,{keepScroll:true,focus:{action,value:v}});return;}
+    if(action==='work-continue'){navigate(routeWith('step',v),{keepScroll:true,focus:{id:'task-stage'},scrollToFocus:true});return;}
     if(action==='work-step'){navigate(routeWith('step',v),{keepScroll:true,focus:{action,value:v}});return;}
     if(action==='reset-conditions'){state.flags={...M.defaultFlags};rerender({action,value:v});return;}
     if(action==='chapter-tab'){nativeTab(v,b);return;}
@@ -157,9 +180,11 @@
   dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();});
   dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)closeDialog();}});
   document.addEventListener('keydown',event=>{if((event.metaKey||event.ctrlKey)&&event.key.toLowerCase()==='k'){event.preventDefault();search();}if(event.key==='Escape'&&!dialog.open){document.body.classList.remove('menu-open');document.querySelector('[data-action="menu"]').setAttribute('aria-expanded','false');if(document.body.classList.contains('presentation'))document.querySelector('[data-action="presentation"]').click();}});
-  window.addEventListener('popstate',()=>{lastHash=location.hash;render(history.state?.snapshot);});
+  window.addEventListener('popstate',()=>{lastHash=location.hash;const saved=history.state?.snapshot;render(saved?{...saved,scroll:readingPositions.get(history.state?.position)??saved.scroll}:undefined);});
   window.addEventListener('hashchange',()=>{if(lastHash!==location.hash){lastHash=location.hash;render();}});
+  let scrollSnapshotPending=false;
+  window.addEventListener('scroll',()=>{if(restoring||scrollSnapshotPending)return;scrollSnapshotPending=true;requestAnimationFrame(()=>{scrollSnapshotPending=false;if(!restoring)readingPositions.set(history.state?.position,scrollY);});},{passive:true});
   window.addEventListener('pagehide',remember);
-  if(!history.state?.hub)history.replaceState({hub:true},'',location.hash||'#/');
+  if(!Number.isInteger(history.state?.position))history.replaceState({...history.state,hub:true,position:0},'',location.hash||'#/');
   restore(history.state?.snapshot);render(history.state?.snapshot);
 })();
