@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - v21-design-coherence
+      - v20-visual-system
+      - main
   pull_request:
     branches:
       - v20-visual-system
+      - main
 
 permissions:
   contents: read
@@ -45,7 +48,7 @@ jobs:
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
 
-      - name: Run browser-rendered Design Lab and cross-surface smoke checks
+      - name: Run desktop browser and reading-continuity checks
         run: |
           python3 -m http.server 8000 --directory docs >/tmp/clm-hub-server.log 2>&1 &
           for i in {1..30}; do
