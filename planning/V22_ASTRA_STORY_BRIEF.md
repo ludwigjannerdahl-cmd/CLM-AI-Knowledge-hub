@@ -8,59 +8,91 @@ Read first:
 
 1. `planning/V22_STORY_ARCHITECTURE.md`
 2. the relevant story JSON under `prototypes/v22-composition-lab/stories/`
-3. the reference atlas only for the scene you are improving.
+3. the reference atlas only for the story you are improving.
 
 Use deeper Sensemaking / Visual Grammar / Narrative guidance only when the current design problem requires it.
 
+## Important visual reset
+
+The nine existing golden-scene compositions have been reviewed and **rejected as a visual direction**. They are useful only as semantic/reasoning experiments.
+
+Do not preserve their shared visual grammar. In particular, do not default to:
+
+- cream/beige canvas + dark-green hairlines;
+- small diagram floating in a large empty 1920 canvas;
+- repeated white cards, thin connectors and tiny utility labels;
+- one restrained editorial layout repeated nine ways;
+- dense explanatory text doing the work that the visual should do.
+
+The failure is not polish. The compositions remain too close to a premium strategy deck / calm documentation UI and too far from the supplied reference quality.
+
 ## Task
 
-Turn the existing golden-scene evidence into three coherent story experiences:
+Start with **Useful work first** only.
 
-1. **Useful work first**
-2. **Meaning that can travel**
-3. **Change creates questions**
+Create three genuinely independent production-candidate experiences for the same story and semantic contract. They must differ in visual architecture and medium, not merely rearrange the same components.
 
-Each story must support three native reader states:
+At least:
 
-- **Understand** — authored mental model;
-- **Explore** — spatial / interactive reasoning;
-- **Inspect** — exact source, object, version and evidence.
+- one direction should be immersive/editorial/spatial and use the full 1920×1200 canvas as a visual field;
+- one should be object- and artifact-led, grounded in recognisable CLM work rather than abstract boxes;
+- one should be an analytical interactive surface with strong simultaneous context and inspectability.
 
-The current A/B/C scenes are seeds, not constraints. Recompose, redraw or replace them where needed. Preserve the semantic distinctions, not the current DOM.
+SVG, HTML, Canvas, WebGL, generative illustration or combinations are all allowed where they improve comprehension. Choose the medium from the reasoning job.
+
+Do not build the other two stories until one Useful-work direction clearly reaches the visual bar.
 
 ## Visual bar
 
-The supplied/generated boards show the ambition: authored composition, meaningful illustration, material differences, scale variation, strong typography and calm information density. Do not copy their generated facts or UI literally.
+The supplied/generated reference boards are the acceptance target for hierarchy, ambition, materiality, spatial composition and memorability. They are not factual authority and should not be copied literally.
 
-Several current golden scenes are still too pale, sparse and text-led. Fix the composition, not only the CSS.
+A successful first frame should have:
+
+- one unmistakable visual idea;
+- a dominant composition that occupies most of the viewport rather than a small centred diagram;
+- typography used as part of the spatial composition, not only as labels;
+- meaningful material differences between source, context, work artifact, human judgement, evidence and operating condition;
+- richer visual objects: document fragments, traces, inspectors, annotations, spatial fields or other bespoke explanatory forms;
+- less prose in the first frame; detail should emerge through interaction, inspection or narrative progression;
+- enough contrast and scale that the primary mechanism is understandable from normal desktop viewing distance;
+- a memorable image or interaction that a reader could describe afterwards.
+
+The test is not “is this elegant?” The test is:
+
+> Would this screenshot plausibly belong among the best supplied reference images without explanation or apology?
+
+If not, reject it and rebuild the composition.
 
 ## Interaction
 
-Use interaction only when it teaches a relationship, condition, boundary or consequence. Prefer direct manipulation and persistent context over decorative motion.
+Interaction must materially change what the reader can understand.
 
-Examples worth testing:
+Prefer interactions that reconfigure relationships, conditions or consequences:
 
-- a story step changes the active visual projection;
-- a selected work route changes context, output and responsibility together;
-- removing context leaves a task packet visibly incomplete;
-- introducing a revision changes candidate impact while historical evidence remains pinned;
-- a story step deep-links into the exact related object/source/evidence.
+- choosing Run / Develop / Change changes context, contribution, output and responsibility together;
+- selecting a work artifact reveals its source/context/evidence without navigating away;
+- changing an operating condition opens or closes only the affected route;
+- removing context leaves the work visibly incomplete;
+- moving from Understand to Explore preserves the same semantic anchors instead of loading a different-looking product.
+
+Do not count tabs, accordions, hover states or decorative animation as meaningful interaction.
 
 ## 1920 first
 
-Design and judge at 1920×1200. Use width for simultaneous context, not extra margins.
+Design and judge at **1920×1200**. Use the width for simultaneous context and large visual storytelling, not wider margins.
 
-## Done
+## Done for the next gate
 
-For each story:
+For **Useful work first**:
 
-- the governing claim can be reconstructed after the guided sequence;
-- Understand / Explore / Inspect feel like one product, not three sites;
-- at least one substantial visual revision has been made after comparison with the reference atlas;
-- the story has URL-addressable state;
+- three materially different visual architectures exist;
+- at least two are explicitly rejected with reasons;
+- the strongest one is materially revised after side-by-side comparison with the reference atlas;
+- the revised direction passes the semantic contract without relying on small-print prose to correct the visual;
+- its primary interaction teaches the governing mechanism;
 - keyboard and reduced-motion meaning remain intact;
-- browser renders are inspected, not merely generated;
+- browser renders are inspected at 1920×1200;
 - no console/page errors or horizontal overflow;
-- no production propagation occurs yet.
+- no production propagation occurs.
 
-Do not build a generic story engine or component library before these three story experiences work.
+Do not extract a design system, generic story engine or component library yet. Do not proceed to the other stories merely because the first implementation runs.
