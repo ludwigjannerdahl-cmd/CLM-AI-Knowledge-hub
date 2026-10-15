@@ -21,11 +21,11 @@
     if(Object.hasOwn(old,raw))raw=old[raw];
     if(raw.startsWith('sec-'))raw='/topic/'+raw;
     if(raw.startsWith('library/'))raw='/topic/'+raw.slice(8);
-    if(raw.startsWith('examples/'))raw='/work/'+({kaicy:'preparation',fenx:'development',amlr:'change'}[raw.slice(9)]||'preparation');
+    if(raw.startsWith('examples/'))raw='/work/'+({kaicy:'preparation',fenx:'development',amlr:'change'}[raw.slice(9)]||raw.slice(9));
     const [path='/',query='']=raw.split('?');
     let parts;try{parts=path.split('/').filter(Boolean).map(decodeURIComponent);}catch{parts=[];}
     const q=new URLSearchParams(query),view=parts[0]||'overview';
-    if(!['overview','work','knowledge','conditions','next','topics','topic','source','scope','about'].includes(view))return {view:'not-found',id:parts[0],params:q,path};
+    if(!['overview','work','knowledge','conditions','next','topics','topic','source','scope','about','relationships','evidence'].includes(view))return {view:'not-found',id:parts[0],params:q,path};
     return {view,id:parts[1]||'',target:parts[2]||'',params:q,path:path||'/'};
   }
   function routeForTopic(chapter,target=''){return '#/topic/'+encodeURIComponent(chapter)+(target?'/'+encodeURIComponent(target):'');}
@@ -51,5 +51,14 @@
   function safeWrite(getStorage,key,value){try{getStorage().setItem(key,JSON.stringify(value));return true;}catch{return false;}}
   function normalizeNotes(value){if(!value||typeof value!=='object'||Array.isArray(value))return {};return Object.fromEntries(Object.entries(value).filter(([id,n])=>id.length<300&&n&&typeof n.text==='string').map(([id,n])=>[id,{text:n.text.slice(0,12000),updatedAt:typeof n.updatedAt==='string'?n.updatedAt:null}]));}
   function changeImpact(changed){return {instruction:changed?'INS-01@2':'INS-01@1',affected:changed?['REQ-01@1','MAP-01@1','TEST-01@1']:[],evidence:{id:'EVID-01@1',instruction:'INS-01@1',result:null,currentCoverage:changed?'Not established for version 2':'No observed result supplied'}};}
-  root.CLM_HUB_MODEL={escape,defaultFlags,normalizeFlags,assessConditions,parseRoute,routeForTopic,prepareChapter,chapterMarkup,plain,search,safeRead,safeWrite,normalizeNotes,changeImpact};
+  function objectKind(o){const t=o.type.toLowerCase();return t.includes('requirement')?'Requirement':t.includes('instruction')?'Instruction':t.includes('field')?'Field':t.includes('evidence')?'Evidence':t.includes('test')?'Test':t.includes('method')?'Method':t.includes('source')?'Source':t.includes('observation')?'Observation':'Object';}
+  function relationshipGraph(id,depth=1){
+    if(!D.objects[id])return {selected:null,nodes:[],edges:[]};
+    const all=Object.values(D.objects).flatMap(o=>o.links.map(([label,target])=>({source:o.id,target,label})));
+    const distance=new Map([[id,0]]),limit=depth===2?2:1;
+    for(let hop=0;hop<limit;hop++)for(const edge of all){if(distance.get(edge.source)===hop&&!distance.has(edge.target))distance.set(edge.target,hop+1);if(distance.get(edge.target)===hop&&!distance.has(edge.source))distance.set(edge.source,hop+1);}
+    const edges=all.filter(edge=>distance.has(edge.source)&&distance.has(edge.target)&&(distance.get(edge.source)<limit||distance.get(edge.target)<limit));
+    return {selected:id,nodes:[...distance].map(([key,hop])=>({id:key,hop})).sort((a,b)=>a.hop-b.hop||a.id.localeCompare(b.id)),edges};
+  }
+  root.CLM_HUB_MODEL={escape,defaultFlags,normalizeFlags,assessConditions,parseRoute,routeForTopic,prepareChapter,chapterMarkup,plain,search,safeRead,safeWrite,normalizeNotes,changeImpact,objectKind,relationshipGraph};
 })(typeof window!=='undefined'?window:globalThis);

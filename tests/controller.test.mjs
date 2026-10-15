@@ -27,10 +27,10 @@ function host(hash){
   const history={scrollRestoration:'auto',get state(){return historyState;},replaceState(s,_,url){historyState=structuredClone(s);current=new URL(url,current);},pushState(s,_,url){historyState=structuredClone(s);current=new URL(url,current);}};
   const ctx={URL,URLSearchParams,Date,console,document,history,crypto:{randomUUID:()=> 'host-check'},location:{get hash(){return current.hash;},get href(){return current.href;}},localStorage:{getItem(k){return saved.get(k)??null;},setItem(k,v){saved.set(k,v);}},matchMedia:()=>({matches:false,addEventListener(){}}),requestAnimationFrame:fn=>frames.push(fn),scrollTo:()=>{},scrollY:0,setTimeout:()=>{},navigator:{},addEventListener:(type,fn)=>{handlers[type]=fn;}};
   ctx.window=ctx;vm.createContext(ctx);
-  for(const f of ['data','scoping','model'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
+  for(const f of ['data','explanation-data','scoping','model'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
   const chapters=JSON.parse(readFileSync(new URL('../src/chapters.json',import.meta.url),'utf8'));chapters.portfolio={};ctx.CLM_HUB_CHAPTERS=chapters;
   ctx.CLM_SOURCE_TEXTS={};
-  for(const f of ['views','app'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
+  for(const f of ['explanations','views','app'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
   function flush(){while(frames.length)frames.shift()();}
   flush();
   return {app,dialog,focus,scroll,history,handlers,flush,document,ctx,async action(action,value=''){const b={dataset:{action,value}};await handlers.click({target:{closest:s=>s==='[data-action]'?b:null}});flush();}};
@@ -55,3 +55,6 @@ test('The real scoping template transitions from unresolved to an advisory resul
   assert.match(env.app.innerHTML,/Record advisory amendment/);
   assert.doesNotMatch(env.app.innerHTML,/Incomplete scope/);
 });
+test('Changing a work step retains the independent case in the controller URL',async()=>{const env=host('#/work/change?case=handoff');await env.action('work-step','impact');assert.match(env.ctx.location.hash,/case=handoff/);assert.match(env.ctx.location.hash,/step=impact/);assert.match(env.app.innerHTML,/CHG-INS/);assert.doesNotMatch(env.app.innerHTML,/Introduce version 2/);});
+test('Overview selections reveal distinct work and literal context specimens',async()=>{const env=host('#/');assert.match(env.app.innerHTML,/Onboarding/);await env.action('work-domain','develop');assert.match(env.app.innerHTML,/A requirement with acceptance logic/);await env.action('knowledge-stage','structured');assert.match(env.app.innerHTML,/individualSourceOfWealth/);assert.match(env.app.innerHTML,/current lookup unresolved/);});
+test('Unknown work, meaning and change identities do not silently select another case',()=>{for(const hash of ['#/work/missing','#/knowledge/missing','#/work/change?case=missing','#examples/missing'])assert.match(host(hash).app.innerHTML,/Page not found/);});

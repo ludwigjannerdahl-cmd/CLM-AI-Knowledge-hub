@@ -1,0 +1,12 @@
+{
+  "sourceVersion": "20.0.0",
+  "archive": "CLM_AI_Knowledge_Hub_V20.zip",
+  "scope": "Clean-extraction source rebuild and static checks; no browser",
+  "manifest": "passed",
+  "rebuild": "passed",
+  "testsPassed": 26,
+  "routeStates": 208,
+  "htmlStates": 557,
+  "htmlIssues": 0,
+  "generatedBytes": "identical"
+}
