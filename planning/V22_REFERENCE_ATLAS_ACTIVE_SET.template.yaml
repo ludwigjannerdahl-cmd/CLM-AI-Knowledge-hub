@@ -1,0 +1,14 @@
+scene_id: overview|knowledge|change
+active_references:
+  - reference_id: supplied-board-1
+    source_url: conversation_builder_input
+    learn_this: ''
+    do_not_copy: ''
+    specific_region_of_interest: ''
+  - reference_id: external-1
+    source_url: ''
+    learn_this: ''
+    do_not_copy: ''
+    specific_region_of_interest: ''
+max_active_references: 6
+rule: Use the smallest reference set that makes the quality bar and intended mechanism clear. Do not average many styles.
