@@ -1,0 +1,86 @@
+name: V22 govern change review
+
+on:
+  push:
+    branches:
+      - v22-visual-ambition
+    paths:
+      - '.github/workflows/v22-govern-review.yml'
+      - 'src/**'
+      - 'scripts/**'
+  pull_request:
+    branches:
+      - v21-design-coherence
+    paths:
+      - '.github/workflows/v22-govern-review.yml'
+      - 'src/**'
+      - 'scripts/**'
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm run build
+      - run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Capture baseline, proposed revision and impact step
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports/govern-v22
+          python3 -m http.server 8010 --directory docs >/tmp/govern-v22-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8010/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs/promises';
+          const browser=await chromium.launch({headless:true});
+          const context=await browser.newContext({viewport:{width:1600,height:1100},colorScheme:'light',reducedMotion:'reduce'});
+          const page=await context.newPage();
+          const errors=[];
+          page.on('pageerror',e=>errors.push(String(e)));
+          await page.goto('http://127.0.0.1:8010/#/work/change?case=handoff',{waitUntil:'networkidle'});
+          await page.screenshot({path:'reports/govern-v22/01-baseline.png',fullPage:true});
+
+          const proposed=page.getByLabel(/Show proposed handoff revision/i);
+          if(await proposed.count()!==1) throw new Error('Expected one proposed-handoff control');
+          await proposed.check();
+          await page.waitForTimeout(250);
+          await page.screenshot({path:'reports/govern-v22/02-proposed-revision.png',fullPage:true});
+
+          const next=page.getByText(/Next: Identify affected work/i,{exact:false});
+          if(await next.count()){
+            await next.first().click();
+            await page.waitForTimeout(250);
+            await page.screenshot({path:'reports/govern-v22/03-impact-step.png',fullPage:true});
+          }
+
+          const metrics=await page.evaluate(()=>({
+            scrollWidth:document.documentElement.scrollWidth,
+            clientWidth:document.documentElement.clientWidth,
+            h1:document.querySelector('h1')?.textContent?.trim()||'',
+            bodyText:document.body.innerText.includes('Potentially affected')||document.body.innerText.includes('affected work')
+          }));
+          await fs.writeFile('reports/govern-v22/GOVERN_RENDER.json',JSON.stringify({errors,metrics},null,2));
+          if(errors.length||metrics.scrollWidth>metrics.clientWidth) throw new Error(JSON.stringify({errors,metrics}));
+          await browser.close();
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v22-govern-change-renders
+          path: reports/govern-v22
+          retention-days: 30
