@@ -3,9 +3,50 @@
   "title": "Useful work first",
   "governing_claim": "AI contribution in CLM is useful only in relation to a defined task, its context, its reviewer and its operating conditions.",
   "memory_handle": "Work → context → contribution → review → evidence → reuse",
+  "anchor_case": {
+    "source_excerpt": "CLIENT [14]: “I sold my company in 2024.”",
+    "source_scope": "Synthetic teaching specimen",
+    "object_ids": [
+      "INS-01@1",
+      "CTX-FENX@2026-08-18",
+      "METHOD-01@1",
+      "OBS-01@1",
+      "REQ-01@1",
+      "MAP-01@1",
+      "TEST-01@1",
+      "EVID-01@1",
+      "REUSE-01@1",
+      "INS-01@2"
+    ],
+    "known": [
+      "A company sale in 2024 is stated in the supplied line.",
+      "The source pointer is line 14.",
+      "The reported event can be prepared as a candidate wealth-origin event for the NP-client subject."
+    ],
+    "unresolved": [
+      "Amount / proceeds",
+      "Supporting evidence / corroboration",
+      "Current categorical NP lookup value",
+      "Source date",
+      "Verification outcome",
+      "Plausibility judgement"
+    ]
+  },
+  "competency_questions": [
+    "What exact CLM task is being performed?",
+    "Which source, instruction and context objects inform it?",
+    "What does the AI actually do to the material?",
+    "What concrete reviewable output is produced?",
+    "What remains unknown or unresolved?",
+    "What does the human reviewer still have to judge?",
+    "Which operating condition would change what the AI can do next?",
+    "What evidence exists and what evidence is missing?",
+    "What could potentially be reused in another task?",
+    "What additional checks are required before that reuse?"
+  ],
   "reader_success": [
-    "Explain what AI is helping with in representative CLM work.",
-    "Identify where human review and authorised action remain.",
+    "Explain what AI is helping with in representative CLM work using the concrete source-to-output specimen.",
+    "Identify where human review and authorised action remain and what the reviewer actually checks.",
     "Distinguish supplied-input work from live-data or shared-service conditions.",
     "Explain why a useful task output is not automatically reusable institutional context."
   ],
@@ -18,60 +59,93 @@
   "steps": [
     {
       "id": "work",
-      "claim": "Start with the work, not the model.",
-      "intent": "locate",
-      "focus": [],
-      "salient": "Run CLM, Develop CLM and Govern/change CLM use different work verbs and produce different reviewable artifacts.",
-      "hold_fixed": "No claim that these routes are automated or uniformly implemented.",
+      "claim": "One source statement can create different kinds of CLM work.",
+      "intent": "compare",
+      "focus": ["INS-01@1", "OBS-01@1", "REQ-01@1", "INS-01@2"],
+      "salient": "Use the same source specimen to contrast Run CLM preparation, Develop CLM requirement/test work and Govern/change impact review.",
+      "required_detail": [
+        "Show the source statement itself.",
+        "Show the different work verbs and the different reviewable artifacts they produce.",
+        "Keep the same semantic anchors visible across the three modes."
+      ],
+      "hold_fixed": "No claim that these routes are automated, exhaustive or uniformly implemented.",
       "false_inference_risk": "Three routes may be mistaken for a complete CLM process taxonomy.",
       "handoff": "explore:overview"
     },
     {
       "id": "context",
-      "claim": "Useful work depends on explicit context.",
+      "claim": "Context changes what a source statement means in the task.",
       "intent": "explain",
-      "focus": ["INS-01@1", "CTX-FENX@2026-08-18", "METHOD-01@1"],
-      "salient": "Rules/instructions, process-system meaning and methods inform a bounded task.",
+      "focus": ["INS-01@1", "CTX-FENX@2026-08-18", "METHOD-01@1", "OBS-01@1"],
+      "salient": "Show instruction, subject/field meaning and method beside the source line so the reader can see why the output is bounded rather than free-form extraction.",
+      "required_detail": [
+        "Natural-person client / related-party / legal-entity field distinctions.",
+        "Candidate event field sourceOfWealthSignificantEvent.",
+        "Current categorical NP lookup remains unresolved.",
+        "Field meaning is not the same thing as a live operational interface."
+      ],
       "hold_fixed": "Context is not generic model memory and document presence is not permission.",
       "false_inference_risk": "A shared context layer could be read as one centrally approved architecture.",
       "handoff": "inspect:CTX-FENX@2026-08-18"
     },
     {
       "id": "contribution",
-      "claim": "AI prepares work; it does not inherit institutional authority.",
-      "intent": "compare",
-      "focus": ["METHOD-01@1", "OBS-01@1", "REQ-01@1", "TEST-01@1"],
-      "salient": "Preparation, analysis, drafting, comparison and testing are contributions with different outputs.",
+      "claim": "AI contribution is visible in the transformation, not in an abstract capability label.",
+      "intent": "trace",
+      "focus": ["METHOD-01@1", "OBS-01@1", "REQ-01@1", "MAP-01@1", "TEST-01@1"],
+      "salient": "Trace identify → map cautiously → cite → expose gaps → review for preparation, and instruction → requirement → mapping → adverse test for development.",
+      "required_detail": [
+        "Prepared observation keeps the source pointer.",
+        "Amount/supporting evidence/lookup/source date remain unresolved.",
+        "Requirement preserves absent amount as absent.",
+        "Adverse tests include wrong party, guessed lookup, invented proceeds and verification inferred from transcript alone."
+      ],
       "hold_fixed": "Human responsibility and authoritative action remain explicit.",
       "false_inference_risk": "Prepared output may look like an approved decision if review is visually downstream only.",
       "handoff": "inspect:METHOD-01@1"
     },
     {
       "id": "review",
-      "claim": "Review is part of the work, not a governance sticker at the end.",
+      "claim": "Human review has specific questions, not a generic approval icon.",
       "intent": "challenge",
-      "focus": ["OBS-01@1", "REQ-01@1"],
-      "salient": "The responsible colleague checks source fidelity, subject, gaps, intended behaviour and next action.",
+      "focus": ["OBS-01@1", "REQ-01@1", "TEST-01@1", "EVID-01@1"],
+      "salient": "Expose the actual review questions: source fidelity, correct subject, explicit gaps, intended behaviour, adverse cases and whether observed evidence exists.",
+      "required_detail": [
+        "No verification or plausibility judgement is inferred from the transcript.",
+        "No observed test run is supplied.",
+        "Implementation version, observer and run date are not supplied."
+      ],
       "hold_fixed": "No approval owner is invented where the source model does not provide one.",
       "false_inference_risk": "A single review seam could imply the same reviewer or control pattern for every task.",
       "handoff": "explore:overview"
     },
     {
       "id": "conditions",
-      "claim": "What is possible depends on the actual operating conditions.",
+      "claim": "The next possible action depends on the actual operating route.",
       "intent": "diagnose",
       "focus": ["CTX-FENX@2026-08-18", "DATA-01@proposal"],
-      "salient": "Supplied-input work, live retrieval, shared operation and record change require different conditions.",
+      "salient": "Show supplied material, live interface, identity/permission, read route, write route and tested consumption as separate conditions rather than a single maturity state.",
+      "required_detail": [
+        "Supplied-document work can proceed without a live interface.",
+        "Interface existence does not imply identity or permission.",
+        "Read access does not imply an authorised write route.",
+        "A document in a library is not automatically a tested executable consumption route."
+      ],
       "hold_fixed": "A runtime, interface, permission and write route remain distinct conditions.",
       "false_inference_risk": "Opening one route may be read as granting unrelated access or authority.",
       "handoff": "explore:conditions"
     },
     {
       "id": "reuse",
-      "claim": "The next use is a separate decision.",
+      "claim": "Useful output becomes reusable context only after another explicit review.",
       "intent": "decide",
       "focus": ["REUSE-01@1", "DATA-01@proposal", "INS-01@1", "METHOD-01@1"],
-      "salient": "Selected instructions, knowledge or methods need applicability, ownership, maintenance and permitted consumption before another task relies on them.",
+      "salient": "Make the next-use questions visible: meaning, applicability, authority, ownership, maintenance and permitted consumption.",
+      "required_detail": [
+        "Candidate reuse may include selected instruction, field knowledge or method — not every output.",
+        "Ownership is not assigned in the supplied context.",
+        "Acceptance for this task does not imply approval for another task."
+      ],
       "hold_fixed": "Acceptance for the present task does not imply approval for reuse.",
       "false_inference_risk": "A return loop could be mistaken for an automatic compounding flywheel.",
       "handoff": "inspect:REUSE-01@1"
