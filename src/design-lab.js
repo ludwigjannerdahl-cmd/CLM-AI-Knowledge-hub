@@ -21,7 +21,7 @@
     const create=V.create.bind(V);
     V.create=function(deps){
       const base=create(deps),lab=createLab(deps),render=base.render.bind(base);
-      return {...base,designLab:lab,render(){return deps.state.route.view===LAB_VIEW?lab.render():render();}};
+      return {...base,designLab:lab,render(){if(deps.state.route.view===LAB_VIEW){queueMicrotask(()=>lab.wireAudit());return lab.render();}return render();}};
     };
     root.__CLM_DESIGN_LAB_INSTALLED=true;
     return true;
