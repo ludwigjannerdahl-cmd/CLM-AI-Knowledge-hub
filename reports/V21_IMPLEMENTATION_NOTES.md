@@ -39,7 +39,7 @@ This avoids a second mock-up runtime and means component/state failures found in
 
 ## Build and structural checks
 
-`scripts/build.mjs` now preserves the required load order in both modular and standalone output.
+`scripts/build.mjs` preserves the required load order in both modular and standalone output.
 
 `scripts/check.mjs` is extended to:
 
@@ -51,8 +51,25 @@ This avoids a second mock-up runtime and means component/state failures found in
 - execute readable / structured / consumed Lab variants;
 - include Design Lab coverage in the structure report.
 
-## Evidence status
+A branch-scoped workflow, `.github/workflows/v21-validate.yml`, now runs the actual build and checks without publishing or changing repository access.
 
-The edited JavaScript was syntax-checked before commit. This environment does not provide the repository checkout required to run the full build/test/check/package sequence after the GitHub changes, and it does not establish browser-rendered quality, native keyboard/history behaviour or reader comprehension.
+## Validation evidence
 
-Those remain separate acceptance gates. The branch should stay draft until the full repository build and rendered/reader checks are performed.
+GitHub Actions run `38744037359` on commit `a511e39667dac068023393f3302284e2b0c3f2de` completed successfully.
+
+The following steps passed in the repository checkout:
+
+- static build;
+- model and controller tests;
+- route and semantic structure checks, including the Design Lab route and live specimens;
+- generated HTML audit.
+
+The workflow has read-only repository permissions and does not deploy or commit generated output.
+
+## Remaining evidence gates
+
+The successful CI run establishes source/build/model integrity for this V21 enhancement. It does **not** establish browser-rendered visual quality, native keyboard/history behaviour, responsive composition quality or reader comprehension.
+
+Those remain separate acceptance gates. The branch should stay draft until rendered comparison and reader testing are complete.
+
+The V20 base advanced to V20.1 during this work, so the stacked V21 branch also needs to be reconciled with that newer base before merge. Do not treat the passing V21 CI run as evidence that the branch already includes the V20.1 reading-continuity changes.
