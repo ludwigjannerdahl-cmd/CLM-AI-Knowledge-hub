@@ -18,7 +18,7 @@ The page includes the illustrated overview, three worked paths, contextual full-
 
 The generated site is prepared under **`docs/`**, with relative assets, fragment routes and `.nojekyll`. No workflow, dependency installation or framework hosting is required.
 
-The existing publication uses **`main` → `/docs`** at [CLM AI Knowledge Hub](https://ludwigjannerdahl-cmd.github.io/CLM-AI-Knowledge-hub/). The repository and site are public. The user authorised the reviewed V21 → V20 → main merge and deployment sequence. This work changes neither Pages configuration nor repository visibility or access. Generated output must match source before merging.
+The existing Pages workflow publishes the **repository root on `main`** at [CLM AI Knowledge Hub](https://ludwigjannerdahl-cmd.github.io/CLM-AI-Knowledge-hub/). The repository and site are public. The user authorised the reviewed V21 → V20 → main merge and deployment sequence. This work changes neither Pages configuration nor repository visibility or access. The generated root `index.html` preserves the query and fragment while opening `docs/`; the root `.nojekyll` keeps source downloads literal. This corrects the prior root page, which displayed the README rather than the application. Generated output must match source before merging.
 
 Official setup reference: <https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site>.
 

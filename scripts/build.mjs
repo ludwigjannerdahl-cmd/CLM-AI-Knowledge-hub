@@ -27,4 +27,8 @@ await writeFile(join(out,'OPEN_ME_FIRST.html'),standalone);
 // Explicit distribution allowlist: no Mentor packet, raw source page, captured history or analytics.
 for(const name of ['SEB_AI_sub_strategy_v1.0.pdf','CLM_AI_Operating_Model_Knowledge_v1.0.md','UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md'])await copyFile(join(root,'sources',name),join(out,'sources',name));
 await writeFile(join(out,'.nojekyll'),'');
-console.log(JSON.stringify({version,output:'docs',chapters:chapters.chapters.length,portfolioRecords:Object.keys(portfolio).length,standalone:true,designLab:true}));
+// The existing Pages configuration publishes the repository root. Keep settings
+// unchanged and send its entry URL, including fragment/query, to the generated app.
+await writeFile(join(root,'index.html'),await read('src/pages-entry.html'));
+await writeFile(join(root,'.nojekyll'),'');
+console.log(JSON.stringify({version,output:'docs',chapters:chapters.chapters.length,portfolioRecords:Object.keys(portfolio).length,standalone:true,designLab:true,pagesRootEntry:true}));

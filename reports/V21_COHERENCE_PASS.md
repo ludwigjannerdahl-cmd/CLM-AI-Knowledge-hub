@@ -96,3 +96,12 @@ Recommendation: accept this implementation for the user's authorised V21 → V20
 The user's later deployment instruction supersedes the earlier draft/no-publication restriction. Publication changes the existing site's version only. Repository visibility, Pages configuration and enterprise access are unchanged. No enterprise connection or operational action was performed.
 
 Environment: the permitted local browser plugin was unavailable. The authorised existing GitHub Actions Chromium workflow supplied real renders and interaction evidence; no local browser or preview bypass was used. Shell push lacked authentication, so repository Git object/ref tools synchronized commits with exact-tree checks and expected-head leases. Browser CI itself ran successfully. The dashboard reference PNG was truncated; other supplied reference boards were inspected. A later reattachment of the narrative note failed; its available earlier copy was used. No inaccessible project session is claimed to have been independently read.
+
+
+## Publication-path correction discovered before main merge
+
+Observed deployment evidence contradicted the earlier README assumption: the existing Pages build used `source: .`, not `/docs`. An HTTP fetch of the public root returned a Jekyll-rendered V19 README, not the interactive app. The earlier references to an existing main/docs configuration were therefore incorrect. This was treated as a release blocker and corrected before merging PR #1.
+
+The fix leaves Pages settings unchanged. `src/pages-entry.html` generates a root `index.html` that opens the one app under `docs/`, preserving query and fragment. A root `.nojekyll` prevents Jekyll from converting downloadable Markdown sources into HTML. It is a location handoff, not a second Hub or an iframe. The generated app and its 18 files remain unchanged.
+
+The browser workflow now stages the publication at `/CLM-AI-Knowledge-hub/`, serves the actual project subpath, and tests the root handoff into an instruction-change deep link, query preservation and a literal source download. A new build gate rejects any difference between committed and regenerated `docs/`, root `index.html` and `.nojekyll`. The root fix is a separate PR into V20 after PR #2, followed by the already-authorised PR #1 into main. Final live verification must compare production bytes after the Pages run succeeds.
