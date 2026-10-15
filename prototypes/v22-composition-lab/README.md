@@ -1,10 +1,32 @@
-# V22 Composition Lab
+# V22 Composition & Story Lab
 
-This directory is reserved for **pre-production** 1920×1200 golden-scene explorations.
+This directory is the **pre-production** visual/narrative workbench for the CLM AI Knowledge Hub.
 
-It must not import or mutate production presentation components by default. The purpose is to let independent visual ideas compete before a reusable grammar is extracted.
+It does not define production presentation. The canonical semantic/source model remains in the existing application data. The lab explores how that model should be projected before any production grammar is extracted.
 
-Required structure after the design sprint:
+## Two jobs
+
+### Golden-scene composition
+
+`overview/`, `knowledge/` and `change/` contain three independent 1920×1200 directions each.
+
+These established useful visual evidence and exposed three reader projections:
+
+- Understand — authored mental model;
+- Explore — spatial / interactive reasoning;
+- Inspect — exact source/object/evidence work.
+
+### Story Lab
+
+`story-lab/` combines the strongest golden-scene seeds into three guided story contracts under `stories/`:
+
+1. Useful work first
+2. Meaning that can travel
+3. Change creates questions
+
+The Story Lab is a review instrument, not a generic runtime story engine.
+
+## Structure
 
 ```text
 prototypes/v22-composition-lab/
@@ -20,21 +42,35 @@ prototypes/v22-composition-lab/
     direction-a/
     direction-b/
     direction-c/
+  stories/
+    useful-work-first.json
+    meaning-that-can-travel.json
+    change-creates-questions.json
+  story-lab/
   review/
-    overview.md
-    knowledge.md
-    change.md
 ```
 
-Each direction should be runnable in a browser independently and should declare:
+## Direction contract
 
-- the reader question;
-- the reasoning operation;
-- the visual idea;
-- the false-inference risk;
+Each composition should remain explicit about:
+
+- reader question;
+- reasoning operation;
+- governing visual idea;
+- false-inference risk;
 - references used;
 - details deliberately suppressed.
 
-Canonical viewport: **1920×1200**.
+## Story contract
 
-Do not promote code from this lab directly into `src/`. First accept one composition per golden scene, then extract a recurring grammar from the accepted work.
+Story scripts declare claims, reasoning intent, canonical focus objects and boundaries. They do **not** create another source of truth and should not prescribe a chart family before the reasoning need is understood.
+
+## Canonical viewport
+
+Primary visual acceptance: **1920×1200**.
+
+## Promotion rule
+
+Do not promote lab code directly into `src/`.
+
+First make the three story experiences work across Understand / Explore / Inspect, validate them against the semantic contract and reference atlas, and test reader comprehension. Then extract the smallest recurring visual/story grammar that the successful scenes actually share.
