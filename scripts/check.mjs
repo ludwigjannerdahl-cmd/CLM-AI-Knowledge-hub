@@ -31,13 +31,13 @@ for(const s of D.sources)if(s.file)assert.ok(existsSync(root+'/docs/'+s.file),'M
 const entry=readFileSync(root+'/docs/index.html','utf8');let staticAssets=0;
 for(const match of entry.matchAll(/(?:src|href)="(assets\/[^"?#]+)(?:\?[^"#]*)?"/g)){assert.ok(existsSync(root+'/docs/'+match[1]),'Missing entry asset '+match[1]);staticAssets++;}
 assert.doesNotMatch(entry,/(?:src|href)="\/(?:assets|sources)\//,'Repository-relative assets required');
-assert.ok(existsSync(root+'/docs/.nojekyll'));assert.equal(staticAssets,11);
+assert.ok(existsSync(root+'/docs/.nojekyll'));assert.ok(existsSync(root+'/docs/assets/design-lab.js'));assert.equal(staticAssets,12);
 const full=N.chapters.map(c=>M.plain(c.html)).join('\n')+'\n'+JSON.stringify(N.portfolio);
 assert.doesNotMatch(full,/Outreach reduction measured in prototype testing|31% outreach reduction validated|Every cycle compounds the value|New data flows.*automatically into products/i);
 assert.doesNotMatch(full,/Already NPAC-approved and operational|Every system that connects to the layer increases|No governance overhead|KAICY and CDD tools likely in scope|A system is always high-risk if it profiles|now in force as of 2 Aug(?:ust)? 2026/i);
 assert.equal(N.chapters.length,13);assert.equal(N.chapters.reduce((n,c)=>n+Object.keys(c.tabs).length,0),81);assert.equal(Object.keys(N.portfolio).length,21);assert.equal(N.chapters.find(c=>c.id==='sec-portfolio').network.length,11);
 for(const c of N.chapters)for(const t of Object.values(c.tabs)){const s=M.prepareChapter(c,{},t.id);assert.equal(s[t.group],t.id);for(const a of t.ancestors)assert.equal(s[c.tabs[a].group],a);}
-const report={version:D.version,kind:'Source and template execution checks; not browser rendering',routesExecuted:routes.length,linksChecked:links,chapters:N.chapters.length,topicTabs:81,portfolioRecords:21,errors:[...new Set(errors)],dossierStates:Object.keys(D.objects).length*4,conditionCombinations:256,snapshotStates:snapshots.length,browserQA:'Not performed: control-browser unavailable in the managed environment',readerValidation:'Not performed'};
+const report={version:D.version,kind:'Source and template execution checks; not browser rendering',routesExecuted:routes.length,linksChecked:links,chapters:N.chapters.length,topicTabs:81,portfolioRecords:21,errors:[...new Set(errors)],dossierStates:Object.keys(D.objects).length*4,conditionCombinations:256,snapshotStates:snapshots.length,designLabAsset:true,browserQA:'Not performed: control-browser unavailable in the managed environment',readerValidation:'Not performed'};
 mkdirSync(root+'/reports',{recursive:true});writeFileSync(root+'/reports/STRUCTURE_CHECK.json',JSON.stringify(report,null,2)+'\n');
 const snapshotArg=process.argv.indexOf('--html-snapshots');if(snapshotArg!==-1){assert.ok(process.argv[snapshotArg+1]);writeFileSync(process.argv[snapshotArg+1],JSON.stringify(snapshots));}
 console.log(JSON.stringify(report,null,2));if(errors.length)process.exitCode=1;
