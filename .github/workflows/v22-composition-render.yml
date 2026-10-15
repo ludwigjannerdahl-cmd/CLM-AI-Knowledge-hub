@@ -6,9 +6,11 @@ on:
     branches:
       - v22-astra-composition-reset
       - v22-golden-scenes
+      - v22-story-lab
     paths:
       - 'prototypes/v22-composition-lab/**'
       - 'scripts/render-composition-lab.mjs'
+      - 'scripts/render-story-lab.mjs'
       - '.github/workflows/v22-composition-render.yml'
 
 permissions:
@@ -49,7 +51,10 @@ jobs:
       - name: Render independent directions at 1920x1200
         run: node scripts/render-composition-lab.mjs
 
-      - name: Upload composition renders
+      - name: Validate Story Lab projections and deep links
+        run: node scripts/render-story-lab.mjs
+
+      - name: Upload composition and story renders
         if: always()
         uses: actions/upload-artifact@v4
         with:

@@ -1,0 +1,80 @@
+{
+  "id": "meaning-that-can-travel",
+  "title": "Meaning that can travel",
+  "governing_claim": "Knowledge becomes reusable when meaning, subject, provenance and scope stay attached and a tested consumption route exists.",
+  "memory_handle": "Meaning stays attached",
+  "reader_success": [
+    "Explain why source meaning, subject, version and provenance must remain connected.",
+    "Distinguish structured, applicable and executable knowledge.",
+    "Explain what a method or skill adds beyond document storage.",
+    "Identify what must be reviewed before the same knowledge informs another task."
+  ],
+  "lenses": ["preparation", "development", "reuse"],
+  "projection_seeds": {
+    "understand": "../knowledge/direction-c/",
+    "explore": "../knowledge/direction-b/",
+    "inspect": "../knowledge/direction-a/"
+  },
+  "steps": [
+    {
+      "id": "source",
+      "claim": "Start with the meaning and its source scope.",
+      "intent": "trace",
+      "focus": ["INS-01@1"],
+      "salient": "The source proposition remains readable and linked to the task it informs.",
+      "hold_fixed": "No structured field or extracted value silently replaces the source meaning.",
+      "false_inference_risk": "A highlighted passage can look authoritative for every subject or scenario.",
+      "handoff": "inspect:INS-01@1"
+    },
+    {
+      "id": "structure",
+      "claim": "Structuring adds explicit context; it does not add authority.",
+      "intent": "explain",
+      "focus": ["INS-01@1", "CTX-FENX@2026-08-18", "MAP-01@1"],
+      "salient": "Subject, field meaning, version and provenance become explicit while the source remains attached.",
+      "hold_fixed": "Structured is not automatically applicable or approved.",
+      "false_inference_risk": "A neat record can imply the ambiguity is resolved when current aliases or lookups remain unknown.",
+      "handoff": "explore:knowledge"
+    },
+    {
+      "id": "distinctions",
+      "claim": "Structured, applicable and executable are different states.",
+      "intent": "challenge",
+      "focus": ["CTX-FENX@2026-08-18", "METHOD-01@1"],
+      "salient": "The consumption boundary is visible between stored meaning and a tested way to use it in work.",
+      "hold_fixed": "Document presence, runtime availability and permitted consumption remain separate.",
+      "false_inference_risk": "Layering can imply maturity progression rather than different conditions.",
+      "handoff": "explore:knowledge"
+    },
+    {
+      "id": "method",
+      "claim": "A method binds selected context to a bounded task.",
+      "intent": "explain",
+      "focus": ["METHOD-01@1", "OBS-01@1", "INS-01@1"],
+      "salient": "Inputs, steps, output, failure modes and review are part of the execution contract.",
+      "hold_fixed": "The method is a synthetic bounded preparation example, not a deployed shared skill.",
+      "false_inference_risk": "A reusable method may be mistaken for a production service or autonomous agent.",
+      "handoff": "inspect:METHOD-01@1"
+    },
+    {
+      "id": "aperture",
+      "claim": "Not all available knowledge belongs in every task.",
+      "intent": "select",
+      "focus": ["INS-01@1", "CTX-FENX@2026-08-18", "METHOD-01@1"],
+      "salient": "A review aperture makes purpose, applicability and permitted use visible before context enters the task packet.",
+      "hold_fixed": "Selection is qualitative; visual width does not encode amount, quality or approval.",
+      "false_inference_risk": "A funnel shape may imply automatic scoring or ranking.",
+      "handoff": "explore:knowledge"
+    },
+    {
+      "id": "next-use",
+      "claim": "Reuse is a maintained responsibility.",
+      "intent": "decide",
+      "focus": ["REUSE-01@1", "DATA-01@proposal"],
+      "salient": "The next task needs its own applicability, ownership, source/version, maintenance and consumption review.",
+      "hold_fixed": "A good result in one task is not automatically institutional knowledge for another.",
+      "false_inference_risk": "A reuse arrow can imply an automatic feedback loop.",
+      "handoff": "inspect:REUSE-01@1"
+    }
+  ]
+}

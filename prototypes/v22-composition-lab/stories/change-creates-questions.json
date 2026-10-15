@@ -1,0 +1,80 @@
+{
+  "id": "change-creates-questions",
+  "title": "Change creates questions",
+  "governing_claim": "A changed instruction or interpretation creates impact-review candidates and new evidence needs; it does not automatically rewrite downstream behaviour or historical evidence.",
+  "memory_handle": "Change creates questions before it creates truth",
+  "reader_success": [
+    "Identify the exact proposition that changed.",
+    "Trace which downstream objects may require review without assuming they changed automatically.",
+    "Explain why historical evidence remains pinned to its original version and scope.",
+    "Identify the human decision and new evidence required before controlled content changes."
+  ],
+  "lenses": ["development", "change", "reuse"],
+  "projection_seeds": {
+    "understand": "../change/direction-b/",
+    "explore": "../change/direction-a/",
+    "inspect": "../change/direction-c/"
+  },
+  "steps": [
+    {
+      "id": "delta",
+      "claim": "Start with the proposition that changed.",
+      "intent": "compare",
+      "focus": ["INS-01@1", "INS-01@2"],
+      "salient": "The semantic delta is explicit: the candidate revision adds a source-date requirement.",
+      "hold_fixed": "The candidate is not approved and does not silently supersede version 1.",
+      "false_inference_risk": "A side-by-side version view can imply a completed replacement rather than a proposal.",
+      "handoff": "inspect:INS-01@2"
+    },
+    {
+      "id": "impact",
+      "claim": "Dependency creates impact-review candidates, not automatic updates.",
+      "intent": "trace",
+      "focus": ["INS-01@2", "REQ-01@1", "MAP-01@1", "TEST-01@1"],
+      "salient": "Requirement, mapping and test are linked as review candidates with typed relationship meaning.",
+      "hold_fixed": "Current object content remains unchanged until a responsible review decides otherwise.",
+      "false_inference_risk": "Spatial fan-out can be read as a propagation engine rather than a review map.",
+      "handoff": "explore:change"
+    },
+    {
+      "id": "behaviour",
+      "claim": "Review the expected behaviour, not only the document version.",
+      "intent": "compare",
+      "focus": ["REQ-01@1", "MAP-01@1", "TEST-01@1"],
+      "salient": "The reader can identify what behaviour, mapping or test expectation would need to change and what remains stable.",
+      "hold_fixed": "Implementation remains not supplied unless actual implementation evidence exists.",
+      "false_inference_risk": "A redline can make a proposed expected behaviour look implemented.",
+      "handoff": "inspect:REQ-01@1"
+    },
+    {
+      "id": "history",
+      "claim": "Evidence belongs to the version and scope that produced it.",
+      "intent": "challenge",
+      "focus": ["EVID-01@1", "TEST-01@1", "INS-01@2"],
+      "salient": "The historical evidence record remains visibly on the version-1 side of the fault line.",
+      "hold_fixed": "No previous record is rebound to version 2.",
+      "false_inference_risk": "Historical evidence may be mistaken for a previous pass even when no observed result is supplied.",
+      "handoff": "inspect:EVID-01@1"
+    },
+    {
+      "id": "gap",
+      "claim": "A revised claim needs relevant new evidence.",
+      "intent": "diagnose",
+      "focus": ["TEST-01@1", "EVID-01@1", "INS-01@2"],
+      "salient": "The evidence gap is a first-class object in the explanation rather than whitespace the design silently completes.",
+      "hold_fixed": "A proposed test, empty evidence record or old result is not an observed pass for the revision.",
+      "false_inference_risk": "A polished evidence panel can still imply assurance unless the missing result is explicit.",
+      "handoff": "inspect:EVID-01@1"
+    },
+    {
+      "id": "decision",
+      "claim": "Controlled change ends in a human decision and an evidence plan.",
+      "intent": "decide",
+      "focus": ["INS-01@2", "REQ-01@1", "TEST-01@1", "EVID-01@1"],
+      "salient": "Confirm meaning/applicability, responsible reviewers, implementation intent and what evidence must be collected next.",
+      "hold_fixed": "No owner or approval is invented where the supplied context does not establish one.",
+      "false_inference_risk": "A final decision node can imply that the decision has already been made.",
+      "handoff": "explore:change"
+    }
+  ]
+}
