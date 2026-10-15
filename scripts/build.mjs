@@ -15,7 +15,7 @@ for(const item of Object.values(portfolio)){if(item.tier)item.tier='Original wor
 delete chapters.portfolioLiteral;
 chapters.portfolio=portfolio;
 const json=v=>JSON.stringify(v).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
-const scripts=['data','explanation-data','chapters','source-texts','scoping','model','explanations','views','app','design-lab'];
+const scripts=['data','explanation-data','chapters','source-texts','scoping','model','explanations','views','design-lab','app'];
 const content={chapters:'window.CLM_HUB_CHAPTERS='+json(chapters)+';', 'source-texts':'window.CLM_SOURCE_TEXTS='+json(JSON.parse(await read('src/source-texts.json')))+';'};
 for(const name of scripts){if(!content[name])content[name]=await read('src/'+name+'.js');await writeFile(join(out,'assets',name+'.js'),content[name]);}
 const css=await read('src/styles.css')+'\n'+await read('src/explanations.css')+'\n'+await read('src/design-lab.css');await writeFile(join(out,'assets/styles.css'),css);
