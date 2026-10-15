@@ -1,6 +1,6 @@
 {
   "name": "clm-ai-knowledge-hub",
-  "version": "19.0.0",
+  "version": "19.0.1",
   "private": true,
   "description": "An integrated, illustrated CLM AI knowledge product",
   "type": "module",

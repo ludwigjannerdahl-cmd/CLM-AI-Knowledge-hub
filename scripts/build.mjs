@@ -26,4 +26,4 @@ await writeFile(join(out,'OPEN_ME_FIRST.html'),standalone);
 // Explicit distribution allowlist: no Mentor packet, raw source page, captured history or analytics.
 for(const name of ['SEB_AI_sub_strategy_v1.0.pdf','CLM_AI_Operating_Model_Knowledge_v1.0.md','UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md'])await copyFile(join(root,'sources',name),join(out,'sources',name));
 await writeFile(join(out,'.nojekyll'),'');
-console.log(JSON.stringify({version:'19.0.0',output:'docs',chapters:chapters.chapters.length,portfolioRecords:Object.keys(portfolio).length,standalone:true}));
+console.log(JSON.stringify({version:'19.0.1',output:'docs',chapters:chapters.chapters.length,portfolioRecords:Object.keys(portfolio).length,standalone:true}));

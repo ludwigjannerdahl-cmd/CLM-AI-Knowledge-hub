@@ -2,7 +2,7 @@
 
 A connected, illustrated explanation of useful CLM work, reviewed knowledge, methods, human responsibility, evidence, and the conditions for extending AI assistance.
 
-This is the complete static source and generated review build, version **19.0.0**. It follows `planning/FINAL_BUILD_PLAN_FOR_ASTRA.md` and `planning/VISUAL_AND_CONTEXT_DIRECTION.md`. It integrates the supplied Hub's thirteen actual chapters, including its nine draft Intelligence Model topics, inside one application.
+This is the complete static source and generated review build, version **19.0.1**. It follows `planning/FINAL_BUILD_PLAN_FOR_ASTRA.md` and `planning/VISUAL_AND_CONTEXT_DIRECTION.md`. It integrates the supplied Hub's thirteen actual chapters, including its nine draft Intelligence Model topics, inside one application.
 
 ## Open the webpage
 

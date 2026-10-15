@@ -1,8 +1,8 @@
 {
-  "version": "19.0.0",
+  "version": "19.0.1",
   "kind": "Source and template execution checks; not browser rendering",
-  "routesExecuted": 123,
-  "linksChecked": 8711,
+  "routesExecuted": 125,
+  "linksChecked": 8785,
   "chapters": 13,
   "topicTabs": 81,
   "portfolioRecords": 21,

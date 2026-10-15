@@ -26,7 +26,7 @@
       "tabs": 2,
       "headings": 24,
       "expansions": 0,
-      "citations": 3,
+      "citations": 4,
       "portfolioLinks": 0,
       "illustrations": 0,
       "networkDetails": 0
@@ -135,8 +135,23 @@
   "repairs": [
     {
       "kind": "wording-repair",
+      "before": "Section 1",
+      "after": "CLM direction"
+    },
+    {
+      "kind": "wording-repair",
       "before": "Every production-relevant agent should answer six operational questions clearly: what it does, what data it uses, which permissions it relies on, what outputs it creates, where its logs live, and who can pause or stop it. Broadly shared Copilot-style assistants belong in a governed Copilot Studio lane. Source-first, C4-heavy, or multi-step CLM agents belong in a tighter Vertex AI / GCP lane.",
       "after": "Every production-relevant agent should answer six operational questions clearly: what it does, what data it uses, which permissions it relies on, what outputs it creates, where its logs live, and who can pause or stop it. Broadly shared Copilot-style assistants belong in a governed Copilot Studio lane. Source-first or multi-step work may require a controlled execution lane. Strategy direction does not establish workload or data-class permission."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 2",
+      "after": "Operating model"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "CLM Intelligence Model (Section 11)",
+      "after": "CLM Intelligence Model (Intelligence Model)"
     },
     {
       "kind": "wording-repair",
@@ -150,18 +165,203 @@
     },
     {
       "kind": "wording-repair",
+      "before": "now in force as of 2 August 2026",
+      "after": "scheduled under the amended timeline: Annex III from 2 December 2027 and regulated-product systems from 2 August 2028"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Aug 2026",
+      "after": "2 December 2027"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "AI in creditworthiness and risk assessment classified as high-risk. CLM risk-scoring and CDD tools likely in scope.",
+      "after": "Annex III 5(b) concerns natural-person creditworthiness or credit scoring, with a financial-fraud exception. This does not establish a KYC/CDD classification; assess the actual intended purpose and applicable provisions."
+    },
+    {
+      "kind": "wording-repair",
       "before": "\ud83c\udf99\ufe0f SensAI",
       "after": "\ud83c\udf99\ufe0f SensAIa"
     },
     {
+      "kind": "wording-repair",
+      "before": "Demonstrates the division can conceive, build, approve, and operate AI in production.",
+      "after": "It is a dated delivery precedent, not evidence of current CLM production permission."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Already NPAC-approved and operational.",
+      "after": "Conditional approval was reported on 27 August 2024. Closure of the conditions and current operation are not established."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "The four-tier governance model in Section 2 operationalises this principle, aligning with SEB's ACAA categories and Model Risk Management tiers \u2014 creating a single classification exercise rather than parallel processes.",
+      "after": "The four-tier governance model in Operating model operationalises this principle, aligning with SEB's ACAA categories and Model Risk Management tiers \u2014 creating a single classification exercise rather than parallel processes."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "From 2 August 2026 onward, Tier 3 systems must comply with:",
+      "after": "The source\u2019s internal working tiers do not establish statutory classification. For a system actually classified as high-risk, assess the following requirements against the amended application dates and applicable transitional provisions:"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "ACAA Category 3 (high risk). NPAC mandatory. MRM Tier 1. Subject to EU AI Act high-risk obligations now in force (from 2 August 2026).",
+      "after": "ACAA Category 3 (high risk). NPAC mandatory. MRM Tier 1. Subject to EU AI Act high-risk obligations on the amended timeline (Annex III: 2 December 2027; regulated-product systems: 2 August 2028), subject to actual classification."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 3",
+      "after": "People & adoption"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Dedicated space where CLM practitioners experiment with approved models against anonymised/synthetic data. No governance overhead. Builds intuition for what AI can and cannot do.",
+      "after": "Dedicated space where CLM practitioners experiment with approved models against anonymised/synthetic data. Experimentation still needs the applicable information, tool and ownership controls. Builds intuition for what AI can and cannot do."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "SensAI and KAICY demonstrate this model in practice: both built by Bain, deployed on GCP, with SEB taking over ownership and operation. SensAI is NPAC-approved and operational. KAICY is developed and undergoing NPAC. Together they show that the division can build and operate production AI when the operating model is right.",
+      "after": "SensAIa and KAICY demonstrate this model in practice: with different reported delivery histories; authorship needs source confirmation, deployed on GCP, with SEB taking over ownership and operation. SensAIa is NPAC-approved and operational. KAICY is developed and undergoing NPAC. Together they show that the division can build and operate production AI when the operating model is right."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 4",
+      "after": "Delivery lifecycle"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\"All 15 analysts in my team, potentially 60+ across CLM.\"",
+      "after": "\"Colleagues in the team, with possible wider CLM use.\""
+    },
+    {
+      "kind": "wording-repair",
+      "before": "(Section 8). The portfolio is not a separate wish list \u2014 it is the accumulated output of this ideation and prioritisation process. Ideas that pass Gate 1 become portfolio items with a tier classification, an owner, and a target horizon:",
+      "after": "(Portfolio & dependencies). The portfolio is not a separate wish list \u2014 it is the accumulated output of this ideation and prioritisation process. Ideas that pass Gate 1 become portfolio items with a tier classification, an owner, and a target horizon:"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u2014 Does this touch client data? Influence decisions? The answer determines the governance path (see Section 5).",
+      "after": "\u2014 Does this touch client data? Influence decisions? The answer determines the governance path (see Risk & compliance)."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u2014 and critically, not all builders are engineers. CLM selects designated builders from across the organisation \u2014 people with the curiosity, judgement, and domain knowledge to create tools that work. Some are technical; some are not. All are supported through the Builder Council (Section 3).",
+      "after": "\u2014 and critically, not all builders are engineers. CLM selects designated builders from across the organisation \u2014 people with the curiosity, judgement, and domain knowledge to create tools that work. Some are technical; some are not. All are supported through the Builder Council (People & adoption)."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "(Section 3). This is where designated builders get support, share patterns, and learn from each other. The wider CLM organisation contributes ideas (Ideation) and feedback (Prototype, Deploy), but the build work is done by people who are selected, trained, and connected through this community.",
+      "after": "(People & adoption). This is where designated builders get support, share patterns, and learn from each other. The wider CLM organisation contributes ideas (Ideation) and feedback (Prototype, Deploy), but the build work is done by people who are selected, trained, and connected through this community."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "(see Section 3 \u2014 Culture & People) serves as the practitioner community where builders share patterns, conduct peer architecture reviews, and iterate on solutions. It is not a gate \u2014 it is the forum where knowledge compounds. Bi-weekly sync, shared patterns repo, D&A liaison.",
+      "after": "(see People & adoption \u2014 Culture & People) serves as the practitioner community where builders share patterns, conduct peer architecture reviews, and iterate on solutions. It is not a gate \u2014 it is the forum where knowledge compounds. Bi-weekly sync, shared patterns repo, D&A liaison."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Source: Instruction for Model Risk Management, Section 5.3 \u2014 \u201cModel (change) origination; development; initial validation; approval; implementation/deployment; use; model monitoring; periodic validation; periodic approval; and decommission.\u201d",
+      "after": "Source: Instruction for Model Risk Management, Risk & compliance.3 \u2014 \u201cModel (change) origination; development; initial validation; approval; implementation/deployment; use; model monitoring; periodic validation; periodic approval; and decommission.\u201d"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 5",
+      "after": "Risk & compliance"
+    },
+    {
       "kind": "claim-repair",
-      "before": "SensAI and KAICY demonstrate this model in practice: both built by Bain, deployed on GCP, with SEB taking over ownership and operation. SensAI is NPAC-approved and operational. KAICY is developed and undergoing NPAC. Together they show that the division can build and operate production AI when the operating model is right.[5]",
-      "after": "SensAI and KAICY demonstrate this model in practice: both built by Bain, deployed on GCP, with SEB taking over ownership and operation. SensAI is NPAC-reported in the source; current operation is not established. KAICY is developed and undergoing NPAC. Together they show that the division can build and operate production AI when the operating model is right.[5]"
+      "before": "Feb 2025",
+      "after": "1 August 2024"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Aug 2025",
+      "after": "2 February 2025"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Feb 2026",
+      "after": "2 August 2025"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Aug 2026",
+      "after": "2 December 2027"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "High-risk obligations fully active",
+      "after": "Annex III high-risk application; check transitional provisions"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "AI in creditworthiness/risk assessment = high-risk. KAICY and CDD tools likely in scope.",
+      "after": "Natural-person creditworthiness is a specific Annex III purpose. This does not determine the legal classification of Kaicy or CDD; that remains a task-specific review."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Current implementation threshold.",
+      "after": "Check the amended application dates and actual intended purpose."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Aug 2027",
+      "after": "2 August 2028"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Any Tier 3 system should be designed from the outset to meet Art. 8\u201315 requirements. Building compliance in is a fraction of the cost of retrofitting \u2014 or a single fine. The tier model in Section 2 ensures this happens naturally.",
+      "after": "Any Tier 3 system should be designed from the outset to meet Art. 8\u201315 requirements. Building compliance in is a fraction of the cost of retrofitting \u2014 or a single fine. The tier model in Operating model ensures this happens naturally."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "A system is always high-risk if it profiles individuals (automated processing of personal data to evaluate aspects of a person\u2019s life). KAICY\u2019s classification argument: it performs a preparatory task (transcription \u2192 extraction \u2192 FenX mapping) with mandatory human review before any decision. However, because it processes personal data that could be considered profiling, the conservative approach is to treat it as potentially high-risk and apply Art. 8\u201315 obligations.",
+      "after": "Article 6(3)\u2019s profiling proviso concerns systems already referred to in Annex III. Personal-data processing or profiling alone does not establish that a KYC preparation tool falls within that Annex. Human review alone also does not settle the classification. Document the actual intended purpose, applicable provisions and the responsible classification decision."
+    },
+    {
+      "kind": "wording-repair",
+      "before": ". The AI Use Case Classifier (Section 12) blocks these at Step 0 before any tier assignment.",
+      "after": ". The AI Use Case Classifier (Advisory scoping) blocks these at Step 0 before any tier assignment."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "KAICY processes personal data for AML/KYC risk assessment. Under ACAA, it classifies as Category 3 \u2014 High Risk because it:",
+      "after": "The source proposed an ACAA Category 3 treatment for Kaicy. Current ACAA authority and a decision for the configured workload were not supplied. Treat the following factors as review questions, not an assigned category or an EU AI Act classification."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "This means KAICY triggers Governance Tier 3 requirements: formal risk assessment, model card, human oversight design, conformity self-assessment, and periodic validation.",
+      "after": "The following documentation and control topics are useful inputs to the responsible review. The source\u2019s proposed tier does not establish which formal route or requirements apply to the actual workload."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "CLM Intelligence Model (Section 11) \u2192 Authority & Evidence",
+      "after": "CLM Intelligence Model (Intelligence Model) \u2192 Authority & Evidence"
+    },
+    {
+      "kind": "claim-repair",
+      "before": "DPIA almost certainly required for KAICY: The AI Risk Instruction states: \"The use of AI is a strong indicator that the processing may be considered high-risk and thus require a DPIA.\" SensAIa's NPAC approval included a DPIA deadline as Condition #1. KAICY processes personal data (KYC) with AI \u2014 a DPIA is effectively mandatory, not optional.",
+      "after": "Assess whether a DPIA is required for the actual processing purpose, data, scale and risks with the responsible privacy function. The supplied source reports a DPIA condition in the 2024 SensAIa approval; that precedent is not a current DPIA determination or evidence that the condition was closed for this workload."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "while still usable as a v0.5 proposal. It anticipates the hardest challenges before they are raised and keeps the answers grounded in SEB\u2019s governance frameworks, the AI sub-strategy, EU AI Act, GDPR, and the SEB Instruction for AI Risks. The EU AI Act high-risk obligations are now live as of 2 August 2026, so these controls are deployment obligations, not future theory.",
+      "after": "while still usable as a v0.5 proposal. It anticipates the hardest challenges before they are raised and keeps the answers grounded in SEB\u2019s governance frameworks, the AI sub-strategy, EU AI Act, GDPR, and the SEB Instruction for AI Risks. The EU AI Act obligations apply progressively. The amended high-risk dates are 2 December 2027 for Annex III and 2 August 2028 for regulated-product systems. Actual classification, transitional provisions and current internal requirements need the responsible review."
     },
     {
       "kind": "claim-repair",
       "before": "Currently, the most advanced CLM-relevant AI application is KAICY (developed by Bain, NPAC underway). SensAI \u2014 a PWM&FO call transcription tool whose data KAICY consumes, also built by Bain \u2014 is classified as Tier 1 / ACAA Category 1 (minimal risk), NPAC-approved and operational. Not subject to high-risk obligations.",
-      "after": "Currently, the most advanced CLM-relevant AI application is KAICY (developed by Bain, NPAC underway). SensAI \u2014 a PWM&FO call transcription tool whose data KAICY consumes, also built by Bain \u2014 is classified as Tier 1 / ACAA Category 1 (minimal risk), NPAC-reported in the source; current operation is not established. Not subject to high-risk obligations."
+      "after": "The source discussed Kaicy and a SensAIa transcription precedent. Delivery authorship, comparative maturity, current operation and formal classification are not established by the supplied primary evidence. SensAIa\u2019s reported conditional approval was dated 27 August 2024; current scope and closure of its conditions need confirmation."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "Art. 6(2) / Annex III, Area 5: AI for creditworthiness is high-risk. KYC/CDD AI could be high-risk if it profiles individuals (automated processing to assess aspects of a person\u2019s life).",
+      "after": "Assess the actual intended purpose under Article 6 and Annex III. Natural-person creditworthiness is specifically listed; KYC/CDD preparation and personal-data processing do not by themselves establish that classification. The profiling proviso applies to systems referred to in Annex III."
+    },
+    {
+      "kind": "claim-repair",
+      "before": "SEB\u2019s position in the NPA submission: \u201cNot providing recommended actions \u2192 lower regulatory risk\u201d + \u201cAlways human-in-the-loop.\u201d KAICY should be classified via ACAA as potentially high-risk, with human oversight as the key mitigant. This is the conservative, defensible position.",
+      "after": "The NPA wording reported in the source described preparation with human review. It does not establish the current ACAA category, legal classification, operating permission or control implementation. Obtain the relevant current decisions for the actual configuration."
     },
     {
       "kind": "wording-repair",
@@ -169,14 +369,9 @@
       "after": "Copilot, Vertex AI, SensAIa-derived. No custom model training or external API calls."
     },
     {
-      "kind": "claim-repair",
-      "before": "Concentration risk: if any AI tool becomes the only bridge between SensAIa and FenX, it becomes infrastructure. This must be addressed through operational resilience (manual fallback, not just technical redundancy).",
-      "after": "Concentration risk: if any AI tool becomes the only bridge between SensAIa and FenX, it becomes infrastructure. This must be addressed through reported in the source; current operation is not established resilience (manual fallback, not just technical redundancy)."
-    },
-    {
       "kind": "wording-repair",
       "before": "\u201cThe Bain savings model shows 31% time reduction in KYC outreach. Where does the freed capacity go? Headcount reduction creates resistance and loses institutional knowledge.\u201d",
-      "after": "\u201cThe original SEB\u2013Bain model estimates about 31% potential reduction in KYC outreach effort in KYC outreach. Where does the freed capacity go? Headcount reduction creates resistance and loses institutional knowledge.\u201d"
+      "after": "\u201cThe original SEB\u2013Bain model estimates about 31% potential reduction in KYC outreach effort. Where does the freed capacity go? Headcount reduction creates resistance and loses institutional knowledge.\u201d"
     },
     {
       "kind": "wording-repair",
@@ -184,9 +379,39 @@
       "after": "\u201cAI saves 31% of time \u2192 treat the estimate as a staffing commitment.\u201d This creates resistance, destroys adoption, and loses the domain knowledge that makes AI valuable."
     },
     {
-      "kind": "claim-repair",
-      "before": "SensAIa was built by an internal team (SEB\u2019s Data Office). It is operational. This demonstrates SEB\u2019s internal capability to build and maintain AI on GCP.",
-      "after": "SensAIa was built by an internal team (SEB\u2019s Data Office). It is reported in the source; current operation is not established. This demonstrates SEB\u2019s internal capability to build and maintain AI on GCP."
+      "kind": "wording-repair",
+      "before": "\u201cSEB\u2019s AI Risk Instruction Section 5 states: \u2018Responses from AI models shall always be critically reviewed.\u2019 At scale \u2014 hundreds of daily cases \u2014 how do you ensure this isn\u2019t hollow compliance?\u201d",
+      "after": "\u201cSEB\u2019s AI Risk Instruction Risk & compliance states: \u2018Responses from AI models shall always be critically reviewed.\u2019 At scale \u2014 hundreds of daily cases \u2014 how do you ensure this isn\u2019t hollow compliance?\u201d"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u201cThe MRM Instruction Section 7.1 states: \u2018AI models should follow the same strict requirements placed on any other models.\u2019 LLMs are fundamentally different from traditional models \u2014 non-deterministic, non-interpretable, third-party controlled. How do you reconcile this?\u201d",
+      "after": "\u201cThe MRM Instruction Technology & platforms.1 states: \u2018AI models should follow the same strict requirements placed on any other models.\u2019 LLMs are fundamentally different from traditional models \u2014 non-deterministic, non-interpretable, third-party controlled. How do you reconcile this?\u201d"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 7.2 provides additional flexibility: \u201cIf the AI system has a material bearing on business decisions, then",
+      "after": "Technology & platforms.2 provides additional flexibility: \u201cIf the AI system has a material bearing on business decisions, then"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Model design (Section 2.4):",
+      "after": "Model design (Operating model.4):"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Data quality (Section 2.5):",
+      "after": "Data quality (Operating model.5):"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Model performance (Section 2.7):",
+      "after": "Model performance (Operating model.7):"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u201cThe ACAA template Section 1.3 asks about \u2018adaptiveness after deployment.\u2019 KAICY\u2019s prompts are updated when FenX policy changes. Does this make it \u2018adaptive\u2019 under the AI Act?\u201d",
+      "after": "\u201cThe ACAA template CLM direction.3 asks about \u2018adaptiveness after deployment.\u2019 KAICY\u2019s prompts are updated when FenX policy changes. Does this make it \u2018adaptive\u2019 under the AI Act?\u201d"
     },
     {
       "kind": "wording-repair",
@@ -194,9 +419,39 @@
       "after": "\u201cHow should potential capacity release be evaluated?\u201d"
     },
     {
+      "kind": "wording-repair",
+      "before": "This Q&A should be reviewed and updated as SEB governance frameworks evolve \u2014 particularly after the Change Risk Management framework rollout (autumn 2026) and EU AI Act high-risk obligations enforcement (now in force as of 2 August 2026).",
+      "after": "This Q&A should be reviewed and updated as SEB governance frameworks evolve \u2014 particularly after the Change Risk Management framework rollout (autumn 2026) and EU AI Act high-risk obligations enforcement (scheduled under the amended timeline: Annex III from 2 December 2027 and regulated-product systems from 2 August 2028)."
+    },
+    {
       "kind": "claim-repair",
       "before": "A step-by-step operational checklist for taking KAICY from concept to production, based on the SensAIa precedent (NPAC-approved 27 Aug 2024, NAMIS 018543) and SEB's governance frameworks.",
-      "after": "A step-by-step reported in the source; current operation is not established checklist for taking KAICY from concept to production, based on the SensAIa precedent (NPAC-approved 27 Aug 2024, NAMIS 018543) and SEB's governance frameworks."
+      "after": "A proposed checklist for considering Kaicy production, informed by a source-reported conditional SensAIa approval dated 27 August 2024. Closure of those conditions, present operation and applicability to this workload are not established."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Google Gemini as provider \u2014 governed under GCP AI/ML Terms of Usage. SensAIa transcription as upstream data source (already NPAC-approved). FenX as downstream target (SEB-owned). No external data enrichment.",
+      "after": "Google Gemini as provider \u2014 governed under GCP AI/ML Terms of Usage. SensAIa transcription as a reported upstream source (conditional approval reported in 2024; current permission and operation unverified). FenX as downstream target (SEB-owned). No external data enrichment."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 6",
+      "after": "Architecture & work patterns"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Regulatory compliance (covered in Section 5) is necessary but not sufficient. AI agents operating in CLM introduce",
+      "after": "Regulatory compliance (covered in Risk & compliance) is necessary but not sufficient. AI agents operating in CLM introduce"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Agent security requirements scale with the governance tier (Section 2):",
+      "after": "Agent security requirements scale with the governance tier (Operating model):"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 7",
+      "after": "Technology & platforms"
     },
     {
       "kind": "wording-repair",
@@ -214,11 +469,6 @@
       "after": "\u2014 AI-powered identification and structuring of KYC data points from SensAIa call transcripts and meeting notes, ready for FenX ingestion"
     },
     {
-      "kind": "claim-repair",
-      "before": "SensAIa proved that PWM&FO can conceive, build, govern, and operate AI in production \u2014 on GCP, with Gemini, through NPAC. If KAICY resumes, it would not start from zero \u2014 it would extend an established pattern into a new domain (KYC extraction vs. call transcription).",
-      "after": "SensAIa proved that PWM&FO can conceive, build, govern, and operate AI reported in the source; current operation is not established \u2014 on GCP, with Gemini, through NPAC. If KAICY resumes, it would not start from zero \u2014 it would extend an established pattern into a new domain (KYC extraction vs. call transcription)."
-    },
-    {
       "kind": "wording-repair",
       "before": "Can a team of two own this end-to-end? If not, the scope is too complex \u2014 simplify or split. The builder workstation is designed so that a small team (2\u20133 people) can conceive, build, deploy, and maintain CLM AI tools independently, calling on Data & Analytics for platform-level needs only.",
       "after": "Can the team sustain ownership across the full lifecycle? If not, the scope is too complex \u2014 simplify or split. The builder workstation is designed so that a small team can conceive, build, deploy, and maintain CLM AI tools independently, calling on Data & Analytics for platform-level needs only."
@@ -230,8 +480,28 @@
     },
     {
       "kind": "wording-repair",
+      "before": "from the Portfolio (Section 8) \u2014 something with clear inputs, clear outputs, and no autonomous actions",
+      "after": "from the Portfolio (Portfolio & dependencies) \u2014 something with clear inputs, clear outputs, and no autonomous actions"
+    },
+    {
+      "kind": "wording-repair",
       "before": "Reusing SensAI \u2197",
       "after": "Reusing SensAIa \u2197"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Microsoft Power Platform is SEB\u2019s approved low-code automation platform \u2014 the operational answer to \u201cBusiness Builders (Tier 1\u20132)\u201d from Section 2. Copilot Studio is one product inside that stack, not the whole stack. While Vertex AI serves technical builders engineering Tier 3 systems, Power Platform enables CLM analysts, process owners, and domain experts to build and ship governed AI solutions themselves \u2014 in days, not months.",
+      "after": "Microsoft Power Platform is SEB\u2019s approved low-code automation platform \u2014 the operational answer to \u201cBusiness Builders (Tier 1\u20132)\u201d from Operating model. Copilot Studio is one product inside that stack, not the whole stack. While Vertex AI serves technical builders engineering Tier 3 systems, Power Platform enables CLM analysts, process owners, and domain experts to build and ship governed AI solutions themselves \u2014 in days, not months."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 8",
+      "after": "Portfolio & dependencies"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "CLM Intelligence Model (Section 11)",
+      "after": "CLM Intelligence Model (Intelligence Model)"
     },
     {
       "kind": "wording-repair",
@@ -250,6 +520,16 @@
     },
     {
       "kind": "wording-repair",
+      "before": "Section 6",
+      "after": "Architecture & work patterns"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "today. Where prior prototype or design work exists (for example around KAICY), it provides learning input \u2014 not a commitment that delivery is currently underway. Any initiative would still need explicit prioritisation and lifecycle governance in Section 4 before build starts.",
+      "after": "today. Where prior prototype or design work exists (for example around KAICY), it provides learning input \u2014 not a commitment that delivery is currently underway. Any initiative would still need explicit prioritisation and lifecycle governance in Delivery lifecycle before build starts."
+    },
+    {
+      "kind": "wording-repair",
       "before": "NPAC approval via NAMIS. SensAI precedent (NAMIS 018543) maps the path.",
       "after": "NPAC approval via NAMIS. SensAIa precedent (NAMIS 018543) maps the path."
     },
@@ -260,6 +540,41 @@
     },
     {
       "kind": "wording-repair",
+      "before": "Section 9",
+      "after": "Industry insights"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "EU AI Act enforcement Aug 2026. MiCA framework for digital assets. Regulatory technology evolving from compliance burden to competitive advantage for early movers.",
+      "after": "EU AI Act provisions apply progressively; high-risk dates were amended to 2027/2028. MiCA framework for digital assets. Regulatory technology evolving from compliance burden to competitive advantage for early movers."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 6 \u2192 FenX Integration",
+      "after": "Architecture & work patterns \u2192 FenX Integration"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Google\u2019s Agent Development Kit (ADK) 2.0 went Generally Available on 19 May 2026. This is not just a library \u2014 it is now a first-class GCP service with production primitives that map directly to every Anthropic composable pattern. SEB\u2019s already-approved platform has native support for the architecture patterns outlined in Section 6.",
+      "after": "Google\u2019s Agent Development Kit (ADK) 2.0 went Generally Available on 19 May 2026. This is not just a library \u2014 it is now a first-class GCP service with production primitives that map directly to every Anthropic composable pattern. SEB\u2019s already-approved platform has native support for the architecture patterns outlined in Architecture & work patterns."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "GA since 19 May 2026. Now a managed service, not just a library. All architecture patterns from Section 6 implementable natively.",
+      "after": "GA since 19 May 2026. Now a managed service, not just a library. All architecture patterns from Architecture & work patterns implementable natively."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Beyond build and scale, the Agent Platform includes purpose-built governance infrastructure. These are not future features \u2014 they are GA capabilities that address the security requirements outlined in Section 6 \u2192 Agent Security:",
+      "after": "Beyond build and scale, the Agent Platform includes purpose-built governance infrastructure. These are not future features \u2014 they are GA capabilities that address the security requirements outlined in Architecture & work patterns \u2192 Agent Security:"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "FenX APIs must now be designed for AI agent consumers, not just human UI users. API response formats, error handling, rate limits \u2014 all need to work for autonomous agents that process thousands of requests. This shapes FenX integration architecture (Section 6).",
+      "after": "FenX APIs must now be designed for AI agent consumers, not just human UI users. API response formats, error handling, rate limits \u2014 all need to work for autonomous agents that process thousands of requests. This shapes FenX integration architecture (Architecture & work patterns)."
+    },
+    {
+      "kind": "wording-repair",
       "before": "The April 2026 NPA reform introduces NAMIS-based workflows and revised committee structures. How does this change the approval path for AI use cases already in pipeline? Do existing NPAC conditions (e.g., SensAI\u2019s 8 conditions) carry forward or require re-submission?",
       "after": "The April 2026 NPA reform introduces NAMIS-based workflows and revised committee structures. How does this change the approval path for AI use cases already in pipeline? Do existing NPAC conditions (e.g., SensAIa\u2019s 8 conditions) carry forward or require re-submission?"
     },
@@ -267,6 +582,31 @@
       "kind": "wording-repair",
       "before": "What\u2019s the right size and skill mix for an internal CLM AI builder team? Starting hypothesis: 2\u20133 builders (ML engineering + domain expertise). Requires validation against portfolio ambition, Data & Analytics capacity, and Deloitte engagement scope.",
       "after": "What\u2019s the right size and skill mix for an internal CLM AI builder team? The proposed skill mix combines engineering and domain expertise; scope and ownership need to be established. Requires validation against portfolio ambition, Data & Analytics capacity, and Deloitte engagement scope."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "EU AI Act enforcement (Aug 2026)",
+      "after": "EU AI Act staged application; amended high-risk dates in 2027/2028"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 10",
+      "after": "Data products"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "\u2713 Each new connection makes the layer more valuable",
+      "after": "\u2713 A suitable, maintained connection may support another task; value is not automatic"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Shared infrastructure is easiest to build before you need it at scale \u2014 not after fragmentation becomes the permanent operating model. Every system that connects to the layer increases its value for every existing consumer. This is not a cost that grows linearly. It is an investment that compounds.",
+      "after": "Shared infrastructure is easiest to build before you need it at scale \u2014 not after fragmentation becomes the permanent operating model. A useful connection can serve further tasks when its meaning, quality, applicability and permitted consumption are maintained. Other connections can add cost or irrelevant information. Compare accepted outcomes with integration, review and maintenance effort."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "CLM Intelligence Model (Section 11) \u2192 Canonical Object Model",
+      "after": "CLM Intelligence Model (Intelligence Model) \u2192 Canonical Object Model"
     },
     {
       "kind": "wording-repair",
@@ -295,8 +635,23 @@
     },
     {
       "kind": "wording-repair",
+      "before": "Section 11",
+      "after": "Intelligence Model"
+    },
+    {
+      "kind": "wording-repair",
       "before": "that many runtimes \u2014 Copilot Studio, GCP agents, KAICY, future tools \u2014 can consume. The test of a healthy AI portfolio is not how many agents exist; it is whether every new delivery makes the next one cheaper and safer to build.",
       "after": "that many runtimes \u2014 Copilot Studio, GCP agents, KAICY, future tools \u2014 can consume. The test of a healthy AI portfolio is not how many agents exist; it is whether selected reviewed artifacts can support another task within an established scope, and whether the benefit exceeds review and maintenance costs."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "How this relates to the Governance Tiers in Section 2",
+      "after": "How this relates to the Governance Tiers in Operating model"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 2's four tiers answer",
+      "after": "Operating model's four tiers answer"
     },
     {
       "kind": "claim-repair",
@@ -304,9 +659,19 @@
       "after": "Explicit links support coverage and change-review questions: which obligations lack a mapped control, which requirements lack test evidence, and which changes need reassessment? Links alone do not establish continuous assurance; valid evidence, actual controls and their maintained scope are still required."
     },
     {
+      "kind": "wording-repair",
+      "before": "Answer \u2192 Observe \u2192 Explain \u2192 Prepare \u2192 Recommend \u2192 Human-approved action \u2192 Bounded low-risk autonomous action \u2192 Continuous monitoring/orchestration. Customer-impacting or regulatory outcomes require stronger oversight than internal assistance \u2014 see the Governance Tiers in Section 2 for the approval path.",
+      "after": "Answer \u2192 Observe \u2192 Explain \u2192 Prepare \u2192 Recommend \u2192 Human-approved action \u2192 Bounded low-risk autonomous action \u2192 Continuous monitoring/orchestration. Customer-impacting or regulatory outcomes require stronger oversight than internal assistance \u2014 see the Governance Tiers in Operating model for the approval path."
+    },
+    {
       "kind": "claim-repair",
       "before": "Value once the other layers are reliable: each new agent becomes cheaper and safer because it does not need to rebuild regulatory logic, customer context, data integrations, evidence logic, evaluation, permissions or monitoring.",
       "after": "A later assistant may reuse maintained knowledge and methods when they fit its purpose and permitted consumption. Reuse is conditional; lower cost, greater safety and better outcomes require evidence."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "This is a different question from the risk tiers in Section 2, which govern",
+      "after": "This is a different question from the risk tiers in Operating model, which govern"
     },
     {
       "kind": "wording-repair",
@@ -320,6 +685,26 @@
     },
     {
       "kind": "wording-repair",
+      "before": "From Idea to Production (Section 4)",
+      "after": "From Idea to Production (Delivery lifecycle)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Data products (Section 10) are the governed interfaces to the data/context objects above.",
+      "after": "Data products (Data products) are the governed interfaces to the data/context objects above."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Not the same question as Platform Economics (Section 7)",
+      "after": "Not the same question as Platform Economics (Technology & platforms)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "and complements the existing RASIC 2.0 model in Section 4.",
+      "after": "and complements the existing RASIC 2.0 model in Delivery lifecycle."
+    },
+    {
+      "kind": "wording-repair",
       "before": "Knowledge wording change",
       "after": "Knowledge wording or meaning change"
     },
@@ -330,18 +715,103 @@
     },
     {
       "kind": "wording-repair",
+      "before": "Risk-tier reassessment (Section 2)",
+      "after": "Risk-tier reassessment (Operating model)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Two anti-patterns are already called out elsewhere in this Hub \u2014 over/under-classifying AI risk tiers (Section 2) and the \"AI-specific reorg\" anti-pattern (Section 3). The nine below are specific to how CLM intelligence itself can quietly stop compounding.",
+      "after": "Two anti-patterns are already called out elsewhere in this Hub \u2014 over/under-classifying AI risk tiers (Operating model) and the \"AI-specific reorg\" anti-pattern (People & adoption). The nine below are specific to how CLM intelligence itself can quietly stop compounding."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Section 12",
+      "after": "Advisory scoping"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "of the \u201cFrom Idea to Production\u201d lifecycle (Section 4). In this v0.5 POC, it provides a structured recommendation for governance tiering by applying the 4-question decision tree, ACAA mapping, 6-pillar AI Risk Instruction, GDPR triggers, NPA significance thresholds, and worked examples.",
+      "after": "of the \u201cFrom Idea to Production\u201d lifecycle (Delivery lifecycle). In this v0.5 POC, it provides a structured recommendation for governance tiering by applying the 4-question decision tree, ACAA mapping, 6-pillar AI Risk Instruction, GDPR triggers, NPA significance thresholds, and worked examples."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "One-click export of a 12-section model card pre-filled from classification data. Matches SEB\u2019s model card repository template. Includes monitoring plan, legal basis, and governance requirements.",
+      "after": "The integrated tool exports the scope record and a review brief. It preserves supplied inputs and review questions; it does not infer a legal basis, monitoring approval or a match to the current SEB model-card template."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "The Model Card follows SEB\u2019s template (",
+      "after": "The original model-card proposal referenced SEB\u2019s template ("
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Generated automatically from classification. No additional documentation required.",
+      "after": "A generated draft can organise known inputs. The applicable authority determines what further documentation and review are required."
+    },
+    {
+      "kind": "wording-repair",
       "before": "\u2014 One-click export of the full documentation package as structured PDF, formatted for NPAC/governance committee review. Includes classification rationale, all supporting assessments, and a \u201cconditions to satisfy before production\u201d section modelled on SensAI\u2019s 8-condition approval pattern.",
       "after": "\u2014 One-click export of the full documentation package as structured PDF, formatted for NPAC/governance committee review. Includes classification rationale, all supporting assessments, and a \u201cconditions to satisfy before production\u201d section modelled on SensAIa\u2019s 8-condition approval pattern."
     },
     {
       "kind": "wording-repair",
+      "before": "The 4-question decision tree (Section 2)",
+      "after": "The 4-question decision tree (Operating model)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "The ACAA mapping table (Section 2)",
+      "after": "The ACAA mapping table (Operating model)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "The 6-pillar AI Risk Instruction (Section 5)",
+      "after": "The 6-pillar AI Risk Instruction (Risk & compliance)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "GDPR 7 principles with CLM implications (Section 5)",
+      "after": "GDPR 7 principles with CLM implications (Risk & compliance)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "NPA significance triggers (Section 5)",
+      "after": "NPA significance triggers (Risk & compliance)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "The worked examples from Section 2",
+      "after": "The worked examples from Operating model"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Governance requirements per tier (Section 2)",
+      "after": "Governance requirements per tier (Operating model)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Technical Stack (All SEB-Approved)",
+      "after": "Technical Stack (Proposed stack; workload approval not established)"
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Risk-based AI classification framework. General provisions Dec 2025, high-risk obligations now in force as of 2 Aug 2026. Relevant provisions: Articles 6-7 (classification), Article 9 (risk management), Article 14 (human oversight), Article 52 (transparency).",
+      "after": "Risk-based AI classification framework. Provisions apply progressively; the original general application date is not a universal deadline. high-risk obligations scheduled under the amended timeline: Annex III from 2 December 2027 and regulated-product systems from 2 August 2028. Relevant provisions: Articles 6-7 (classification), Article 9 (risk management), Article 14 (human oversight), Article 50 (transparency)."
+    },
+    {
+      "kind": "wording-repair",
       "before": "SensAI (PWM&FO call transcription, Python/FastAPI/React, GCP Cloud Run, NPAC-approved), Axiom (email extraction), AI Showroom, TestPilotX/PerfPilotX, SEBx Agentic AI (NVIDIA, ADK, Global Market Outlook), Privacy-Preserving AI with KTH, AIDA chatbot.",
-      "after": "SensAIa (PWM&FO call transcription, Python/FastAPI/React, GCP Cloud Run, NPAC-approved), Axiom (email extraction), AI Showroom, TestPilotX/PerfPilotX, SEBx Agentic AI (NVIDIA, ADK, Global Market Outlook), Privacy-Preserving AI with KTH, AIDA chatbot."
+      "after": "SensAIa (PWM&FO call transcription, Python/FastAPI/React, GCP Cloud Run, with reported conditional approval in 2024 and unverified current operation), Axiom (email extraction), AI Showroom, TestPilotX/PerfPilotX, SEBx Agentic AI (NVIDIA, ADK, Global Market Outlook), Privacy-Preserving AI with KTH, AIDA chatbot."
     },
     {
       "kind": "claim-repair",
       "before": "KAICY (KYC Steward) \u2014 Comprehensive Knowledge Base (April 2026)Product definition, architecture (SensAIa \u2194 FenX), NPA proposal, functional requirements, 3 user journeys, data lifecycle (progressive PD minimisation), savings model (31% KYC time reduction), end-of-pilot documentation.",
       "after": "Original SEB\u2013Bain estimate of potential KYC outreach effort reduction: about 31%. This is a planning estimate, not an established measured outcome. Baseline, population, assumptions and exact model date are not supplied."
+    },
+    {
+      "kind": "wording-repair",
+      "before": "Working knowledge synthesis connecting the sub-strategy, this Hub, and the AMLR governing spec into the four-layer CLM Intelligence Model (Section 11). Explicitly labelled a working synthesis, not an approved SEB architecture \u2014 cited here for traceability per its own evidence rule.",
+      "after": "Working knowledge synthesis connecting the sub-strategy, this Hub, and the AMLR governing spec into the four-layer CLM Intelligence Model (Intelligence Model). Explicitly labelled a working synthesis, not an approved SEB architecture \u2014 cited here for traceability per its own evidence rule."
     }
   ],
   "scope": "Content migration and source inspection; no rendered/native verification"
