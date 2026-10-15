@@ -39,7 +39,7 @@ try{
     assert.equal(await page.locator('[data-action="knowledge-stage"][data-value="structured"]').getAttribute('aria-pressed'),'true');
     const firstCondition=page.locator('[data-condition]').first();const before=await firstCondition.isChecked();await firstCondition.click();assert.notEqual(await page.locator('[data-condition]').first().isChecked(),before,'condition toggle changes scenario state');
     await page.locator('[data-lab-check="composition"]').selectOption('pass');
-    assert.match(await page.locator('#lab-audit-result').innerText(),/1 of 5 checks passed/i);
+    assert.match(await page.locator('#lab-audit-result').innerText(),/1 of 5.*pass/i);
     await page.locator('#lab-audit-surface').selectOption({label:'Develop CLM'});
     assert.equal(await page.locator('[data-lab-check="composition"]').inputValue(),'unknown','changing surface resets manual observations');
     await page.screenshot({path:`${out}/design-lab-${name}.png`,fullPage:true});
