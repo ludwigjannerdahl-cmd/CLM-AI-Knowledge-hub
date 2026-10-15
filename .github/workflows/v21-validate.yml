@@ -39,3 +39,25 @@ jobs:
 
       - name: Run generated HTML audit
         run: python3 scripts/check-html.py /tmp/clm-hub-html.json
+
+      - name: Install browser test runtime
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Run browser-rendered Design Lab and cross-surface smoke checks
+        run: |
+          python3 -m http.server 8000 --directory docs >/tmp/clm-hub-server.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8000/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          node scripts/browser-smoke.mjs
+
+      - name: Upload browser QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v21-browser-qa
+          path: reports/browser-v21
+          if-no-files-found: warn
