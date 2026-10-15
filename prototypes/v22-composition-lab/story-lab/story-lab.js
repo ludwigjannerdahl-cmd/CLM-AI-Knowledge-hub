@@ -4,9 +4,24 @@ const STORY_FILES={
   'change-creates-questions':'../stories/change-creates-questions.json'
 };
 const MODE_NOTES={
-  understand:'Author-led explanation: establish the governing mental model with one memorable visual idea.',
+  understand:'Author-led explanation: establish the governing mental model with a deliberate sequence of visual ideas.',
   explore:'Reader-led reasoning: manipulate relationships, conditions or consequences without losing semantic boundaries.',
   inspect:'Analytical inspection: exact source, object, version, status and evidence with calm utility density.'
+};
+// Builder-only projection mapping. Story JSON declares reasoning intent, not renderer type.
+const UNDERSTAND_STEP_SEEDS={
+  'useful-work-first':[
+    '../overview/direction-b/','../overview/direction-b/','../overview/direction-c/',
+    '../overview/direction-b/','../overview/direction-a/','../overview/direction-a/'
+  ],
+  'meaning-that-can-travel':[
+    '../knowledge/direction-a/','../knowledge/direction-b/','../knowledge/direction-b/',
+    '../knowledge/direction-a/','../knowledge/direction-c/','../knowledge/direction-c/'
+  ],
+  'change-creates-questions':[
+    '../change/direction-b/','../change/direction-a/','../change/direction-c/',
+    '../change/direction-b/','../change/direction-b/','../change/direction-a/'
+  ]
 };
 const qs=(s,r=document)=>r.querySelector(s);
 const qsa=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -43,6 +58,13 @@ function renderPicker(){
     host.appendChild(b);
   });
 }
+function projectionFor(story){
+  if(state.mode==='understand'){
+    const sequence=UNDERSTAND_STEP_SEEDS[state.story]||[];
+    return sequence[state.step-1]||story.projection_seeds.understand;
+  }
+  return story.projection_seeds[state.mode];
+}
 function renderModes(story){
   qsa('[data-mode]').forEach(b=>{
     const active=b.dataset.mode===state.mode;
@@ -50,11 +72,12 @@ function renderModes(story){
     b.tabIndex=active?0:-1;
     b.onclick=()=>{state.mode=b.dataset.mode;render();};
   });
-  const src=story.projection_seeds[state.mode];
-  qs('[data-preview]').src=src;
+  const src=projectionFor(story);
+  const frame=qs('[data-preview]');
+  if(frame.getAttribute('src')!==src) frame.src=src;
   qs('[data-open-full]').href=src;
   qs('[data-mode-title]').textContent=state.mode[0].toUpperCase()+state.mode.slice(1);
-  qs('[data-mode-note]').textContent=MODE_NOTES[state.mode];
+  qs('[data-mode-note]').textContent=MODE_NOTES[state.mode]+(state.mode==='understand'?' The preview may change as the story step changes.':'');
 }
 function renderSteps(story){
   const host=qs('.step-list');host.innerHTML='';
@@ -90,7 +113,7 @@ async function render(){
   qs('[data-story-title]').textContent=story.title;
   qs('[data-story-claim]').textContent=story.governing_claim;
   qs('[data-memory-handle]').textContent=story.memory_handle;
-  renderModes(story);renderSteps(story);renderSuccess(story);updateUrl();
+  renderSteps(story);renderModes(story);renderSuccess(story);updateUrl();
 }
 qsa('[data-mode]').forEach((b,i,arr)=>b.addEventListener('keydown',e=>{
   if(!['ArrowLeft','ArrowRight'].includes(e.key))return;
