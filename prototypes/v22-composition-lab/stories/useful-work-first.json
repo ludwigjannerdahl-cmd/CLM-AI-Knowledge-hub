@@ -1,0 +1,80 @@
+{
+  "id": "useful-work-first",
+  "title": "Useful work first",
+  "governing_claim": "AI contribution in CLM is useful only in relation to a defined task, its context, its reviewer and its operating conditions.",
+  "memory_handle": "Work → context → contribution → review → evidence → reuse",
+  "reader_success": [
+    "Explain what AI is helping with in representative CLM work.",
+    "Identify where human review and authorised action remain.",
+    "Distinguish supplied-input work from live-data or shared-service conditions.",
+    "Explain why a useful task output is not automatically reusable institutional context."
+  ],
+  "lenses": ["preparation", "development", "change", "reuse"],
+  "projection_seeds": {
+    "understand": "../overview/direction-b/",
+    "explore": "../overview/direction-a/",
+    "inspect": "../overview/direction-c/"
+  },
+  "steps": [
+    {
+      "id": "work",
+      "claim": "Start with the work, not the model.",
+      "intent": "locate",
+      "focus": [],
+      "salient": "Run CLM, Develop CLM and Govern/change CLM use different work verbs and produce different reviewable artifacts.",
+      "hold_fixed": "No claim that these routes are automated or uniformly implemented.",
+      "false_inference_risk": "Three routes may be mistaken for a complete CLM process taxonomy.",
+      "handoff": "explore:overview"
+    },
+    {
+      "id": "context",
+      "claim": "Useful work depends on explicit context.",
+      "intent": "explain",
+      "focus": ["INS-01@1", "CTX-FENX@2026-08-18", "METHOD-01@1"],
+      "salient": "Rules/instructions, process-system meaning and methods inform a bounded task.",
+      "hold_fixed": "Context is not generic model memory and document presence is not permission.",
+      "false_inference_risk": "A shared context layer could be read as one centrally approved architecture.",
+      "handoff": "inspect:CTX-FENX@2026-08-18"
+    },
+    {
+      "id": "contribution",
+      "claim": "AI prepares work; it does not inherit institutional authority.",
+      "intent": "compare",
+      "focus": ["METHOD-01@1", "OBS-01@1", "REQ-01@1", "TEST-01@1"],
+      "salient": "Preparation, analysis, drafting, comparison and testing are contributions with different outputs.",
+      "hold_fixed": "Human responsibility and authoritative action remain explicit.",
+      "false_inference_risk": "Prepared output may look like an approved decision if review is visually downstream only.",
+      "handoff": "inspect:METHOD-01@1"
+    },
+    {
+      "id": "review",
+      "claim": "Review is part of the work, not a governance sticker at the end.",
+      "intent": "challenge",
+      "focus": ["OBS-01@1", "REQ-01@1"],
+      "salient": "The responsible colleague checks source fidelity, subject, gaps, intended behaviour and next action.",
+      "hold_fixed": "No approval owner is invented where the source model does not provide one.",
+      "false_inference_risk": "A single review seam could imply the same reviewer or control pattern for every task.",
+      "handoff": "explore:overview"
+    },
+    {
+      "id": "conditions",
+      "claim": "What is possible depends on the actual operating conditions.",
+      "intent": "diagnose",
+      "focus": ["CTX-FENX@2026-08-18", "DATA-01@proposal"],
+      "salient": "Supplied-input work, live retrieval, shared operation and record change require different conditions.",
+      "hold_fixed": "A runtime, interface, permission and write route remain distinct conditions.",
+      "false_inference_risk": "Opening one route may be read as granting unrelated access or authority.",
+      "handoff": "explore:conditions"
+    },
+    {
+      "id": "reuse",
+      "claim": "The next use is a separate decision.",
+      "intent": "decide",
+      "focus": ["REUSE-01@1", "DATA-01@proposal", "INS-01@1", "METHOD-01@1"],
+      "salient": "Selected instructions, knowledge or methods need applicability, ownership, maintenance and permitted consumption before another task relies on them.",
+      "hold_fixed": "Acceptance for the present task does not imply approval for reuse.",
+      "false_inference_risk": "A return loop could be mistaken for an automatic compounding flywheel.",
+      "handoff": "inspect:REUSE-01@1"
+    }
+  ]
+}
