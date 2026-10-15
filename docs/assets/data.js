@@ -64,5 +64,5 @@
     {id:'owner',label:'Lifecycle ownership',short:'Ownership',detail:'Business, knowledge and technical responsibilities, maintenance and escalation are established for the scope.',topic:['sec-lifecycle','lc-ownership']}
   ];
   const domains=[['Customer identity','Who the customer and connected parties are.'],['Client engagement','Interactions, needs and relationship activity.'],['Compliance profile','Relevant KYC/CDD information, assessments and their governed context. Suitable FenX outputs may contribute here.'],['Financial position','Assets, liabilities and relevant financial circumstances.'],['Digital behaviour','Relevant digital interactions within their permitted scope.'],['Relationship economics','Relationship value and cost measures with clear definitions.']];
-  root.CLM_HUB_DATA={version:'20.0.0',sources,chapters,objects,paths,layers,conditions,domains,estimate:'Original SEB–Bain estimate: about 31% potential reduction in KYC outreach effort. A measured outcome is not established by the supplied material.'};
+  root.CLM_HUB_DATA={version:'20.1.0',sources,chapters,objects,paths,layers,conditions,domains,estimate:'Original SEB–Bain estimate: about 31% potential reduction in KYC outreach effort. A measured outcome is not established by the supplied material.'};
 })(typeof window!=='undefined'?window:globalThis);

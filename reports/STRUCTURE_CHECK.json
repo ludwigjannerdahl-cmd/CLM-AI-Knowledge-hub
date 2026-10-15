@@ -1,8 +1,8 @@
 {
-  "version": "20.0.0",
+  "version": "20.1.0",
   "kind": "Source and template execution checks; not browser rendering",
   "routesExecuted": 208,
-  "linksChecked": 15927,
+  "linksChecked": 15937,
   "chapters": 13,
   "topicTabs": 81,
   "portfolioRecords": 21,

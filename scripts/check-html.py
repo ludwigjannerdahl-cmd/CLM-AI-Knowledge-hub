@@ -32,7 +32,8 @@ source=Path(sys.argv[1]);states=json.loads(source.read_text());issues=[]
 for state in states:
  p=Check();p.feed(state['html'])
  for issue in p.finish():issues.append({'route':state['route'],**issue})
-result={'version':'20.0.0','kind':'Static HTML parser checks; no layout, browser, native-interaction or accessibility-conformance evidence','parser':'Python standard-library HTMLParser','states':len(states),'issues':issues}
+version=json.loads((Path(__file__).resolve().parent.parent/'package.json').read_text())['version']
+result={'version':version,'kind':'Static HTML parser checks; no layout, browser, native-interaction or accessibility-conformance evidence','parser':'Python standard-library HTMLParser','states':len(states),'issues':issues}
 dest=Path(sys.argv[2]) if len(sys.argv)>2 else Path(__file__).resolve().parent.parent/'reports/HTML_STRUCTURE_V20.json'
 dest.write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result,indent=2));sys.exit(1 if issues else 0)

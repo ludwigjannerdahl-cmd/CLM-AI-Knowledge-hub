@@ -27,3 +27,12 @@ test('Relationship expansion preserves recorded direction, labels and a bounded 
 test('The independent handoff case has its own provenance and never borrows preparation evidence',()=>{for(const id of Object.keys(D.objects).filter(k=>k.startsWith('CHG-'))){const o=D.objects[id];assert.ok(o.sources.includes('synthetic'));assert.ok(o.links.every(([,target])=>target.startsWith('CHG-')));assert.match(o.status,/synthetic|proposed|illustrative/i);}const o=D.objects['CHG-EVID@1'];assert.ok(o.links.some(([label,target])=>label==='does not verify'&&target==='CHG-INS@2'));assert.ok(o.fields.some(([key,value])=>key==='Observed outcome'&&value==='Not supplied'));});
 test('Discovery types distinguish fields, instructions, requirements and evidence',()=>{assert.equal(M.objectKind(D.objects['REQ-01@1']),'Requirement');assert.equal(M.objectKind(D.objects['CTX-FENX@2026-08-18']),'Field');assert.equal(M.objectKind(D.objects['INS-01@1']),'Instruction');assert.equal(M.objectKind(D.objects['EVID-01@1']),'Evidence');});
 test('Unresolved local history survives the next save without becoming a valid record',()=>{let value='broken old JSON';const storage={getItem(){return value;},setItem(_,v){value=v;}};const read=S.readHistory(storage);assert.equal(read.available,true);assert.equal(read.records.length,0);assert.equal(read.unresolved[0].unreadableOriginalJSON,'broken old JSON');const r=S.record(S.example,'new','2026-10-15T08:00:00Z');assert.equal(S.saveHistory(storage,[r],read.unresolved),true);const next=S.readHistory(storage);assert.equal(next.records.length,1);assert.equal(next.unresolved.length,1);assert.equal(next.unresolved[0].unreadableOriginalJSON,'broken old JSON');});
+test('Malformed route encoding is unresolved rather than silently showing the overview',()=>{
+  assert.equal(M.parseRoute('#/source/%E0%A4%A').view,'not-found');
+});
+test('Source line references use the actual extraction and tolerate invalid locations',()=>{
+  const pages=['First\nSecond','Third\nFourth'];
+  for(const [query,expected] of [['page=999&line=999',{page:1,line:2}],['page=-1&line=-3',{page:0,line:1}],['page=1.5&line=NaN',{page:0,line:1}],['page=1',{page:1,line:0}]])assert.deepEqual(plain(M.sourcePosition(pages,new URLSearchParams(query))),expected);
+  assert.equal(M.matchingSourceLine('Sources\nRéview of an instruction\nNew context','review instruction'),2);
+  assert.equal(M.matchingSourceLine('First\r\nSecond','second'),2);
+});

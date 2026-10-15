@@ -1,0 +1,46 @@
+✔ A direct topic-heading route keeps focus on that heading in the controller host (57.995342ms)
+✔ The real scoping template transitions from unresolved to an advisory result in the controller host (41.197761ms)
+✔ Changing a work step retains the independent case in the controller URL (38.791493ms)
+✔ Overview selections reveal distinct work and literal context specimens (36.407721ms)
+✔ Unknown work, meaning and change identities do not silently select another case (133.980368ms)
+✔ Source reading returns across several source pages to the exact task and scroll (34.584891ms)
+✔ Closing linked objects walks back through the inspected context (43.297809ms)
+✔ A source excursion retains the object panel and its scroll (36.876705ms)
+✔ Closing an object found by search restores its query (38.394557ms)
+✔ Shared overview links restore both selection and the matching starting task (39.637746ms)
+✔ Next-step control keeps the change case and focuses the actual explanation (31.552932ms)
+✔ Out-of-range source locations resolve to a real passage and focus target (30.674673ms)
+✔ Back to an unparameterised overview restores its original selection (49.317613ms)
+✔ All representation choices preserve one instruction rather than switching examples (35.367778ms)
+✔ Scroll snapshots support Back and Forward without a link click (38.375769ms)
+✔ Missing live interface does not stop supplied-document work or deterministic development (1.23744ms)
+✔ Runtime is neither a data interface nor release approval (0.143005ms)
+✔ Data access alone does not establish shared operation (0.161583ms)
+✔ A supplied-input shared service can be considered without a live interface (0.198368ms)
+✔ Changed instruction does not rewrite historical evidence or invent a pass (0.222735ms)
+✔ All declared object relationships and sources exist (0.26601ms)
+✔ Unknown categorical values remain incomplete for every scoping option (1.364481ms)
+✔ Incomplete scope cannot be overridden into a completed suggestion (0.34597ms)
+✔ One effective result drives display and export while the original is retained (0.625611ms)
+✔ Replay retains the complete normalised input and file metadata; corruption is rejected (1.339244ms)
+✔ Storage failures and corrupt data leave an explicit unavailable state (0.257638ms)
+✔ User text is escaped rather than executable markup (0.229125ms)
+✔ Legacy deep links map to integrated topics and examples (0.331789ms)
+✔ Notes tolerate malformed saved input and keep a bounded size (0.230025ms)
+✔ Every condition combination preserves the distinct routes (2.211825ms)
+✔ Corrupt history cannot give an incomplete record an amended pattern (0.237967ms)
+✔ Review brief preserves inputs, amendments and the same effective result as JSON (0.483477ms)
+✔ Relationship expansion preserves recorded direction, labels and a bounded neighbourhood (7.960166ms)
+✔ The independent handoff case has its own provenance and never borrows preparation evidence (0.344598ms)
+✔ Discovery types distinguish fields, instructions, requirements and evidence (0.096375ms)
+✔ Unresolved local history survives the next save without becoming a valid record (0.370977ms)
+✔ Malformed route encoding is unresolved rather than silently showing the overview (0.108072ms)
+✔ Source line references use the actual extraction and tolerate invalid locations (0.476556ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 789.094319

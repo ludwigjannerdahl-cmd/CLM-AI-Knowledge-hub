@@ -18,7 +18,7 @@ const json=v=>JSON.stringify(v).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u20
 const scripts=['data','explanation-data','chapters','source-texts','scoping','model','explanations','views','app'];
 const content={chapters:'window.CLM_HUB_CHAPTERS='+json(chapters)+';', 'source-texts':'window.CLM_SOURCE_TEXTS='+json(JSON.parse(await read('src/source-texts.json')))+';'};
 for(const name of scripts){if(!content[name])content[name]=await read('src/'+name+'.js');await writeFile(join(out,'assets',name+'.js'),content[name]);}
-const css=await read('src/styles.css')+'\n'+await read('src/explanations.css');await writeFile(join(out,'assets/styles.css'),css);
+const css=await read('src/styles.css')+'\n'+await read('src/explanations.css')+'\n'+await read('src/reading.css');await writeFile(join(out,'assets/styles.css'),css);
 await copyFile(join(root,'assets/favicon.svg'),join(out,'assets/favicon.svg'));
 const html=await read('src/index.html');await writeFile(join(out,'index.html'),html.replace(/((?:src|href)="assets\/[^"]+)(")/g,'$1?v='+version+'$2'));
 let standalone=html.replace('<link rel="stylesheet" href="assets/styles.css">','<style>'+css+'</style>');
