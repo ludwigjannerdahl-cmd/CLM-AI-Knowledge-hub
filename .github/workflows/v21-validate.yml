@@ -1,0 +1,41 @@
+name: V21 validation
+
+on:
+  push:
+    branches:
+      - v21-design-coherence
+  pull_request:
+    branches:
+      - v20-visual-system
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build static review output
+        run: npm run build
+
+      - name: Run model and controller tests
+        run: npm test
+
+      - name: Run route and semantic structure checks
+        run: node scripts/check.mjs --html-snapshots /tmp/clm-hub-html.json
+
+      - name: Run generated HTML audit
+        run: python3 scripts/check-html.py /tmp/clm-hub-html.json
