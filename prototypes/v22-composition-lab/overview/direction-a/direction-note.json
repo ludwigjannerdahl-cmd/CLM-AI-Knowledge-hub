@@ -1,0 +1,14 @@
+{
+  "name": "The working landscape",
+  "reader_question": "How do work, context and review connect?",
+  "reasoning_operation": "Trace",
+  "visual_idea": "Three work corridors share a contextual base, meet a review seam and leave a separate reuse route.",
+  "why_geometry_helps": "Three work corridors share a contextual base, meet a review seam and leave a separate reuse route.",
+  "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+  "false_inference_risk": "A continuous corridor could be read as automatic workflow execution; review seam and scope explicitly stop that inference.",
+  "references_used": [
+    "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+    "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+  ],
+  "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+}

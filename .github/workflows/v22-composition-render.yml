@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - v22-astra-composition-reset
+      - v22-golden-scenes
     paths:
       - 'prototypes/v22-composition-lab/**'
       - 'scripts/render-composition-lab.mjs'
@@ -29,7 +30,7 @@ jobs:
 
       - name: Install Playwright
         run: |
-          npm install --no-save playwright
+          npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
 
       - name: Start composition lab server
