@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>V22 Story Lab · CLM AI Knowledge Hub</title>
+  <link rel="stylesheet" href="story-lab.css">
+</head>
+<body>
+  <header class="lab-topbar">
+    <div class="brand"><strong>CLM / AI</strong><span>Story Lab</span></div>
+    <nav aria-label="Lab navigation">
+      <a href="../">Composition lab</a>
+      <a href="../../../../planning/V22_STORY_ARCHITECTURE.md">Story architecture</a>
+    </nav>
+    <span class="status">Builder-only · 1920×1200 first</span>
+  </header>
+
+  <main class="lab-shell">
+    <aside class="story-rail" aria-label="Stories">
+      <p class="eyebrow">Story engine · before the engine</p>
+      <h1>One semantic core.<br>Three ways to reason.</h1>
+      <p class="lead">Understand the mechanism, explore its relationships, then inspect the exact source, object or evidence.</p>
+      <div class="story-picker" role="navigation" aria-label="Choose story"></div>
+      <div class="contract">
+        <span>Reader states</span>
+        <dl>
+          <div><dt>Understand</dt><dd>Author-led mental model</dd></div>
+          <div><dt>Explore</dt><dd>Reader-led spatial reasoning</dd></div>
+          <div><dt>Inspect</dt><dd>Exact source / object / evidence</dd></div>
+        </dl>
+      </div>
+    </aside>
+
+    <section class="story-stage" aria-live="polite">
+      <header class="story-header">
+        <div>
+          <p class="eyebrow" data-story-index></p>
+          <h2 data-story-title></h2>
+          <p class="story-claim" data-story-claim></p>
+        </div>
+        <div class="memory-handle"><span>Memory handle</span><strong data-memory-handle></strong></div>
+      </header>
+
+      <div class="mode-row" role="tablist" aria-label="Projection mode">
+        <button role="tab" data-mode="understand">Understand</button>
+        <button role="tab" data-mode="explore">Explore</button>
+        <button role="tab" data-mode="inspect">Inspect</button>
+        <a class="open-full" data-open-full target="_blank" rel="noopener">Open full 1920 composition ↗</a>
+      </div>
+
+      <div class="preview-grid">
+        <div class="preview-column">
+          <div class="preview-window" aria-label="Golden-scene projection preview">
+            <iframe title="Golden scene projection" data-preview loading="eager"></iframe>
+          </div>
+          <div class="preview-caption">
+            <strong data-mode-title></strong>
+            <span data-mode-note></span>
+          </div>
+        </div>
+
+        <aside class="step-panel">
+          <div class="step-list" aria-label="Story steps"></div>
+          <article class="step-detail">
+            <p class="eyebrow" data-step-index></p>
+            <h3 data-step-claim></h3>
+            <dl>
+              <div><dt>Reasoning job</dt><dd data-step-intent></dd></div>
+              <div><dt>Make salient</dt><dd data-step-salient></dd></div>
+              <div><dt>Keep fixed</dt><dd data-step-fixed></dd></div>
+              <div class="risk"><dt>False inference to prevent</dt><dd data-step-risk></dd></div>
+            </dl>
+            <div class="focus-row"><span>Canonical focus</span><div data-step-focus></div></div>
+            <div class="handoff-row"><span>Next projection</span><strong data-step-handoff></strong></div>
+          </article>
+        </aside>
+      </div>
+
+      <section class="success-strip">
+        <div><p class="eyebrow">Reader success</p><h3>The story is finished only if the reader can reconstruct the mechanism.</h3></div>
+        <ol data-reader-success></ol>
+      </section>
+
+      <section class="representation-workbench" aria-labelledby="representation-title">
+        <header>
+          <div><p class="eyebrow">Pull-based visual grammar</p><h3 id="representation-title">Choose geometry from the reasoning job.</h3></div>
+          <p>This is a catalogue for critique, not a checklist. A golden composition may reject every listed family if another geometry is more faithful.</p>
+        </header>
+        <div class="representation-grid">
+          <article><span>Locate / identify</span><strong>Hierarchy · layers · concept context</strong><p>Use when the reader needs orientation or stable identity.</p></article>
+          <article><span>Trace</span><strong>Swimlane · impact path · trace overlay</strong><p>Use when sequence, dependency or provenance must be followed.</p></article>
+          <article><span>Compare</span><strong>Aligned diff · small multiples · matrix</strong><p>Use when differences matter more than the individual objects.</p></article>
+          <article><span>Explain</span><strong>Transformation · state transition · causal chain</strong><p>Use when the reader must reconstruct a mechanism.</p></article>
+          <article><span>Diagnose</span><strong>Constraint route · BowTie · counterfactual scenarios</strong><p>Use when missing conditions or controls change the outcome.</p></article>
+          <article><span>Decide / challenge</span><strong>Decision table · argument · consequence view</strong><p>Use when the next human judgement is the point of the scene.</p></article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="lab-footer">
+    <span>Visual references define ambition, not facts.</span>
+    <span>Story scripts project the canonical model; they are not a second source of truth.</span>
+  </footer>
+
+  <script src="story-lab.js"></script>
+</body>
+</html>
