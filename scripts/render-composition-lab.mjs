@@ -72,14 +72,14 @@ try {
     await page.screenshot({ path: path.join(outDir, `${slug}-full.png`), fullPage: true });
 
     const interactions=[];
-    if(await page.locator('[data-task]').count()){
-      await page.locator('[data-task="change"]').click();assert.equal(await page.locator('body').getAttribute('data-task'),'change');assert.match(await page.locator('[data-task-field="scope"]').innerText(),/No object updates automatically/);interactions.push('Task changes the output, responsibility and visible route');
+    if(await page.locator('button[data-task]').count()){
+      await page.locator('button[data-task="change"]').click();assert.equal(await page.locator('body').getAttribute('data-task'),'change');assert.match(await page.locator('[data-task-field="scope"]').innerText(),/No object updates automatically/);interactions.push('Task changes the output, responsibility and visible route');
     }
     if(await page.locator('[data-revision-toggle]').count()){
       await page.locator('[data-revision-toggle]').uncheck();assert.match(await page.locator('body').getAttribute('class'),/revision-off/);assert.match(await page.locator('[data-revision-status]').innerText(),/Baseline selected/);await page.locator('[data-revision-toggle]').check();interactions.push('Revision selection changes impact scope without changing historical evidence');
     }
-    if(await page.locator('[data-meaning]').count()){
-      await page.locator('[data-meaning="boundary"]').click();assert.equal(await page.locator('[data-meaning="boundary"]').getAttribute('aria-pressed'),'true');assert.ok(await page.locator('[data-meaning-detail="boundary"]').isVisible());interactions.push('Meaning selection reveals its precise boundary');
+    if(await page.locator('button[data-meaning]').count()){
+      await page.locator('button[data-meaning="boundary"]').click();assert.equal(await page.locator('button[data-meaning="boundary"]').getAttribute('aria-pressed'),'true');assert.ok(await page.locator('[data-meaning-detail="boundary"]').isVisible());interactions.push('Meaning selection reveals its precise boundary');
     }
     if(await page.locator('[data-include]').count()){
       await page.locator('[data-include]').first().uncheck();assert.match(await page.locator('[data-packet-status]').innerText(),/incomplete/);interactions.push('Removing context leaves the packet visibly incomplete');
