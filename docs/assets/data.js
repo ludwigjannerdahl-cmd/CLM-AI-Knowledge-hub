@@ -13,6 +13,12 @@
     {id:'synthetic',title:'Synthetic teaching specimens',kind:'Illustration',date:'Builds 19–20 · October 2026',summary:'Invented source passage, instruction, requirement, mapping, test and evidence record illustrate the relationships. Review states belong only to the demonstration.',scope:'No customer information, legal interpretation, executed test, system update or institutional approval is represented.'},
     {id:'classifier-audit',notes:['Unknown categorical inputs remain unresolved. One effective result drives JSON, review-brief export and display; amendments do not grant approval.','Full replay inputs, attachment metadata and engine versions are retained. Storage refusal preserves session output; local history is editable and is not an institutional audit log.'],title:'Advisory scoping: audit and scope',kind:'Implementation record',date:'Builds 19–20 · October 2026',summary:'The supplied classifier was deterministic. Its unknown-input fallback, export divergence and replay/storage handling required repair. This version proposes working patterns and review questions, never formal legal or risk approval.',scope:'Local history is editable browser data. See the build validation record for what was tested and what remains unverified.'}
   ];
+  for(const source of sources){
+    if(['strategy','operating-model','ui-knowledge'].includes(source.id)){
+      delete source.file;
+      source.notes=[...(source.notes||[]),'The supplied document is not distributed in this public edition. This record preserves its provenance and scope; obtain the original through an authorised internal channel.'];
+    }
+  }
   const chapters = [
     {id:'sec-exec',title:'CLM direction',group:'work',intro:'The broad contribution of AI to useful CLM work.'},
     {id:'sec-model',title:'Operating model',group:'knowledge',intro:'Work, context, principles and responsibility. Proposed governance mappings need current authority.'},

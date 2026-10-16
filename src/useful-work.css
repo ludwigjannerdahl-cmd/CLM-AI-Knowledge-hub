@@ -14,6 +14,23 @@
 @media print{.uw-toolbar,.uw-composition-control{display:none}.main[data-surface="useful-work"]{max-width:none;padding:0}.uw-workpaper{break-inside:avoid}.uw-heading h1{font-size:28px}}
 
 /* Desktop first-frame budget; no clipped content or fixed viewport height. */
+@media(min-width:1600px){
+  .uw-composition-a .uw-scene{grid-template-columns:350px minmax(0,1fr) 310px;gap:28px}
+  .uw-composition-a .uw-workpaper{padding-top:18px}
+  .uw-composition-a .uw-workpaper>header{padding-bottom:12px}
+  .uw-composition-a .uw-paper-intro{margin:14px 0}
+  .uw-composition-a .uw-paper-intro p{font-size:18px;line-height:1.45}
+  .uw-composition-a .uw-fields th,.uw-composition-a .uw-fields td{padding-top:9px;padding-bottom:9px}
+  .uw-composition-a .uw-stop{margin:14px 0 10px}
+  .uw-composition-a .uw-context{margin-top:12px;padding-top:12px}
+  .uw-composition-a .uw-transcript{margin:12px 0}
+  .uw-composition-a .uw-transcript p{line-height:1.4;margin-top:10px;font-size:17px}
+  .uw-composition-a .uw-context dl{margin:10px 0}
+  .uw-composition-a .uw-binding{margin:8px 0}
+  .uw-composition-a .uw-scope-snapshot li{padding:4px 0}
+  .uw-composition-a .uw-context h2{font-size:22px}
+  .uw-composition-a .uw-checks h3{font-size:19px}
+}
 @media(min-width:1600px){.uw-page{padding-top:18px}.uw-heading{margin-bottom:14px}.uw-heading h1{font-size:38px}.uw-heading .eyebrow{margin-bottom:7px}.uw-heading p:not(.eyebrow){margin-top:7px}.uw-toolbar{padding:8px 0}.uw-contract{padding:10px 0 13px}.uw-scene{margin-top:18px}.uw-checks{margin-top:18px;padding-top:13px}.uw-checks p{margin-top:6px}.uw-method{padding-top:12px}.uw-method ol{gap:16px}.uw-method li{padding-top:6px}.uw-method li>span{display:inline;margin-right:8px}.uw-method .uw-material-label{margin-bottom:6px}.uw-composition-b .uw-method .uw-inspect{min-height:28px}.uw-composition-b .uw-review .uw-material-label{margin-bottom:9px}}
 @media(max-width:1100px){.uw-folio-source .uw-source{display:block}.uw-folio-source .uw-transcript{display:block;margin:15px 0}.uw-folio-source .uw-transcript p+p{margin-top:14px}.uw-composition-b .uw-review{display:block}.uw-composition-b .uw-review>h2{margin-top:0}.uw-composition-b .uw-review section{border-left:0;padding-left:34px;border-bottom:1px solid var(--line)}.uw-composition-b .uw-review-number{left:0}.uw-composition-b .uw-review .uw-no-write{margin-top:14px}}
 @media(max-width:760px){.uw-folio-source{padding:18px}.uw-composition-b .uw-folio-margin{display:contents}.uw-composition-b .uw-folio-margin>.uw-context{order:1}.uw-composition-b .uw-folio-margin>.uw-review{order:2}.uw-folio-source .source-link,.uw-folio-source .uw-inspect{min-height:44px}.uw-scope-snapshot li{font-size:13px}}

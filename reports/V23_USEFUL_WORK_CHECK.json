@@ -6,7 +6,7 @@
   "inspections": 14,
   "bindingContextDefault": [],
   "semanticValidationErrors": [],
-  "browser": "BLOCKED: permitted control-browser unavailable; no-push constraint prevents prior CI route",
+  "browser": "Separate GitHub Actions browser report required; local browser unavailable",
   "visualExcellence": "UNVERIFIED",
   "informationalValue": "Implemented; reader-tested value UNVERIFIED",
   "readerComprehension": "UNVERIFIED"

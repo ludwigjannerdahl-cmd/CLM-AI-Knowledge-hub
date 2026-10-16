@@ -19,6 +19,9 @@ chapters.portfolio=portfolio;
 const json=v=>JSON.stringify(v).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
 const scripts=['data','explanation-data','chapters','source-texts','scoping','model','explanations','views','design-lab','specimen-kernel','useful-fixture','useful-work','app'];
 const content={'useful-fixture':'window.CLM_USEFUL_FIXTURE='+json(JSON.parse(await read('fixtures/useful-work.safe.json')))+';',chapters:'window.CLM_HUB_CHAPTERS='+json(chapters)+';', 'source-texts':'window.CLM_SOURCE_TEXTS='+json(JSON.parse(await read('src/source-texts.json')))+';'};
+// The public edition retains source provenance, not supplied internal document bodies.
+// The synthetic specimen registers its own publishable source at runtime.
+content['source-texts']='window.CLM_SOURCE_TEXTS={};';
 for(const name of scripts){if(!content[name])content[name]=await read('src/'+name+'.js');await writeFile(join(out,'assets',name+'.js'),content[name]);}
 const css=(await Promise.all(['styles','explanations','reading','coherence','visual-ambition','design-lab','useful-work'].map(name=>read('src/'+name+'.css')))).join('\n');await writeFile(join(out,'assets/styles.css'),css);
 await copyFile(join(root,'assets/favicon.svg'),join(out,'assets/favicon.svg'));
@@ -27,7 +30,7 @@ let standalone=html.replace('<link rel="stylesheet" href="assets/styles.css">','
 for(const name of scripts)standalone=standalone.replace('<script src="assets/'+name+'.js"></script>',()=>'<script>'+content[name].replace(/<\/script/gi,'<\\/script')+'</script>');
 await writeFile(join(out,'OPEN_ME_FIRST.html'),standalone);
 // Explicit distribution allowlist: no Mentor packet, raw source page, captured history or analytics.
-for(const name of ['SEB_AI_sub_strategy_v1.0.pdf','CLM_AI_Operating_Model_Knowledge_v1.0.md','UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md'])await copyFile(join(root,'sources',name),join(out,'sources',name));
+// No internal source-document downloads in the public Pages distribution.
 await writeFile(join(out,'.nojekyll'),'');
 await guardOutput(root,out);
 console.log(JSON.stringify({version,output:'docs',chapters:chapters.chapters.length,portfolioRecords:Object.keys(portfolio).length,standalone:true,designLab:true,visualAmbition:true}));
