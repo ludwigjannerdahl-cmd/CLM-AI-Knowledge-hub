@@ -5,3 +5,7 @@ releases/
 .DS_Store
 # Raw input is retained in the original planning package; not a website or repository asset.
 sources/CLM_AI_Knowledge_Hub_2026_10_14.html
+# Internal inputs are never website assets.
+.private-specimens/
+.private-atlas/
+.private-output/

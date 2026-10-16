@@ -1,0 +1,10 @@
+import {readFile,realpath} from 'node:fs/promises';
+import {resolve,relative} from 'node:path';
+import vm from 'node:vm';
+const root=resolve(new URL('..',import.meta.url).pathname),base=resolve(root,'.private-specimens');
+const file=process.argv[2];if(!file)throw Error('Provide a selected specimen JSON under .private-specimens/. No output is written.');
+const target=await realpath(resolve(file));if(relative(base,target).startsWith('..')||target===base)throw Error('Private specimens must stay under the ignored private directory.');
+const raw=JSON.parse(await readFile(target,'utf8'));if(raw.publication!=='private-internal')throw Error('Private input must be explicitly classified.');
+const ctx={};vm.createContext(ctx);vm.runInContext(await readFile(resolve(root,'src/specimen-kernel.js'),'utf8'),ctx);
+const p=ctx.CLM_SPECIMEN_KERNEL.adapt(raw,{allowPrivate:true});
+console.log(JSON.stringify({valid:true,publication:p.publication,objects:p.objects.length,bindingContext:ctx.CLM_SPECIMEN_KERNEL.compile(p).binding.length,note:'Private structural check only. No approval, evidence verification or source fidelity is established.'}));

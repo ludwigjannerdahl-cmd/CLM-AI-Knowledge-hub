@@ -52,7 +52,7 @@
     const ret=state.route.view==='source'&&history.state?.sourceReturn?'<div class="return-bar">'+button('← Return to '+history.state.sourceReturn.label,'return')+'<span>Source reading · your task context is retained</span></div>':'';
     app.dataset.surface=state.route.view;document.getElementById('main').dataset.surface=state.route.view;
     app.innerHTML=ret+views.render();
-    document.querySelectorAll('.primary-nav a').forEach(a=>{const v=M.parseRoute(a.hash).view;const yes=v===state.route.view;a.toggleAttribute('aria-current',yes);if(yes)a.setAttribute('aria-current','page');});
+    document.querySelectorAll('.primary-nav a').forEach(a=>{const v=M.parseRoute(a.hash).view;const yes=v===state.route.view||(v==='useful-work'&&state.route.view==='work');a.toggleAttribute('aria-current',yes);if(yes)a.setAttribute('aria-current','page');});
     document.title=(document.getElementById('page-title')?.textContent||'CLM AI Knowledge Hub')+' · CLM AI';
     document.querySelectorAll('[data-disclosure]').forEach(n=>{const k=n.dataset.disclosure;if(Object.hasOwn(state.disclosures,k))n.open=state.disclosures[k];});
     initNative(app);document.body.classList.remove('menu-open');document.querySelector('[data-action="menu"]').setAttribute('aria-expanded','false');
@@ -82,11 +82,12 @@
     if(was==='object'&&state.route.params.has('object')){history.replaceState({...history.state,hub:true},'',routeWith('object',null));lastHash=location.hash;state.route=M.parseRoute(location.hash);}
     const target=focusElement(modalReturn)||document.getElementById('page-title');target?.focus({preventScroll:true});remember();
   }
-  function openObject(id,push=true){const o=D.objects[id];if(!o){announce('This object is unavailable.');return;}
+  function openObject(id,push=true){const o=D.objects[id]||window.CLM_USEFUL_WORK?.objects[id];if(!o){announce('This object is unavailable.');return;}
     if(push){remember();const prior=snapshot();const objectReturn={hash:location.hash||'#/',position:history.state?.position??null,snapshot:prior};
       const position=(history.state?.position||0)+1;readingPositions.delete(position);
       history.pushState({hub:true,position,snapshot:{...prior,overlay:null,modal:null},sourceReturn:history.state?.sourceReturn||null,objectReturn},'',routeWith('object',id));lastHash=location.hash;state.route=M.parseRoute(location.hash);
     }
+    if(window.CLM_USEFUL_WORK?.inspectable(id)){showDialog('object',o.kind,window.CLM_USEFUL_WORK.create({state,icon,button,link,objectLink,topicLink,sourceLink}).inspection(id));return;}
     const panel=state.route.params.get('panel');showDialog('object',o.type,X.dossier(o,['definition','relationships','evidence','history'].includes(panel)?panel:'definition'));
   }
   function download(name,value,type='application/json'){const content=typeof value==='string'?value:JSON.stringify(value,null,2);const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type}));a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),3000);announce('Export prepared.');}
@@ -96,6 +97,8 @@
   for(const s of D.sources)index.push({kind:'Source',title:s.title,text:s.summary+' '+s.scope,href:'#/source/'+s.id,context:s.kind});
   for(const p of Object.values(D.paths))index.push({kind:'Use case',title:p.label,text:p.lead+' '+p.eyebrow,href:'#/work/'+p.id,context:p.eyebrow});
   index.push({kind:'Use case',title:'Incomplete onboarding handoff',text:'Independent synthetic change transfer: source, interpretation, instruction, requirement, test and evidence',href:'#/work/change?case=handoff',context:'Govern / change CLM · synthetic transfer'});
+  for(const o of Object.values(window.CLM_USEFUL_WORK?.objects||{}))index.push({kind:({requirement:'Requirement',representation:'Field',instruction:'Instruction',method:'Method',evidence:'Evidence',source:'Source'})[o.kind]||'Use case',title:o.title,text:o.id+' '+o.assertion,object:o.id,context:o.kind+' · '+o.status});
+  index.push({kind:'Use case',title:'Prepare a source-linked review',text:'Useful work first Source of Wealth Funds Task Contract applicability execution envelope',href:'#/useful-work',context:'Synthetic teaching case'});
   const searchKinds=['All','Requirement','Field','Instruction','Method','Evidence','Use case','Topic','Source'];
   for(const source of D.sources)for(const [page,text] of (window.CLM_SOURCE_TEXTS?.[source.id]||[]).entries())index.push({kind:'Source',title:source.title+(source.id==='strategy'?' · page '+(page+1):' · full text'),text,href:'#/source/'+source.id+'?page='+page,sourcePage:page,sourceId:source.id,context:'Supplied text extraction · '+source.kind});
   function excerpt(text,query){const clean=M.plain(text),word=query.trim().split(/\s+/)[0]?.toLowerCase()||'',at=clean.toLowerCase().indexOf(word),start=Math.max(0,at-70);return (start?'…':'')+clean.slice(start,start+230)+'…';}
@@ -123,6 +126,11 @@
     const a=event.target.closest('a');if(a&&a.getAttribute('href')?.startsWith('#')&&!event.ctrlKey&&!event.metaKey&&!event.shiftKey&&!event.altKey){event.preventDefault();navigate(a.getAttribute('href'));return;}
     const b=event.target.closest('[data-action]');if(!b)return;const action=b.dataset.action,v=b.dataset.value;
     if(action==='close'){closeDialog();return;}
+    if(action?.startsWith('uw-')){
+      if(action==='uw-export'){download('CLM_synthetic_workpaper.json',window.CLM_USEFUL_WORK.exportState(state.route.params));return;}
+      const key=action.slice(3),allowed={country:['SE','NO','missing'],material:['unknown','supplied','absent'],composition:['a','b','c'],view:['compiler','envelope','stop','assurance','contract','']};
+      if(allowed[key]?.includes(v)){navigate(routeWith(key,v||null),{keepScroll:true,focus:key==='view'?{id:v?'uw-detail':'page-title'}:{action,value:v},scrollToFocus:key==='view'});announce(key==='country'||key==='material'?'Case assumption changed. Applicability recalculated; draft context remains withheld.':key==='view'?'Inspection depth changed. Same case retained.':'Composition changed. Same case retained.');}return;
+    }
     if(action==='object'){openObject(v);return;}
     if(action==='search'){search();return;}
     if(action==='search-filter'){dialog.querySelectorAll('[data-action="search-filter"]').forEach(n=>n.setAttribute('aria-pressed',String(n===b)));searchResults();return;}
@@ -130,6 +138,7 @@
     if(action==='notes'){notes();return;}
     if(action==='notes-export'){download('CLM_local_notes.json',{schemaVersion:1,exportedAt:new Date().toISOString(),notes:state.notes,boundary:'Personal working notes; not approved knowledge'});return;}
     if(action==='note-export'){download('CLM_note.json',{context:v,...state.notes[v],boundary:'Personal working note'});return;}
+    if(action==='object-export'&&window.CLM_USEFUL_WORK?.inspectable(v)){download('CLM_synthetic_object.json',window.CLM_USEFUL_WORK.exportObject(v,state.route.params));return;}
     if(action==='object-export'){download('CLM_object.json',{...D.objects[v],sourceRecords:D.objects[v].sources.map(id=>D.sources.find(s=>s.id===id))});return;}
     if(action==='chapter-export'){const c=N.chapters.find(c=>c.id===v);download(v+'.txt',c.title+'\n\n'+M.plain(c.html)+'\n\nSource: '+N.sourceSha256,'text/plain');return;}
     if(action==='decision-export'){download('CLM_bounded_decision.txt','Proposed bounded reuse test\n\n'+M.plain(app.innerHTML)+'\n\nExported: '+new Date().toISOString(),'text/plain');return;}

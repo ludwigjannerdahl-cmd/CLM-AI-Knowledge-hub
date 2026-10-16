@@ -5,13 +5,13 @@ import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=resolve(fileURLToPath(new URL('..',import.meta.url)));
 const ctx={URLSearchParams,queueMicrotask,document:{querySelector:()=>null}};ctx.window=ctx;vm.createContext(ctx);
-for(const name of ['data','explanation-data','chapters','source-texts','scoping','model','explanations','views','design-lab'])vm.runInContext(readFileSync(root+'/docs/assets/'+name+'.js','utf8'),ctx);
+for(const name of ['data','explanation-data','chapters','source-texts','scoping','model','explanations','views','design-lab','specimen-kernel','useful-fixture','useful-work'])vm.runInContext(readFileSync(root+'/docs/assets/'+name+'.js','utf8'),ctx);
 const D=ctx.CLM_HUB_DATA,N=ctx.CLM_HUB_CHAPTERS,M=ctx.CLM_HUB_MODEL;
 const state={route:M.parseRoute('#/'),flags:{...M.defaultFlags},steps:{},tabs:{},subject:'client',changed:false,transferChanged:false,anchor:'work',workDomain:'run',knowledgeStage:'human'};
 const e=M.escape;
-const helpers={state,icon:()=>'<svg aria-hidden="true"></svg>',button:(l,a,v)=>'<button data-action="'+a+'" data-value="'+e(v)+'">'+e(l)+'</button>',link:(h,l)=>'<a href="'+h+'">'+e(l)+'</a>',objectLink:(id,l)=>{assert.ok(D.objects[id],'object '+id);return '<button>'+e(l||id)+'</button>';},topicLink:(c,t,l)=>'<a href="'+M.routeForTopic(c,t)+'">'+e(l)+'</a>',sourceLink:(id,l)=>{assert.ok(D.sources.some(x=>x.id===id),'source '+id);return '<a href="#/source/'+id+'">'+e(l||id)+'</a>';},scopeView:()=>'<h1>Advisory scope</h1>'};
+const helpers={state,icon:()=>'<svg aria-hidden="true"></svg>',button:(l,a,v)=>'<button data-action="'+a+'" data-value="'+e(v)+'">'+e(l)+'</button>',link:(h,l)=>'<a href="'+h+'">'+e(l)+'</a>',objectLink:(id,l)=>{assert.ok(D.objects[id]||ctx.CLM_USEFUL_WORK?.inspectable(id),'object '+id);return '<button>'+e(l||id)+'</button>';},topicLink:(c,t,l)=>'<a href="'+M.routeForTopic(c,t)+'">'+e(l)+'</a>',sourceLink:(id,l)=>{assert.ok(D.sources.some(x=>x.id===id),'source '+id);return '<a href="#/source/'+id+'">'+e(l||id)+'</a>';},scopeView:()=>'<h1>Advisory scope</h1>'};
 const X=ctx.CLM_EXPLANATIONS.create(helpers);const views=ctx.CLM_HUB_VIEWS.create({...helpers,X});
-const routes=['#/','#/design-system','#/topics','#/conditions','#/next','#/about',...D.layers.map(x=>'#/knowledge/'+x.id),...D.sources.map(x=>'#/source/'+x.id)];
+const routes=['#/useful-work','#/useful-work?composition=a','#/useful-work?composition=c','#/useful-work?country=NO&view=compiler','#/useful-work?country=missing&view=stop','#/useful-work?view=envelope','#/useful-work?view=assurance','#/','#/design-system','#/topics','#/conditions','#/next','#/about',...D.layers.map(x=>'#/knowledge/'+x.id),...D.sources.map(x=>'#/source/'+x.id)];
 for(const p of Object.values(D.paths))for(const [id] of p.steps)routes.push('#/work/'+p.id+'?step='+id);
 for(const [step] of D.paths.change.steps)routes.push('#/work/change?case=handoff&step='+step);
 for(const id of Object.keys(D.objects))for(const depth of [1,2])for(const mode of ['map','list'])routes.push('#/relationships/'+encodeURIComponent(id)+'?depth='+depth+'&view='+mode);
@@ -36,7 +36,7 @@ for(const s of D.sources)if(s.file)assert.ok(existsSync(root+'/docs/'+s.file),'M
 const entry=readFileSync(root+'/docs/index.html','utf8');let staticAssets=0;
 for(const match of entry.matchAll(/(?:src|href)="(assets\/[^"?#]+)(?:\?[^"#]*)?"/g)){assert.ok(existsSync(root+'/docs/'+match[1]),'Missing entry asset '+match[1]);staticAssets++;}
 assert.doesNotMatch(entry,/(?:src|href)="\/(?:assets|sources)\//,'Repository-relative assets required');
-assert.ok(existsSync(root+'/docs/.nojekyll'));assert.ok(existsSync(root+'/docs/assets/design-lab.js'));assert.equal(staticAssets,12);
+assert.ok(existsSync(root+'/docs/.nojekyll'));assert.ok(existsSync(root+'/docs/assets/design-lab.js'));assert.equal(staticAssets,15);
 const full=N.chapters.map(c=>M.plain(c.html)).join('\n')+'\n'+JSON.stringify(N.portfolio);
 assert.doesNotMatch(full,/Outreach reduction measured in prototype testing|31% outreach reduction validated|Every cycle compounds the value|New data flows.*automatically into products/i);
 assert.doesNotMatch(full,/Already NPAC-approved and operational|Every system that connects to the layer increases|No governance overhead|KAICY and CDD tools likely in scope|A system is always high-risk if it profiles|now in force as of 2 Aug(?:ust)? 2026/i);

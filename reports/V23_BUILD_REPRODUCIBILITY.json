@@ -1,0 +1,26 @@
+{
+  "identicalRebuild": true,
+  "files": {
+    "docs/.nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/OPEN_ME_FIRST.html": "79ea606908f5c5c92d9df7fe2d5b869c786b40bd1849a62bc00d76d0131ae96d",
+    "docs/assets/app.js": "08c1ac1751f002aa8cc3ad02d41a1c3f3590e28a68628640facd96e94f06b294",
+    "docs/assets/chapters.js": "2e3e809ce9ef90853768f2183aa7dbc52d1f7fc9e4c622b455a589f947b59672",
+    "docs/assets/data.js": "8efc3498a6949cdd70b53aac720f96353d0873c4420b9061fa70a773c6cf2923",
+    "docs/assets/design-lab.js": "5ffd98f6571133de732fb73e68ae91d907d2f9e0de70a9ea25219e4d413a32aa",
+    "docs/assets/explanation-data.js": "d5be5732228f52b46370e3f65d3b1f62c1e8f4e7920a98c61aa1a4e5328f1de8",
+    "docs/assets/explanations.js": "60863f5647f32131cb4ad3503de600ee0e03eefd8be8ea6006846c0db17d03fe",
+    "docs/assets/favicon.svg": "eb3cf7e9a986696b621a7a2f136d060c2a1cd188f5241961072250c19ee4f9a9",
+    "docs/assets/model.js": "f09a3c3769d653f2c5e0f040d948559fba5dbf1265e6d844ee1b0c9508f6baad",
+    "docs/assets/scoping.js": "b6110610b9cc0734ca5fa35e05647e28ef7d8f075c2ded9ce424abb39b70593e",
+    "docs/assets/source-texts.js": "35230ee6f8f4c6247426da0eb54b354836ea04f1bcfa9f4b0335225b746d4b0a",
+    "docs/assets/specimen-kernel.js": "997deeefca39b7f46ec55fbaea10738b99944281859c174280f0df855c5f7a8e",
+    "docs/assets/styles.css": "c5507c40669093a0fa2b13cdbf3ed59303ea9970d1878c772f7b523489ff87e5",
+    "docs/assets/useful-fixture.js": "99dc71bc74cd23e9f8e53ee37b1b24d15d2312329d5646dd1cc152888fbfe99b",
+    "docs/assets/useful-work.js": "62dbc9c70c75936457c76e657efa8c088696e4d227a76480ea3a30197e03883b",
+    "docs/assets/views.js": "e6a6f48161d9cee97f9cbb8da80bf2ca0010e40059b440427ab4aadca5e7ddf9",
+    "docs/index.html": "1ba8e036a5cebf749879bb92143a88981e978e1cb9cd89ec83a495d874fd9417",
+    "docs/sources/CLM_AI_Operating_Model_Knowledge_v1.0.md": "98831e9b4307b5207d5d7cfee4d960f910736fd2903ccc0460c53585f7939b18",
+    "docs/sources/SEB_AI_sub_strategy_v1.0.pdf": "d3bf1b5408de9a5fc5c32b6cab5ccc706d2330213eda761034ac738c271260cf",
+    "docs/sources/UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md": "6804be3a8fdddfed26069214a1da4eea1a3243d38037b475e4649b8709a21a72"
+  }
+}

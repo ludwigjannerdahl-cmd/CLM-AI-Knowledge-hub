@@ -25,7 +25,7 @@
     const [path='/',query='']=raw.split('?');
     let parts;try{parts=path.split('/').filter(Boolean).map(decodeURIComponent);}catch{return {view:'not-found',id:'',target:'',params:new URLSearchParams(query),path};}
     const q=new URLSearchParams(query),view=parts[0]||'overview';
-    if(!['overview','work','knowledge','conditions','next','topics','topic','source','scope','about','relationships','evidence'].includes(view))return {view:'not-found',id:parts[0],params:q,path};
+    if(!['overview','work','useful-work','knowledge','conditions','next','topics','topic','source','scope','about','relationships','evidence'].includes(view))return {view:'not-found',id:parts[0],params:q,path};
     return {view,id:parts[1]||'',target:parts[2]||'',params:q,path:path||'/'};
   }
   function sourceOrigin(from,to,entry,snapshot,label) {

@@ -32,7 +32,8 @@ function host(hash){
   for(const f of ['data','explanation-data','scoping','model'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
   const chapters=JSON.parse(readFileSync(new URL('../src/chapters.json',import.meta.url),'utf8'));chapters.portfolio={};ctx.CLM_HUB_CHAPTERS=chapters;
   ctx.CLM_SOURCE_TEXTS={strategy:['First page\nSource meaning','Second page\nApplicability','Third page\nBoundaries']};
-  for(const f of ['explanations','views','app'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
+  ctx.CLM_USEFUL_FIXTURE=JSON.parse(readFileSync(new URL('../fixtures/useful-work.safe.json',import.meta.url),'utf8'));
+  for(const f of ['explanations','views','specimen-kernel','useful-work','app'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
   function flush(){while(frames.length)frames.shift()();}
   flush();
   return {app,dialog,focus,scroll,history,handlers,flush,document,ctx,async link(href){await handlers.click({preventDefault(){},target:{closest:s=>s==='a'?{getAttribute:()=>href}:null}});flush();},async action(action,value=''){const b={dataset:{action,value}};await handlers.click({target:{closest:s=>s==='[data-action]'?b:null}});flush();}};
@@ -179,4 +180,57 @@ test('Object provenance names source authority beside meaning without assigning 
   assert.match(env.dialog.innerHTML,/Not supplied for this object/);
   assert.match(env.dialog.innerHTML,/Source linkage lets you inspect the basis/);
   assert.match(env.dialog.innerHTML,/not an approved FenX change/);
+});
+
+// Controller-host assertions below are deliberately not described as native browser QA.
+test('Useful Work controls retain assumptions, inspection and return position',async()=>{
+ const env=host('#/useful-work?composition=b');
+ assert.match(env.app.innerHTML,/Source of wealth & funds/);
+ await env.action('uw-country','NO');await env.action('uw-material','supplied');
+ await env.action('uw-view','compiler');assert.match(env.ctx.location.hash,/country=NO/);assert.match(env.ctx.location.hash,/material=supplied/);
+ assert.match(env.app.innerHTML,/Withheld · draft/);assert.equal(env.focus.at(-1),'uw-detail');
+ env.ctx.scrollY=840;await env.action('object','UW-SCOPE-NO@1');assert.match(env.dialog.innerHTML,/APPLIES/);
+ await env.link('#/source/useful-work-source?page=0&line=3');assert.equal(env.focus.at(-1),'source-line-0-3');
+ await env.action('return');assert.match(env.ctx.location.hash,/object=UW-SCOPE-NO/);assert.equal(env.dialog.open,true);
+ await env.action('close');assert.match(env.ctx.location.hash,/view=compiler/);assert.equal(env.ctx.scrollY,840);
+});
+test('Missing jurisdiction changes applicability to unresolved without silently excluding it',async()=>{
+ const env=host('#/useful-work?view=compiler');await env.action('uw-country','missing');assert.match(env.app.innerHTML,/jurisdiction is not supplied/);
+ await env.action('object','UW-SCOPE-NO@1');assert.match(env.dialog.innerHTML,/UNRESOLVED/);await env.action('close');
+ env.history.go(-1);env.flush();assert.equal(env.ctx.location.hash,'#/useful-work?view=compiler');
+});
+test('Three integrated compositions are structurally distinct and preserve concrete objects',async()=>{
+ const env=host('#/useful-work');for(const c of ['a','b','c']){await env.action('uw-composition',c);const h=env.app.innerHTML;assert.match(h,new RegExp('uw-composition-'+c));assert.match(h,/UW-REQ@1/);assert.match(h,/No observed result supplied/);assert.match(h,/No write authority/);if(c==='a')assert.match(h,/uw-central/);if(c==='b')assert.match(h,/uw-folio-main/);if(c==='c')assert.match(h,/uw-ledger-layout/);}
+});
+test('Deep-linked new objects render exact identity and authority without old dossier assumptions',()=>{
+ for(const id of ['UW-TASK@1','UW-FIELD@1','UW-TEST@1','UW-EVIDENCE@1','UW-OUTPUT@1']){const env=host('#/useful-work?object='+encodeURIComponent(id));assert.ok(env.dialog.open);assert.ok(env.dialog.innerHTML.includes(id));assert.match(env.dialog.innerHTML,/Not authority for/);assert.doesNotMatch(env.dialog.innerHTML,/undefined|\[object Object\]/);}
+});
+test('Country changes propagate into inspected and exported Task Contracts',async()=>{
+ const env=host('#/useful-work');await env.action('uw-country','NO');await env.action('object','UW-TASK@1');
+ assert.match(env.dialog.innerHTML,/<dt>jurisdiction<\/dt><dd>NO<\/dd>/);
+ const result=env.ctx.CLM_USEFUL_WORK.exportState(new URLSearchParams('country=NO&material=supplied'));
+ assert.equal(result.task.jurisdiction,'NO');assert.equal(result.facts.jurisdiction,'NO');assert.equal(result.context.binding.length,0);
+});
+test('An invalid country deep link remains unknown, never silently Sweden',()=>{
+ const env=host('#/useful-work?country=BOGUS&view=compiler');assert.match(env.app.innerHTML,/jurisdiction unknown/);assert.match(env.app.innerHTML,/jurisdiction is not supplied/);
+});
+test('Malicious source text is escaped in the actual integrated view',()=>{
+ const env=host('#/useful-work');env.ctx.CLM_USEFUL_WORK.objects['UW-SOURCE@1'].lines[0][1]='<img src=x onerror=alert(1)>';
+ const v=env.ctx.CLM_USEFUL_WORK.create({state:{route:{params:new URLSearchParams()}},button:()=>'',sourceLink:()=>'',topicLink:()=>'',link:()=>''}).render();
+ assert.match(v,/&lt;img/);assert.doesNotMatch(v,/<img src=x/);
+});
+test('Object export carries the same selected facts and task contract as inspection',()=>{
+ const env=host('#/useful-work?country=NO&material=absent');
+ const x=env.ctx.CLM_USEFUL_WORK.exportObject('UW-TASK@1',new URLSearchParams('country=NO&material=absent'));
+ assert.equal(x.contract.jurisdiction,'NO');assert.equal(x.inspectionContext.facts.supportSupplied,false);
+ const r=env.ctx.CLM_USEFUL_WORK.exportObject('UW-SCOPE-SE@1',new URLSearchParams('country=NO'));
+ assert.equal(r.inspectionContext.applicability.state,'EXCLUDED');assert.equal(r.inspectionContext.binding,false);
+});
+test('Source reader exposes the new proposal as authored context in the same Hub',()=>{
+ const env=host('#/source/useful-work-source');assert.match(env.app.innerHTML,/UW-OUTPUT@1/);assert.match(env.app.innerHTML,/There is no underlying customer document/);assert.doesNotMatch(env.app.innerHTML,/No object-level use is recorded/);
+});
+test('Search-result inspection retains Norway and restores the search query',async()=>{
+ const env=host('#/useful-work?country=NO&material=supplied');await env.action('search');env.document.getElementById('search-input').value='UW-REQ';
+ env.handlers.input({target:{id:'search-input'}});assert.match(env.document.getElementById('search-results').innerHTML,/data-action="object" data-value="UW-REQ@1"/);
+ await env.action('object','UW-REQ@1');assert.match(env.ctx.location.hash,/country=NO/);await env.action('close');assert.equal(env.document.getElementById('search-input').value,'UW-REQ');assert.match(env.ctx.location.hash,/material=supplied/);
 });

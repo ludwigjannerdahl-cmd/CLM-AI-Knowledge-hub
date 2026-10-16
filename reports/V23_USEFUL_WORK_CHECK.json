@@ -1,0 +1,13 @@
+{
+  "kind": "Source/template execution; not rendered or native browser evidence",
+  "specimen": "useful-work-safe-v1",
+  "fixtureSHA256": "b0cd9cfef2441120950989da7dde0fb2f287632d6be69df278f2348e1f996455",
+  "states": 162,
+  "inspections": 14,
+  "bindingContextDefault": [],
+  "semanticValidationErrors": [],
+  "browser": "BLOCKED: permitted control-browser unavailable; no-push constraint prevents prior CI route",
+  "visualExcellence": "UNVERIFIED",
+  "informationalValue": "Implemented; reader-tested value UNVERIFIED",
+  "readerComprehension": "UNVERIFIED"
+}

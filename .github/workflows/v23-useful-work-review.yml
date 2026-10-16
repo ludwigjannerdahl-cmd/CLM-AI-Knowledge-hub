@@ -1,0 +1,52 @@
+name: V23 integrated Useful Work review
+on:
+  workflow_dispatch:
+  push:
+    branches: [v23-useful-work-specimen]
+    paths-ignore:
+      - 'reports/**'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Source and semantic checks
+        run: |
+          npm test
+          npm run build
+          npm run check
+          npm run check:specimen
+      - name: Formal schema check
+        run: |
+          python3 -m pip install jsonschema==4.25.1
+          python3 scripts/validate-specimen-schema.py
+      - name: Prepare permitted CI browser
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Serve static build inside the CI runner
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory docs > /tmp/clm-preview.log 2>&1 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 0.5
+          done
+          exit 1
+      - name: Render and exercise the integrated Hub
+        env:
+          CLM_QA_BASE_URL: http://127.0.0.1:4173/
+        run: node scripts/verify-useful-work-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v23-useful-work-review
+          path: |
+            artifacts/v23-useful-work/
+            reports/V23_USEFUL_WORK_CHECK.json
+            reports/STRUCTURE_CHECK.json
