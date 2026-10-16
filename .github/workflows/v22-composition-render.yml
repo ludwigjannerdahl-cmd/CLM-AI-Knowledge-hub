@@ -8,6 +8,7 @@ on:
       - v22-golden-scenes
     paths:
       - 'prototypes/v22-composition-lab/**'
+      - '!prototypes/v22-composition-lab/useful-work/review/**'
       - 'scripts/render-composition-lab.mjs'
       - '.github/workflows/v22-composition-render.yml'
 

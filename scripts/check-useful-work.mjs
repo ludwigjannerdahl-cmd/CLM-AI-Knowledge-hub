@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import vm from 'node:vm';
+import assert from 'node:assert/strict';
+const root='prototypes/v22-composition-lab/useful-work';
+const canonical={};vm.createContext(canonical);vm.runInContext(fs.readFileSync('src/data.js','utf8'),canonical);
+const snapshot={window:{}};vm.createContext(snapshot);vm.runInContext(fs.readFileSync(`${root}/shared/objects.js`,'utf8'),snapshot);
+assert.equal(JSON.stringify(canonical.CLM_HUB_DATA.objects),JSON.stringify(snapshot.window.USEFUL_OBJECTS.objects),'Specimen data must not drift from canonical objects');
+assert.equal(JSON.stringify(canonical.CLM_HUB_DATA.sources),JSON.stringify(snapshot.window.USEFUL_OBJECTS.sources));
+const html=fs.readFileSync(`${root}/revised/index.html`,'utf8');
+for(const match of html.matchAll(/data-object="([^"]+)"/g))assert.ok(match[1]==='SOURCE-L14'||canonical.CLM_HUB_DATA.objects[match[1]],`Unknown object ${match[1]}`);
+for(const node of ['source','instruction','context','method','output','review','requirement','test','evidence'])assert.ok(html.includes(`data-node="${node}"`));
+for(const text of ['Proposed test','Implementation / run / result','Not supplied','No customer assessment. No write to a FenX record.','Category · lookup not supplied','Synthetic teaching case'])assert.ok(html.includes(text),text);
+assert.ok(!html.includes('Source</span><i>constrained by'),'Source must not be depicted as constrained by instruction');
+console.log('Canonical object/source parity and local semantic boundary checks passed. These are not visual or comprehension evidence.');

@@ -14,5 +14,7 @@ dialog.addEventListener('cancel',e=>{e.preventDefault();history.pushState({},'',
 function restore(){const id=new URLSearchParams(location.hash.slice(1)).get('object');if(id)showObject(id,false);else close();}
 window.addEventListener('popstate',restore);restore();
 document.querySelector('[data-context-toggle]').addEventListener('change',e=>{document.body.classList.toggle('no-context',!e.target.checked);});
-document.querySelectorAll('[data-review]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-review]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelector('[data-review-status]').textContent=button.dataset.review==='prepared'?'Preparation accepted in this demonstration only. Customer assessment and reuse remain undecided.':'More work requested in this demonstration. Missing information remains unresolved.';}));
+function reviewState(value){document.querySelectorAll('[data-review]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.review===value)));document.querySelector('[data-review-status]').textContent=value==='prepared'?'Preparation accepted in this demonstration only. Customer assessment and reuse remain undecided.':value==='needs-work'?'More work requested in this demonstration. Missing information remains unresolved.':'No review decision recorded.';}
+document.querySelectorAll('[data-review]').forEach(button=>button.addEventListener('click',()=>{const u=new URL(location);u.searchParams.set('review',button.dataset.review);history.pushState({},'',u);reviewState(button.dataset.review);}));
+window.addEventListener('popstate',()=>reviewState(new URL(location).searchParams.get('review')));reviewState(new URL(location).searchParams.get('review'));
 })();
