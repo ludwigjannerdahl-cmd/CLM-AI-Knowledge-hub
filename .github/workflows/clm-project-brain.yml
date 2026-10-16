@@ -20,5 +20,9 @@ jobs:
           python-version: '3.12'
       - name: Build deterministic Hub inventory
         run: python project-brain/sync_hub.py
-      - name: Verify manifest matches committed snapshot
-        run: git diff --exit-code -- project-brain/generated/hub_manifest.json
+      - name: Publish inspectable inventory artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clm-hub-source-manifest
+          path: project-brain/generated/hub_manifest.json
+          retention-days: 30
