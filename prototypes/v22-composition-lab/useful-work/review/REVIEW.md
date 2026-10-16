@@ -57,3 +57,18 @@ No averaging of these gates. The visual ambition and independent reader-comprehe
 Approved SEB Sans Serif binaries are absent. Local font names are requested, but CI renders the explicit system fallback; the browser confirms the SEB face is unavailable. No font has been fabricated.
 
 The ordinary page scrolls. Mobile presents the same artifacts in a readable sequence instead of scaling the desktop composition. Mobile and reduced-motion checks support compatibility, not a completed whole-Hub accessibility audit.
+
+## Verification record
+
+Final successful Chromium run: [38855274791](https://github.com/ludwigjannerdahl-cmd/CLM-AI-Knowledge-hub/actions/runs/38855274791), commit `1d83b2e0e635253e1a8f7e716de3158753ac8aa0`, artifact `12026613328`.
+
+- Four actual 1920×1200 renders: A, B, C and revised; full-page captures also retained in the run artifact.
+- Revised first-frame artifact bounds: all nine core objects end by y=1171.21, within 1200px. Normal document scrolling remains.
+- No horizontal overflow or JavaScript/console errors across these four views.
+- All object inspections, source/focus return, related-object browser back, context withholding, task-review boundaries, trace selection, scenario/review reload restoration.
+- Revised 390px mobile reflow and reduced-motion capture.
+- Canonical object/source parity and explicit semantic-boundary checks passed with `node scripts/check-useful-work.mjs`.
+
+Iteration evidence: run `38854151126` rendered the three initial directions; `38854517377` correctly failed the new first-frame bound; `38854729242` passed the corrected layout; `38855095740` found a case-sensitive test assertion against a CSS-uppercase label, corrected without weakening the proposed-test requirement; the final run passes.
+
+Screenshots here are byte copies of the final CI artifact. Their SHA-256 hashes and tested commit are in `render-manifest.json`. The final documentation/evidence commit changes no rendered implementation.
