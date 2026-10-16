@@ -24,7 +24,7 @@ try{for(const variant of variants){
  await page.locator('[data-object="EVID-01@1"]').first().click();assert.match(await page.locator('#detail-body').innerText(),/Not supplied/);await page.screenshot({path:`${out}/useful-${variant}-inspection.png`});await page.keyboard.press('Escape');
  if(variant==='revised'){
   assert.ok(metrics.objects.every(o=>o.bottom<=1200),'All core artifacts must fit the first frame');
-  assert.match(await page.locator('.test .eyebrow').innerText(),/Proposed test/);await page.locator('[data-trace=amount]').click();assert.equal(await page.locator('.trace-active').count(),4);assert.match(await page.locator('[data-trace-status]').innerText(),/proposed test/);await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`${out}/useful-revised-trace-amount.png`});
+  assert.match(await page.locator('.test .eyebrow').innerText(),/Proposed test/i);await page.locator('[data-trace=amount]').click();assert.equal(await page.locator('.trace-active').count(),4);assert.match(await page.locator('[data-trace-status]').innerText(),/proposed test/);await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`${out}/useful-revised-trace-amount.png`});
   await page.locator('[data-context-toggle]').uncheck();await page.reload({waitUntil:'networkidle'});assert.ok(await page.locator('.unmapped-field').isVisible());assert.equal(await page.locator('[data-trace=amount]').getAttribute('aria-pressed'),'true');assert.equal(await page.locator('[data-review=prepared]').getAttribute('aria-pressed'),'true');await page.locator('[data-context-toggle]').check();
 
   await page.evaluate(()=>scrollTo(0,0));await page.emulateMedia({reducedMotion:'reduce'});await page.screenshot({path:`${out}/useful-revised-reduced-motion.png`});
