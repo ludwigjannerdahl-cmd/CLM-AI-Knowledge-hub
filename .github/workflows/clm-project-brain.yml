@@ -1,0 +1,24 @@
+name: CLM Project Brain source reconciliation
+on:
+  push:
+    paths:
+      - 'src/data.js'
+      - 'src/chapters.json'
+      - 'project-brain/**'
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-source-inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build deterministic Hub inventory
+        run: python project-brain/sync_hub.py
+      - name: Verify manifest matches committed snapshot
+        run: git diff --exit-code -- project-brain/generated/hub_manifest.json
