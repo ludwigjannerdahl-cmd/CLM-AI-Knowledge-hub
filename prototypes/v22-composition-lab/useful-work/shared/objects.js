@@ -1,0 +1,652 @@
+window.USEFUL_OBJECTS={
+  "objects": {
+    "INS-01@1": {
+      "id": "INS-01@1",
+      "type": "Instruction",
+      "title": "Preserve what the source says",
+      "status": "Synthetic · reviewed for this example only",
+      "summary": "Record the stated wealth-origin event and its source. Keep absent amounts and corroboration unresolved. Separate preparation from verification and plausibility judgement.",
+      "fields": [
+        [
+          "Purpose",
+          "Prepare an observation from a supplied passage"
+        ],
+        [
+          "Applies to",
+          "This synthetic natural-person preparation task"
+        ],
+        [
+          "Required treatment",
+          "Retain the source pointer; do not infer an amount or verification conclusion"
+        ],
+        [
+          "Version",
+          "1 · the same instruction is used in preparation and development"
+        ],
+        [
+          "Human responsibility",
+          "Check source fidelity, subject and missing information"
+        ],
+        [
+          "Reuse scope",
+          "Use in another task requires its own applicability and ownership review"
+        ]
+      ],
+      "sources": [
+        "synthetic"
+      ],
+      "links": [
+        [
+          "informs",
+          "OBS-01@1"
+        ],
+        [
+          "informs",
+          "REQ-01@1"
+        ],
+        [
+          "may be revised by",
+          "INS-01@2"
+        ]
+      ]
+    },
+    "INS-01@2": {
+      "id": "INS-01@2",
+      "type": "Instruction revision",
+      "title": "Also capture the source date",
+      "status": "Synthetic change candidate · not approved",
+      "summary": "The proposed revision adds a source-date requirement. It identifies dependent objects for impact review; it does not silently rewrite them.",
+      "fields": [
+        [
+          "Change",
+          "Record source date, or explicitly state that it is not supplied"
+        ],
+        [
+          "Disposition",
+          "Candidate for review"
+        ],
+        [
+          "Impact",
+          "Requirement, field mapping, method and tests need assessment"
+        ],
+        [
+          "Historical evidence",
+          "Retains the version and scope it originally covered"
+        ]
+      ],
+      "sources": [
+        "synthetic"
+      ],
+      "links": [
+        [
+          "supersedes only after review",
+          "INS-01@1"
+        ],
+        [
+          "triggers impact review of",
+          "REQ-01@1"
+        ],
+        [
+          "triggers impact review of",
+          "TEST-01@1"
+        ]
+      ]
+    },
+    "CTX-FENX@2026-08-18": {
+      "id": "CTX-FENX@2026-08-18",
+      "type": "Process / field knowledge",
+      "title": "Which subject does the field describe?",
+      "status": "Reported reference · 18 August 2026",
+      "summary": "Knowledge about FenX explains field meaning, entity scope and journeys. It is different from retrieving current information about a customer from FenX.",
+      "fields": [
+        [
+          "Reference",
+          "Reported journey reference v1.0, extracted 18 August 2026"
+        ],
+        [
+          "Natural-person client",
+          "individualSourceOfWealth"
+        ],
+        [
+          "Related party",
+          "SourceOfWealth"
+        ],
+        [
+          "Legal entity",
+          "legalEntitySourceOfWealth"
+        ],
+        [
+          "Working field identity",
+          "Key + entity/subject + relevant party/category + source version"
+        ],
+        [
+          "Not supplied",
+          "Current NP lookup values, exact NP policy wording and verified cross-version aliases"
+        ]
+      ],
+      "sources": [
+        "mentor-context"
+      ],
+      "links": [
+        [
+          "provides meaning for",
+          "OBS-01@1"
+        ],
+        [
+          "informs",
+          "MAP-01@1"
+        ],
+        [
+          "differs from",
+          "DATA-01@proposal"
+        ]
+      ]
+    },
+    "METHOD-01@1": {
+      "id": "METHOD-01@1",
+      "type": "Method",
+      "title": "Prepare a source-linked observation",
+      "status": "Synthetic method · bounded preparation",
+      "summary": "Read the supplied passage, identify the relevant subject and event, retain the evidence pointer, and expose what is missing for a colleague.",
+      "fields": [
+        [
+          "Inputs",
+          "Indexed passage, subject, applicable instruction and field meaning"
+        ],
+        [
+          "Steps",
+          "Identify → map cautiously → cite → expose gaps → review"
+        ],
+        [
+          "Output",
+          "A draft observation; no customer assessment or update"
+        ],
+        [
+          "Failure modes",
+          "Wrong subject, unsupported categorisation, invented amount, judgement represented as fact"
+        ],
+        [
+          "Consumption",
+          "A document in a library is not automatically an executable skill"
+        ]
+      ],
+      "sources": [
+        "synthetic",
+        "mentor-context"
+      ],
+      "links": [
+        [
+          "uses",
+          "INS-01@1"
+        ],
+        [
+          "uses",
+          "CTX-FENX@2026-08-18"
+        ],
+        [
+          "produces",
+          "OBS-01@1"
+        ]
+      ]
+    },
+    "OBS-01@1": {
+      "id": "OBS-01@1",
+      "type": "Prepared observation",
+      "title": "A stated company sale in 2024",
+      "status": "Synthetic proposal · for colleague review",
+      "summary": "The passage supports a reported wealth-origin event. It does not establish proceeds, net worth, corroboration or a verification outcome.",
+      "fields": [
+        [
+          "Source",
+          "CLIENT [14]: “I sold my company in 2024.”"
+        ],
+        [
+          "Candidate event field",
+          "sourceOfWealthSignificantEvent · NP client subject"
+        ],
+        [
+          "Candidate description",
+          "Client states that they sold their company in 2024"
+        ],
+        [
+          "Source pointer",
+          "Line 14; a pointer is not independent verification"
+        ],
+        [
+          "Unresolved",
+          "Amount, supporting evidence, categorical NP lookup and source date"
+        ],
+        [
+          "Judgement",
+          "Verification and plausibility are not inferred"
+        ]
+      ],
+      "sources": [
+        "synthetic",
+        "mentor-context"
+      ],
+      "links": [
+        [
+          "prepared using",
+          "METHOD-01@1"
+        ],
+        [
+          "informed by",
+          "CTX-FENX@2026-08-18"
+        ],
+        [
+          "constrained by",
+          "INS-01@1"
+        ]
+      ]
+    },
+    "REQ-01@1": {
+      "id": "REQ-01@1",
+      "type": "Requirement",
+      "title": "Preserve absent information as absent",
+      "status": "Synthetic requirement · not an approved FenX change",
+      "summary": "When a supplied passage states an event without an amount, the preparation output retains the event and source pointer and leaves the amount unresolved.",
+      "fields": [
+        [
+          "Input condition",
+          "An event is stated; the amount is absent"
+        ],
+        [
+          "Expected behaviour",
+          "Produce a candidate event; preserve source provenance; expose the gap"
+        ],
+        [
+          "Acceptance logic",
+          "No fabricated amount, verification or plausibility result"
+        ],
+        [
+          "Implementation",
+          "Illustrative requirement; actual deployed behaviour is not asserted"
+        ],
+        [
+          "Reusable contribution",
+          "Intent and acceptance logic may inform another development task after review"
+        ]
+      ],
+      "sources": [
+        "synthetic"
+      ],
+      "links": [
+        [
+          "derived from",
+          "INS-01@1"
+        ],
+        [
+          "mapped by",
+          "MAP-01@1"
+        ],
+        [
+          "tested by proposed case",
+          "TEST-01@1"
+        ]
+      ]
+    },
+    "MAP-01@1": {
+      "id": "MAP-01@1",
+      "type": "Field / behaviour mapping",
+      "title": "Map the event without inventing a value",
+      "status": "Illustrative mapping · current aliases unresolved",
+      "summary": "The event description can be illustrated against the reported event field. The categorical NP lookup is not supplied, so no approved value is invented.",
+      "fields": [
+        [
+          "Field",
+          "sourceOfWealthSignificantEvent"
+        ],
+        [
+          "Subject",
+          "Synthetic natural-person client"
+        ],
+        [
+          "Categorical field",
+          "individualSourceOfWealth · current lookup unresolved"
+        ],
+        [
+          "Version caution",
+          "Journey fields and later judgement-field keys are separate source views"
+        ],
+        [
+          "Missing interface",
+          "This mapping is knowledge about behaviour; it is not an operational read/write interface"
+        ]
+      ],
+      "sources": [
+        "synthetic",
+        "mentor-context"
+      ],
+      "links": [
+        [
+          "maps",
+          "REQ-01@1"
+        ],
+        [
+          "uses",
+          "CTX-FENX@2026-08-18"
+        ]
+      ]
+    },
+    "TEST-01@1": {
+      "id": "TEST-01@1",
+      "type": "Acceptance test",
+      "title": "An event without an amount",
+      "status": "Proposed test · no observed run supplied",
+      "summary": "A meaningful test challenges the intended behaviour using absence, wrong-subject and unsupported-judgement cases.",
+      "fields": [
+        [
+          "Fixture",
+          "Synthetic line 14: company sale in 2024"
+        ],
+        [
+          "Expected",
+          "Event and source pointer retained; amount unresolved"
+        ],
+        [
+          "Negative cases",
+          "Wrong party; a guessed lookup value; invented proceeds; verification set from a transcript alone"
+        ],
+        [
+          "Result",
+          "No observed run is supplied"
+        ],
+        [
+          "Version under test",
+          "REQ-01@1 / INS-01@1"
+        ]
+      ],
+      "sources": [
+        "synthetic"
+      ],
+      "links": [
+        [
+          "checks intended behaviour of",
+          "REQ-01@1"
+        ],
+        [
+          "would produce",
+          "EVID-01@1"
+        ]
+      ]
+    },
+    "EVID-01@1": {
+      "id": "EVID-01@1",
+      "type": "Evidence record",
+      "title": "Keep the version and scope visible",
+      "status": "Illustrative record structure · no result",
+      "summary": "A useful evidence record identifies the test, fixture, implementation, instruction and observed outcome. An empty record is not a pass.",
+      "fields": [
+        [
+          "Test",
+          "TEST-01@1"
+        ],
+        [
+          "Instruction scope",
+          "INS-01@1"
+        ],
+        [
+          "Implementation version",
+          "Not supplied"
+        ],
+        [
+          "Run date / observer",
+          "Not supplied"
+        ],
+        [
+          "Observed result",
+          "Not supplied"
+        ],
+        [
+          "After a change",
+          "Retain this scope. A version-2 claim requires relevant new evidence."
+        ]
+      ],
+      "sources": [
+        "synthetic"
+      ],
+      "links": [
+        [
+          "records scope for",
+          "TEST-01@1"
+        ],
+        [
+          "does not verify",
+          "INS-01@2"
+        ]
+      ]
+    },
+    "REUSE-01@1": {
+      "id": "REUSE-01@1",
+      "type": "Reuse review",
+      "title": "Establish what another task may use",
+      "status": "Review candidate · owner not assigned",
+      "summary": "Acceptance for the present task and approval for reuse answer different questions. A new task may have a different purpose, subject, source version or consumption route.",
+      "fields": [
+        [
+          "Candidate",
+          "Selected instruction, field knowledge or method; not every output"
+        ],
+        [
+          "Check",
+          "Meaning, applicability, source authority, ownership, maintenance and permitted consumption"
+        ],
+        [
+          "Ownership",
+          "Not assigned in the supplied context"
+        ],
+        [
+          "Feedback",
+          "Creates a candidate for review, not an authoritative update"
+        ],
+        [
+          "Organisational test",
+          "Can another colleague use the context without its author reconnecting it?"
+        ]
+      ],
+      "sources": [
+        "operating-model",
+        "mentor-context"
+      ],
+      "links": [
+        [
+          "considers scope of",
+          "INS-01@1"
+        ],
+        [
+          "considers scope of",
+          "METHOD-01@1"
+        ]
+      ]
+    },
+    "DATA-01@proposal": {
+      "id": "DATA-01@proposal",
+      "type": "Data product",
+      "title": "A maintained compliance-profile contribution",
+      "status": "Proposal · no deployment asserted",
+      "summary": "A data product is information maintained for a defined purpose, with an owner, clear meaning, quality/freshness expectations and a permitted way to consume it.",
+      "fields": [
+        [
+          "Possible contribution",
+          "Suitable reviewed FenX outputs to the compliance-profile domain"
+        ],
+        [
+          "Not equivalent to",
+          "The entire customer profile or a copy of all FenX state"
+        ],
+        [
+          "Needs",
+          "Agreed contract, identity/access, interface, quality/freshness and lifecycle owner"
+        ],
+        [
+          "Source of truth",
+          "Authoritative records retain their actual ownership"
+        ],
+        [
+          "Knowledge distinction",
+          "Documentation about a field is not the current value of that field"
+        ]
+      ],
+      "sources": [
+        "strategy",
+        "operating-model"
+      ],
+      "links": [
+        [
+          "is informed by meaning in",
+          "CTX-FENX@2026-08-18"
+        ]
+      ]
+    },
+    "CLM-BO-014@3": {
+      "id": "CLM-BO-014@3",
+      "type": "Governed-requirement specimen",
+      "title": "Beneficial-owner verification requirement",
+      "status": "Original illustrative specimen · approval unestablished",
+      "summary": "The original draft shows a machine-readable requirement with placeholder lineage and TBD owners. Its structure is useful; the supplied example does not prove approval or implementation.",
+      "fields": [
+        [
+          "Retained identity",
+          "CLM-BO-014 · version 3"
+        ],
+        [
+          "Lineage",
+          "Placeholder obligation, interpretation, policy and SOP references"
+        ],
+        [
+          "Ownership",
+          "TBD in source"
+        ],
+        [
+          "Relationship to preparation example",
+          "Different subject scope; no artificial lineage to source of wealth"
+        ]
+      ],
+      "sources": [
+        "hub-snapshot"
+      ],
+      "links": []
+    }
+  },
+  "sources": [
+    {
+      "id": "strategy",
+      "title": "SEB AI sub-strategy v1.0",
+      "kind": "Primary strategic grounding",
+      "date": "8 May 2026",
+      "file": "sources/SEB_AI_sub_strategy_v1.0.pdf",
+      "summary": "Direction for shared capabilities, machine-readable knowledge, AI-assisted development and lifecycle responsibility. Its horizons run concurrently. Ambition does not establish current CLM maturity or workload permission.",
+      "scope": "Supplied primary strategy. Read the version and scope when using a statement.",
+      "sections": [
+        "Knowledge management",
+        "AI in development",
+        "Personal productivity and process participation",
+        "Parallel horizons",
+        "Platform lanes and model access"
+      ]
+    },
+    {
+      "id": "ai-act-current",
+      "title": "EU AI Act: classification and amended application dates",
+      "kind": "Official public legal sources",
+      "date": "Checked 15 October 2026",
+      "summary": "The consolidated text distinguishes listed intended purposes, the Article 6 assessment and the profiling proviso. The Commission records amended high-risk dates of 2 December 2027 for Annex III and 2 August 2028 for regulated-product systems.",
+      "scope": "Public legal grounding corrects stale wording in the supplied Hub. It does not determine the legal classification, internal ACAA category, approval or current controls of a named CLM workload. The consolidated text is a documentation tool; consult the authentic legal acts and responsible review for a decision.",
+      "links": [
+        {
+          "title": "Consolidated Regulation (EU) 2024/1689",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02024R1689-20260727",
+          "location": "Article 6(2)–(3), Annex III 5(b), Article 113"
+        },
+        {
+          "title": "Commission: enforcement framework",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/enforcement-ai-act",
+          "location": "AI Act enforcement timeline; updated 6 October 2026"
+        }
+      ]
+    },
+    {
+      "id": "amlr",
+      "title": "AMLR: general application and change scope",
+      "kind": "Primary public legal source",
+      "date": "Regulation (EU) 2024/1624 · checked 15 October 2026",
+      "summary": "Article 90 sets general application from 10 July 2027, with a later date for specified football-sector obliged entities. This is a legal application date, not an asserted CLM delivery date or evidence of implementation.",
+      "scope": "Use the actual applicable provisions and authorised interpretation for a change. The synthetic instruction revision in this Hub is not an AMLR provision, and its placeholder lineage is not a verified legal mapping.",
+      "links": [
+        {
+          "title": "Regulation (EU) 2024/1624",
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj/eng",
+          "location": "Article 90; check the relevant obligation and scope before deriving requirements"
+        }
+      ]
+    },
+    {
+      "id": "operating-model",
+      "title": "CLM AI operating-model knowledge",
+      "kind": "CLM synthesis / proposal",
+      "date": "Supplied v1.0",
+      "file": "sources/CLM_AI_Operating_Model_Knowledge_v1.0.md",
+      "summary": "Explains rules, CLM context, implementation/control/evidence and bounded execution. The four meanings are an explanation inspired by Freda, not an approved SEB architecture.",
+      "scope": "Interpretive synthesis. Current user requirements qualify claims of automatic compounding and assurance."
+    },
+    {
+      "id": "ui-knowledge",
+      "title": "UI Intelligence and Insight Design",
+      "kind": "Information-design method",
+      "date": "Supplied v1.1",
+      "file": "sources/UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md",
+      "summary": "Coordinates overview, concrete mechanisms, substantial explanation and source inspection.",
+      "scope": "Method guidance; not business or governance authority."
+    },
+    {
+      "id": "hub-snapshot",
+      "title": "CLM AI Knowledge Hub · 14 October 2026",
+      "kind": "Authored working knowledge",
+      "date": "14 October 2026",
+      "summary": "Thirteen sections, including the draft Intelligence Model. Useful topic depth is integrated throughout this application. Claim corrections are recorded in the migration documentation.",
+      "scope": "Working explanations, proposals and dated analyses have different authority. Preservation does not establish approval.",
+      "route": "#/topics"
+    },
+    {
+      "id": "mentor-context",
+      "notes": [
+        "The reported extraction output has five keys: field_key, value, evidence_line_ids, confidence_level and notes. Hub review and reuse annotations are separate teaching metadata.",
+        "The packet does not establish that the wider maintained knowledge packages are consumed by the named runtime. A defined, tested consumption route remains necessary."
+      ],
+      "title": "FenX and extraction context · reported source findings",
+      "kind": "Source-reported context",
+      "date": "Packet supplied 14 October 2026",
+      "summary": "Reports an August FenX reference, a later policy export and September extraction code. The private primary artifacts are not supplied here. Subject, version, output-schema and consumption boundaries remain explicit.",
+      "scope": "The author reports inspecting primary artifacts. This Hub did not inspect that private code or verify current production. The full builder packet is not distributed as a website asset."
+    },
+    {
+      "id": "user-status",
+      "title": "Current working-status clarification",
+      "kind": "User report",
+      "date": "14 October 2026",
+      "summary": "Automation Legal Entities is work in progress. The 31% figure originated in a SEB–Bain estimate. No new delivery date or measured benefit was supplied.",
+      "scope": "Reported context; current delivery evidence, estimate assumptions and workload permissions remain separate."
+    },
+    {
+      "id": "synthetic",
+      "title": "Synthetic teaching specimens",
+      "kind": "Illustration",
+      "date": "Builds 19–20 · October 2026",
+      "summary": "Invented source passage, instruction, requirement, mapping, test and evidence record illustrate the relationships. Review states belong only to the demonstration.",
+      "scope": "No customer information, legal interpretation, executed test, system update or institutional approval is represented."
+    },
+    {
+      "id": "classifier-audit",
+      "notes": [
+        "Unknown categorical inputs remain unresolved. One effective result drives JSON, review-brief export and display; amendments do not grant approval.",
+        "Full replay inputs, attachment metadata and engine versions are retained. Storage refusal preserves session output; local history is editable and is not an institutional audit log."
+      ],
+      "title": "Advisory scoping: audit and scope",
+      "kind": "Implementation record",
+      "date": "Builds 19–20 · October 2026",
+      "summary": "The supplied classifier was deterministic. Its unknown-input fallback, export divergence and replay/storage handling required repair. This version proposes working patterns and review questions, never formal legal or risk approval.",
+      "scope": "Local history is editable browser data. See the build validation record for what was tested and what remains unverified."
+    }
+  ]
+};

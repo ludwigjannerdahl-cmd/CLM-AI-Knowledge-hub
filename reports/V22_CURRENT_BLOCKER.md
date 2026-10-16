@@ -1,7 +1,9 @@
-# V22 current blocker
+# V22 current state
 
-No further planning work is required before the composition sprint.
+16 October 2026. Latest user direction narrows the work to **Useful work first**.
 
-The remaining blocker is execution by a design-capable Astra session: create and render the nine independent compositions, critique them against the active reference set, reject weak directions, revise the strongest direction per scene, and nominate accepted candidates.
+Three concrete architectures were built and rendered. All initial versions were rejected. A four-plane workbench with a development/evidence bench was materially revised, rendered, inspected, and corrected after a first-frame geometry failure.
 
-Do not spend another iteration expanding design instructions before that evidence exists.
+See `prototypes/v22-composition-lab/useful-work/review/REVIEW.md` for independent visual, semantic and informational-value findings and the actual render evidence.
+
+The revised scene is a review candidate, not a production acceptance. The exceptional visual bar and independent reader comprehension are not established by passing automation. Other stories and production propagation remain on hold. No more planning expansion is required.

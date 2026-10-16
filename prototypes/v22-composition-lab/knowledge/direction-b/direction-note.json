@@ -1,0 +1,14 @@
+{
+  "name": "The exploded record",
+  "reader_question": "What must remain attached when knowledge enters a task?",
+  "reasoning_operation": "Inspect",
+  "visual_idea": "An exploded object separates meaning, scope and provenance while preserving one identity, beside the review boundary.",
+  "why_geometry_helps": "An exploded object separates meaning, scope and provenance while preserving one identity, beside the review boundary.",
+  "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+  "false_inference_risk": "Vertical depth may imply maturity or approval; the caption defines the three planes as attached record parts. The actual source remains one version.",
+  "references_used": [
+    "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+    "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+  ],
+  "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+}

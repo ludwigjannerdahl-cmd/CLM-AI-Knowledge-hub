@@ -1,0 +1,14 @@
+{
+  "name": "The proposition ledger",
+  "reader_question": "What may change, and where does the evidence stop?",
+  "reasoning_operation": "Compare",
+  "visual_idea": "A redline is aligned to its review consequence and missing evidence in an unboxed editorial ledger.",
+  "why_geometry_helps": "A redline is aligned to its review consequence and missing evidence in an unboxed editorial ledger.",
+  "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+  "false_inference_risk": "A neat ledger may imply the review is complete; every consequence is proposed and the evidence gaps remain explicit.",
+  "references_used": [
+    "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+    "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+  ],
+  "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+}

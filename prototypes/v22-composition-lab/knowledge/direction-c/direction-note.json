@@ -1,0 +1,14 @@
+{
+  "name": "The context aperture",
+  "reader_question": "What must remain attached when knowledge enters a task?",
+  "reasoning_operation": "Select",
+  "visual_idea": "Candidate context narrows through an explicit review aperture into one task packet; unselected context leaves a visible gap.",
+  "why_geometry_helps": "Candidate context narrows through an explicit review aperture into one task packet; unselected context leaves a visible gap.",
+  "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+  "false_inference_risk": "A funnel could imply quantitative filtering or automatic approval; widths encode no amount, controls select candidate material only.",
+  "references_used": [
+    "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+    "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+  ],
+  "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+}
