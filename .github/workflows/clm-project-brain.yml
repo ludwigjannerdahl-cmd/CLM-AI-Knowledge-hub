@@ -1,0 +1,47 @@
+name: CLM Project Brain source reconciliation
+on:
+  push:
+    paths:
+      - 'src/data.js'
+      - 'src/chapters.json'
+      - 'project-brain/**'
+      - '.github/workflows/clm-project-brain.yml'
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-source-inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run ingestion integrity tests
+        run: python -m unittest discover -s project-brain/tests -v
+      - name: Check exact Hub blob and ontology authored references
+        run: python project-brain/verify_alignment.py
+      - name: Build deterministic Hub identity inventory
+        run: python project-brain/sync_hub.py
+      - name: Stage all authored JSON passages with exact source pointers
+        run: python project-brain/stage_passages.py
+      - name: Confirm no automatic institutional approvals
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path('project-brain/generated/passage_manifest.json').read_text())
+          assert m['passages']>0 and m['approved_claims']==0 and m['evaluated_claims']==0
+          print('Passage harvest staged; zero approved or evaluated claims.')
+          PY
+      - name: Publish review-only Hub passage inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: clm-project-brain-source-inventory
+          path: |
+            project-brain/generated/hub_manifest.json
+            project-brain/generated/passage_manifest.json
+            project-brain/generated/authored_passages.jsonl
+          retention-days: 30
