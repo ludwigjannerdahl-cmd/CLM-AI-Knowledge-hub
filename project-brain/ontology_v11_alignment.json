@@ -1,0 +1,187 @@
+{
+  "schema_version": "clm-project-brain/hub-authored-alignment-v11",
+  "basis": {
+    "ref": "v22-golden-scenes",
+    "path": "src/data.js",
+    "blob_sha": "39d371f7f7b38ddc2bbd5b644a9f8befb3836ba3",
+    "assertion_scope": "authored_examples_not_observed_seb_runtime"
+  },
+  "paths": [
+    {
+      "id": "preparation",
+      "label": "Prepare an observation",
+      "objects": [
+        "OBS-01@1",
+        "CTX-FENX@2026-08-18",
+        "INS-01@1",
+        "METHOD-01@1",
+        "REUSE-01@1"
+      ]
+    },
+    {
+      "id": "development",
+      "label": "Develop a FenX behaviour",
+      "objects": [
+        "REQ-01@1",
+        "MAP-01@1",
+        "TEST-01@1",
+        "INS-01@1",
+        "REUSE-01@1"
+      ]
+    },
+    {
+      "id": "change",
+      "label": "Analyse an instruction change",
+      "objects": [
+        "INS-01@1",
+        "INS-01@2",
+        "REQ-01@1",
+        "TEST-01@1",
+        "EVID-01@1"
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "id": "rules",
+      "label": "Rules & instructions",
+      "objects": [
+        "INS-01@1",
+        "INS-01@2"
+      ]
+    },
+    {
+      "id": "context",
+      "label": "CLM & FenX context",
+      "objects": [
+        "CTX-FENX@2026-08-18",
+        "MAP-01@1"
+      ]
+    },
+    {
+      "id": "evidence",
+      "label": "Requirements & evidence",
+      "objects": [
+        "REQ-01@1",
+        "TEST-01@1",
+        "EVID-01@1"
+      ]
+    },
+    {
+      "id": "work",
+      "label": "AI-assisted work",
+      "objects": [
+        "METHOD-01@1",
+        "OBS-01@1",
+        "REUSE-01@1"
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "id": "context",
+      "topic": [
+        "sec-intelmodel",
+        "intel-authority"
+      ]
+    },
+    {
+      "id": "interface",
+      "topic": [
+        "sec-arch",
+        "arch-fenx"
+      ]
+    },
+    {
+      "id": "contract",
+      "topic": [
+        "sec-datalayer",
+        "dl-products"
+      ]
+    },
+    {
+      "id": "access",
+      "topic": [
+        "sec-risk",
+        "risk-controls"
+      ]
+    },
+    {
+      "id": "runtime",
+      "topic": [
+        "sec-tech",
+        "tech-gcp"
+      ]
+    },
+    {
+      "id": "evaluation",
+      "topic": [
+        "sec-intelmodel",
+        "intel-value"
+      ]
+    },
+    {
+      "id": "recovery",
+      "topic": [
+        "sec-arch",
+        "arch-orchestration"
+      ]
+    },
+    {
+      "id": "owner",
+      "topic": [
+        "sec-lifecycle",
+        "lc-ownership"
+      ]
+    }
+  ],
+  "customer_domains": [
+    "Customer identity",
+    "Client engagement",
+    "Compliance profile",
+    "Financial position",
+    "Digital behaviour",
+    "Relationship economics"
+  ],
+  "conditional_links": [
+    {
+      "from": "INS-01@2",
+      "to": "INS-01@1",
+      "authored_predicate": "supersedes only after review",
+      "status": "potential_not_active"
+    },
+    {
+      "from": "INS-01@2",
+      "to": "REQ-01@1",
+      "authored_predicate": "triggers impact review of",
+      "status": "review_only"
+    },
+    {
+      "from": "INS-01@2",
+      "to": "TEST-01@1",
+      "authored_predicate": "triggers impact review of",
+      "status": "review_only"
+    },
+    {
+      "from": "TEST-01@1",
+      "to": "EVID-01@1",
+      "authored_predicate": "would produce",
+      "status": "hypothetical_not_observed"
+    }
+  ],
+  "pending_sources": [
+    {
+      "id": "chatgpt-share:6ad3ee26-c3f0-83ed-aa0c-e60f482a14e8",
+      "url": "https://chatgpt.com/share/6ad3ee26-c3f0-83ed-aa0c-e60f482a14e8",
+      "content_status": "unread",
+      "extracted_claims": 0,
+      "review_status": "awaiting_transcript"
+    }
+  ],
+  "safety": {
+    "review_state": "unreviewed",
+    "institutional_approval": "not_asserted",
+    "production_integration": "not_asserted",
+    "source_pointer_is_not_truth": true
+  }
+}
