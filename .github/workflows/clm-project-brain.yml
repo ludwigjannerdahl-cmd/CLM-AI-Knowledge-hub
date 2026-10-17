@@ -21,6 +21,8 @@ jobs:
           python-version: '3.12'
       - name: Run ingestion integrity tests
         run: python -m unittest discover -s project-brain/tests -v
+      - name: Check exact Hub blob and ontology authored references
+        run: python project-brain/verify_alignment.py
       - name: Build deterministic Hub identity inventory
         run: python project-brain/sync_hub.py
       - name: Stage all authored JSON passages with exact source pointers
