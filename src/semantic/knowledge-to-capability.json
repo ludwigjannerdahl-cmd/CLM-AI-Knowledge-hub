@@ -1,0 +1,160 @@
+{
+  "schema_version": "0.1",
+  "status": "illustrative_not_approved",
+  "purpose": "Reusable semantic backbone for explaining how institutional knowledge enables governed AI capabilities; no SEB-specific operating assertions.",
+  "nodes": [
+    {
+      "id": "work",
+      "label": "Business work",
+      "type": "activity",
+      "description": "A task or decision to improve."
+    },
+    {
+      "id": "authority",
+      "label": "Applicable authority",
+      "type": "authority",
+      "description": "Versioned requirements and constraints; applicability must be established."
+    },
+    {
+      "id": "meaning",
+      "label": "Domain meaning",
+      "type": "concept",
+      "description": "Definitions and relationships, with provenance and scope."
+    },
+    {
+      "id": "data",
+      "label": "Evidence and data",
+      "type": "evidence",
+      "description": "Context-specific observations and sources; availability does not imply permission."
+    },
+    {
+      "id": "capability",
+      "label": "AI capability",
+      "type": "capability",
+      "description": "A bounded assistance function using permitted context and defined tools."
+    },
+    {
+      "id": "control",
+      "label": "Controls and permissions",
+      "type": "control",
+      "description": "Policies and checks constraining information access and execution."
+    },
+    {
+      "id": "human",
+      "label": "Human decision",
+      "type": "decision",
+      "description": "Accountable review of consequential outcomes."
+    },
+    {
+      "id": "trace",
+      "label": "Evaluation and trace",
+      "type": "evidence",
+      "description": "Observable performance, provenance, errors and review outcomes."
+    }
+  ],
+  "edges": [
+    {
+      "from": "work",
+      "to": "capability",
+      "type": "motivates",
+      "meaning": "The task defines why assistance is useful."
+    },
+    {
+      "from": "authority",
+      "to": "meaning",
+      "type": "constrains",
+      "meaning": "Authoritative rules constrain applicable interpretation; mapping requires review."
+    },
+    {
+      "from": "meaning",
+      "to": "capability",
+      "type": "informs",
+      "meaning": "Versioned domain concepts guide interpretation."
+    },
+    {
+      "from": "data",
+      "to": "capability",
+      "type": "provides_context_if_permitted",
+      "meaning": "Evidence can be used only when relevant and authorized."
+    },
+    {
+      "from": "control",
+      "to": "capability",
+      "type": "constrains",
+      "meaning": "Permission and risk controls govern execution."
+    },
+    {
+      "from": "capability",
+      "to": "human",
+      "type": "supports_not_replaces",
+      "meaning": "AI assistance is not a human approval."
+    },
+    {
+      "from": "capability",
+      "to": "trace",
+      "type": "produces",
+      "meaning": "Execution should create observable evidence."
+    },
+    {
+      "from": "trace",
+      "to": "meaning",
+      "type": "proposes_improvement_to",
+      "meaning": "Observed gaps can trigger reviewed changes, never automatic policy approval."
+    }
+  ],
+  "competency_questions": [
+    "What business work becomes better, faster or safer?",
+    "Which authoritative requirement applies to this case, and who validated its interpretation?",
+    "Which concept definitions and mappings does the capability use?",
+    "What evidence is available, and what is it permitted to access?",
+    "What can the AI do, and what remains a human decision?",
+    "What would reveal that the explanation or AI output is wrong?"
+  ],
+  "invariants": [
+    "Shared semantic meaning does not grant shared customer-data access.",
+    "A proposed mapping is not an approved requirement.",
+    "Missing evidence is unknown, not false.",
+    "AI output is not a human decision.",
+    "Operational traces may propose knowledge changes but cannot approve them."
+  ],
+  "illustrative_paths": [
+    {
+      "id": "requirements",
+      "title": "Develop CLM",
+      "sequence": [
+        "work",
+        "authority",
+        "meaning",
+        "capability",
+        "control",
+        "trace",
+        "human"
+      ]
+    },
+    {
+      "id": "casework",
+      "title": "Support CLM work",
+      "sequence": [
+        "work",
+        "meaning",
+        "data",
+        "control",
+        "capability",
+        "human",
+        "trace"
+      ]
+    },
+    {
+      "id": "change",
+      "title": "Adapt to change",
+      "sequence": [
+        "authority",
+        "meaning",
+        "work",
+        "capability",
+        "trace",
+        "human"
+      ]
+    }
+  ]
+}
