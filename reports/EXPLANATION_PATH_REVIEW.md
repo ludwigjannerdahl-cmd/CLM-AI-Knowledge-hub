@@ -22,3 +22,13 @@ The Hub's original synthetic `INS-01@1`, `INS-01@2`, `CTX-FENX@2026-08-18`, `MET
 
 ## Next review
 Have one CLM practitioner and one non-specialist explain the three paths without help, noting what they think is current, proposed, or unknown. Use those observations to refine the actual Hub, not to produce a new ontology package.
+
+## Institutional-knowledge increment: verified acceptance (18 October 2026)
+
+The V22 homepage now includes an authored six-stage, synthetic ownership-change scenario, with explicit reported-source, semantic-meaning, authority/applicability, context/permission, bounded-AI and accountable-decision boundaries. It reuses the existing Hub's three work routes. The model is canonical in `src/explanation-data.js`; the UI is in `src/views.js`; responsive treatment is in `src/visual-ambition.css`. The content does **not** claim SEB approval, actual customer data or Fen-X connectivity.
+
+**Executed evidence:** [GitHub Actions run 39111937674](https://github.com/ludwigjannerdahl-cmd/CLM-AI-Knowledge-hub/actions/runs/39111937674) completed successfully. `npm run build`, all **50/50** Node tests, `npm run check`, and Chromium review passed. Browser widths **1600, 920 and 390 px** each returned `pass:true`, `errors:[]`, `scrollWidth===viewport`, `knowledgeStages:6` and `relationshipCards:14`. Native accordion interaction and navigation to `#/work/change` were exercised. [Downloadable tested site and screenshot artifact](https://github.com/ludwigjannerdahl-cmd/CLM-AI-Knowledge-hub/actions/runs/39111937674/artifacts/12131115490), including `docs/OPEN_ME_FIRST.html`.
+
+**Important scope:** This is browser smoke validation at three viewport sizes, not independent accessibility certification, security testing, user-comprehension validation or production approval. The later branch-head workflow reported `action_required`, so the successful run cited above—not the later blocked run—is the demonstrated acceptance evidence. The later branch-head commit is a generated review website update; do not represent it as separately validated CI.
+
+**Release gate:** Repository visibility was rechecked and is **public**. `scripts/build.mjs` copies `sources/SEB_AI_sub_strategy_v1.0.pdf`, `sources/CLM_AI_Operating_Model_Knowledge_v1.0.md` and `sources/UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md` into the generated `docs/sources/` distribution. The product describes itself as an internal bank knowledge product. Do not publish this build as a public GitHub Pages site until the distribution and its source assets have been reviewed for public release. A successful build is not a data-classification approval. A private/authenticated preview or a sanitized, approved public version is the appropriate next release path.
