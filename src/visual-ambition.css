@@ -512,3 +512,19 @@
 @media(max-width:1000px){.connection-guide-header{grid-template-columns:1fr;gap:15px}.connection-guide-header>p{max-width:75ch}.connection-chain{grid-template-columns:repeat(5,minmax(170px,1fr));overflow-x:auto;overscroll-behavior-x:contain;padding:3px 0 18px;scrollbar-width:thin}.connection-node>p{min-height:82px}}
 @media(max-width:720px){.connection-guide{margin:72px 0;padding-top:26px}.connection-guide-header h2{font-size:clamp(36px,9vw,48px)}.connection-lane>summary{gap:12px;padding:22px 4px}.connection-lane-count{font-size:24px;width:31px}.connection-lane-name strong{font-size:18px}.connection-lane-name em{font-size:11px}.connection-lane-inside{padding-left:0;padding-right:0}.connection-chain{display:block;overflow:visible}.connection-node{padding:17px 18px;margin-bottom:12px}.connection-node>p{min-height:0;font-size:12px}.connection-node-state{max-width:none}.connection-edge{min-height:0;margin-top:9px;padding-top:8px;flex-direction:row;align-items:center;gap:9px}.connection-edge .icon{transform:rotate(90deg)}.connection-boundary{grid-template-columns:1fr;gap:5px}.connection-guide-side{display:block;padding:23px}.connection-guide-manage{border-left:0;border-top:1px solid var(--line);padding:26px 0 0;margin-top:19px}.connection-guide-footer{flex-direction:column;align-items:flex-start;gap:14px}.connection-guide-footer>a{flex:none}}
 @media(prefers-reduced-motion:reduce){.connection-lane-inside{animation:none}}
+
+/* Readability improvements after responsive browser review. */
+.connection-node>p{font-size:12px;line-height:1.65}
+.connection-node .object-link{font-size:11px}
+.connection-node-state{font-size:10.5px}
+.connection-lane summary:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
+@media(min-width:721px) and (max-width:1100px){
+  .connection-chain{display:grid;grid-template-columns:1fr;gap:12px;overflow:visible;padding:0}
+  .connection-node{display:grid;grid-template-columns:65px minmax(130px,.72fr) minmax(180px,1.25fr) minmax(120px,.72fr);gap:8px 16px;align-items:center;padding:16px 20px;min-height:0}
+  .connection-node-top{grid-column:1;grid-row:1;display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:0}
+  .connection-node-state{margin:0;text-align:left;max-width:none}
+  .connection-node h4{grid-column:2;grid-row:1;margin:0}
+  .connection-node>p{grid-column:3;grid-row:1;min-height:0;margin:0}
+  .connection-node .object-link{grid-column:4;grid-row:1;align-self:center}
+  .connection-edge{grid-column:2/-1;grid-row:2;display:flex;flex-direction:row;align-items:center;min-height:0;margin-top:3px;padding-top:8px}
+}
