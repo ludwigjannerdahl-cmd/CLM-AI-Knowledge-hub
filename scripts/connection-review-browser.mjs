@@ -40,7 +40,8 @@ for(const [name,width,height] of [['desktop',1600,1050],['tablet',920,900],['mob
   await knowledgeForm.locator('summary').click();
 
   // Remove the fixed header only for evidence screenshots; it can otherwise obscure tall sections.
-  await page.addStyleTag({content:'.masthead{position:static!important}'});
+  // Evidence capture only: fixed navigation and the accessible skip-link would otherwise appear in stitched element screenshots.
+  await page.addStyleTag({content:'.masthead{position:static!important}.skip-link{visibility:hidden!important}'});
   const atlasImage=out+'/semantic-atlas-'+name+'.png';
   await atlas.screenshot({path:atlasImage,animations:'disabled'});
   const homepage=await page.evaluate(()=>({
@@ -66,7 +67,8 @@ for(const [name,width,height] of [['desktop',1600,1050],['tablet',920,900],['mob
   assert(await detailed.locator('details.domain-stage').count()===6,name+': prior deep case was lost');
   await detailed.locator('details.domain-stage').nth(2).locator('summary').click();
   assert(await detailed.locator('details.domain-stage').nth(2).evaluate(el=>el.open),name+': deep case fails native keyboard disclosure');
-  await page.addStyleTag({content:'.masthead{position:static!important}'});
+  // Evidence capture only: fixed navigation and the accessible skip-link would otherwise appear in stitched element screenshots.
+  await page.addStyleTag({content:'.masthead{position:static!important}.skip-link{visibility:hidden!important}'});
   await layer.screenshot({path:out+'/meaning-layers-'+name+'.png',animations:'disabled'});
   const knowledge=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,viewport:document.documentElement.clientWidth}));
   assert(knowledge.scrollWidth<=knowledge.viewport,name+': horizontal overflow on knowledge page');
