@@ -30,6 +30,8 @@ function host(hash){
   const ctx={URL,URLSearchParams,Date,console,document,history,crypto:{randomUUID:()=> 'host-check'},location:{get hash(){return current.hash;},get href(){return current.href;}},localStorage:{getItem(k){return saved.get(k)??null;},setItem(k,v){saved.set(k,v);}},matchMedia:()=>({matches:false,addEventListener(){}}),requestAnimationFrame:fn=>frames.push(fn),scrollTo:(_,y)=>{ctx.scrollY=y;},scrollY:0,setTimeout:()=>{},navigator:{},addEventListener:(type,fn)=>{handlers[type]=fn;}};
   ctx.window=ctx;vm.createContext(ctx);
   for(const f of ['data','explanation-data','scoping','model'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
+  ctx.CLM_SEMANTIC_SOURCE=JSON.parse(readFileSync(new URL('../src/semantic/knowledge-to-capability.json',import.meta.url),'utf8'));
+  vm.runInContext(readFileSync(new URL('../src/semantic-atlas.js',import.meta.url),'utf8'),ctx);
   const chapters=JSON.parse(readFileSync(new URL('../src/chapters.json',import.meta.url),'utf8'));chapters.portfolio={};ctx.CLM_HUB_CHAPTERS=chapters;
   ctx.CLM_SOURCE_TEXTS={strategy:['First page\nSource meaning','Second page\nApplicability','Third page\nBoundaries']};
   for(const f of ['explanations','views','app'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
