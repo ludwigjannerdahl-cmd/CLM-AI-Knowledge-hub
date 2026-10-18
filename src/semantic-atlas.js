@@ -25,7 +25,7 @@
     }).join('');
     return '<svg class="atlas-lines" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="atlas-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill="none" stroke="#b9d8c8" stroke-width="1.2"/></marker></defs><circle cx="466" cy="295" r="190" class="atlas-orbit"/><circle cx="466" cy="295" r="260" class="atlas-orbit atlas-orbit-secondary"/><path d="M40 555 H1150" class="atlas-horizon"/>'+shapes+'</svg>';
   }
-  function render({perspectiveId='reuse',nodeId=null,compact=false}={}){
+  function render({perspectiveId='reuse',nodeId=null,compact=false,objectLink=null,objects={}}={}){
     const model=root.CLM_SEMANTIC_SOURCE;
     if(!model||!model.nodes||!model.edges||!model.perspectives)throw Error('Canonical semantic source unavailable');
     const perspective=model.perspectives.find(p=>p.id===perspectiveId)||model.perspectives[0];
@@ -36,13 +36,20 @@
     const nodes=model.nodes.map((n,i)=>'<button type="button" class="atlas-node'+(n.id===node.id?' is-focused':'')+(active.has(n.id)?'':' is-muted')+'" data-action="semantic-node" data-value="'+esc(n.id)+'" aria-pressed="'+String(n.id===node.id)+'" style="--atlas-x:'+n.x+'%;--atlas-y:'+n.y+'%" title="'+esc(n.question)+'"><span class="atlas-node-index">'+String(i+1).padStart(2,'0')+' / '+esc(n.zone)+'</span><span class="atlas-node-label">'+esc(n.label)+'</span><span class="atlas-node-dot" aria-hidden="true"></span></button>').join('');
     const related=adjacent.map(edge=>relationship(model,edge,node)).join('');
     const links=(node.links||[]).map(l=>'<a class="atlas-reading-link" href="'+esc(l.href)+'">'+esc(l.label)+' <span aria-hidden="true">↗</span></a>').join('');
+    const examples=(node.hub_objects||[]).map(id=>{
+      const item=objects[id];
+      const action=typeof objectLink==='function'&&item?objectLink(id,'Inspect '+id):'<code>'+esc(id)+'</code>';
+      return '<li><span class="atlas-object-status">'+esc(item?.status||'Illustrative Hub anchor')+'</span>'+action+'</li>';
+    }).join('');
+    const hubCrosswalk='<details class="atlas-hub-examples"><summary>Trace to '+(node.hub_objects||[]).length+' authored Hub '+((node.hub_objects||[]).length===1?'object':'objects')+'</summary>'+
+      '<p>'+esc(node.hub_crosswalk_note||'Authored example only; not verified operational evidence.')+'</p><ul>'+examples+'</ul></details>';
     const detail='<aside class="atlas-inspector" aria-labelledby="atlas-detail-title" aria-live="polite">'+
       '<span class="atlas-detail-type">'+esc(node.type)+' / selected concept</span>'+
       '<h3 id="atlas-detail-title">'+esc(node.question)+'</h3>'+
       '<p class="atlas-detail-description">'+esc(node.description)+'</p>'+
       '<div class="atlas-detail-secondary"><span>Why this can scale</span><p>'+esc(node.reuse)+'</p></div>'+
       '<div class="atlas-detail-boundary"><span>What this does not establish</span><p>'+esc(node.boundary)+'</p></div>'+
-      '<details class="atlas-links" '+(compact?'':'')+'><summary>Inspect '+adjacent.length+' typed relationships</summary><ul>'+related+'</ul></details>'+
+      '<details class="atlas-links" '+(compact?'':'')+'><summary>Inspect '+adjacent.length+' typed relationships</summary><ul>'+related+'</ul></details>'+hubCrosswalk+
       '<div class="atlas-reading">'+links+'</div></aside>';
     const knowledge=model.knowledge_forms.map(f=>'<li><strong>'+esc(f.label)+'</strong><span>'+esc(f.description)+'</span></li>').join('');
     const formDetails='<details class="atlas-knowledge-forms"><summary><span>Underneath the diagram</span><strong>Five forms of institutional knowledge</strong><span class="atlas-detail-arrow">↗</span></summary><p class="atlas-forms-preface">These are complementary kinds of knowledge, not a mandatory linear processing chain.</p><ol>'+knowledge+'</ol></details>';
