@@ -182,3 +182,21 @@ test('Object provenance names source authority beside meaning without assigning 
   assert.match(env.dialog.innerHTML,/Source linkage lets you inspect the basis/);
   assert.match(env.dialog.innerHTML,/not an approved FenX change/);
 });
+
+
+test('Semantic perspective and selected concept survive route history without losing canonical content',async()=>{
+ const env=host('#/');
+ assert.match(env.app.innerHTML,/id="semantic-atlas"/);
+ await env.action('semantic-perspective','bounded');
+ assert.match(env.app.innerHTML,/What makes an AI task useful without giving it unchecked authority/);
+ assert.match(env.app.innerHTML,/data-action="semantic-perspective" data-value="bounded" aria-pressed="true"/);
+ await env.action('semantic-node','data');
+ assert.match(env.app.innerHTML,/What case evidence is available/);
+ assert.match(env.app.innerHTML,/data-action="semantic-node" data-value="data" aria-pressed="true"/);
+ await env.link('#/knowledge');
+ assert.match(env.app.innerHTML,/Metadata records what exists/);
+ env.history.go(-1);env.flush();
+ assert.match(env.app.innerHTML,/What case evidence is available/);
+ assert.match(env.app.innerHTML,/data-action="semantic-perspective" data-value="bounded" aria-pressed="true"/);
+ assert.match(env.app.innerHTML,/data-action="semantic-node" data-value="data" aria-pressed="true"/);
+});
