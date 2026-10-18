@@ -6,11 +6,12 @@ import vm from 'node:vm';
 const source = readFileSync(new URL('../src/views.js',import.meta.url),'utf8');
 const css = readFileSync(new URL('../src/visual-ambition.css',import.meta.url),'utf8');
 const authored = readFileSync(new URL('../src/data.js',import.meta.url),'utf8');
+const semanticData = readFileSync(new URL('../src/explanation-data.js',import.meta.url),'utf8');
 const root = {};
 vm.runInNewContext(source,{window:root,globalThis:root});
 
 function renderOverview(){
-  root.CLM_HUB_DATA={
+  root.CLM_HUB_DATA={objects:{},
     workDomains:[
       {id:'run',route:'#/work/preparation'},
       {id:'develop',route:'#/work/development'},
@@ -22,6 +23,7 @@ function renderOverview(){
       change:{id:'change',label:'Analyse an instruction change'}
     }
   };
+  vm.runInNewContext(semanticData,{window:root,globalThis:root});
   root.CLM_HUB_MODEL={escape:value=>String(value),routeForTopic:(c,t)=>'#/topic/'+c+'/'+t};
   root.CLM_HUB_CHAPTERS={chapters:[]};
   const deps={
@@ -74,4 +76,11 @@ test('manage and decision boundaries exist without asserting runtime readiness',
     assert.ok(html.includes(text),text+' missing');
   assert.ok(html.includes('not verified system integrations'));
   assert.ok(html.includes('not an automatic fourth execution sequence'));
+});
+
+test('work traces have one canonical authored data source, not view-local copies',()=>{
+  assert.ok(source.includes('const lanes=D.connectionTraces'));
+  assert.ok(!source.includes('const lanes=['));
+  assert.ok(semanticData.includes('D.connectionTraces=['));
+  assert.ok(semanticData.includes('Synthetic links are not assertions of deployed integration'));
 });
