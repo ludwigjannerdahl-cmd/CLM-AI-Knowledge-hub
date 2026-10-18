@@ -5,7 +5,7 @@ import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 const root=resolve(fileURLToPath(new URL('..',import.meta.url)));
 const ctx={URLSearchParams,queueMicrotask,document:{querySelector:()=>null}};ctx.window=ctx;vm.createContext(ctx);
-for(const name of ['data','explanation-data','chapters','source-texts','scoping','model','explanations','views','design-lab'])vm.runInContext(readFileSync(root+'/docs/assets/'+name+'.js','utf8'),ctx);
+for(const name of ['data','explanation-data','semantic-source','semantic-atlas','chapters','source-texts','scoping','model','explanations','views','design-lab'])vm.runInContext(readFileSync(root+'/docs/assets/'+name+'.js','utf8'),ctx);
 const D=ctx.CLM_HUB_DATA,N=ctx.CLM_HUB_CHAPTERS,M=ctx.CLM_HUB_MODEL;
 const state={route:M.parseRoute('#/'),flags:{...M.defaultFlags},steps:{},tabs:{},subject:'client',changed:false,transferChanged:false,anchor:'work',workDomain:'run',knowledgeStage:'human'};
 const e=M.escape;
