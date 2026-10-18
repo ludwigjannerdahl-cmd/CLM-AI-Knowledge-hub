@@ -7,7 +7,8 @@ const source = readFileSync(new URL('../src/views.js',import.meta.url),'utf8');
 const css = readFileSync(new URL('../src/visual-ambition.css',import.meta.url),'utf8');
 const authored = readFileSync(new URL('../src/data.js',import.meta.url),'utf8');
 const semanticData = readFileSync(new URL('../src/explanation-data.js',import.meta.url),'utf8');
-const root = {};
+const root = {CLM_SEMANTIC_SOURCE:JSON.parse(readFileSync(new URL('../src/semantic/knowledge-to-capability.json',import.meta.url),'utf8'))};
+vm.runInNewContext(readFileSync(new URL('../src/semantic-atlas.js',import.meta.url),'utf8'),{window:root,globalThis:root});
 vm.runInNewContext(source,{window:root,globalThis:root});
 
 function renderOverview(){
@@ -27,7 +28,7 @@ function renderOverview(){
   root.CLM_HUB_MODEL={escape:value=>String(value),routeForTopic:(c,t)=>'#/topic/'+c+'/'+t};
   root.CLM_HUB_CHAPTERS={chapters:[]};
   const deps={
-    state:{workDomain:'run',route:{view:'overview'}},
+    state:{workDomain:'run',semanticPerspective:'reuse',semanticNode:'meaning',route:{view:'overview'}},
     icon:()=>'<svg></svg>',
     button:()=>'<button>Search</button>',
     link:(href,label)=>'<a href="'+href+'">'+label+'</a>',
@@ -46,12 +47,13 @@ test('all three linked explanatory cases appear in the real homepage view',()=>{
     assert.ok(html.includes('href="'+href+'"'),'Missing navigable path '+href);
   assert.ok(html.includes('Legacy illustration'),'Must preserve earlier visual content');
   assert.ok(html.includes('Legacy meaning view'),'Must preserve earlier ontology explanation');
+  assert.ok(html.includes('id="semantic-atlas"'),'The semantic atlas must be part of the actual homepage');
 });
 
 test('native disclosure is accessible without new custom event handlers',()=>{
   const html=renderOverview();
   assert.ok(html.includes('aria-labelledby="connection-guide-title"'));
-  assert.equal((html.match(/<summary>/g)||[]).length,9);
+  assert.equal((html.match(/<summary>/g)||[]).length,4);
   assert.ok(html.includes('connection-lane" name="clm-paths" open>'),'First path should orient a new reader');
   assert.equal((html.match(/name="clm-paths"/g)||[]).length,3,'One-open native accordion groups all three paths');
   assert.ok(html.includes('id="connections"'));
