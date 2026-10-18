@@ -46,6 +46,8 @@ jobs:
           cmp src/views.js docs/assets/views.js
           grep -q 'See what feeds what' docs/assets/views.js
           grep -q 'Connected work traces' docs/assets/styles.css
+          grep -q 'Institutional knowledge journey' docs/assets/styles.css
+          grep -q 'A relationship changes' docs/assets/views.js
           test -s docs/OPEN_ME_FIRST.html
       - name: Install Chromium
         run: |
