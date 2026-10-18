@@ -21,16 +21,26 @@ for(const [name,width,height] of [['desktop',1600,1050],['tablet',920,900],['mob
   if(!secondExpanded)throw new Error(name+': develop trace does not open');
   const source=await guide.locator('[data-action="object"]').count();
   if(source<10)throw new Error(name+': source object links absent');
+  const domain=page.locator('#domain-knowledge');
+  if(await domain.count()!==1)throw new Error(name+': knowledge journey absent');
+  const stages=domain.locator('details.domain-stage');
+  if(await stages.count()!==6)throw new Error(name+': expected six knowledge boundaries');
+  await stages.nth(2).locator('summary').click();
+  if(!await stages.nth(2).evaluate(el=>el.open))throw new Error(name+': authority boundary did not open');
+  if(await stages.nth(0).evaluate(el=>el.open))throw new Error(name+': single-open accordion failed');
+  const domainCapture=out+'/knowledge-'+name+'.png';
+  await domain.screenshot({path:domainCapture});
   const metrics=await page.evaluate(()=>({
     scrollWidth:document.documentElement.scrollWidth,
     viewport:document.documentElement.clientWidth,
     headings:[...document.querySelectorAll('#connections h2')].map(x=>x.textContent.trim()),
     preservedFigure:!!document.querySelector('.work-atlas'),
-    relationshipCards:document.querySelectorAll('#connections .connection-node').length
+    relationshipCards:document.querySelectorAll('#connections .connection-node').length,
+    knowledgeStages:document.querySelectorAll('#domain-knowledge .domain-stage').length
   }));
   const screenshot=out+'/connections-'+name+'.png';
   await guide.screenshot({path:screenshot});
-  const pass=errors.length===0&&metrics.scrollWidth<=metrics.viewport&&metrics.preservedFigure&&metrics.relationshipCards===14;
+  const pass=errors.length===0&&metrics.scrollWidth<=metrics.viewport&&metrics.preservedFigure&&metrics.relationshipCards===14&&metrics.knowledgeStages===6;
   results.push({name,width,height,count,sourceLinks:source,secondExpanded,metrics,errors,screenshot,pass});
   await page.close();await context.close();
 }
