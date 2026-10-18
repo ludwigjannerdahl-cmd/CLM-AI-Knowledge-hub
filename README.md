@@ -4,6 +4,16 @@ A connected, illustrated explanation of useful CLM work, reviewed knowledge, met
 
 This is the complete static source and generated build, version **21.1.0**. V21 reconciles the V20.1 reading-continuity work and applies the same desktop reading system across the whole Hub. It follows `planning/FINAL_BUILD_PLAN_FOR_ASTRA.md` and `planning/VISUAL_AND_CONTEXT_DIRECTION.md`. It integrates the supplied Hub's thirteen actual chapters, including its nine draft Intelligence Model topics, inside one application.
 
+## Current feature-branch review: semantic knowledge explorer (18 October 2026)
+
+The V22-based review branch `feat/hub-shippable-explanatory-paths` now integrates an interactive **Knowledge-to-Capability** explanation directly into the homepage. The eight concepts and their typed, qualified relationships are authored once in `src/semantic/knowledge-to-capability.json`. `scripts/validate-semantic.mjs` rejects invalid identifiers, unqualified relationships, broken links and semantic-status upgrades before the website is built. The runtime renderer `src/semantic-atlas.js` supplies three distinct reader perspectives: shared knowledge, bounded AI assistance, and change/learning. Its mobile and desktop styles are in `src/semantic-atlas.css`.
+
+The **Knowledge & methods** route now includes the four-layer meaning explanation (metadata, business semantics, concept relationships, system mappings), and retains the earlier deep six-stage synthetic ownership specimen. The homepage retains the existing hero, chapter system, source-linked CLM work traces and navigation; it no longer makes a specific KYC specimen the primary conceptual architecture.
+
+`prototypes/knowledge-to-capability.html` is a historical exploration, **not** the integrated site. The generated `docs/` review files and GitHub Actions artifact are derived from the same canonical source; do not hand-edit the build outputs.
+
+**Publication boundary:** This is a review build in a **public GitHub repository**, not an approved internal SEB production service. Existing distribution materials include internal-bank source documents. Do not promote to public Pages/main or circulate outside the authorised audience without explicit classification and release review. NPM's `private:true` is a package-publishing flag; it does not make GitHub private.
+
 ## Open the webpage
 
 Open **`docs/OPEN_ME_FIRST.html`** from a local checkout for an offline review. No installation or local server is required. Keep its `sources/` folder alongside it for document downloads. `docs/index.html` is the modular hosting entry point.
