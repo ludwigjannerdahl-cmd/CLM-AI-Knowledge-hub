@@ -11,7 +11,7 @@ This repository builds **one evolving internal explanatory website**. The websit
 
 ## Semantic model to web contract
 1. Start from a concrete reader operation: **trace, compare, explain, diagnose or decide**.
-2. Derive curated projections from `src/data.js` and `src/explanation-data.js`, not view-local duplicate claims. The V22 homepage traces use `D.connectionTraces`.
+2. Derive curated projections from `src/data.js` and `src/explanation-data.js`, not view-local duplicate claims. The V22 homepage traces use `D.connectionTraces`. The cross-task banking-knowledge model is authored in **`src/semantic/knowledge-to-capability.json`**, validated by `scripts/validate-semantic.mjs`, and projected through `src/semantic-atlas.js` into the existing app. Do not fork its concepts into another independent prototype.
 3. Connect business outcomes, work, institutional meaning, requirements, execution, human decisions and evidence using **labelled relationships**. Do not use generic graph connectivity as success evidence.
 4. Give every consequential example a source/meaning boundary and at least one falsification or failure case. An instruction candidate is not approved; a test case is not a run; a source pointer is not verification.
 5. Retain `src/chapters.json` and existing route/topic IDs. Never rewrite a substantial chapter solely to fit a layout.
@@ -20,8 +20,8 @@ This repository builds **one evolving internal explanatory website**. The websit
 ## Implementation discipline
 - Work against the **latest verified richer product baseline**, not stale `main` merely because it is the default. Compare refs before changes.
 - Change `src/` canonically; run `npm run build`, `npm test` and `npm run check`. Validate the **actual browser** at desktop, tablet and mobile. Screenshots and links are evidence; unit test counts alone are not.
-- Deliver an accessible *reviewable webpage* early, improve it in place and maintain visual continuity. No new standalone ontology packages unless explicitly requested.
-- In status reports distinguish commit, successful CI, built artifact, deployed URL and independently validated user comprehension. Never conflate them.
+- Deliver an accessible *reviewable webpage* early, improve it in place and maintain visual continuity. No new standalone ontology packages unless explicitly requested. The historical file in `prototypes/` is not the live product. The semantic source must be loaded in the application **and** the route-check harness.
+- In status reports distinguish commit, successful CI, built artifact, deployed URL and independently validated user comprehension. Never conflate them. Preserve the difference between a passing generated CI preview and a committed `docs/` review build.
 - Do not introduce internal SEB files or additional potentially confidential facts into the **public** repository. Repository/source permissions and intended hosting boundary require explicit resolution before public promotion. A public GitHub Pages site is not an internal access-controlled site.
 - Named business ownership, regulatory interpretations, environment status, tested integrations and operational readiness require actual evidence. Preserve unknowns.
 - Treat user feedback on design and explanations as product input and keep stable semantic IDs while iterating.
