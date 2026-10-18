@@ -51,7 +51,7 @@ test('all three linked explanatory cases appear in the real homepage view',()=>{
 test('native disclosure is accessible without new custom event handlers',()=>{
   const html=renderOverview();
   assert.ok(html.includes('aria-labelledby="connection-guide-title"'));
-  assert.equal((html.match(/<summary>/g)||[]).length,3);
+  assert.equal((html.match(/<summary>/g)||[]).length,9);
   assert.ok(html.includes('connection-lane" name="clm-paths" open>'),'First path should orient a new reader');
   assert.equal((html.match(/name="clm-paths"/g)||[]).length,3,'One-open native accordion groups all three paths');
   assert.ok(html.includes('id="connections"'));
