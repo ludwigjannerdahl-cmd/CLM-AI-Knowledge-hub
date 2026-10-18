@@ -52,7 +52,8 @@ test('native disclosure is accessible without new custom event handlers',()=>{
   const html=renderOverview();
   assert.ok(html.includes('aria-labelledby="connection-guide-title"'));
   assert.equal((html.match(/<summary>/g)||[]).length,3);
-  assert.ok(html.includes('connection-lane" open>'),'First path should orient a new reader');
+  assert.ok(html.includes('connection-lane" name="clm-paths" open>'),'First path should orient a new reader');
+  assert.equal((html.match(/name="clm-paths"/g)||[]).length,3,'One-open native accordion groups all three paths');
   assert.ok(html.includes('id="connections"'));
   assert.ok(css.includes('@media(max-width:720px)'),'Mobile rendering contract');
   assert.ok(css.includes('prefers-reduced-motion:reduce'),'Motion contract');
