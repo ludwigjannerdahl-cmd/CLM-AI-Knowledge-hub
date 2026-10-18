@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
-export function validateSemanticSource(model){
+export function validateSemanticSource(model,{objects=null}={}){
   const errors=[];
   const fail=(path,message)=>errors.push(path+': '+message);
   if(!model||typeof model!=='object'||Array.isArray(model))return {ok:false,errors:['root: expected model object']};
@@ -21,6 +21,13 @@ export function validateSemanticSource(model){
     if(typeof n.x!=='number'||n.x<9||n.x>90||typeof n.y!=='number'||n.y<15||n.y>85)
       fail(p,'layout must remain inside safe plot region');
     for(const l of n.links||[])if(!/^#\/(?:knowledge|work\/|topic\/|evidence|relationships)/.test(l.href||''))fail(p+'.links','internal route only');
+    if(!Array.isArray(n.hub_objects)||n.hub_objects.length<1||n.hub_objects.length>3)fail(p+'.hub_objects','needs 1–3 existing illustrative Hub anchors');
+    if(typeof n.hub_crosswalk_note!=='string'||n.hub_crosswalk_note.length<28)fail(p+'.hub_crosswalk_note','must preserve qualifier');
+    const hubIds=new Set();
+    for(const id of n.hub_objects||[]){
+      if(hubIds.has(id))fail(p+'.hub_objects','duplicate Hub anchor');hubIds.add(id);
+      if(objects&&!Object.hasOwn(objects,id))fail(p+'.hub_objects','unknown canonical Hub object '+id);
+    }
   }
   const verbs=new Set(['informs','constrains','governs','produces']);
   const edges=new Set();
