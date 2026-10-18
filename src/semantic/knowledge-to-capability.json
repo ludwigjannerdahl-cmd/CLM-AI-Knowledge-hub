@@ -21,7 +21,12 @@
           "label": "Explore CLM work",
           "href": "#/work/preparation"
         }
-      ]
+      ],
+      "hub_objects": [
+        "REQ-01@1",
+        "OBS-01@1"
+      ],
+      "hub_crosswalk_note": "Illustrative requirement and prepared observation; neither is an executed business outcome."
     },
     {
       "id": "authority",
@@ -39,7 +44,12 @@
           "label": "Authority and provenance",
           "href": "#/topic/sec-intelmodel/intel-authority"
         }
-      ]
+      ],
+      "hub_objects": [
+        "INS-01@1",
+        "INS-01@2"
+      ],
+      "hub_crosswalk_note": "A synthetic instruction and its unapproved revision candidate; not bank-approved policy."
     },
     {
       "id": "meaning",
@@ -57,7 +67,12 @@
           "label": "Knowledge and methods",
           "href": "#/knowledge"
         }
-      ]
+      ],
+      "hub_objects": [
+        "CTX-FENX@2026-08-18",
+        "MAP-01@1"
+      ],
+      "hub_crosswalk_note": "Reported field meaning and an illustrative mapping; current source data and approved aliases are not established."
     },
     {
       "id": "data",
@@ -75,7 +90,12 @@
           "label": "Governed context",
           "href": "#/topic/sec-datalayer"
         }
-      ]
+      ],
+      "hub_objects": [
+        "OBS-01@1",
+        "DATA-01@proposal"
+      ],
+      "hub_crosswalk_note": "A source-linked draft and a proposed data product; neither demonstrates authorised live customer retrieval."
     },
     {
       "id": "capability",
@@ -93,7 +113,11 @@
           "label": "AI and CLM context",
           "href": "#/topic/sec-arch"
         }
-      ]
+      ],
+      "hub_objects": [
+        "METHOD-01@1"
+      ],
+      "hub_crosswalk_note": "A bounded method specimen; the document does not prove an installed, executable AI skill."
     },
     {
       "id": "control",
@@ -111,7 +135,12 @@
           "label": "Risk and controls",
           "href": "#/topic/sec-risk"
         }
-      ]
+      ],
+      "hub_objects": [
+        "TEST-01@1",
+        "REUSE-01@1"
+      ],
+      "hub_crosswalk_note": "A proposed adverse test and reuse review; no working enforcement or approval is claimed."
     },
     {
       "id": "human",
@@ -129,7 +158,11 @@
           "label": "People and ownership",
           "href": "#/topic/sec-people"
         }
-      ]
+      ],
+      "hub_objects": [
+        "REUSE-01@1"
+      ],
+      "hub_crosswalk_note": "A review candidate with owner unassigned; no completed human decision is claimed."
     },
     {
       "id": "trace",
@@ -147,7 +180,12 @@
           "label": "Evidence and evaluation",
           "href": "#/evidence"
         }
-      ]
+      ],
+      "hub_objects": [
+        "TEST-01@1",
+        "EVID-01@1"
+      ],
+      "hub_crosswalk_note": "An unexecuted test case and empty evidence record; there is no observed test result."
     }
   ],
   "edges": [
@@ -347,5 +385,5 @@
     "AI output does not constitute a human decision.",
     "An evaluation result can trigger human review but cannot approve its own knowledge changes."
   ],
-  "lineage": "Conceptual synthesis based on supplied Knowledge-as-Code and CLM Hub material; working explanation, not a verified production architecture."
+  "lineage": "Conceptual synthesis based on supplied Knowledge-as-Code and CLM Hub material; working explanation, not a verified production architecture. The Hub crosswalk points only to existing authored objects; all source and status qualifiers belong to those objects."
 }
