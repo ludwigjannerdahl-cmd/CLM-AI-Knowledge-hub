@@ -824,6 +824,86 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
   .connection-edge{grid-column:2/-1;grid-row:2;display:flex;flex-direction:row;align-items:center;min-height:0;margin-top:3px;padding-top:8px}
 }
 
+
+/* Institutional knowledge journey: progressive disclosure over a stable semantic case. */
+.domain-knowledge{margin:100px 0 110px;padding:42px 0 0;border-top:1px solid var(--v22-hairline);scroll-margin-top:110px}
+.domain-knowledge-intro{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(260px,.65fr);gap:60px;align-items:center;margin-bottom:43px}
+.domain-knowledge-intro h2{font-size:clamp(38px,3.8vw,65px);line-height:1.06;letter-spacing:-.052em;margin:15px 0 24px;max-width:17ch;font-weight:510;color:var(--ink)}
+.domain-knowledge-intro>div>p:last-child{font-size:15px;line-height:1.8;color:var(--muted);max-width:65ch}
+.domain-knowledge-intro aside{padding:27px 29px;background:var(--v22-paper-deep);border:1px solid var(--line);position:relative;overflow:hidden}
+.domain-scenario-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--v22-pine-soft);margin-bottom:15px}
+.domain-knowledge-intro aside>p{font-family:Georgia,'Times New Roman',serif;font-size:21px;line-height:1.45;letter-spacing:-.015em;margin:0 0 13px;color:var(--ink)}
+.domain-knowledge-intro aside>p strong{font-weight:550}
+.domain-knowledge-intro aside>small{font-size:11px;line-height:1.6;color:var(--muted);display:block}
+.domain-scenario-symbol{margin-top:25px;display:grid;justify-items:center;gap:8px}
+.domain-scenario-symbol span{width:100%;max-width:240px;border:1px solid var(--v22-sage-mid);background:var(--v22-paper);padding:11px 18px;text-align:center;font-size:12px;font-weight:600;color:var(--v22-pine)}
+.domain-scenario-symbol i{font-style:normal;font-size:10px;letter-spacing:.07em;color:var(--v22-pine-soft);padding:12px 0;position:relative}
+.domain-scenario-symbol i:before,.domain-scenario-symbol i:after{content:"";position:absolute;width:1px;height:12px;left:50%;background:var(--v22-pine-soft)}
+.domain-scenario-symbol i:before{top:0}.domain-scenario-symbol i:after{bottom:0}
+.domain-journey{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.7fr);gap:35px;align-items:start}
+.domain-journey-main{border-top:2px solid var(--v22-pine)}
+.domain-journey-heading{display:flex;align-items:baseline;justify-content:space-between;gap:22px;padding:22px 0 12px}
+.domain-journey-heading .eyebrow{margin:0;flex:none}
+.domain-journey-heading>p:last-child{font-size:11px;line-height:1.6;color:var(--muted);max-width:42ch;margin:0}
+.domain-stage{border-bottom:1px solid var(--line)}
+.domain-stage>summary{list-style:none;display:flex;align-items:center;gap:20px;cursor:pointer;padding:23px 10px;outline-offset:-3px}
+.domain-stage>summary::-webkit-details-marker{display:none}
+.domain-stage>summary:hover,.domain-stage>summary:focus-visible{background:var(--v22-sage-wash)}
+.domain-stage>summary:focus-visible{outline:3px solid var(--focus)}
+.domain-stage-number{font:italic 28px Georgia,'Times New Roman',serif;color:var(--v22-pine-soft);min-width:42px}
+.domain-stage-title{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.domain-stage-title small{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.domain-stage-title strong{font-size:clamp(17px,1.5vw,22px);line-height:1.3;font-weight:540;letter-spacing:-.025em;color:var(--ink)}
+.domain-stage-expand{width:30px;height:30px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:22px;color:var(--v22-pine-soft);transition:transform .18s ease}
+.domain-stage[open] .domain-stage-expand{transform:rotate(45deg)}
+.domain-stage-content{padding:4px 15px 28px 72px}
+.domain-stage-lead{font-size:14px;line-height:1.8;color:var(--ink);max-width:70ch;margin:0 0 24px}
+.domain-stage-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.domain-stage-columns>div{background:var(--v22-paper);border:1px solid var(--line);padding:17px 20px}
+.domain-stage-columns h4{font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:650;color:var(--v22-pine-soft);margin:0 0 13px}
+.domain-stage-columns ul{margin:0;padding-left:17px}
+.domain-stage-columns li{font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 8px}
+.domain-stage-risk,.domain-stage-output{display:grid;grid-template-columns:140px 1fr;gap:18px;border-bottom:1px solid var(--line);padding:15px 0}
+.domain-stage-risk{margin-top:14px}
+.domain-stage-risk span,.domain-stage-output span,.domain-stage-concepts>span:first-child{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--v22-pine-soft)}
+.domain-stage-risk p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
+.domain-stage-output strong{font-size:13px;line-height:1.6;font-weight:550;color:var(--ink)}
+.domain-stage-concepts{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:18px}
+.domain-stage-concepts>span:first-child{margin-right:9px}
+.domain-concept{font-size:10px;color:var(--v22-pine-soft);border:1px solid var(--v22-sage-mid);border-radius:3px;padding:5px 8px;background:var(--v22-sage-wash)}
+.domain-stage-reuse{font-size:12px;line-height:1.7;color:var(--muted);margin:17px 0 0}
+.domain-stage-reuse strong{color:var(--ink)}
+.domain-journey-aside{background:var(--v22-pine);color:#f3f5ed;padding:30px 28px;position:relative;overflow:hidden}
+.domain-journey-aside .eyebrow{color:#bdd2c7;margin:0 0 20px}
+.domain-journey-aside h3{font-size:clamp(25px,2.2vw,34px);font-weight:470;line-height:1.2;letter-spacing:-.035em;margin:0 0 18px;color:#f7f7f0}
+.domain-journey-aside>p{font-size:12px;line-height:1.8;color:#c6d8d0;margin:0 0 24px}
+.domain-plane{padding:16px 0;border-top:1px solid #ffffff2b}
+.domain-plane>span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#b9d1c4;margin-bottom:9px}
+.domain-plane strong{font-size:14px;line-height:1.5;font-weight:570;color:#f8f8f2}
+.domain-plane p{font-size:11px;line-height:1.6;color:#bfd3c9;margin:7px 0 0}
+.domain-journey-aside>a{display:inline-flex;align-items:center;gap:8px;color:#f3f5ed;font-size:12px;margin-top:20px;text-decoration:underline;text-underline-offset:5px}
+.domain-journey-aside .icon{width:15px;height:15px}
+.domain-reuse{margin-top:64px;padding:36px 0 35px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.domain-reuse-heading{display:grid;grid-template-columns:1fr 1fr;column-gap:55px;align-items:end;margin-bottom:25px}
+.domain-reuse-heading .eyebrow{grid-column:1/-1;margin:0 0 13px}
+.domain-reuse-heading h3{font-size:clamp(28px,2.7vw,43px);font-weight:490;line-height:1.13;letter-spacing:-.038em;margin:0;color:var(--ink)}
+.domain-reuse-heading>p:last-child{font-size:13px;line-height:1.75;color:var(--muted);max-width:48ch;margin:0}
+.domain-reuse-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.domain-reuse-card{display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);background:var(--v22-paper);padding:21px;text-decoration:none;transition:transform .16s ease,border-color .16s ease}
+.domain-reuse-card:hover,.domain-reuse-card:focus-visible{transform:translateY(-2px);border-color:var(--v22-pine-soft)}
+.domain-reuse-index{font:italic 24px Georgia,serif;color:var(--v22-pine-soft);margin-bottom:18px}
+.domain-reuse-card h4{font-size:18px;line-height:1.3;font-weight:540;letter-spacing:-.025em;margin:0 0 10px;color:var(--ink)}
+.domain-reuse-card p{font-size:12px;line-height:1.65;color:var(--v22-pine-soft);margin:0 0 14px}
+.domain-reuse-card small{font-size:11px;line-height:1.65;color:var(--muted);margin-bottom:25px;flex:1}
+.domain-reuse-link{font-size:11px;display:inline-flex;gap:8px;align-items:center;color:var(--v22-pine-soft);font-weight:620}
+.domain-reuse-link .icon{width:14px;height:14px}
+.domain-knowledge-footer{display:flex;flex-wrap:wrap;align-items:center;gap:15px 22px;margin-top:18px}
+.domain-knowledge-footer>span{font-size:11px;line-height:1.65;color:var(--muted);flex:1 1 330px}
+.domain-knowledge-footer .topic-link{font-size:11px;white-space:nowrap}
+@media(max-width:1150px){.domain-journey{grid-template-columns:1fr}.domain-journey-aside{display:grid;grid-template-columns:1fr 1fr;gap:0 24px}.domain-journey-aside>.eyebrow,.domain-journey-aside>h3,.domain-journey-aside>p,.domain-journey-aside>a{grid-column:1/-1}.domain-plane:nth-of-type(odd){margin-right:12px}.domain-knowledge-intro{gap:28px}}
+@media(max-width:720px){.domain-knowledge{margin:70px 0 80px;padding-top:27px}.domain-knowledge-intro{grid-template-columns:1fr;gap:24px;margin-bottom:28px}.domain-knowledge-intro h2{font-size:clamp(35px,9vw,48px)}.domain-knowledge-intro aside{padding:23px}.domain-journey-heading{display:block}.domain-journey-heading>p:last-child{margin-top:9px}.domain-stage>summary{gap:10px;padding:19px 3px}.domain-stage-number{font-size:23px;min-width:33px}.domain-stage-title strong{font-size:17px}.domain-stage-content{padding:4px 0 24px}.domain-stage-columns{grid-template-columns:1fr;gap:10px}.domain-stage-risk,.domain-stage-output{grid-template-columns:1fr;gap:6px}.domain-stage-concepts>span:first-child{width:100%}.domain-journey-aside{display:block;padding:24px}.domain-reuse-heading{display:block}.domain-reuse-heading h3{margin-bottom:14px}.domain-reuse-grid{grid-template-columns:1fr}.domain-reuse-card{padding:19px}.domain-reuse-card small{margin-bottom:17px}.domain-knowledge-footer .topic-link{white-space:normal}}
+@media(prefers-reduced-motion:reduce){.domain-reuse-card,.domain-stage-expand{transition:none}}
+
 /* V21 runtime Design Lab: acceptance instrument in the real product runtime. */
 .design-lab{padding:54px 0 96px}.design-lab .lab-intro{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(320px,.82fr);gap:72px;align-items:end;border-bottom:1px solid var(--line);padding-bottom:44px}.design-lab .lab-intro h1{max-width:12ch;font-size:clamp(42px,6vw,76px);line-height:.98;letter-spacing:-.04em}.design-lab .lab-thesis{margin-top:22px;max-width:58ch;font-size:18px;line-height:1.55;color:var(--muted)}.lab-kicker{font-size:11px;letter-spacing:.095em;text-transform:uppercase;color:var(--sage-ink);margin-bottom:14px}.lab-contract{border-left:1px solid var(--line);padding-left:28px}.lab-contract>strong{display:block;font-size:15px}.lab-contract>p{margin:9px 0 16px;color:var(--muted);font-size:13px;line-height:1.6}.lab-contract>div{display:flex;gap:8px;flex-wrap:wrap}.lab-section{padding:58px 0;border-bottom:1px solid var(--line)}.lab-section:last-child{border-bottom:0}.lab-heading{display:grid;grid-template-columns:minmax(0,.84fr) minmax(320px,1.16fr);gap:64px;align-items:end;margin-bottom:30px}.lab-heading h2{max-width:19ch}.lab-heading>p{font-size:14px;color:var(--muted);max-width:64ch;line-height:1.65}.lab-chip{display:inline-flex;align-items:center;min-height:26px;padding:4px 9px;border:1px solid var(--line);border-radius:999px;font-size:10px;line-height:1.1;letter-spacing:.03em;background:var(--white)}.lab-chip-review{background:var(--amber-wash)}.lab-chip-missing{background:#f4e9e2}.lab-chip-information{background:var(--wash)}
 
@@ -954,6 +1034,33 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
   const D=root.CLM_HUB_DATA;
   // Canonical authored CLM work traces, projected across the existing Hub.
   // Synthetic links are not assertions of deployed integration or evidence.
+  // Domain-knowledge case: authored explanatory specimen, not a bank customer record.
+  // Keep semantic roles distinct: a source assertion, an applicable rule, a verified fact,
+  // a proposed AI output and an accountable decision are never interchangeable.
+  D.domainKnowledgeCase={
+    id:'ownership-change-specimen',status:'illustrative_only',
+    title:'An ownership relationship changes. What should happen next?',
+    introduction:'A hypothetical source reports that a legal entity has changed its ownership structure. Explore what a reusable banking knowledge layer must resolve before an AI assistant can prepare useful CLM work.',
+    stages:[
+      {id:'report',short:'Source',title:'A reported relationship',kind:'Reported assertion',body:'A document reports that Holding AB owns 60% of Operating AB, effective 1 September. The report has a publication date and source pointer. This is not yet a verified customer record.',facts:['Source publication date and effective date are different concepts','The reported owner is a legal entity, not automatically a natural-person beneficial owner','The assertion may be incomplete, outdated or contradicted'],needs:['Source document and precise passage','Subject identities and relationship type','Effective date, publication date and extraction time'],risk:'Treating a reported ownership percentage as a verified beneficial-owner conclusion',output:'Source-linked assertion, explicitly unverified',concepts:['Party','Party relationship','Source assertion','Valid time'],reuse:'The typed relationship can be reused in requirements, case preparation and change analysis—only with its provenance and scope.'},
+      {id:'meaning',short:'Meaning',title:'Resolve what the relationship means',kind:'Semantic interpretation',body:'A domain model distinguishes legal ownership, control and beneficial ownership, direct and indirect interests, and which party occupies each role. A 60% corporate shareholding does not by itself identify the ultimate beneficial owner.',facts:['Ownership, control and beneficial ownership are distinct concepts','A legal entity can own shares while natural persons may control it indirectly','Unknown upstream relationships remain unknown'],needs:['Party identifiers and legal form','Relationship type, direction and validity','Available upstream ownership and control evidence'],risk:'Conflating direct shareholding with an ultimate beneficial-owner determination',output:'A typed, unresolved ownership structure',concepts:['Legal entity','Natural person','Control','Beneficial ownership'],reuse:'The same governed concept vocabulary informs Fen-X mapping, analyst explanations and adverse test design.'},
+      {id:'authority',short:'Authority',title:'Determine which instructions apply',kind:'Scoped authority',body:'Applicable law, approved bank interpretations and process instructions must be selected for the relevant jurisdiction, legal entity, task and effective date. A source excerpt or model suggestion is not itself an approved bank rule.',facts:['Legal text and an approved internal interpretation have different authority','A requirement is scoped to a process and effective period','Supersession requires review; it is not triggered by reading a newer draft'],needs:['Applicable source and version','Approved interpretation and responsible owner','Process, jurisdiction, entity and date'],risk:'Applying a plausible but unapproved threshold, definition or rule',output:'A rule-applicability question for an authorised reviewer',concepts:['Source authority','Applicability','Version','Approval'],reuse:'Versioned, scoped rules can support multiple tasks without turning proposals into institutional policy.'},
+      {id:'context',short:'Context',title:'Assemble only permitted case context',kind:'Context and access',body:'An authorised workflow can request the relevant verified customer, party and KYC data from governed services. A field mapping describes intended meaning; it does not prove access, correctness or the existence of a live integration.',facts:['Verified and in-flight information require separate status','Customer data access is purpose- and permission-bound','Missing or conflicting records must remain visible'],needs:['Approved data contract and extraction path','Identity resolution and source lineage','Access decision, purpose and freshness'],risk:'Joining the wrong party, reading unpermitted data or overwriting a verified fact',output:'A bounded context package with explicit gaps',concepts:['Data contract','Identity resolution','Permission','Provenance'],reuse:'Context interfaces are shared capabilities; grants and data values are not automatically reusable across purposes.'},
+      {id:'assist',short:'AI assistance',title:'Prepare a reviewable work product',kind:'Bounded execution',body:'An AI assistant may compare the reported relationship with available verified context, draft a discrepancy summary, identify missing evidence and propose follow-up questions. It should not silently change Fen-X records or determine a customer risk rating.',facts:['The output is a proposal, not a bank decision','Every substantive assertion needs a source and knowledge version','Unavailable tools or permissions must not be simulated'],needs:['Defined task and permitted tools','Structured output contract and human owner','Adverse-case evaluation and logging'],risk:'Hallucinated ownership chains, unsupported conclusions or unauthorised write actions',output:'Draft discrepancy assessment for human review',concepts:['AI skill','Tool permission','Human oversight','Evaluation'],reuse:'The same knowledge assets may support other bounded tasks while execution permissions stay task-specific.'},
+      {id:'decision',short:'Decision',title:'Review, act and preserve evidence',kind:'Human decision and assurance',body:'A responsible colleague verifies the source, resolves discrepancies and decides the next process action. The system records the actual decision, applied knowledge version, relevant evidence and observed outcome. An unexecuted test is not evidence of performance.',facts:['Human accountability remains explicit','A proposed action is distinct from an executed action','Observed outcomes and evaluation results have their own provenance'],needs:['Named accountable role and decision rationale','Evidence and audit record','Observed test and outcome where applicable'],risk:'Mistaking a generated recommendation or empty test record for an approved outcome',output:'Accountable decision and traceable evidence, if actually performed',concepts:['Accountable decision','Evidence record','Observed result','Assurance'],reuse:'Real evaluation signals can improve future methods; the specimen itself proves no operational result.'}
+    ],
+    reusePaths:[
+      {title:'Prepare a KYC review',path:'#/work/preparation',uses:['Party relationship','Source assertion','Provenance'],boundary:'Reviewable preparation, not automatic customer verification'},
+      {title:'Specify Fen-X behaviour',path:'#/work/development',uses:['Party role','Field meaning','Applicability'],boundary:'Testable requirements, not a deployed implementation'},
+      {title:'Assess instruction change',path:'#/work/change',uses:['Source authority','Version','Dependency'],boundary:'Impact review, not automatic policy supersession'}
+    ],
+    constraints:[
+      {name:'Knowledge',meaning:'Reusable definitions, scoped rules, methods and provenance'},
+      {name:'Access',meaning:'Authorised data retrieval and purpose-specific permissions'},
+      {name:'Execution',meaning:'Task contracts, bounded tools and explicit human responsibility'},
+      {name:'Evidence',meaning:'Observed outcomes, tests, logging and reviewable decisions'}
+    ]
+  };
   D.connectionTraces=[
         {id:'prepare',number:'01',scope:'Run CLM',label:'Prepare a KYC observation',question:'What can this source actually support?',link:'#/work/preparation',boundary:'A source pointer is not verification. No customer assessment or Fen-X record update is performed.',nodes:[
           {object:'INS-01@1',title:'Applicable instruction',meaning:'Defines what must be preserved and what cannot be assumed.',status:'Synthetic instruction',verb:'constrains the preparation method'},
@@ -1245,12 +1352,21 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
         <footer class="connection-guide-footer"><span>Choose a path above. Each object opens the Hub's existing source and relationship inspector.</span><a href="#/relationships">Explore the relationship model ${icon('arrow')}</a></footer>
       </section>`;
     }
+    function domainKnowledgeJourney(){
+      const k=D.domainKnowledgeCase;
+      const stage=(x,i)=>`<details class="domain-stage" name="domain-knowledge-stage" ${i===0?'open':''} id="domain-${e(x.id)}"><summary><span class="domain-stage-number">${String(i+1).padStart(2,'0')}</span><span class="domain-stage-title"><small>${e(x.kind)}</small><strong>${e(x.title)}</strong></span><span class="domain-stage-expand" aria-hidden="true">+</span></summary><div class="domain-stage-content"><p class="domain-stage-lead">${e(x.body)}</p><div class="domain-stage-columns"><div><h4>What we know in this example</h4><ul>${x.facts.map(v=>`<li>${e(v)}</li>`).join('')}</ul></div><div><h4>What the task still needs</h4><ul>${x.needs.map(v=>`<li>${e(v)}</li>`).join('')}</ul></div></div><div class="domain-stage-risk"><span>Failure mode</span><p>${e(x.risk)}</p></div><div class="domain-stage-output"><span>Result at this boundary</span><strong>${e(x.output)}</strong></div><div class="domain-stage-concepts"><span>Reusable concepts</span>${x.concepts.map(c=>`<span class="domain-concept">${e(c)}</span>`).join('')}</div><p class="domain-stage-reuse"><strong>What can be reused:</strong> ${e(x.reuse)}</p></div></details>`;
+      return `<section class="domain-knowledge" id="domain-knowledge" aria-labelledby="domain-knowledge-title"><div class="domain-knowledge-intro"><div><p class="eyebrow">Institutional knowledge in action · illustrative scenario</p><h2 id="domain-knowledge-title">A relationship changes.<br>What can AI safely do?</h2><p>${e(k.introduction)}</p></div><aside><span class="domain-scenario-label">The reported event</span><p><strong>Holding AB</strong> reportedly acquires <strong>60%</strong> of <strong>Operating AB</strong>, effective 1 September.</p><small>Invented companies and dates. No real customer data, live integration or approved SEB determination.</small><div class="domain-scenario-symbol" aria-hidden="true"><span>Holding AB</span><i>60% reported</i><span>Operating AB</span></div></aside></div>
+      <div class="domain-journey"><div class="domain-journey-main"><div class="domain-journey-heading"><p class="eyebrow">Explore six boundaries</p><p>Open a step to see its inputs, meaning, failure mode and proposed output. One step does not automatically validate the next.</p></div>${k.stages.map(stage).join('')}</div><aside class="domain-journey-aside"><p class="eyebrow">The transferable architecture</p><h3>Shared knowledge.<br>Different consumers.</h3><p>Governed concepts and instructions are reusable. Data access, execution authority and observed evidence must be established separately.</p><div class="domain-plane"><span>01 · Institutional knowledge</span><strong>Meaning · authority · methods</strong><p>Reusable and versioned, with provenance</p></div><div class="domain-plane"><span>02 · Context services</span><strong>Case facts · identity · permissions</strong><p>Resolved for a specific task and purpose</p></div><div class="domain-plane"><span>03 · Work and intelligence</span><strong>People · software · AI assistance</strong><p>Multiple consumers, not one model dependency</p></div><div class="domain-plane"><span>Across every plane</span><strong>Ownership · controls · evaluation</strong><p>Human accountability and observable outcomes</p></div><a href="#/knowledge">Explore the knowledge model ${icon('arrow')}</a></aside></div>
+      <div class="domain-reuse"><div class="domain-reuse-heading"><p class="eyebrow">One concept, multiple tasks</p><h3>Reuse the understanding.<br>Re-establish the permission.</h3><p>The same relationship vocabulary can inform different CLM work without automatically transferring data, approvals or tool permissions.</p></div><div class="domain-reuse-grid">${k.reusePaths.map((p,i)=>`<a href="${p.path}" class="domain-reuse-card"><span class="domain-reuse-index">0${i+1}</span><h4>${e(p.title)}</h4><p>${p.uses.map(e).join(' · ')}</p><small>${e(p.boundary)}</small><span class="domain-reuse-link">Follow the worked example ${icon('arrow')}</span></a>`).join('')}</div></div>
+      <footer class="domain-knowledge-footer"><span>Illustrative model, not evidence of a deployed SEB ontology, Fen-X integration or completed customer decision.</span>${topicLink('sec-intelmodel','intel-authority','Explore source authority')}${topicLink('sec-datalayer','dl-products','Explore governed data')}</footer></section>`;
+    }
     function overview(){
       const domain=D.workDomains.find(x=>x.id===state.workDomain)||D.workDomains[0];
       const entry={run:['Follow a KYC preparation','Begin with a synthetic source-of-wealth example. Inspect the source, field meaning, draft and review.'],develop:['Follow a FenX requirement','Begin with expected behaviour. Inspect its field mapping, adverse test and possible reuse.'],change:['Follow an instruction change','Begin with an invented onboarding handoff. Compare the revision, its impact and the evidence needed.']}[domain.id];
       return `<section class="hero hero-v20"><div class="hero-copy"><p class="eyebrow">Client lifecycle management</p><h1 id="page-title" tabindex="-1">How AI fits<br>into CLM work.</h1><p class="hero-lead">Useful work, the context behind it,<br>and what can be used again.</p><p>AI can assist onboarding and review preparation, requirements, development and change analysis. This Hub connects those contributions to their sources, human responsibility and operating conditions.</p><a class="btn primary" href="${domain.route}">${entry[0]} ${icon('arrow')}</a><p class="start-caption">${entry[1]}</p></div>${X.workIllustration()}</section>
       <section class="quiet-bridge"><p class="eyebrow">Three distinct contributions</p><h2>AI can help with today’s task.<br>Selected context may support the next.</h2><div><p>A useful output has value within its present task. Reuse asks a separate question: is the selected instruction, knowledge or method applicable, maintained and permitted for another use?</p><p>Shared operation adds actual data access, configured controls and ownership. Immediate development work does not wait for every future platform condition.</p></div></section>
       ${X.transformation(true)}
+      ${domainKnowledgeJourney()}
       ${connectionGuide()}
       <section class="work-paths v20-work-paths"><div class="section-heading"><div><p class="eyebrow">Representative work</p><h2>Follow the mechanism<br>through a concrete task.</h2></div><p>Examples test the explanation. They do not define the limits of CLM AI.</p></div>${Object.values(D.paths).map((p,i)=>`<a class="work-path" href="#/work/${p.id}"><span class="path-number">0${i+1}</span><div><h3>${p.label}</h3><p>${['Read a source, inspect field meaning, prepare and review.','Translate an instruction into behaviour and adverse tests.','Compare a revision, trace impact and preserve old evidence scope.'][i]}</p></div><span class="path-meta">${['Run CLM','Develop CLM','Govern / change'][i]}</span>${icon('arrow')}</a>`).join('')}<a class="independent-case-link" href="#/work/change?case=handoff">${icon('route')}Try an independent transfer case: an incomplete onboarding handoff ${icon('arrow')}</a></section>
       <section class="conditions-preview"><div class="section-heading"><div><p class="eyebrow">Data, access and operation</p><h2>A missing condition<br>changes the route.</h2></div><p>This illustration uses scenario assumptions. It does not report current CLM readiness.</p></div>${X.conditionRoutes(true)}${link('#/conditions','Change the assumptions and compare the routes',true)}</section>
