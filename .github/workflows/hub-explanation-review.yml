@@ -47,6 +47,9 @@ jobs:
           grep -q 'See what feeds what' docs/assets/views.js
           grep -q 'Connected work traces' docs/assets/styles.css
           grep -q 'Institutional knowledge journey' docs/assets/styles.css
+          grep -q 'CLM_SEMANTIC_SOURCE' docs/assets/semantic-source.js
+          grep -q 'CLM_SEMANTIC_ATLAS' docs/assets/semantic-atlas.js
+          grep -q 'semantic-atlas' docs/assets/styles.css
           grep -q 'A relationship changes' docs/assets/views.js
           test -s docs/OPEN_ME_FIRST.html
       - name: Install Chromium
@@ -78,13 +81,18 @@ jobs:
 
   sync-generated:
     needs: validate
-    if: github.event_name == 'push' && github.ref_name == 'feat/hub-shippable-explanatory-paths'
+    if: >-
+      needs.validate.result == 'success' &&
+      ((github.event_name == 'push' && github.ref_name == 'feat/hub-shippable-explanatory-paths') ||
+       (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository &&
+        github.event.pull_request.head.ref == 'feat/hub-shippable-explanatory-paths'))
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: feat/hub-shippable-explanatory-paths
           persist-credentials: true
       - uses: actions/setup-node@v4
         with:
