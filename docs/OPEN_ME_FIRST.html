@@ -936,6 +936,30 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
 (function(root){
   'use strict';
   const D=root.CLM_HUB_DATA;
+  // Canonical authored CLM work traces, projected across the existing Hub.
+  // Synthetic links are not assertions of deployed integration or evidence.
+  D.connectionTraces=[
+        {id:'prepare',number:'01',scope:'Run CLM',label:'Prepare a KYC observation',question:'What can this source actually support?',link:'#/work/preparation',boundary:'A source pointer is not verification. No customer assessment or Fen-X record update is performed.',nodes:[
+          {object:'INS-01@1',title:'Applicable instruction',meaning:'Defines what must be preserved and what cannot be assumed.',status:'Synthetic instruction',verb:'constrains the preparation method'},
+          {object:'METHOD-01@1',title:'Bounded method',meaning:'Read, map cautiously, cite and expose missing information.',status:'Synthetic method',verb:'uses subject and field meaning'},
+          {object:'CTX-FENX@2026-08-18',title:'Field and subject context',meaning:'Distinguishes natural-person, related-party and legal-entity fields.',status:'Reported reference',verb:'informs a source-linked proposal'},
+          {object:'OBS-01@1',title:'Prepared observation',meaning:'Reports the event while leaving amount and corroboration unresolved.',status:'For colleague review',verb:'may inform a separate reuse review'},
+          {object:'REUSE-01@1',title:'Reuse candidate',meaning:'Applicability, maintenance and permission must be established again.',status:'Unassigned owner',verb:''}
+        ]},
+        {id:'develop',number:'02',scope:'Develop CLM',label:'Make a Fen-X behaviour testable',question:'How does an instruction become something we can challenge?',link:'#/work/development',boundary:'A test case is not an executed test. The mapping and implementation are not asserted as deployed.',nodes:[
+          {object:'INS-01@1',title:'Instruction',meaning:'States the source-fidelity constraint shared with preparation.',status:'Synthetic instruction',verb:'informs expected behaviour'},
+          {object:'REQ-01@1',title:'Requirement',meaning:'Keep the reported event, its pointer and unresolved amount.',status:'Synthetic requirement',verb:'is mapped to subject-specific fields'},
+          {object:'MAP-01@1',title:'Field mapping',meaning:'Describes intended correspondence; unknown lookup values stay unknown.',status:'Illustrative mapping',verb:'is challenged by adverse cases'},
+          {object:'TEST-01@1',title:'Acceptance test',meaning:'Checks wrong subject, invented values and unsupported conclusions.',status:'Proposed only',verb:'needs an actual run before evidence can exist'},
+          {object:'EVID-01@1',title:'Evidence record',meaning:'Shows required result fields; no observed run is supplied.',status:'No observed result',verb:''}
+        ]},
+        {id:'change',number:'03',scope:'Govern & change CLM',label:'Trace a proposed instruction revision',question:'What becomes affected—and what does not change automatically?',link:'#/work/change',boundary:'The revision is a synthetic candidate. Neither supersession nor downstream implementation is approved or observed.',nodes:[
+          {object:'INS-01@2',title:'Revision candidate',meaning:'Proposes recording the source date or explicitly marking it absent.',status:'Not approved',verb:'triggers impact review of'},
+          {object:'REQ-01@1',title:'Dependent requirement',meaning:'Evaluate whether expected behaviour needs a new version.',status:'Review required',verb:'may require updated adverse tests'},
+          {object:'TEST-01@1',title:'Affected test design',meaning:'Check whether the changed instruction introduces new cases.',status:'Not executed',verb:'requires scope-specific evidence'},
+          {object:'EVID-01@1',title:'Versioned evidence',meaning:'An older, empty record cannot establish performance under a revision.',status:'No observed result',verb:''}
+        ]}
+      ];
   D.workDomains=[
     {id:'run',label:'Run CLM',work:['Onboarding','KYC review','Event-driven review'],verbs:['Retrieve','Structure','Prepare'],input:'Source material, journey context and field meaning',output:'A source-linked preparation',review:'A colleague verifies what the material supports and what is still missing.',fragment:[['Statement','Company sold in 2024'],['Evidence pointer','Line 14 of an invented passage'],['Missing','Amount and corroboration']],artifact:'OBS-01@1',route:'#/work/preparation'},
     {id:'develop',label:'Develop CLM',work:['Requirements','Development','Testing'],verbs:['Analyse','Draft','Test'],input:'An instruction, expected behaviour and system context',output:'A requirement with acceptance logic',review:'Domain and engineering review determine whether the intended behaviour is correct.',fragment:[['Given','An event is stated; amount absent'],['Expected','Retain the event and its source'],['Check','No invented amount or conclusion']],artifact:'REQ-01@1',route:'#/work/development'},
@@ -1196,28 +1220,7 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
     function integratedTopic(c,tid,label){const chapter=N.chapters.find(x=>x.id===c);return `<details class="integrated-topic" data-disclosure="integrated-${tid}"><summary><span><small>Read in this context</small>${e(label||topicName(c,tid))}</span>${icon('plus')}</summary><div class="native-content" data-native-chapter="${c}">${chapter?.panels[tid]||''}<p class="topic-continuation">${topicLink(c,tid,'Open this topic with its full chapter')}</p></div></details>`;}
     const responsibility=(a,b)=>`<aside class="responsibility">${icon('person')}<div><strong>${a}</strong><p>${b}</p></div></aside>`;
     function connectionGuide(){
-      const lanes=[
-        {id:'prepare',number:'01',scope:'Run CLM',label:'Prepare a KYC observation',question:'What can this source actually support?',link:'#/work/preparation',boundary:'A source pointer is not verification. No customer assessment or Fen-X record update is performed.',nodes:[
-          {object:'INS-01@1',title:'Applicable instruction',meaning:'Defines what must be preserved and what cannot be assumed.',status:'Synthetic instruction',verb:'constrains the preparation method'},
-          {object:'METHOD-01@1',title:'Bounded method',meaning:'Read, map cautiously, cite and expose missing information.',status:'Synthetic method',verb:'uses subject and field meaning'},
-          {object:'CTX-FENX@2026-08-18',title:'Field and subject context',meaning:'Distinguishes natural-person, related-party and legal-entity fields.',status:'Reported reference',verb:'informs a source-linked proposal'},
-          {object:'OBS-01@1',title:'Prepared observation',meaning:'Reports the event while leaving amount and corroboration unresolved.',status:'For colleague review',verb:'may inform a separate reuse review'},
-          {object:'REUSE-01@1',title:'Reuse candidate',meaning:'Applicability, maintenance and permission must be established again.',status:'Unassigned owner',verb:''}
-        ]},
-        {id:'develop',number:'02',scope:'Develop CLM',label:'Make a Fen-X behaviour testable',question:'How does an instruction become something we can challenge?',link:'#/work/development',boundary:'A test case is not an executed test. The mapping and implementation are not asserted as deployed.',nodes:[
-          {object:'INS-01@1',title:'Instruction',meaning:'States the source-fidelity constraint shared with preparation.',status:'Synthetic instruction',verb:'informs expected behaviour'},
-          {object:'REQ-01@1',title:'Requirement',meaning:'Keep the reported event, its pointer and unresolved amount.',status:'Synthetic requirement',verb:'is mapped to subject-specific fields'},
-          {object:'MAP-01@1',title:'Field mapping',meaning:'Describes intended correspondence; unknown lookup values stay unknown.',status:'Illustrative mapping',verb:'is challenged by adverse cases'},
-          {object:'TEST-01@1',title:'Acceptance test',meaning:'Checks wrong subject, invented values and unsupported conclusions.',status:'Proposed only',verb:'needs an actual run before evidence can exist'},
-          {object:'EVID-01@1',title:'Evidence record',meaning:'Shows required result fields; no observed run is supplied.',status:'No observed result',verb:''}
-        ]},
-        {id:'change',number:'03',scope:'Govern & change CLM',label:'Trace a proposed instruction revision',question:'What becomes affected—and what does not change automatically?',link:'#/work/change',boundary:'The revision is a synthetic candidate. Neither supersession nor downstream implementation is approved or observed.',nodes:[
-          {object:'INS-01@2',title:'Revision candidate',meaning:'Proposes recording the source date or explicitly marking it absent.',status:'Not approved',verb:'triggers impact review of'},
-          {object:'REQ-01@1',title:'Dependent requirement',meaning:'Evaluate whether expected behaviour needs a new version.',status:'Review required',verb:'may require updated adverse tests'},
-          {object:'TEST-01@1',title:'Affected test design',meaning:'Check whether the changed instruction introduces new cases.',status:'Not executed',verb:'requires scope-specific evidence'},
-          {object:'EVID-01@1',title:'Versioned evidence',meaning:'An older, empty record cannot establish performance under a revision.',status:'No observed result',verb:''}
-        ]}
-      ];
+      const lanes=D.connectionTraces;
       const item=(n,i,total)=>`<li class="connection-node"><div class="connection-node-top"><span class="connection-node-index">${String(i+1).padStart(2,'0')}</span><span class="connection-node-state">${e(n.status)}</span></div><h4>${e(n.title)}</h4><p>${e(n.meaning)}</p>${objectLink(n.object,'Inspect '+n.object)}${i<total-1?`<div class="connection-edge"><span aria-hidden="true">${icon('arrow')}</span><span>${e(n.verb)}</span></div>`:''}</li>`;
       return `<section class="connection-guide" id="connections" aria-labelledby="connection-guide-title">
         <header class="connection-guide-header"><div><p class="eyebrow">Explore the connections</p><h2 id="connection-guide-title">See what feeds what.<br>And where the evidence stops.</h2></div><p>One shared CLM knowledge base supports different kinds of work. Follow a relationship, inspect its source and see what still requires a human decision. These are authored teaching examples—not verified system integrations.</p></header>
