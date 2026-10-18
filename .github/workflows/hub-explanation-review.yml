@@ -1,0 +1,105 @@
+name: Hub explanation review and build
+
+on:
+  push:
+    branches:
+      - feat/hub-shippable-explanatory-paths
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/hub-explanation-review.yml'
+  pull_request:
+    branches:
+      - v22-golden-scenes
+      - main
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - '.github/workflows/hub-explanation-review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Rebuild static site from canonical source
+        run: npm run build
+      - name: Test logic, source identity and regressions
+        run: npm test
+      - name: Run route and content checks
+        run: npm run check
+      - name: Verify the published modular assets derive from source
+        run: |
+          cmp src/views.js docs/assets/views.js
+          grep -q 'See what feeds what' docs/assets/views.js
+          grep -q 'Connected work traces' docs/assets/styles.css
+          test -s docs/OPEN_ME_FIRST.html
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Browser-test real homepage and work routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8000 --directory docs >/tmp/hub-preview.log 2>&1 &
+          PID=$!
+          trap 'kill $PID || true' EXIT
+          for n in {1..30}; do
+            if curl -fsS http://127.0.0.1:8000/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          CLM_REVIEW_OUTPUT=/tmp/clm-hub-connection-review node scripts/connection-review-browser.mjs
+      - name: Upload browser evidence and complete generated preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clm-hub-website-review
+          path: |
+            /tmp/clm-hub-connection-review
+            docs/OPEN_ME_FIRST.html
+          if-no-files-found: warn
+          retention-days: 30
+
+  sync-generated:
+    needs: validate
+    if: github.event_name == 'push' && github.ref_name == 'feat/hub-shippable-explanatory-paths'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Rebuild the complete offline and modular website
+        run: npm run build
+      - name: Commit only generated website outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs
+          if ! git diff --cached --quiet; then
+            git commit -m 'Build reviewable CLM Hub website from canonical sources'
+            git push origin HEAD:feat/hub-shippable-explanatory-paths
+          fi
