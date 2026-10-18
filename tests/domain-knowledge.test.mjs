@@ -48,7 +48,7 @@ test('website preserves existing work and adds navigable progressive disclosure'
 });
 test('specimen does not silently upgrade evidence, applicability or permission',()=>{
  const html=render();
- for(const phrase of ['not yet a verified customer record','not itself an approved bank rule','does not prove access','not a bank decision','An unexecuted test is not evidence','not automatically transferring data'])
+ for(const phrase of ['not yet a verified customer record','not itself an approved bank rule','does not prove access','not a bank decision','An unexecuted test is not evidence','without automatically transferring data'])
   assert.ok(html.includes(phrase),phrase);
  assert.ok(html.includes('No real customer data'));
  assert.ok(html.includes('not evidence of a deployed SEB ontology'));
