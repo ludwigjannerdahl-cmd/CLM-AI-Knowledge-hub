@@ -1233,7 +1233,7 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
     }).join('');
     return '<svg class="atlas-lines" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="atlas-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill="none" stroke="#b9d8c8" stroke-width="1.2"/></marker></defs><circle cx="466" cy="295" r="190" class="atlas-orbit"/><circle cx="466" cy="295" r="260" class="atlas-orbit atlas-orbit-secondary"/><path d="M40 555 H1150" class="atlas-horizon"/>'+shapes+'</svg>';
   }
-  function render({perspectiveId='reuse',nodeId=null,compact=false}={}){
+  function render({perspectiveId='reuse',nodeId=null,compact=false,objectLink=null,objects={}}={}){
     const model=root.CLM_SEMANTIC_SOURCE;
     if(!model||!model.nodes||!model.edges||!model.perspectives)throw Error('Canonical semantic source unavailable');
     const perspective=model.perspectives.find(p=>p.id===perspectiveId)||model.perspectives[0];
@@ -1244,13 +1244,20 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
     const nodes=model.nodes.map((n,i)=>'<button type="button" class="atlas-node'+(n.id===node.id?' is-focused':'')+(active.has(n.id)?'':' is-muted')+'" data-action="semantic-node" data-value="'+esc(n.id)+'" aria-pressed="'+String(n.id===node.id)+'" style="--atlas-x:'+n.x+'%;--atlas-y:'+n.y+'%" title="'+esc(n.question)+'"><span class="atlas-node-index">'+String(i+1).padStart(2,'0')+' / '+esc(n.zone)+'</span><span class="atlas-node-label">'+esc(n.label)+'</span><span class="atlas-node-dot" aria-hidden="true"></span></button>').join('');
     const related=adjacent.map(edge=>relationship(model,edge,node)).join('');
     const links=(node.links||[]).map(l=>'<a class="atlas-reading-link" href="'+esc(l.href)+'">'+esc(l.label)+' <span aria-hidden="true">↗</span></a>').join('');
+    const examples=(node.hub_objects||[]).map(id=>{
+      const item=objects[id];
+      const action=typeof objectLink==='function'&&item?objectLink(id,'Inspect '+id):'<code>'+esc(id)+'</code>';
+      return '<li><span class="atlas-object-status">'+esc(item?.status||'Illustrative Hub anchor')+'</span>'+action+'</li>';
+    }).join('');
+    const hubCrosswalk='<details class="atlas-hub-examples"><summary>Trace to '+(node.hub_objects||[]).length+' authored Hub '+((node.hub_objects||[]).length===1?'object':'objects')+'</summary>'+
+      '<p>'+esc(node.hub_crosswalk_note||'Authored example only; not verified operational evidence.')+'</p><ul>'+examples+'</ul></details>';
     const detail='<aside class="atlas-inspector" aria-labelledby="atlas-detail-title" aria-live="polite">'+
       '<span class="atlas-detail-type">'+esc(node.type)+' / selected concept</span>'+
       '<h3 id="atlas-detail-title">'+esc(node.question)+'</h3>'+
       '<p class="atlas-detail-description">'+esc(node.description)+'</p>'+
       '<div class="atlas-detail-secondary"><span>Why this can scale</span><p>'+esc(node.reuse)+'</p></div>'+
       '<div class="atlas-detail-boundary"><span>What this does not establish</span><p>'+esc(node.boundary)+'</p></div>'+
-      '<details class="atlas-links" '+(compact?'':'')+'><summary>Inspect '+adjacent.length+' typed relationships</summary><ul>'+related+'</ul></details>'+
+      '<details class="atlas-links" '+(compact?'':'')+'><summary>Inspect '+adjacent.length+' typed relationships</summary><ul>'+related+'</ul></details>'+hubCrosswalk+
       '<div class="atlas-reading">'+links+'</div></aside>';
     const knowledge=model.knowledge_forms.map(f=>'<li><strong>'+esc(f.label)+'</strong><span>'+esc(f.description)+'</span></li>').join('');
     const formDetails='<details class="atlas-knowledge-forms"><summary><span>Underneath the diagram</span><strong>Five forms of institutional knowledge</strong><span class="atlas-detail-arrow">↗</span></summary><p class="atlas-forms-preface">These are complementary kinds of knowledge, not a mandatory linear processing chain.</p><ol>'+knowledge+'</ol></details>';
@@ -1540,7 +1547,7 @@ dialog{color:var(--ink);background:var(--paper);border:1px solid var(--line);bor
       return `<section class="hero hero-v20"><div class="hero-copy"><p class="eyebrow">Client lifecycle management</p><h1 id="page-title" tabindex="-1">How AI fits<br>into CLM work.</h1><p class="hero-lead">Useful work, the context behind it,<br>and what can be used again.</p><p>AI can assist onboarding and review preparation, requirements, development and change analysis. This Hub connects those contributions to their sources, human responsibility and operating conditions.</p><a class="btn primary" href="${domain.route}">${entry[0]} ${icon('arrow')}</a><p class="start-caption">${entry[1]}</p></div>${X.workIllustration()}</section>
       <section class="quiet-bridge"><p class="eyebrow">Three distinct contributions</p><h2>AI can help with today’s task.<br>Selected context may support the next.</h2><div><p>A useful output has value within its present task. Reuse asks a separate question: is the selected instruction, knowledge or method applicable, maintained and permitted for another use?</p><p>Shared operation adds actual data access, configured controls and ownership. Immediate development work does not wait for every future platform condition.</p></div></section>
       ${X.transformation(true)}
-      ${root.CLM_SEMANTIC_ATLAS.render({perspectiveId:state.semanticPerspective,nodeId:state.semanticNode})}
+      ${root.CLM_SEMANTIC_ATLAS.render({perspectiveId:state.semanticPerspective,nodeId:state.semanticNode,objectLink,objects:D.objects})}
       ${connectionGuide()}
       <section class="work-paths v20-work-paths"><div class="section-heading"><div><p class="eyebrow">Representative work</p><h2>Follow the mechanism<br>through a concrete task.</h2></div><p>Examples test the explanation. They do not define the limits of CLM AI.</p></div>${Object.values(D.paths).map((p,i)=>`<a class="work-path" href="#/work/${p.id}"><span class="path-number">0${i+1}</span><div><h3>${p.label}</h3><p>${['Read a source, inspect field meaning, prepare and review.','Translate an instruction into behaviour and adverse tests.','Compare a revision, trace impact and preserve old evidence scope.'][i]}</p></div><span class="path-meta">${['Run CLM','Develop CLM','Govern / change'][i]}</span>${icon('arrow')}</a>`).join('')}<a class="independent-case-link" href="#/work/change?case=handoff">${icon('route')}Try an independent transfer case: an incomplete onboarding handoff ${icon('arrow')}</a></section>
       <section class="conditions-preview"><div class="section-heading"><div><p class="eyebrow">Data, access and operation</p><h2>A missing condition<br>changes the route.</h2></div><p>This illustration uses scenario assumptions. It does not report current CLM readiness.</p></div>${X.conditionRoutes(true)}${link('#/conditions','Change the assumptions and compare the routes',true)}</section>
