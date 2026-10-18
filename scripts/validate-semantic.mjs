@@ -17,7 +17,7 @@ export function validateSemanticSource(model){
     if(ids.has(n.id))fail(p+'.id','duplicate identifier');
     ids.add(n.id);
     for(const key of ['label','type','zone','question','description','reuse','boundary'])
-      if(typeof n[key]!=='string'||n[key].trim().length<8)fail(p+'.'+key,'missing meaningful content');
+      if(typeof n[key]!=='string'||n[key].trim().length<(key==='type'||key==='zone'?3:8))fail(p+'.'+key,'missing meaningful content');
     if(typeof n.x!=='number'||n.x<9||n.x>90||typeof n.y!=='number'||n.y<15||n.y>85)
       fail(p,'layout must remain inside safe plot region');
     for(const l of n.links||[])if(!/^#\/(?:knowledge|work\/|topic\/|evidence|relationships)/.test(l.href||''))fail(p+'.links','internal route only');
