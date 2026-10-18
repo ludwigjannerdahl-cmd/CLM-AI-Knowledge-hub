@@ -36,7 +36,7 @@ test('knowledge-to-capability illustration is derived from model identity, witho
  const result=html();
  for(const n of model.nodes){
    assert.ok(result.includes('data-value="'+n.id+'"'),n.id+' not navigable');
-   assert.ok(result.includes(n.label),n.id+' not visible');
+   assert.ok(result.includes(n.label.replace(/&/g,'&amp;')),n.id+' not visible');
  }
  for(const p of model.perspectives)assert.ok(result.includes('data-value="'+p.id+'"'));
  assert.equal((result.match(/class="atlas-node(?: is-focused| is-muted)*"/g)||[]).length,8);
