@@ -77,7 +77,7 @@ for(const [name,width,height] of [['desktop',1600,1050],['tablet',920,900],['mob
   const question=competency.locator('details.semantic-question').nth(2);
   await question.locator('summary').click();
   assert(await question.evaluate(el=>el.open),name+': question disclosure failed');
-  assert((await question.innerText()).includes('No observed task-scoped runtime grant'),name+': evidence gap missing');
+  assert((await question.innerText()).toLowerCase().includes('no observed task-scoped runtime grant'),name+': evidence gap missing');
   await page.addStyleTag({content:'.masthead{position:static!important}.skip-link{visibility:hidden!important}'});
   await competency.screenshot({path:out+'/semantic-competency-'+name+'.png',animations:'disabled'});
   const detailed=page.locator('#domain-knowledge');
