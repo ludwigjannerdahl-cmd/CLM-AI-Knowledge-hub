@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2",
+  "schema_version": "0.3",
   "status": "illustrative_not_approved",
   "title": "How banking knowledge becomes usable",
   "purpose": "One reusable explanatory model for the CLM AI Knowledge Hub. This is authored conceptual architecture, not an inventory of deployed SEB systems.",
@@ -195,7 +195,8 @@
       "to": "capability",
       "type": "informs",
       "condition": "The task defines what assistance should achieve.",
-      "claim": "Business work informs bounded AI purpose."
+      "claim": "Business work informs bounded AI purpose.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "authority-meaning",
@@ -203,7 +204,8 @@
       "to": "meaning",
       "type": "constrains",
       "condition": "Relevant source and approved interpretation must be established for the task.",
-      "claim": "Applicable authority constrains business interpretation."
+      "claim": "Applicable authority constrains business interpretation.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "meaning-capability",
@@ -211,7 +213,8 @@
       "to": "capability",
       "type": "informs",
       "condition": "Definitions and mappings have sufficient scope, provenance and status.",
-      "claim": "Governed domain meaning informs AI reasoning."
+      "claim": "Governed domain meaning informs AI reasoning.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "meaning-work",
@@ -219,7 +222,8 @@
       "to": "work",
       "type": "informs",
       "condition": "The concept applies to the work being performed.",
-      "claim": "Shared terminology improves human work too."
+      "claim": "Shared terminology improves human work too.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "data-capability",
@@ -227,7 +231,8 @@
       "to": "capability",
       "type": "informs",
       "condition": "Access, purpose, party identity, source and freshness have been checked.",
-      "claim": "Case evidence informs AI within permitted boundaries."
+      "claim": "Case evidence informs AI within permitted boundaries.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "control-capability",
@@ -235,7 +240,8 @@
       "to": "capability",
       "type": "governs",
       "condition": "Controls are configured, enforced and evaluated—not merely described.",
-      "claim": "Execution is governed by permissions and controls."
+      "claim": "Execution is governed by permissions and controls.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "capability-human",
@@ -243,7 +249,8 @@
       "to": "human",
       "type": "informs",
       "condition": "The human can inspect source, uncertainty and output status.",
-      "claim": "AI proposals inform, but do not constitute, decisions."
+      "claim": "AI proposals inform, but do not constitute, decisions.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "capability-trace",
@@ -251,7 +258,8 @@
       "to": "trace",
       "type": "produces",
       "condition": "An actual run took place and logging/evaluation is enabled.",
-      "claim": "Execution can produce observable traces."
+      "claim": "Execution can produce observable traces.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "human-trace",
@@ -259,7 +267,8 @@
       "to": "trace",
       "type": "produces",
       "condition": "The accountable action and rationale were actually recorded.",
-      "claim": "Human review can produce decision evidence."
+      "claim": "Human review can produce decision evidence.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     },
     {
       "id": "trace-meaning",
@@ -267,7 +276,8 @@
       "to": "meaning",
       "type": "informs",
       "condition": "A domain steward reviews evidence and authorizes any change.",
-      "claim": "Observed defects may inform a governed concept revision."
+      "claim": "Observed defects may inform a governed concept revision.",
+      "assertion_level": "editorial_conceptual_non_entailing"
     }
   ],
   "perspectives": [
@@ -385,5 +395,490 @@
     "AI output does not constitute a human decision.",
     "An evaluation result can trigger human review but cannot approve its own knowledge changes."
   ],
-  "lineage": "Conceptual synthesis based on supplied Knowledge-as-Code and CLM Hub material; working explanation, not a verified production architecture. The Hub crosswalk points only to existing authored objects; all source and status qualifiers belong to those objects."
+  "lineage": "Conceptual synthesis based on existing authored Hub objects and earlier candidate ontology analysis; the 19 October user-linked ChatGPT session was not retrievable. Illustrative schema and fixtures, not verified banking operations or approved policy.",
+  "ontology_contract": {
+    "status": "candidate_schema_not_approved",
+    "basis": "Derived from existing authored Hub object identities and a prior provisional CLM ontology review, not from an unread linked conversation.",
+    "purpose": "Keep thematic explanation distinct from versioned assertions, authorised execution and observed evidence.",
+    "axes": {
+      "applicability": [
+        "applicable",
+        "not_applicable",
+        "unknown"
+      ],
+      "permission": [
+        "allow",
+        "deny",
+        "unknown"
+      ],
+      "review": [
+        "candidate",
+        "in_review",
+        "reviewed_for_publication",
+        "rejected",
+        "superseded"
+      ],
+      "test_execution": [
+        "not_run",
+        "observed_pass",
+        "observed_fail",
+        "inconclusive"
+      ]
+    },
+    "separation_rules": [
+      "A SourceVersion is evidence of a source edition, not an approved bank interpretation.",
+      "BusinessConcept and SemanticMapping describe meaning; AuthoritativeFact describes a sourced value.",
+      "ApplicabilityAssessment does not authorize reading or writing an operational resource.",
+      "Unknown applicability is not false; unknown permission is not an explicit deny, but neither authorizes execution.",
+      "A proposed TestCase is not an observed TestResult; a TestResult requires actual run and version scope.",
+      "KnowledgePublication does not imply any runtime consumed that version.",
+      "A new KnowledgeChangeProposal does not supersede an accepted instruction without the applicable human review.",
+      "An OutputProposal is not an AccountableDecision.",
+      "Hub projections may not strengthen claim status beyond its underlying qualified record."
+    ]
+  },
+  "record_contracts": [
+    {
+      "id": "SourceVersion",
+      "plane": "authority",
+      "meaning": "An identified edition of an applicable source with issuer, version and effective scope.",
+      "required": [
+        "source_id",
+        "edition",
+        "issuer",
+        "validity_interval",
+        "provenance"
+      ],
+      "failure": "A later draft is portrayed as operative authority.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "AuthorityBinding",
+      "plane": "authority",
+      "meaning": "Links a normative statement to a specific interpretation and qualified scope; its review/approval must be evidenced separately.",
+      "required": [
+        "source_version",
+        "statement_id",
+        "interpretation_id",
+        "scope",
+        "review_state"
+      ],
+      "failure": "A regulation excerpt is silently treated as approved bank policy.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "ApplicabilityAssessment",
+      "plane": "authority",
+      "meaning": "Tri-valued applicability to a task, party role, context and time.",
+      "required": [
+        "authority_binding",
+        "party_role",
+        "task",
+        "effective_at",
+        "result"
+      ],
+      "failure": "Missing input becomes not applicable.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "BusinessConcept",
+      "plane": "meaning",
+      "meaning": "Versioned and owned institutional definition with its scope and relationships.",
+      "required": [
+        "concept_id",
+        "definition",
+        "scope",
+        "version",
+        "responsible_role"
+      ],
+      "failure": "A technical field name substitutes for governed business meaning.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "SemanticMapping",
+      "plane": "meaning",
+      "meaning": "Conditional correspondence between a versioned business concept and a system field for a defined subject.",
+      "required": [
+        "concept_id",
+        "field_key",
+        "subject_type",
+        "party_role",
+        "system_version",
+        "review_state"
+      ],
+      "failure": "A natural-person field is copied to a legal-entity or related-party subject.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "ContextAssemblyRun",
+      "plane": "context",
+      "meaning": "An observed contextual retrieval, identity resolution and mapping, with sources and permissions.",
+      "required": [
+        "task_id",
+        "retrieved_sources",
+        "subject_resolution",
+        "permission_decision",
+        "knowledge_version",
+        "run_reference"
+      ],
+      "failure": "A document catalogue entry is mistaken for a permitted live context retrieval.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "PermissionEvaluation",
+      "plane": "execution",
+      "meaning": "An observed allow, deny or unknown decision on a specific actor/action/resource/purpose at a time.",
+      "required": [
+        "actor_id",
+        "operation",
+        "resource",
+        "purpose",
+        "effective_at",
+        "result",
+        "grant_reference"
+      ],
+      "failure": "Availability of a tool or policy text is mistaken for an operational grant.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "OutputProposal",
+      "plane": "execution",
+      "meaning": "A non-authoritative generated recommendation or prepared draft with context and model/tool provenance.",
+      "required": [
+        "task_id",
+        "context_version",
+        "producer",
+        "proposal_state",
+        "citations"
+      ],
+      "failure": "AI-prepared output is treated as reviewed case truth.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "AccountableDecision",
+      "plane": "assurance",
+      "meaning": "A human-held decision with an identifiable responsible role, scope, rationale and evidence.",
+      "required": [
+        "decision_id",
+        "human_role",
+        "decision_at",
+        "decision_scope",
+        "rationale",
+        "review_record"
+      ],
+      "failure": "Model recommendation is represented as human approval.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "TestCase",
+      "plane": "assurance",
+      "meaning": "A planned challenge to expected behaviour, with fixture and expected outcome.",
+      "required": [
+        "test_id",
+        "expected_behaviour",
+        "fixture",
+        "scope",
+        "version_under_test"
+      ],
+      "failure": "A test definition is counted as a successful test.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "TestResult",
+      "plane": "assurance",
+      "meaning": "A recorded outcome from an executed test, pinned to runtime, version, fixture and environment.",
+      "required": [
+        "test_id",
+        "actual_run_id",
+        "observed_outcome",
+        "runtime_version",
+        "environment",
+        "observed_at"
+      ],
+      "failure": "Historical or empty evidence becomes a pass for a changed implementation.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "KnowledgeChangeProposal",
+      "plane": "knowledge",
+      "meaning": "A proposed revision, impact set, review disposition and candidate effective scope.",
+      "required": [
+        "change_id",
+        "prior_version",
+        "candidate_version",
+        "impact_scope",
+        "review_state"
+      ],
+      "failure": "Publication or model feedback automatically supersedes existing knowledge.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "KnowledgePublication",
+      "plane": "knowledge",
+      "meaning": "A published qualified knowledge version with release reference, audience and reviewer state.",
+      "required": [
+        "knowledge_id",
+        "version",
+        "audience_scope",
+        "review_state",
+        "release_reference"
+      ],
+      "failure": "A library document is assumed consumed by an actual agent runtime.",
+      "status": "schema_candidate"
+    },
+    {
+      "id": "BenefitObservation",
+      "plane": "value",
+      "meaning": "Measured incremental task effect with baseline, adoption population, metric and observed period.",
+      "required": [
+        "task_id",
+        "baseline",
+        "metric",
+        "observed_population",
+        "measurement_period",
+        "evidence_reference"
+      ],
+      "failure": "A pilot estimate becomes an observed realised benefit.",
+      "status": "schema_candidate"
+    }
+  ],
+  "competency_questions": [
+    {
+      "id": "CQ-AUTH",
+      "question": "Which instruction applies to a particular CLM subject, task and date?",
+      "required_contracts": [
+        "SourceVersion",
+        "AuthorityBinding",
+        "ApplicabilityAssessment"
+      ],
+      "hub_objects": [
+        "INS-01@1",
+        "INS-01@2"
+      ],
+      "current_answer": "Not established for a real customer or bank rule; the Hub instruction is synthetic.",
+      "why_not": "No approved institution-specific binding and party/time applicability decision are provided.",
+      "negative_case": "A newer draft is presented as automatically applicable.",
+      "concepts": [
+        "authority",
+        "meaning",
+        "work"
+      ]
+    },
+    {
+      "id": "CQ-FIELD",
+      "question": "What does a field mean for this party role and source version?",
+      "required_contracts": [
+        "BusinessConcept",
+        "SemanticMapping"
+      ],
+      "hub_objects": [
+        "CTX-FENX@2026-08-18",
+        "MAP-01@1"
+      ],
+      "current_answer": "Illustrative mapping only; current aliases and reviewed equivalence are unresolved.",
+      "why_not": "A source-reported field list is not a reviewed cross-version semantic mapping.",
+      "negative_case": "A related-party field is treated as the natural-person client field.",
+      "concepts": [
+        "meaning",
+        "data"
+      ]
+    },
+    {
+      "id": "CQ-EXEC",
+      "question": "May this specific AI task access or modify a given record?",
+      "required_contracts": [
+        "ContextAssemblyRun",
+        "PermissionEvaluation",
+        "OutputProposal"
+      ],
+      "hub_objects": [
+        "METHOD-01@1",
+        "REUSE-01@1"
+      ],
+      "current_answer": "Unknown: no observed task-scoped runtime grant is supplied.",
+      "why_not": "A method and a proposed reuse route are not a configured tool identity and access decision.",
+      "negative_case": "A model treats retrieval access as permission to write.",
+      "concepts": [
+        "data",
+        "control",
+        "capability"
+      ]
+    },
+    {
+      "id": "CQ-TEST",
+      "question": "Has the proposed behaviour actually passed an applicable test?",
+      "required_contracts": [
+        "TestCase",
+        "TestResult"
+      ],
+      "hub_objects": [
+        "TEST-01@1",
+        "EVID-01@1"
+      ],
+      "current_answer": "Unknown: the synthetic test is proposed and no observed run is supplied.",
+      "why_not": "A case and an empty evidence structure do not contain a runtime result.",
+      "negative_case": "An unexecuted test is displayed as passed.",
+      "concepts": [
+        "trace",
+        "work"
+      ]
+    },
+    {
+      "id": "CQ-CHANGE",
+      "question": "What needs human review when an instruction is revised?",
+      "required_contracts": [
+        "KnowledgeChangeProposal",
+        "AuthorityBinding",
+        "TestCase"
+      ],
+      "hub_objects": [
+        "INS-01@2",
+        "REQ-01@1",
+        "TEST-01@1"
+      ],
+      "current_answer": "Illustrative impact candidates; no approved supersession or actual implementation change.",
+      "why_not": "The revised synthetic instruction has not received a documented review or applicability determination.",
+      "negative_case": "All downstream content and historical evidence are silently rewritten.",
+      "concepts": [
+        "authority",
+        "meaning",
+        "trace"
+      ]
+    },
+    {
+      "id": "CQ-REUSE",
+      "question": "Did a second capability consume an identical reviewed knowledge version?",
+      "required_contracts": [
+        "KnowledgePublication",
+        "ContextAssemblyRun",
+        "OutputProposal"
+      ],
+      "hub_objects": [
+        "REUSE-01@1",
+        "METHOD-01@1"
+      ],
+      "current_answer": "Not demonstrated: reuse is a review candidate, not an observed second consumption.",
+      "why_not": "Neither release reference nor context-assembly and runtime consumption trace is supplied.",
+      "negative_case": "Finding a document in a library is treated as successful executable reuse.",
+      "concepts": [
+        "meaning",
+        "capability",
+        "trace"
+      ]
+    },
+    {
+      "id": "CQ-VALUE",
+      "question": "Did the capability measurably improve work without changing risk?",
+      "required_contracts": [
+        "BenefitObservation",
+        "AccountableDecision",
+        "TestResult"
+      ],
+      "hub_objects": [
+        "REUSE-01@1",
+        "EVID-01@1"
+      ],
+      "current_answer": "Not measured in the authored example.",
+      "why_not": "No baseline, representative observed work outcomes or adoption population are provided.",
+      "negative_case": "A potential saving is presented as realised business value.",
+      "concepts": [
+        "work",
+        "human",
+        "trace"
+      ]
+    }
+  ],
+  "reasoning_fixtures": [
+    {
+      "id": "unknown_rule",
+      "label": "Applicability unresolved",
+      "inputs": {
+        "applicability": "unknown",
+        "permission": "allow",
+        "purpose_match": true,
+        "subject_match": true,
+        "grant_current": true
+      },
+      "expected": "blocked",
+      "reason": "No applicable instruction has been established"
+    },
+    {
+      "id": "denied_tool",
+      "label": "Permission denied",
+      "inputs": {
+        "applicability": "applicable",
+        "permission": "deny",
+        "purpose_match": true,
+        "subject_match": true,
+        "grant_current": true
+      },
+      "expected": "blocked",
+      "reason": "Explicit permission denial"
+    },
+    {
+      "id": "wrong_subject",
+      "label": "Wrong subject scope",
+      "inputs": {
+        "applicability": "applicable",
+        "permission": "allow",
+        "purpose_match": true,
+        "subject_match": false,
+        "grant_current": true
+      },
+      "expected": "blocked",
+      "reason": "Subject scope does not match"
+    },
+    {
+      "id": "expired_grant",
+      "label": "Expired authorization",
+      "inputs": {
+        "applicability": "applicable",
+        "permission": "allow",
+        "purpose_match": true,
+        "subject_match": true,
+        "grant_current": false
+      },
+      "expected": "blocked",
+      "reason": "Authorization is not current"
+    },
+    {
+      "id": "permitted_fixture",
+      "label": "Illustrative scoped permission",
+      "inputs": {
+        "applicability": "applicable",
+        "permission": "allow",
+        "purpose_match": true,
+        "subject_match": true,
+        "grant_current": true
+      },
+      "expected": "eligible_in_example",
+      "reason": "All illustrative prerequisites met; not proof of real runtime permission"
+    },
+    {
+      "id": "unknown_grant",
+      "label": "Permission not observed",
+      "inputs": {
+        "applicability": "applicable",
+        "permission": "unknown",
+        "purpose_match": true,
+        "subject_match": true,
+        "grant_current": true
+      },
+      "expected": "blocked",
+      "reason": "Permission decision is unknown"
+    },
+    {
+      "id": "outside_purpose",
+      "label": "Different purpose",
+      "inputs": {
+        "applicability": "applicable",
+        "permission": "allow",
+        "purpose_match": false,
+        "subject_match": true,
+        "grant_current": true
+      },
+      "expected": "blocked",
+      "reason": "Use purpose does not match grant"
+    }
+  ]
 }
