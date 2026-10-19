@@ -11,6 +11,7 @@ const root={};
 vm.runInNewContext(data,{window:root,globalThis:root});
 vm.runInNewContext(explanation,{window:root,globalThis:root});
 root.CLM_SEMANTIC_SOURCE=JSON.parse(readFileSync(new URL('../src/semantic/knowledge-to-capability.json',import.meta.url),'utf8'));
+vm.runInNewContext(readFileSync(new URL('../src/semantic-reasoning.js',import.meta.url),'utf8'),{window:root,globalThis:root});
 vm.runInNewContext(readFileSync(new URL('../src/semantic-atlas.js',import.meta.url),'utf8'),{window:root,globalThis:root});
 vm.runInNewContext(view,{window:root,globalThis:root});
 const specimen=root.CLM_HUB_DATA.domainKnowledgeCase;
