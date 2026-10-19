@@ -14,6 +14,17 @@ The **Knowledge & methods** route now includes the four-layer meaning explanatio
 
 **Publication boundary:** This is a review build in a **public GitHub repository**, not an approved internal SEB production service. Existing distribution materials include internal-bank source documents. Do not promote to public Pages/main or circulate outside the authorised audience without explicit classification and release review. NPM's `private:true` is a package-publishing flag; it does not make GitHub private.
 
+## Release and hosting — main
+
+The canonical V22 Knowledge Hub is released to GitHub Pages from **generated source on `main`** using `.github/workflows/deploy-pages.yml`. The workflow rebuilds all 13 chapters and the Knowledge-to-Capability experience, runs semantic/route and Node regression checks, exercises Chromium at desktop/tablet/mobile resolutions, then publishes **only** the `docs/` build artifact. No generated-file auto-commit or branch-push race is required.
+
+- Intended public address: `https://ludwigjannerdahl-cmd.github.io/CLM-AI-Knowledge-hub/` (only operational after Pages is enabled and the deployment run succeeds).
+- Initial GitHub Pages setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**. The configured GitHub token cannot independently enable Pages for a repository if it is not already enabled.
+- Release evidence: **Actions → Publish CLM AI Knowledge Hub**. Verify the `build` and `deploy` jobs are successful and the live URL serves the new semantic atlas, not only an old `docs/` snapshot.
+- Rollback: revert the merge on `main` and allow the Pages workflow to rebuild, or redeploy the last known-good workflow artifact through the reviewed release process. Preserve the previous `main` SHA in the release report.
+- Classification: the owner has explicitly authorized publication of the present Hub material. The repository and Pages URL are **publicly discoverable**; an obscure repository name is not a security boundary. Every new document added later still needs its own classification review.
+- Source discipline: `src/` and the governed knowledge model are authoritative for UI builds. The historical `docs/` snapshot in Git is **not** proof that it matches the currently released site.
+
 ## Open the webpage
 
 Open **`docs/OPEN_ME_FIRST.html`** from a local checkout for an offline review. No installation or local server is required. Keep its `sources/` folder alongside it for document downloads. `docs/index.html` is the modular hosting entry point.
