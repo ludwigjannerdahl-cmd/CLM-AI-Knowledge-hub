@@ -101,3 +101,63 @@
 @media(max-width:950px){.semantic-heading{grid-template-columns:1fr;gap:18px}.semantic-heading>p{max-width:75ch}.atlas-layout{grid-template-columns:1fr}.atlas-map{height:525px}.atlas-inspector{border-left:0;border-top:1px solid #c9ddd1;display:grid;grid-template-columns:1fr 1fr;gap:0 25px;padding:25px 28px}.atlas-detail-type,.atlas-inspector h3,.atlas-detail-description{grid-column:1}.atlas-detail-secondary,.atlas-detail-boundary,.atlas-links,.atlas-reading{grid-column:2}.atlas-detail-type{margin-bottom:12px}.atlas-inspector h3{font-size:30px}.atlas-reading{margin:0}.atlas-node{width:clamp(112px,14vw,155px)}.atlas-outcome{grid-template-columns:130px 1fr}.semantic-continuation{display:block}.semantic-continuation nav{justify-content:flex-start;margin-top:14px}.semantic-layer-study{grid-template-columns:1fr}.meaning-study-note{grid-column:1}}
 @media(max-width:700px){.semantic-atlas{margin:72px 0}.semantic-heading h2{font-size:clamp(34px,8.5vw,49px)}.semantic-heading>p{font-size:13px}.atlas-topline{padding:17px 19px}.atlas-topline-status{max-width:20ch;font-size:9px}.atlas-top-copy{display:block;padding:26px 19px 19px}.atlas-top-copy h3{font-size:34px}.atlas-top-copy>p{margin-top:14px}.atlas-perspectives{padding:0 7px;display:grid;grid-template-columns:1fr}.atlas-perspective{padding:12px 15px;margin:0;border-bottom:1px solid #ffffff1b;font-size:13px}.atlas-perspective:last-child{border-bottom:0}.atlas-perspective:after{left:14px;right:auto;bottom:0;width:54px}.atlas-focus-question{display:block;padding:17px 19px}.atlas-focus-question>span{display:block;margin-bottom:7px}.atlas-map{height:auto;min-height:0;padding:16px 15px 44px;background:linear-gradient(155deg,#053d35,#00352f)}.atlas-lines{display:none}.atlas-node-layer{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.atlas-node{position:relative;left:auto;top:auto;transform:none;width:auto;height:86px;min-height:0;padding:11px}.atlas-node.is-focused{transform:none;box-shadow:0 0 0 2px #e3c17f}.atlas-node-index{font-size:9px;margin-bottom:9px}.atlas-node-label{font-size:13px}.atlas-node-dot{right:9px;top:9px}.atlas-map-caption{bottom:12px;left:16px;right:16px;font-size:9px}.atlas-inspector{display:block;padding:24px 20px}.atlas-inspector h3{font-size:31px}.atlas-detail-description{margin-bottom:15px}.atlas-links ul{max-height:none}.atlas-outcome{display:block;padding:25px 20px}.atlas-outcome-counter{display:block;margin-bottom:13px}.atlas-outcome strong{font-size:22px}.atlas-outcome>p{margin-top:12px}.atlas-knowledge-forms>summary{padding:17px 18px;display:grid;grid-template-columns:1fr 25px;gap:4px}.atlas-knowledge-forms>summary>span:first-child{grid-column:1/-1}.atlas-knowledge-forms>summary strong{grid-column:1}.atlas-knowledge-forms .atlas-detail-arrow{grid-column:2;grid-row:2}.atlas-forms-preface{margin:0 18px 15px}.atlas-knowledge-forms ol{grid-template-columns:1fr;padding:0 18px 16px}.atlas-knowledge-forms li{padding:10px 0;display:grid;grid-template-columns:110px 1fr;gap:10px}.atlas-knowledge-forms li strong{font-size:16px;margin:0}.atlas-knowledge-forms li span{font-size:11px}.semantic-layer-study{margin:35px 0 65px;padding-top:26px;gap:30px}.semantic-layer-study>ol li{grid-template-columns:34px 1fr;gap:5px 12px}.semantic-layer-study>ol li p{grid-column:2}}
 @media(prefers-reduced-motion:reduce){.atlas-node,.atlas-edge{transition:none}}
+
+
+/* Semantic competency laboratory — explanation of epistemic boundaries, not a live policy engine. */
+.semantic-competency-lab{margin:90px 0 100px;padding-top:36px;border-top:1px solid var(--line);scroll-margin-top:100px}
+.semantic-cq-header{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(220px,.65fr);gap:70px;align-items:end;margin:0 0 37px}
+.semantic-cq-header .eyebrow{margin:0 0 19px}
+.semantic-cq-header h2{font-size:clamp(37px,3.5vw,58px);font-weight:490;line-height:1.07;letter-spacing:-.05em;color:var(--ink)}
+.semantic-cq-header>p{font-size:14px;line-height:1.83;color:var(--muted);max-width:51ch}
+.semantic-cq-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(250px,.65fr);gap:34px;align-items:start}
+.semantic-cq-list{border-top:2px solid var(--v22-pine)}
+.semantic-question{border-bottom:1px solid var(--line);background:transparent}
+.semantic-question>summary{list-style:none;display:flex;gap:20px;align-items:center;cursor:pointer;padding:22px 9px;outline-offset:-3px;transition:background .13s ease}
+.semantic-question>summary::-webkit-details-marker{display:none}
+.semantic-question>summary:hover,.semantic-question>summary:focus-visible{background:var(--v22-sage-wash)}
+.semantic-question>summary:focus-visible{outline:3px solid var(--focus)}
+.semantic-question-index{font:italic 25px Georgia,'Times New Roman',serif;color:var(--v22-pine-soft);flex:none;width:37px;line-height:1}
+.semantic-question>summary strong{font-size:clamp(15px,1.35vw,19px);font-weight:550;line-height:1.42;letter-spacing:-.02em;flex:1;color:var(--ink)}
+.semantic-question-more{display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;width:30px;height:30px;font-size:20px;line-height:1;color:var(--v22-pine-soft);flex:none;transition:transform .15s ease}
+.semantic-question[open] .semantic-question-more{transform:rotate(45deg)}
+.semantic-question-body{padding:4px 12px 29px 66px}
+.semantic-q-answer{border-left:2px solid var(--v22-pine-soft);padding:2px 0 4px 17px;margin:0 0 27px}
+.semantic-q-answer>span,.semantic-q-explain>div>span,.semantic-q-contract>span,.semantic-q-anchors>span{display:block;text-transform:uppercase;letter-spacing:.075em;font-size:10px;font-weight:610;color:var(--v22-pine-soft);margin:0 0 8px}
+.semantic-q-answer p{font:normal 19px/1.5 Georgia,'Times New Roman',serif;color:var(--ink);margin:0}
+.semantic-q-explain{display:grid;grid-template-columns:1fr 1fr;gap:23px;margin-bottom:24px}
+.semantic-q-explain>div{border-top:1px solid var(--line);padding:13px 2px 0}
+.semantic-q-explain>div:nth-child(2)>span{color:#936e3a}
+.semantic-q-explain p{font-size:12px;line-height:1.75;color:var(--muted);margin:0}
+.semantic-q-contract{border-top:1px solid var(--line);padding-top:15px;margin-bottom:19px}
+.semantic-q-contract>div{display:flex;flex-wrap:wrap;gap:6px}
+.semantic-q-contract code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:10px;white-space:normal;background:var(--v22-sage-wash);color:var(--v22-pine-soft);padding:5px 8px;border:1px solid var(--v22-sage-mid);border-radius:3px}
+.semantic-q-anchors{border-top:1px solid var(--line);padding-top:16px}
+.semantic-q-anchors ul{list-style:none;margin:0;padding:0}
+.semantic-q-anchors li{display:grid;grid-template-columns:minmax(95px,.56fr) 1fr;gap:13px;align-items:center;margin:0 0 8px}
+.semantic-q-source-state{font-size:10px;line-height:1.5;color:var(--muted)}
+.semantic-q-anchors .object-link{font-size:11px;text-align:left;justify-content:flex-start;white-space:normal;overflow-wrap:anywhere}
+.semantic-cq-method{padding:30px 28px;background:var(--v22-paper-deep);border:1px solid var(--line);position:relative}
+.semantic-cq-method>.eyebrow{margin:0 0 25px}
+.semantic-cq-method h3{font:normal clamp(25px,2vw,34px)/1.2 Georgia,'Times New Roman',serif;letter-spacing:-.035em;color:var(--ink);margin:0 0 19px}
+.semantic-cq-method>p{font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 24px}
+.semantic-cq-method>div{display:grid;grid-template-columns:82px 1fr;gap:10px;padding:14px 0;border-top:1px solid var(--line)}
+.semantic-cq-method>div span{font-size:10px;line-height:1.55;text-transform:uppercase;letter-spacing:.075em;color:var(--v22-pine-soft)}
+.semantic-cq-method>div strong{font-size:12px;line-height:1.5;font-weight:540;color:var(--ink)}
+.semantic-cq-method .semantic-method-warning{border-top:1px solid var(--line);padding-top:17px;margin:0;color:#755933;font-size:12px}
+.semantic-gate-lab{margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0 26px}
+.semantic-gate-header{display:grid;grid-template-columns:1.15fr .85fr;gap:35px;align-items:end;margin-bottom:22px}
+.semantic-gate-header .eyebrow{margin:0 0 13px}
+.semantic-gate-header h3{font:normal clamp(25px,2.5vw,39px)/1.15 Georgia,'Times New Roman',serif;letter-spacing:-.035em;color:var(--ink)}
+.semantic-gate-header>p{font-size:12px;line-height:1.75;color:var(--muted);margin:0 0 4px}
+.semantic-fixtures{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 18px}
+.semantic-fixture{font-size:11px;line-height:1.35;padding:10px 14px;border:1px solid var(--line);background:var(--v22-paper);border-radius:2px;color:var(--v22-pine-soft);text-align:left;transition:background .15s ease}
+.semantic-fixture:hover,.semantic-fixture:focus-visible{border-color:var(--v22-pine-soft);outline-offset:2px}
+.semantic-fixture.selected{background:var(--v22-pine);color:#f3f5eb;border-color:var(--v22-pine)}
+.semantic-fixture-outcome{display:grid;grid-template-columns:minmax(130px,.42fr) minmax(240px,1fr);gap:8px 30px;padding:21px 23px;background:var(--v22-sage-wash);border-left:2px solid var(--v22-pine-soft)}
+.semantic-fixture-outcome>span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--v22-pine-soft);line-height:1.6;grid-row:1/3}
+.semantic-fixture-outcome>strong{font-size:16px;line-height:1.5;letter-spacing:-.02em;font-weight:540;color:var(--ink)}
+.semantic-fixture-outcome>p{font-size:12px;line-height:1.65;margin:0;color:var(--muted)}
+.semantic-gate-footer{font-size:11px;line-height:1.65;color:var(--muted);margin:12px 0 0}
+@media(max-width:1150px){.semantic-cq-header{gap:25px}.semantic-cq-grid{grid-template-columns:1fr}.semantic-cq-method{display:grid;grid-template-columns:1fr 1fr;column-gap:30px}.semantic-cq-method>.eyebrow,.semantic-cq-method h3,.semantic-cq-method>p{grid-column:1/-1}.semantic-cq-method>div{grid-column:2}.semantic-cq-method>div:nth-of-type(1){grid-column:1}.semantic-cq-method .semantic-method-warning{grid-column:1/-1}}
+@media(max-width:720px){.semantic-competency-lab{margin:65px 0 75px;padding-top:24px}.semantic-cq-header{display:block;margin-bottom:24px}.semantic-cq-header h2{font-size:clamp(33px,8.7vw,45px);margin-bottom:16px}.semantic-cq-header>p{font-size:13px}.semantic-question>summary{gap:10px;padding:18px 2px}.semantic-question-index{width:28px;font-size:22px}.semantic-question>summary strong{font-size:16px}.semantic-question-body{padding:4px 0 24px}.semantic-q-explain{display:block}.semantic-q-explain>div{padding-top:10px;margin:0 0 15px}.semantic-q-anchors li{grid-template-columns:1fr;gap:3px;margin:0 0 13px}.semantic-cq-method{display:block;padding:23px}.semantic-gate-header{display:block}.semantic-gate-header h3{margin-bottom:15px}.semantic-fixture{flex:1 1 130px}.semantic-fixture-outcome{display:block;padding:19px}.semantic-fixture-outcome>span{display:block;margin-bottom:11px}.semantic-fixture-outcome>strong{display:block;margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){.semantic-question-more,.semantic-fixture{transition:none}}
