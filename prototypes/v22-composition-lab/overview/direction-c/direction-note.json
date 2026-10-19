@@ -1,0 +1,14 @@
+{
+  "name": "The work score",
+  "reader_question": "What changes across Run, Develop and Govern/change?",
+  "reasoning_operation": "Compare",
+  "visual_idea": "Three horizontal scores align context, contribution, review and output without claiming automation or quantities.",
+  "why_geometry_helps": "Three horizontal scores align context, contribution, review and output without claiming automation or quantities.",
+  "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+  "false_inference_risk": "Alignment could imply all tasks have the same review process; review wording differs per route and no automatic action is drawn.",
+  "references_used": [
+    "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+    "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+  ],
+  "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+}

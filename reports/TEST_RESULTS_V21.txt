@@ -1,0 +1,53 @@
+
+> clm-ai-knowledge-hub@21.1.0 test
+> node --test tests/*.test.mjs
+
+✔ A direct topic-heading route keeps focus on that heading in the controller host (351.536486ms)
+✔ The real scoping template transitions from unresolved to an advisory result in the controller host (245.500471ms)
+✔ Changing a work step retains the independent case in the controller URL (243.835415ms)
+✔ Overview selections reveal distinct work and literal context specimens (103.933385ms)
+✔ Unknown work, meaning and change identities do not silently select another case (2234.338959ms)
+✔ Source reading returns across several source pages to the exact task and scroll (1377.436676ms)
+✔ Closing linked objects walks back through the inspected context (768.639388ms)
+✔ A source excursion retains the object panel and its scroll (548.292264ms)
+✔ Closing an object found by search restores its query (244.830749ms)
+✔ Shared overview links restore both selection and the matching starting task (1771.266114ms)
+✔ Next-step control keeps the change case and focuses the actual explanation (220.88681ms)
+✔ Out-of-range source locations resolve to a real passage and focus target (408.120021ms)
+✔ Back to an unparameterised overview restores its original selection (236.364844ms)
+✔ All representation choices preserve one instruction rather than switching examples (113.040482ms)
+✔ Scroll snapshots support Back and Forward without a link click (163.145754ms)
+✔ Requirement workbench retains separate source, requirement and unobserved test status (298.660103ms)
+✔ Handoff evidence ledger keeps the historical scope and never inherits preparation evidence (382.874641ms)
+✔ Object provenance names source authority beside meaning without assigning a missing owner (1370.875857ms)
+✔ Missing live interface does not stop supplied-document work or deterministic development (5.181412ms)
+✔ Runtime is neither a data interface nor release approval (0.515728ms)
+✔ Data access alone does not establish shared operation (3.469161ms)
+✔ A supplied-input shared service can be considered without a live interface (1.058698ms)
+✔ Changed instruction does not rewrite historical evidence or invent a pass (0.599353ms)
+✔ All declared object relationships and sources exist (2.709673ms)
+✔ Unknown categorical values remain incomplete for every scoping option (6.729915ms)
+✔ Incomplete scope cannot be overridden into a completed suggestion (1.568061ms)
+✔ One effective result drives display and export while the original is retained (3.039288ms)
+✔ Replay retains the complete normalised input and file metadata; corruption is rejected (9.365605ms)
+✔ Storage failures and corrupt data leave an explicit unavailable state (4.021827ms)
+✔ User text is escaped rather than executable markup (0.996852ms)
+✔ Legacy deep links map to integrated topics and examples (0.713137ms)
+✔ Notes tolerate malformed saved input and keep a bounded size (2.144042ms)
+✔ Every condition combination preserves the distinct routes (17.526335ms)
+✔ Corrupt history cannot give an incomplete record an amended pattern (1.216026ms)
+✔ Review brief preserves inputs, amendments and the same effective result as JSON (2.218693ms)
+✔ Relationship expansion preserves recorded direction, labels and a bounded neighbourhood (27.658609ms)
+✔ The independent handoff case has its own provenance and never borrows preparation evidence (4.320279ms)
+✔ Discovery types distinguish fields, instructions, requirements and evidence (0.254777ms)
+✔ Unresolved local history survives the next save without becoming a valid record (1.539663ms)
+✔ Malformed route encoding is unresolved rather than silently showing the overview (1.667752ms)
+✔ Source line references use the actual extraction and tolerate invalid locations (1.406162ms)
+ℹ tests 41
+ℹ suites 0
+ℹ pass 41
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11599.609896

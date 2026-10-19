@@ -1,0 +1,24 @@
+scene_id: overview|knowledge|change
+direction_id: A|B|C
+name: ''
+reader_question: ''
+reasoning_operation: ''
+visual_idea: ''
+why_geometry_helps: ''
+interaction_if_any: ''
+false_inference_risk: ''
+references_used:
+  - reference_id: ''
+    learn_this: ''
+what_is_deliberately_not_shown: ''
+implementation_choice:
+  technique: html|svg|canvas|webgl|hybrid|other
+  rationale: ''
+review:
+  visual_gate: pending
+  semantic_gate: pending
+  largest_remaining_visual_gap: ''
+  largest_semantic_risk: ''
+  remove: ''
+  revision_move: ''
+  decision: explore|reject|revise|nominate

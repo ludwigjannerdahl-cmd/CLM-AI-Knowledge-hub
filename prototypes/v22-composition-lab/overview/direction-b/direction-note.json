@@ -1,0 +1,14 @@
+{
+  "name": "The annotated work desk",
+  "reader_question": "Why does useful output depend on context and review?",
+  "reasoning_operation": "Explain",
+  "visual_idea": "Large source, intent and output fragments occupy one authored desk; a return annotation makes reuse a separate question.",
+  "why_geometry_helps": "Large source, intent and output fragments occupy one authored desk; a return annotation makes reuse a separate question.",
+  "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+  "false_inference_risk": "Overlapping papers could hide the actual sequence; printed annotations state framing, contribution and separate reuse.",
+  "references_used": [
+    "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+    "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+  ],
+  "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+}

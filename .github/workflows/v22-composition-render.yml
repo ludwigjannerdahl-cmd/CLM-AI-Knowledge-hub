@@ -1,0 +1,59 @@
+name: V22 composition render
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - v22-astra-composition-reset
+      - v22-golden-scenes
+    paths:
+      - 'prototypes/v22-composition-lab/**'
+      - '!prototypes/v22-composition-lab/useful-work/review/**'
+      - 'scripts/render-composition-lab.mjs'
+      - '.github/workflows/v22-composition-render.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Start composition lab server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory prototypes/v22-composition-lab > /tmp/v22-composition-server.log 2>&1 &
+          echo $! > /tmp/v22-composition-server.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 0.5
+          done
+          cat /tmp/v22-composition-server.log
+          exit 1
+
+      - name: Render independent directions at 1920x1200
+        run: node scripts/render-composition-lab.mjs
+
+      - name: Upload composition renders
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v22-composition-renders
+          path: artifacts/v22-composition-renders
+          if-no-files-found: warn

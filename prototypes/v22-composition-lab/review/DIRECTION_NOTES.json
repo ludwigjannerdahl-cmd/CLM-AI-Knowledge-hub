@@ -1,0 +1,146 @@
+[
+  {
+    "scene": "overview",
+    "direction": "a",
+    "name": "The working landscape",
+    "reader_question": "How do work, context and review connect?",
+    "reasoning_operation": "Trace",
+    "visual_idea": "Three work corridors share a contextual base, meet a review seam and leave a separate reuse route.",
+    "why_geometry_helps": "Three work corridors share a contextual base, meet a review seam and leave a separate reuse route.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "A continuous corridor could be read as automatic workflow execution; review seam and scope explicitly stop that inference.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  },
+  {
+    "scene": "overview",
+    "direction": "b",
+    "name": "The annotated work desk",
+    "reader_question": "Why does useful output depend on context and review?",
+    "reasoning_operation": "Explain",
+    "visual_idea": "Large source, intent and output fragments occupy one authored desk; a return annotation makes reuse a separate question.",
+    "why_geometry_helps": "Large source, intent and output fragments occupy one authored desk; a return annotation makes reuse a separate question.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "Overlapping papers could hide the actual sequence; printed annotations state framing, contribution and separate reuse.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  },
+  {
+    "scene": "overview",
+    "direction": "c",
+    "name": "The work score",
+    "reader_question": "What changes across Run, Develop and Govern/change?",
+    "reasoning_operation": "Compare",
+    "visual_idea": "Three horizontal scores align context, contribution, review and output without claiming automation or quantities.",
+    "why_geometry_helps": "Three horizontal scores align context, contribution, review and output without claiming automation or quantities.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "Alignment could imply all tasks have the same review process; review wording differs per route and no automatic action is drawn.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  },
+  {
+    "scene": "knowledge",
+    "direction": "a",
+    "name": "The annotation loom",
+    "reader_question": "What must remain attached when knowledge enters a task?",
+    "reasoning_operation": "Trace",
+    "visual_idea": "Literal source propositions align with structured fields, followed by a visibly separate consumption boundary.",
+    "why_geometry_helps": "Literal source propositions align with structured fields, followed by a visibly separate consumption boundary.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "A connector may imply automatic interpretation; the source-to-record step explicitly adds no authority, and the consumption boundary remains unresolved.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  },
+  {
+    "scene": "knowledge",
+    "direction": "b",
+    "name": "The exploded record",
+    "reader_question": "What must remain attached when knowledge enters a task?",
+    "reasoning_operation": "Inspect",
+    "visual_idea": "An exploded object separates meaning, scope and provenance while preserving one identity, beside the review boundary.",
+    "why_geometry_helps": "An exploded object separates meaning, scope and provenance while preserving one identity, beside the review boundary.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "Vertical depth may imply maturity or approval; the caption defines the three planes as attached record parts. The actual source remains one version.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  },
+  {
+    "scene": "knowledge",
+    "direction": "c",
+    "name": "The context aperture",
+    "reader_question": "What must remain attached when knowledge enters a task?",
+    "reasoning_operation": "Select",
+    "visual_idea": "Candidate context narrows through an explicit review aperture into one task packet; unselected context leaves a visible gap.",
+    "why_geometry_helps": "Candidate context narrows through an explicit review aperture into one task packet; unselected context leaves a visible gap.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "A funnel could imply quantitative filtering or automatic approval; widths encode no amount, controls select candidate material only.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  },
+  {
+    "scene": "change",
+    "direction": "a",
+    "name": "The impact field",
+    "reader_question": "What may change, and where does the evidence stop?",
+    "reasoning_operation": "Trace",
+    "visual_idea": "One proposition forks into distinct requirement and adverse-test artifacts; the historical evidence sits outside the candidate path.",
+    "why_geometry_helps": "One proposition forks into distinct requirement and adverse-test artifacts; the historical evidence sits outside the candidate path.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "Spatial fan-out may imply actual changes; candidates use dashed relationships, and implementation is stopped at a human decision.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  },
+  {
+    "scene": "change",
+    "direction": "b",
+    "name": "The version fault line",
+    "reader_question": "What may change, and where does the evidence stop?",
+    "reasoning_operation": "Compare",
+    "visual_idea": "A full-height version seam separates a pinned historical record from an open evidence requirement; no arrow completes the gap.",
+    "why_geometry_helps": "A full-height version seam separates a pinned historical record from an open evidence requirement; no arrow completes the gap.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "The left evidence could be mistaken for a prior pass; the record prominently states no observed result, not merely historical.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  },
+  {
+    "scene": "change",
+    "direction": "c",
+    "name": "The proposition ledger",
+    "reader_question": "What may change, and where does the evidence stop?",
+    "reasoning_operation": "Compare",
+    "visual_idea": "A redline is aligned to its review consequence and missing evidence in an unboxed editorial ledger.",
+    "why_geometry_helps": "A redline is aligned to its review consequence and missing evidence in an unboxed editorial ledger.",
+    "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+    "false_inference_risk": "A neat ledger may imply the review is complete; every consequence is proposed and the evidence gaps remain explicit.",
+    "references_used": [
+      "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+      "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+    ],
+    "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+  }
+]

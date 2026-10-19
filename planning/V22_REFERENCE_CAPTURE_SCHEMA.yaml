@@ -1,0 +1,47 @@
+version: 1
+purpose: Tag every visual reference capture with the exact lesson Astra should learn.
+fields:
+  reference_id:
+    type: string
+    required: true
+  source_url:
+    type: string
+    required: true
+  captured_at:
+    type: string
+    required: true
+    description: ISO-8601 timestamp or date
+  scene_relevance:
+    type: array
+    allowed:
+      - overview
+      - knowledge
+      - change
+      - source_reader
+      - search
+      - evidence
+      - object_detail
+      - conditions
+      - relationships
+      - portfolio
+  learn_this:
+    type: string
+    required: true
+  do_not_copy:
+    type: string
+    required: true
+  specific_region_of_interest:
+    type: string
+    required: true
+  why_this_reduces_inference_cost:
+    type: string
+    required: true
+  authority:
+    const: visual_only
+  factual_transfer:
+    const: prohibited
+rules:
+  - A reference image is never authority for CLM facts, counts, dates, status, approvals, readiness or ownership.
+  - Prefer a small active set per scene; avoid stylistic averaging.
+  - Capture full 1920-wide context when layout relationships matter.
+  - Crop only when the learning target is a local interaction or component pattern.

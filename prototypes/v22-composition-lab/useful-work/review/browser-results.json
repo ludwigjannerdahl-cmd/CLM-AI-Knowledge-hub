@@ -1,0 +1,265 @@
+[
+  {
+    "variant": "direction-a",
+    "status": 200,
+    "metrics": {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "height": 1200,
+      "scrollHeight": 1480,
+      "objects": [
+        {
+          "node": "source",
+          "top": 330.875,
+          "bottom": 771.984375
+        },
+        {
+          "node": "instruction",
+          "top": 799.984375,
+          "bottom": 1072.984375
+        },
+        {
+          "node": "context",
+          "top": 799.984375,
+          "bottom": 1072.984375
+        },
+        {
+          "node": "method",
+          "top": 330.875,
+          "bottom": 491.765625
+        },
+        {
+          "node": "output",
+          "top": 491.765625,
+          "bottom": 1064.609375
+        },
+        {
+          "node": "review",
+          "top": 334.875,
+          "bottom": 795.109375
+        },
+        {
+          "node": "evidence",
+          "top": 825.109375,
+          "bottom": 1063.921875
+        },
+        {
+          "node": "requirement",
+          "top": 1123.984375,
+          "bottom": 1265.875
+        },
+        {
+          "node": "test",
+          "top": 1123.984375,
+          "bottom": 1265.875
+        }
+      ],
+      "fonts": false
+    },
+    "errors": [],
+    "interactions": [
+      "source read and focus return",
+      "all canonical objects",
+      "related object and browser back",
+      "missing field context withholds mapping",
+      "task acceptance does not approve reuse",
+      "evidence remains absent"
+    ]
+  },
+  {
+    "variant": "direction-b",
+    "status": 200,
+    "metrics": {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "height": 1200,
+      "scrollHeight": 1471,
+      "objects": [
+        {
+          "node": "source",
+          "top": 321.3514099121094,
+          "bottom": 758.5391845703125
+        },
+        {
+          "node": "context",
+          "top": 787.421875,
+          "bottom": 1058.8125
+        },
+        {
+          "node": "instruction",
+          "top": 324.46875,
+          "bottom": 518.953125
+        },
+        {
+          "node": "method",
+          "top": 324.46875,
+          "bottom": 521.859375
+        },
+        {
+          "node": "output",
+          "top": 549.859375,
+          "bottom": 1058.015625
+        },
+        {
+          "node": "requirement",
+          "top": 1086.015625,
+          "bottom": 1279.453125
+        },
+        {
+          "node": "test",
+          "top": 1086.015625,
+          "bottom": 1279.453125
+        },
+        {
+          "node": "review",
+          "top": 327.46875,
+          "bottom": 787.703125
+        },
+        {
+          "node": "evidence",
+          "top": 825.703125,
+          "bottom": 1064.515625
+        }
+      ],
+      "fonts": false
+    },
+    "errors": [],
+    "interactions": [
+      "source read and focus return",
+      "all canonical objects",
+      "related object and browser back",
+      "missing field context withholds mapping",
+      "task acceptance does not approve reuse",
+      "evidence remains absent"
+    ]
+  },
+  {
+    "variant": "direction-c",
+    "status": 200,
+    "metrics": {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "height": 1200,
+      "scrollHeight": 1560,
+      "objects": [
+        {
+          "node": "source",
+          "top": 296.0625,
+          "bottom": 496.546875
+        },
+        {
+          "node": "instruction",
+          "top": 302.0625,
+          "bottom": 496.546875
+        },
+        {
+          "node": "method",
+          "top": 296.0625,
+          "bottom": 496.546875
+        },
+        {
+          "node": "context",
+          "top": 726.53125,
+          "bottom": 866.421875
+        },
+        {
+          "node": "requirement",
+          "top": 726.53125,
+          "bottom": 894.96875
+        },
+        {
+          "node": "test",
+          "top": 935.96875,
+          "bottom": 1104.40625
+        },
+        {
+          "node": "review",
+          "top": 1149.40625,
+          "bottom": 1368.40625
+        },
+        {
+          "node": "evidence",
+          "top": 1149.40625,
+          "bottom": 1368.40625
+        }
+      ],
+      "fonts": false
+    },
+    "errors": [],
+    "interactions": [
+      "source read and focus return",
+      "all canonical objects",
+      "related object and browser back",
+      "missing field context withholds mapping",
+      "task acceptance does not approve reuse",
+      "evidence remains absent"
+    ]
+  },
+  {
+    "variant": "revised",
+    "status": 200,
+    "metrics": {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "height": 1200,
+      "scrollHeight": 1317,
+      "objects": [
+        {
+          "node": "source",
+          "top": 283.857666015625,
+          "bottom": 678.845458984375
+        },
+        {
+          "node": "instruction",
+          "top": 700.5625,
+          "bottom": 878.53125
+        },
+        {
+          "node": "context",
+          "top": 286.140625,
+          "bottom": 687.78125
+        },
+        {
+          "node": "method",
+          "top": 705.78125,
+          "bottom": 913.90625
+        },
+        {
+          "node": "output",
+          "top": 286.140625,
+          "bottom": 875.5
+        },
+        {
+          "node": "review",
+          "top": 286.140625,
+          "bottom": 765.09375
+        },
+        {
+          "node": "requirement",
+          "top": 977.09375,
+          "bottom": 1171.203125
+        },
+        {
+          "node": "test",
+          "top": 977.09375,
+          "bottom": 1171.203125
+        },
+        {
+          "node": "evidence",
+          "top": 977.09375,
+          "bottom": 1171.203125
+        }
+      ],
+      "fonts": false
+    },
+    "errors": [],
+    "interactions": [
+      "source read and focus return",
+      "all canonical objects",
+      "related object and browser back",
+      "missing field context withholds mapping",
+      "task acceptance does not approve reuse",
+      "evidence remains absent"
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "name": "The version fault line",
+  "reader_question": "What may change, and where does the evidence stop?",
+  "reasoning_operation": "Compare",
+  "visual_idea": "A full-height version seam separates a pinned historical record from an open evidence requirement; no arrow completes the gap.",
+  "why_geometry_helps": "A full-height version seam separates a pinned historical record from an open evidence requirement; no arrow completes the gap.",
+  "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+  "false_inference_risk": "The left evidence could be mistaken for a prior pass; the record prominently states no observed result, not merely historical.",
+  "references_used": [
+    "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+    "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+  ],
+  "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+}

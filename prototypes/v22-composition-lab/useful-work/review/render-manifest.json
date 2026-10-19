@@ -1,0 +1,14 @@
+{
+  "tested_commit": "1d83b2e0e635253e1a8f7e716de3158753ac8aa0",
+  "workflow_run": 38855274791,
+  "artifact_id": 12026613328,
+  "viewport": "1920x1200",
+  "files": {
+    "useful-direction-a-1920x1200.png": "d183917b89383c63bc41410b487d9d4b6e789ec108a65a7b6af41560cc141418",
+    "useful-direction-b-1920x1200.png": "60553bf03b0596a11be80876eedf9adc2257ca8d47468914dc5859a006f3f70d",
+    "useful-direction-c-1920x1200.png": "4b16f815304bd4de430c4466505607bdce5f59e4d32f303f940e360f4dd991c1",
+    "useful-revised-1920x1200.png": "53ae38be70351c296826c48ef62d8095f0c22b5ca8079192fb81ba880216beaa",
+    "useful-revised-trace-amount.png": "6f0513ee6249da8c6502f2dc7c97e9b2a086c8267bbbed90eca498dbfddb09e9",
+    "useful-revised-inspection.png": "6d624ed75b3f3268de2581a458c6dafe9973fa039a87418df62ffb7d61121ece"
+  }
+}

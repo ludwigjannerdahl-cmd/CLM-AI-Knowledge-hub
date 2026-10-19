@@ -1,6 +1,7 @@
 """Scoped editorial repairs to the active projection; supplied source bytes stay intact."""
 import re
 from html import escape
+from audit_repairs import revise_text, revise_block, legal_note
 
 ESTIMATE='Original SEB–Bain estimate of potential KYC outreach effort reduction: about 31%. This is a planning estimate, not an established measured outcome. Baseline, population, assumptions and exact model date are not supplied.'
 REPLACEMENTS={
@@ -37,7 +38,7 @@ def repair_text(text):
  text=text.replace('both built by Bain','with different reported delivery histories; authorship needs source confirmation')
  text=text.replace('turns documentation into <strong>continuous assurance</strong>','supports coverage and change-review questions')
  text=re.sub(r'\b(\d+[–-]\d+|\d[\d,]*)\s+(builders|FTEs?|employees|engineers|developers)\b',r'a team of \2',text,flags=re.I)
- return text.replace('The The original SEB–Bain','The original SEB–Bain')
+ return revise_text(text.replace('The The original SEB–Bain','The original SEB–Bain'))
 
 def repair_tree(root,Node):
  log=[]
@@ -61,10 +62,9 @@ def repair_tree(root,Node):
    replacement='This source describes a possible engineered workload route. A DPA, hosting region or strategic GCP direction does not establish C4 permission. The classification vocabulary and workload-specific authority must be confirmed; current applicability remains unresolved.'
   if n.tag=='p' and 'only environment today' in text:
    replacement='The source records a GCP/Vertex AI direction for controlled CLM workloads. Its claim that the required data, interfaces and controls coexist is a dated architecture assessment, not verification of a current working interface or workload permission.'
-  if n.tag in ['p','td','li'] and re.search(r'SensAIa?',text) and re.search(r'\b(operational|production|approved)\b',text,re.I):
-   replacement=re.sub(r'\b(approved and operational|approved and in production|live and operational|in production|operational)\b','reported in the source; current operation is not established',text,flags=re.I)
-   if replacement==text:replacement=None
+  replacement=revise_block(n.tag,text,n.parent.text() if n.parent else '') or replacement
   if replacement:
+   replacement=repair_text(replacement)
    log.append({'kind':'claim-repair','before':text,'after':replacement});n.children=[replacement]
   else:
    new=[]
@@ -99,4 +99,4 @@ def topic_note(tid):
   text='Strategic explanation and proposed architecture, not a deployed CLM data product. Potential reuse and economics require evidence; observations cannot automatically update authoritative records or knowledge.'
  if tid.startswith('trend-'):
   text='Contextual industry analysis from the supplied Hub. Reported dates, examples and estimates retain their original scope; they are not measured CLM results or current delivery commitments.'
- return '<aside class="topic-qualification"><strong>Reading scope</strong><p>'+escape(text)+'</p></aside>' if text else ''
+ return ('<aside class="topic-qualification"><strong>Reading scope</strong><p>'+escape(text)+'</p></aside>' if text else '')+legal_note(tid)

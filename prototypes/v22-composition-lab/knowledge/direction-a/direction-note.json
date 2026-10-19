@@ -1,0 +1,14 @@
+{
+  "name": "The annotation loom",
+  "reader_question": "What must remain attached when knowledge enters a task?",
+  "reasoning_operation": "Trace",
+  "visual_idea": "Literal source propositions align with structured fields, followed by a visibly separate consumption boundary.",
+  "why_geometry_helps": "Literal source propositions align with structured fields, followed by a visibly separate consumption boundary.",
+  "interaction_if_any": "Native labelled controls expose the relevant object or consequence; no hover dependency.",
+  "false_inference_risk": "A connector may imply automatic interpretation; the source-to-record step explicitly adds no authority, and the consumption boundary remains unresolved.",
+  "references_used": [
+    "Supplied Design Board-8: simultaneous source, interpretation and responsibility",
+    "Supplied Design System-15: material distinction, authored scale and quiet chrome"
+  ],
+  "what_is_deliberately_not_shown": "Detailed chapter text and actual enterprise readiness."
+}

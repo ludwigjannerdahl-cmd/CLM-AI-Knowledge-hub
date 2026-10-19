@@ -1,0 +1,30 @@
+{
+  "version": "20.1.0",
+  "baseline": "1cf53e18803c7aade2057cf3f857cc6d4716020b",
+  "method": "Fresh directory from staged Git index; no archive deliverable",
+  "commands": [
+    {
+      "command": "node scripts/build.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node --test tests/controller.test.mjs tests/model.test.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "node scripts/check.mjs",
+      "exitCode": 0
+    }
+  ],
+  "generatedFiles": 17,
+  "websiteBytesReproduced": true,
+  "unchangedFromBaseline": [
+    "src/chapters.json",
+    "src/source-texts.json",
+    "src/scoping.js",
+    "sources/SEB_AI_sub_strategy_v1.0.pdf",
+    "sources/CLM_AI_Operating_Model_Knowledge_v1.0.md",
+    "sources/UI_Intelligence_and_Insight_Design_Knowledge_v1.1.md"
+  ],
+  "browserEvidence": false
+}

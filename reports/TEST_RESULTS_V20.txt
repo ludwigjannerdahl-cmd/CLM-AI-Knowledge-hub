@@ -1,0 +1,34 @@
+✔ A direct topic-heading route keeps focus on that heading in the controller host (84.425272ms)
+✔ The real scoping template transitions from unresolved to an advisory result in the controller host (44.173247ms)
+✔ Changing a work step retains the independent case in the controller URL (45.175629ms)
+✔ Overview selections reveal distinct work and literal context specimens (40.069849ms)
+✔ Unknown work, meaning and change identities do not silently select another case (156.440372ms)
+✔ Missing live interface does not stop supplied-document work or deterministic development (1.448693ms)
+✔ Runtime is neither a data interface nor release approval (0.181034ms)
+✔ Data access alone does not establish shared operation (0.255867ms)
+✔ A supplied-input shared service can be considered without a live interface (0.354076ms)
+✔ Changed instruction does not rewrite historical evidence or invent a pass (0.281176ms)
+✔ All declared object relationships and sources exist (0.646709ms)
+✔ Unknown categorical values remain incomplete for every scoping option (3.061976ms)
+✔ Incomplete scope cannot be overridden into a completed suggestion (0.488079ms)
+✔ One effective result drives display and export while the original is retained (0.715664ms)
+✔ Replay retains the complete normalised input and file metadata; corruption is rejected (1.607704ms)
+✔ Storage failures and corrupt data leave an explicit unavailable state (1.240127ms)
+✔ User text is escaped rather than executable markup (0.226293ms)
+✔ Legacy deep links map to integrated topics and examples (0.369789ms)
+✔ Notes tolerate malformed saved input and keep a bounded size (0.265883ms)
+✔ Every condition combination preserves the distinct routes (4.349975ms)
+✔ Corrupt history cannot give an incomplete record an amended pattern (0.796826ms)
+✔ Review brief preserves inputs, amendments and the same effective result as JSON (0.670475ms)
+✔ Relationship expansion preserves recorded direction, labels and a bounded neighbourhood (10.858578ms)
+✔ The independent handoff case has its own provenance and never borrows preparation evidence (0.496211ms)
+✔ Discovery types distinguish fields, instructions, requirements and evidence (0.17127ms)
+✔ Unresolved local history survives the next save without becoming a valid record (0.479756ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 501.074888

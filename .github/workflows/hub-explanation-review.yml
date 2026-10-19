@@ -1,0 +1,79 @@
+name: Hub explanation review and build
+
+on:
+  pull_request:
+    branches:
+      - v22-golden-scenes
+      - main
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'package.json'
+      - '.github/workflows/deploy-pages.yml'
+      - '.github/workflows/hub-explanation-review.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: hub-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Rebuild static site from canonical source
+        run: npm run build
+      - name: Test logic, source identity and regressions
+        run: npm test
+      - name: Run route and content checks
+        run: npm run check
+      - name: Verify the published modular assets derive from source
+        run: |
+          cmp src/views.js docs/assets/views.js
+          grep -q 'See what feeds what' docs/assets/views.js
+          grep -q 'Connected work traces' docs/assets/styles.css
+          grep -q 'Institutional knowledge journey' docs/assets/styles.css
+          grep -q 'CLM_SEMANTIC_SOURCE' docs/assets/semantic-source.js
+          grep -q 'CLM_SEMANTIC_ATLAS' docs/assets/semantic-atlas.js
+          grep -q 'semantic-atlas' docs/assets/styles.css
+          grep -q 'A relationship changes' docs/assets/views.js
+          test -s docs/OPEN_ME_FIRST.html
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Browser-test real homepage and work routes
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8000 --directory docs >/tmp/hub-preview.log 2>&1 &
+          PID=$!
+          trap 'kill $PID || true' EXIT
+          for n in {1..30}; do
+            if curl -fsS http://127.0.0.1:8000/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          CLM_REVIEW_OUTPUT=/tmp/clm-hub-connection-review node scripts/connection-review-browser.mjs
+      - name: Upload browser evidence and complete generated preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clm-hub-website-review
+          path: |
+            /tmp/clm-hub-connection-review
+            docs/OPEN_ME_FIRST.html
+          if-no-files-found: warn
+          retention-days: 30
+
