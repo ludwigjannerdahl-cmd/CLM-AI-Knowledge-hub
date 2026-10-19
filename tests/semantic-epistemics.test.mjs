@@ -24,7 +24,7 @@ test('expanded ontology validates against actual authored Hub objects',()=>{
 
 test('schema class and status cannot silently be upgraded to institutional approval',()=>{
  let bad=structuredClone(model);bad.record_contracts[0].status='bank_approved';
- assert.ok(validateSemanticSource(bad,{objects}).errors.some(e=>e.includes('schema_candidate')));
+ assert.ok(validateSemanticSource(bad,{objects}).errors.some(e=>e.includes('institutional schema')));
  bad=structuredClone(model);bad.ontology_contract.axes.permission=['allow','deny'];
  assert.ok(validateSemanticSource(bad,{objects}).errors.some(e=>e.includes('permission')));
  bad=structuredClone(model);bad.edges[0].assertion_level='operational_fact';
