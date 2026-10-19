@@ -21,7 +21,7 @@ for(const item of Object.values(portfolio)){if(item.tier)item.tier='Original wor
 delete chapters.portfolioLiteral;
 chapters.portfolio=portfolio;
 const json=v=>JSON.stringify(v).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
-const scripts=['data','explanation-data','semantic-source','semantic-atlas','chapters','source-texts','scoping','model','explanations','views','design-lab','app'];
+const scripts=['data','explanation-data','semantic-source','semantic-reasoning','semantic-atlas','chapters','source-texts','scoping','model','explanations','views','design-lab','app'];
 const content={chapters:'window.CLM_HUB_CHAPTERS='+json(chapters)+';', 'source-texts':'window.CLM_SOURCE_TEXTS='+json(JSON.parse(await read('src/source-texts.json')))+';', 'semantic-source':'window.CLM_SEMANTIC_SOURCE='+json(semanticSource)+';'};
 for(const name of scripts){if(!content[name])content[name]=await read('src/'+name+'.js');await writeFile(join(out,'assets',name+'.js'),content[name]);}
 const css=(await Promise.all(['styles','explanations','reading','coherence','visual-ambition','semantic-atlas','design-lab'].map(name=>read('src/'+name+'.css')))).join('\n');await writeFile(join(out,'assets/styles.css'),css);
