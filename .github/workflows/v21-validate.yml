@@ -1,15 +1,15 @@
 name: V21 validation
 
 on:
+# Legacy V21 checks remain available only on their historical branches.
+# Main now uses the comprehensive Pages release build and Hub PR validation.
   push:
     branches:
       - v21-design-coherence
       - v20-visual-system
-      - main
   pull_request:
     branches:
       - v20-visual-system
-      - main
 
 permissions:
   contents: read
