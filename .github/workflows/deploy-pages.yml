@@ -1,0 +1,121 @@
+name: Publish CLM AI Knowledge Hub
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'sources/**'
+      - 'assets/**'
+      - 'package.json'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: clm-hub-pages-main
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build, validate and package the complete Hub
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Configure Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Build all 13 chapters from canonical source
+        run: npm run build
+
+      - name: Run model, controller and regression tests
+        run: npm test
+
+      - name: Verify routes, semantic integrity and static output
+        run: npm run check
+
+      - name: Verify deployment artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          for asset in \
+            docs/index.html \
+            docs/OPEN_ME_FIRST.html \
+            docs/assets/app.js \
+            docs/assets/views.js \
+            docs/assets/styles.css \
+            docs/assets/semantic-source.js \
+            docs/assets/semantic-atlas.js \
+            docs/assets/semantic-reasoning.js \
+            docs/.nojekyll; do
+              test -f "$asset"
+          done
+          test -s docs/index.html
+          test -s docs/OPEN_ME_FIRST.html
+          grep -q 'CLM_SEMANTIC_ATLAS' docs/assets/semantic-atlas.js
+          grep -q 'CLM_SEMANTIC_REASONING' docs/assets/semantic-reasoning.js
+
+      - name: Install Chromium for actual rendered-route verification
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Browser-check homepage, knowledge, workflows and mobile
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 8000 --directory docs >/tmp/clm-hub-pages-preview.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" || true' EXIT
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:8000/ >/dev/null; then break; fi
+            sleep 0.5
+          done
+          CLM_REVIEW_OUTPUT=/tmp/clm-hub-pages-review node scripts/connection-review-browser.mjs
+
+      - name: Retain review screenshots and validation metrics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clm-hub-main-review
+          path: /tmp/clm-hub-pages-review
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Upload exactly the generated static site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
+
+  deploy:
+    name: Deploy verified Hub to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Verify GitHub Pages configuration
+        uses: actions/configure-pages@v5
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4
