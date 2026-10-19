@@ -1,14 +1,6 @@
 name: Hub explanation review and build
 
 on:
-  push:
-    branches:
-      - feat/hub-shippable-explanatory-paths
-    paths:
-      - 'src/**'
-      - 'scripts/**'
-      - 'tests/**'
-      - '.github/workflows/hub-explanation-review.yml'
   pull_request:
     branches:
       - v22-golden-scenes
@@ -17,8 +9,13 @@ on:
       - 'src/**'
       - 'scripts/**'
       - 'tests/**'
+      - 'package.json'
       - '.github/workflows/hub-explanation-review.yml'
   workflow_dispatch:
+
+concurrency:
+  group: hub-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -79,9 +76,3 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
-  # Generated HTML is supplied by the validated workflow artifact.
-  # Do not auto-commit a distribution containing existing internal-bank source files
-  # to a public repository; publishing needs classification and audience approval.
-  sync-generated:
-    needs: validate
-    if: ${{ false }}
