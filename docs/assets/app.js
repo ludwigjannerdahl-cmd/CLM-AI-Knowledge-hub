@@ -13,7 +13,7 @@
   const storage=()=>window.localStorage;
   const read=(key,fallback)=>M.safeRead(storage,key,fallback);
   const settings=read('clm-ai-settings',{}).value||{};
-  const state={route:M.parseRoute(location.hash),anchor:'work',workDomain:'run',knowledgeStage:'human',semanticPerspective:'reuse',semanticNode:'meaning',subject:'client',changed:false,transferChanged:false,flags:{...M.defaultFlags},steps:{},tabs:{},disclosures:{},scopeInput:S.blank(),scopeRecord:null,notes:M.normalizeNotes(read('clm-ai-notes',{}).value),history:[],historyUnresolved:[],storageAvailable:true};
+  const state={route:M.parseRoute(location.hash),anchor:'work',workDomain:'run',knowledgeStage:'human',semanticPerspective:'reuse',semanticNode:'meaning',semanticFixture:'unknown_rule',subject:'client',changed:false,transferChanged:false,flags:{...M.defaultFlags},steps:{},tabs:{},disclosures:{},scopeInput:S.blank(),scopeRecord:null,notes:M.normalizeNotes(read('clm-ai-notes',{}).value),history:[],historyUnresolved:[],storageAvailable:true};
   try{const h=S.readHistory(storage());state.history=h.records;state.historyUnresolved=h.unresolved;state.storageAvailable=h.available;}catch{state.storageAvailable=false;}
   let modalKind='',modalReturn=null,lastHash=location.hash||'#/',restoring=false;
   const readingPositions=new Map();
@@ -25,9 +25,9 @@
   function saveLocal(key,value){const ok=M.safeWrite(storage,key,value);if(!ok){state.storageAvailable=false;announce('Browser storage is unavailable. Export remains available in this session.');}return ok;}
   function focusKey(el){if(!el||el===document.body)return null;return el.id?{id:el.id}:{action:el.dataset?.action,value:el.dataset?.value,href:el.getAttribute?.('href')};}
   function focusElement(key){if(!key)return null;if(key.id)return document.getElementById(key.id);return Array.from(document.querySelectorAll('a,button,input,summary')).find(n=>key.action?n.dataset.action===key.action&&n.dataset.value===key.value:key.href?n.getAttribute('href')===key.href:false);}
-  function snapshot(){const overlay=modalKind==='search'?{kind:'search',query:document.getElementById('search-input')?.value||'',filter:dialog.querySelector('[data-action=\"search-filter\"][aria-pressed=\"true\"]')?.dataset.value||'All'}:modalKind==='notes'?{kind:'notes'}:modalKind==='note'?{kind:'note',id:document.getElementById('note-text')?.dataset.noteId}:null;return {overlay,anchor:state.anchor,workDomain:state.workDomain,knowledgeStage:state.knowledgeStage,semanticPerspective:state.semanticPerspective,semanticNode:state.semanticNode,transferChanged:state.transferChanged,subject:state.subject,changed:state.changed,flags:state.flags,steps:state.steps,tabs:state.tabs,disclosures:state.disclosures,scopeInput:state.scopeInput,scopeRecord:state.scopeRecord,scroll:scrollY,focus:modalKind?modalReturn:focusKey(document.activeElement),modal:modalKind?{kind:modalKind,returnFocus:modalReturn,focus:focusKey(document.activeElement),scroll:dialog.scrollTop}:null};}
+  function snapshot(){const overlay=modalKind==='search'?{kind:'search',query:document.getElementById('search-input')?.value||'',filter:dialog.querySelector('[data-action=\"search-filter\"][aria-pressed=\"true\"]')?.dataset.value||'All'}:modalKind==='notes'?{kind:'notes'}:modalKind==='note'?{kind:'note',id:document.getElementById('note-text')?.dataset.noteId}:null;return {overlay,anchor:state.anchor,workDomain:state.workDomain,knowledgeStage:state.knowledgeStage,semanticPerspective:state.semanticPerspective,semanticNode:state.semanticNode,semanticFixture:state.semanticFixture,transferChanged:state.transferChanged,subject:state.subject,changed:state.changed,flags:state.flags,steps:state.steps,tabs:state.tabs,disclosures:state.disclosures,scopeInput:state.scopeInput,scopeRecord:state.scopeRecord,scroll:scrollY,focus:modalKind?modalReturn:focusKey(document.activeElement),modal:modalKind?{kind:modalKind,returnFocus:modalReturn,focus:focusKey(document.activeElement),scroll:dialog.scrollTop}:null};}
   function remember(){if(Number.isInteger(history.state?.position))readingPositions.set(history.state.position,scrollY);history.replaceState({...history.state,hub:true,snapshot:snapshot()},'',location.href);}
-  function restore(s){if(!s)return;for(const k of ['anchor','workDomain','knowledgeStage','semanticPerspective','semanticNode','transferChanged','subject','changed','steps','tabs','disclosures','scopeInput','scopeRecord'])if(s[k]!==undefined)state[k]=s[k];if(s.flags)state.flags=M.normalizeFlags(s.flags);}
+  function restore(s){if(!s)return;for(const k of ['anchor','workDomain','knowledgeStage','semanticPerspective','semanticNode','semanticFixture','transferChanged','subject','changed','steps','tabs','disclosures','scopeInput','scopeRecord'])if(s[k]!==undefined)state[k]=s[k];if(s.flags)state.flags=M.normalizeFlags(s.flags);}
   function routeWith(key,value){const url=new URL(location.href);const r=M.parseRoute(url.hash);if(key==='object')r.params.delete('panel');if(value===null)r.params.delete(key);else r.params.set(key,value);return '#'+r.path+(r.params.size?'?'+r.params:'');}
   function navigate(hash,{keepScroll=false,focus=null,savedSnapshot=null,scrollToFocus=false}={}){
     if(hash==='#main'){document.getElementById('main').focus();return;}
@@ -144,6 +144,11 @@
       if(!p)return;
       state.semanticPerspective=p.id;state.semanticNode=p.focus;
       rerender({action,value:v});announce('Selected '+p.label+' reasoning path');return;
+    }
+    if(action==='semantic-fixture'){
+      if(!window.CLM_SEMANTIC_SOURCE?.reasoning_fixtures?.some(x=>x.id===v))return;
+      state.semanticFixture=v;rerender({action,value:v});
+      announce('Reasoning exercise: '+window.CLM_SEMANTIC_SOURCE.reasoning_fixtures.find(x=>x.id===v).label);return;
     }
     if(action==='semantic-node'){
       const n=window.CLM_SEMANTIC_SOURCE?.nodes?.find(x=>x.id===v);

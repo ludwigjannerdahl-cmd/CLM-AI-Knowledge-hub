@@ -71,5 +71,35 @@
     const layers=model.meaning_layers.map((l,i)=>'<li><span>0'+(i+1)+'</span><strong>'+esc(l.label)+'</strong><p>'+esc(l.description)+'</p></li>').join('');
     return '<section class="semantic-layer-study" aria-labelledby="meaning-study-title"><div><p class="eyebrow">From fields to understood context</p><h2 id="meaning-study-title">Metadata records what exists.<br>Semantics say what it means.</h2><p>A field name, a domain concept and a system mapping are not the same object. Connecting these views gives AI context without promoting technical metadata into institutional authority.</p><a href="#/relationships">Inspect existing Hub object relationships ↗</a></div><ol>'+layers+'</ol><p class="meaning-study-note">Four complementary representation layers, not a claim about SEB implementation or a required sequence. Definitions need ownership, scope, provenance and review.</p></section>';
   }
-  root.CLM_SEMANTIC_ATLAS={render,layerStudy};
+  function competencyLab({fixtureId='unknown_rule',objectLink=null,objects={}}={}){
+    const model=root.CLM_SEMANTIC_SOURCE;
+    const engine=root.CLM_SEMANTIC_REASONING;
+    if(!model?.competency_questions||!engine)throw Error('Canonical semantic competency source or evaluator unavailable');
+    const fixture=model.reasoning_fixtures.find(f=>f.id===fixtureId)||model.reasoning_fixtures[0];
+    const result=engine.assess(fixture.inputs);
+    const questions=model.competency_questions.map((q,i)=>{
+      const anchors=(q.hub_objects||[]).map(id=>{
+        const actual=objects[id];
+        const link=actual&&typeof objectLink==='function'?objectLink(id,'Inspect '+id):'<code>'+esc(id)+'</code>';
+        return '<li><span class="semantic-q-source-state">'+esc(actual?.status||'Authored synthetic object')+'</span>'+link+'</li>';
+      }).join('');
+      const contracts=q.required_contracts.map(id=>'<code>'+esc(id)+'</code>').join(' ');
+      return '<details class="semantic-question" name="semantic-questions" '+(i===0?'open':'')+'>'+
+        '<summary><span class="semantic-question-index">'+String(i+1).padStart(2,'0')+'</span><strong>'+esc(q.question)+'</strong><span class="semantic-question-more" aria-hidden="true">+</span></summary>'+
+        '<div class="semantic-question-body"><div class="semantic-q-answer"><span>What can the authored Hub answer?</span><p>'+esc(q.current_answer)+'</p></div>'+
+        '<div class="semantic-q-explain"><div><span>Missing evidence</span><p>'+esc(q.why_not)+'</p></div><div><span>A dangerous inference</span><p>'+esc(q.negative_case)+'</p></div></div>'+
+        '<div class="semantic-q-contract"><span>The record types a defensible answer would need</span><div>'+contracts+'</div></div>'+
+        '<div class="semantic-q-anchors"><span>Inspect the underlying authored examples</span><ul>'+anchors+'</ul></div></div></details>';
+    }).join('');
+    const controls=model.reasoning_fixtures.map(f=>'<button type="button" data-action="semantic-fixture" data-value="'+esc(f.id)+'" aria-pressed="'+String(f.id===fixture.id)+'" class="semantic-fixture'+(f.id===fixture.id?' selected':'')+'">'+esc(f.label)+'</button>').join('');
+    return '<section class="semantic-competency-lab" id="semantic-competency" aria-labelledby="semantic-competency-title"><header class="semantic-cq-header"><div><p class="eyebrow">When knowledge has to withstand scrutiny</p><h2 id="semantic-competency-title">Can the model answer<br>the consequential question?</h2></div><p>An ontology earns its place by exposing what we can and cannot conclude. Each question links back to existing Hub examples, missing proof and a counterexample. This is a candidate explanatory contract—not SEB production policy.</p></header>'+
+      '<div class="semantic-cq-grid"><div class="semantic-cq-list">'+questions+'</div><aside class="semantic-cq-method"><p class="eyebrow">How to read the result</p><h3>Unknown is not no.<br>And it is not yes.</h3><p>A missing fact can remain unknown in a semantic model. Operational validation must still require the fields and permissions needed for action.</p>'+
+      '<div><span>Reasoning model</span><strong>What the case means</strong></div><div><span>Validation</span><strong>What information must exist</strong></div><div><span>Execution</span><strong>What is permitted now</strong></div>'+
+      '<p class="semantic-method-warning">These are different operations. Do not use rule applicability as a tool-access grant.</p></aside></div>'+
+      '<div class="semantic-gate-lab"><div class="semantic-gate-header"><div><p class="eyebrow">Illustrative reasoning exercise</p><h3>What changes when<br>one condition is missing?</h3></div><p>Try seven hypothetical situations. This deterministic demonstration is not connected to any authorization service, identity, production data or SEB policy engine.</p></div>'+
+      '<div class="semantic-fixtures" role="group" aria-label="Choose a hypothetical permission case">'+controls+'</div>'+
+      '<div class="semantic-fixture-outcome" role="status" aria-live="polite"><span>'+esc(result.state==='eligible_in_example'?'Illustrative prerequisite set complete':'Illustrative operation blocked')+'</span><strong>'+esc(result.reason)+'</strong><p>'+esc(result.explanation)+'</p></div>'+
+      '<p class="semantic-gate-footer">In this exercise, only a scoped, applicable, current, explicitly allowed case is eligible. A real system must separately enforce and record the permission check.</p></div></section>';
+  }
+  root.CLM_SEMANTIC_ATLAS={render,layerStudy,competencyLab};
 })(typeof window!=='undefined'?window:globalThis);
