@@ -36,6 +36,7 @@ export function validateSemanticSource(model,{objects=null}={}){
     const p='edges['+i+']';
     if(!ids.has(edge.from)||!ids.has(edge.to)||edge.from===edge.to)fail(p,'must join two known distinct concepts');
     if(!verbs.has(edge.type))fail(p+'.type','must use controlled, non-overclaimed relationship vocabulary');
+    if(edge.assertion_level!=='editorial_conceptual_non_entailing')fail(p+'.assertion_level','cannot treat the illustrative graph as deployed or logically entailing');
     if(!edge.id||edges.has(edge.id))fail(p+'.id','stable unique edge identifier required');
     edges.add(edge.id);
     if(typeof edge.condition!=='string'||edge.condition.length<20)fail(p+'.condition','qualifier is required');
@@ -53,6 +54,71 @@ export function validateSemanticSource(model,{objects=null}={}){
   if((model.meaning_layers||[]).length!==4)fail('meaning_layers','four meaning representations must be present');
   if(!Array.isArray(model.invariants)||model.invariants.length<5)fail('invariants','explicit governance distinctions required');
   for(const term of ['authority','meaning','data','capability','control','human','trace','work'])if(!ids.has(term))fail('nodes','missing core '+term);
+  const ontology=model.ontology_contract;
+  if(!ontology||ontology.status!=='candidate_schema_not_approved')fail('ontology_contract','candidate schema may not be silently promoted');
+  for(const [axis,required] of Object.entries({
+    applicability:['applicable','not_applicable','unknown'],
+    permission:['allow','deny','unknown'],
+    review:['candidate','in_review','reviewed_for_publication','rejected','superseded'],
+    test_execution:['not_run','observed_pass','observed_fail','inconclusive']
+  })){
+    const got=ontology?.axes?.[axis];
+    if(!Array.isArray(got)||got.length!==required.length||required.some(v=>!got.includes(v)))
+      fail('ontology_contract.axes.'+axis,'exact declared status vocabulary required');
+  }
+  if(!Array.isArray(ontology?.separation_rules)||ontology.separation_rules.length<7)
+    fail('ontology_contract.separation_rules','material epistemic separations missing');
+  const records=new Set();
+  const allowedPlanes=new Set(['authority','meaning','context','execution','assurance','knowledge','value']);
+  if(!Array.isArray(model.record_contracts)||model.record_contracts.length<12)fail('record_contracts','require qualified record types');
+  for(const [i,c] of (model.record_contracts||[]).entries()){
+    const p='record_contracts['+i+']';
+    if(!/^[A-Z][A-Za-z0-9]*$/.test(c.id||'')||records.has(c.id))fail(p+'.id','duplicate or invalid record class');
+    records.add(c.id);
+    if(!allowedPlanes.has(c.plane))fail(p+'.plane','unknown semantic plane');
+    if(c.status!=='schema_candidate')fail(p+'.status','cannot infer an approved institutional schema');
+    if(typeof c.meaning!=='string'||c.meaning.length<35)fail(p+'.meaning','missing source-qualified definition');
+    if(typeof c.failure!=='string'||c.failure.length<30)fail(p+'.failure','missing negative case');
+    if(!Array.isArray(c.required)||c.required.length<4||c.required.some(v=>typeof v!=='string'||v.length<3))
+      fail(p+'.required','required identity / provenance fields missing');
+    if(new Set(c.required||[]).size!==(c.required||[]).length)fail(p+'.required','duplicate field');
+  }
+  const questions=new Set();
+  if(!Array.isArray(model.competency_questions)||model.competency_questions.length<6)
+    fail('competency_questions','need discriminating queries');
+  for(const [i,q] of (model.competency_questions||[]).entries()){
+    const p='competency_questions['+i+']';
+    if(!/^CQ-[A-Z]+$/.test(q.id||'')||questions.has(q.id))fail(p+'.id','stable unique question ID required');
+    questions.add(q.id);
+    for(const key of ['question','current_answer','why_not','negative_case'])
+      if(typeof q[key]!=='string'||q[key].length<28)fail(p+'.'+key,'insufficiently qualified explanation');
+    if(!Array.isArray(q.required_contracts)||q.required_contracts.length<2||q.required_contracts.some(id=>!records.has(id)))
+      fail(p+'.required_contracts','must reference declared record contracts');
+    if(!Array.isArray(q.concepts)||q.concepts.length<2||q.concepts.some(id=>!ids.has(id)))
+      fail(p+'.concepts','must reference visible semantic concepts');
+    if(!Array.isArray(q.hub_objects)||q.hub_objects.length<1)fail(p+'.hub_objects','must link to an actual Hub object');
+    for(const id of q.hub_objects||[])if(objects&&!Object.hasOwn(objects,id))fail(p+'.hub_objects','unknown Hub object '+id);
+  }
+  const fixtures=new Set();
+  const allowedApplicability=ontology?.axes?.applicability||[];
+  const allowedPermissions=ontology?.axes?.permission||[];
+  if(!Array.isArray(model.reasoning_fixtures)||model.reasoning_fixtures.length<6)fail('reasoning_fixtures','need adverse and allowed-case coverage');
+  for(const [i,f] of (model.reasoning_fixtures||[]).entries()){
+    const p='reasoning_fixtures['+i+']';
+    if(!/^[a-z][a-z0-9_]+$/.test(f.id||'')||fixtures.has(f.id))fail(p+'.id','duplicate fixture');
+    fixtures.add(f.id);
+    if(!allowedApplicability.includes(f.inputs?.applicability)||!allowedPermissions.includes(f.inputs?.permission))
+      fail(p+'.inputs','unknown decision values');
+    for(const key of ['purpose_match','subject_match','grant_current'])
+      if(typeof f.inputs?.[key]!=='boolean')fail(p+'.inputs.'+key,'must be explicit boolean');
+    if(!['eligible_in_example','blocked'].includes(f.expected))fail(p+'.expected','not an allowed illustrative output');
+    if(f.expected==='eligible_in_example'&&
+      !(f.inputs.applicability==='applicable'&&f.inputs.permission==='allow'&&
+        f.inputs.purpose_match&&f.inputs.subject_match&&f.inputs.grant_current))
+      fail(p+'.expected','ineligible fixture incorrectly elevated');
+  }
+  if(!fixtures.has('unknown_rule')||!fixtures.has('denied_tool')||!fixtures.has('permitted_fixture'))
+    fail('reasoning_fixtures','missing essential distinct cases');
   return {ok:errors.length===0,errors};
 }
 
