@@ -119,3 +119,29 @@ jobs:
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Smoke-test the actual public URL and deployed semantic assets
+        shell: bash
+        env:
+          RELEASE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          root="${RELEASE_URL%/}"
+          test -n "$root"
+          verified=false
+          for attempt in {1..15}; do
+            if curl --fail --silent --show-error --location --max-time 20 "$root/?release=$GITHUB_SHA" -o /tmp/clm-hub-live.html \
+              && grep -q 'assets/semantic-source.js' /tmp/clm-hub-live.html \
+              && grep -q 'assets/semantic-atlas.js' /tmp/clm-hub-live.html \
+              && grep -q 'assets/semantic-reasoning.js' /tmp/clm-hub-live.html; then
+              verified=true
+              break
+            fi
+            echo "Published Pages assets not yet present, attempt $attempt/15"
+            sleep 8
+          done
+          test "$verified" = true
+          curl --fail --silent --show-error --location --max-time 20 "$root/assets/semantic-source.js?release=$GITHUB_SHA" -o /tmp/clm-hub-live-semantics.js
+          curl --fail --silent --show-error --location --max-time 20 "$root/assets/views.js?release=$GITHUB_SHA" -o /tmp/clm-hub-live-views.js
+          grep -q 'CQ-REUSE' /tmp/clm-hub-live-semantics.js
+          grep -q 'competencyLab' /tmp/clm-hub-live-views.js
+          echo "LIVE VERIFIED: $root/ — release $GITHUB_SHA; canonical ontology and competency experience served over HTTPS"
