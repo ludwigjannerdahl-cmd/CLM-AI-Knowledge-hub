@@ -7,6 +7,7 @@ import {validateSemanticSource} from '../scripts/validate-semantic.mjs';
 const read=(p)=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const model=JSON.parse(read('src/semantic/knowledge-to-capability.json'));
 const root={CLM_SEMANTIC_SOURCE:model};
+vm.runInNewContext(read('src/semantic-reasoning.js'),{window:root,globalThis:root});
 vm.runInNewContext(read('src/semantic-atlas.js'),{window:root,globalThis:root});
 const html=(perspectiveId='reuse',nodeId=null)=>root.CLM_SEMANTIC_ATLAS.render({perspectiveId,nodeId});
 const plain=s=>s.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ');
