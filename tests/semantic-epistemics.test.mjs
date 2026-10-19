@@ -28,7 +28,7 @@ test('schema class and status cannot silently be upgraded to institutional appro
  bad=structuredClone(model);bad.ontology_contract.axes.permission=['allow','deny'];
  assert.ok(validateSemanticSource(bad,{objects}).errors.some(e=>e.includes('permission')));
  bad=structuredClone(model);bad.edges[0].assertion_level='operational_fact';
- assert.ok(validateSemanticSource(bad,{objects}).errors.some(e=>e.includes('non-entailing')));
+ assert.ok(validateSemanticSource(bad,{objects}).errors.some(e=>e.includes('logically entailing')));
 });
 
 test('all competency questions have typed prerequisite records and inspectable Hub anchors',()=>{
