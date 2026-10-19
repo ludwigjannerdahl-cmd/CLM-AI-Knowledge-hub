@@ -7,7 +7,7 @@ const root=resolve(fileURLToPath(new URL('..',import.meta.url)));
 const ctx={URLSearchParams,queueMicrotask,document:{querySelector:()=>null}};ctx.window=ctx;vm.createContext(ctx);
 for(const name of ['data','explanation-data','semantic-source','semantic-reasoning','semantic-atlas','chapters','source-texts','scoping','model','explanations','views','design-lab'])vm.runInContext(readFileSync(root+'/docs/assets/'+name+'.js','utf8'),ctx);
 const D=ctx.CLM_HUB_DATA,N=ctx.CLM_HUB_CHAPTERS,M=ctx.CLM_HUB_MODEL;
-const state={route:M.parseRoute('#/'),flags:{...M.defaultFlags},steps:{},tabs:{},subject:'client',changed:false,transferChanged:false,anchor:'work',workDomain:'run',knowledgeStage:'human'};
+const state={semanticFixture:'unknown_rule',route:M.parseRoute('#/'),flags:{...M.defaultFlags},steps:{},tabs:{},subject:'client',changed:false,transferChanged:false,anchor:'work',workDomain:'run',knowledgeStage:'human'};
 const e=M.escape;
 const helpers={state,icon:()=>'<svg aria-hidden="true"></svg>',button:(l,a,v)=>'<button data-action="'+a+'" data-value="'+e(v)+'">'+e(l)+'</button>',link:(h,l)=>'<a href="'+h+'">'+e(l)+'</a>',objectLink:(id,l)=>{assert.ok(D.objects[id],'object '+id);return '<button>'+e(l||id)+'</button>';},topicLink:(c,t,l)=>'<a href="'+M.routeForTopic(c,t)+'">'+e(l)+'</a>',sourceLink:(id,l)=>{assert.ok(D.sources.some(x=>x.id===id),'source '+id);return '<a href="#/source/'+id+'">'+e(l||id)+'</a>';},scopeView:()=>'<h1>Advisory scope</h1>'};
 const X=ctx.CLM_EXPLANATIONS.create(helpers);const views=ctx.CLM_HUB_VIEWS.create({...helpers,X});
