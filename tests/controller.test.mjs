@@ -31,6 +31,7 @@ function host(hash){
   ctx.window=ctx;vm.createContext(ctx);
   for(const f of ['data','explanation-data','scoping','model'])vm.runInContext(readFileSync(new URL('../src/'+f+'.js',import.meta.url),'utf8'),ctx);
   ctx.CLM_SEMANTIC_SOURCE=JSON.parse(readFileSync(new URL('../src/semantic/knowledge-to-capability.json',import.meta.url),'utf8'));
+  vm.runInContext(readFileSync(new URL('../src/semantic-reasoning.js',import.meta.url),'utf8'),ctx);
   vm.runInContext(readFileSync(new URL('../src/semantic-atlas.js',import.meta.url),'utf8'),ctx);
   const chapters=JSON.parse(readFileSync(new URL('../src/chapters.json',import.meta.url),'utf8'));chapters.portfolio={};ctx.CLM_HUB_CHAPTERS=chapters;
   ctx.CLM_SOURCE_TEXTS={strategy:['First page\nSource meaning','Second page\nApplicability','Third page\nBoundaries']};
