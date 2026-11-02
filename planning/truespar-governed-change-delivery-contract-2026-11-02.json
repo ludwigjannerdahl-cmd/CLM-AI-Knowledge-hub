@@ -1,0 +1,83 @@
+{
+  "schema_version": "research-package/v1",
+  "package_id": "clm-hub-truespar-20261102",
+  "state": "DRAFT_RESEARCH_ONLY",
+  "canonical_repo": "ludwigjannerdahl-cmd/CLM-AI-Knowledge-hub",
+  "dependency_prs": [
+    7,
+    8,
+    9
+  ],
+  "product_outcome": "Readers can trace and correctly interpret proposed change, source, workflow impact, human authority and missing proof",
+  "baseline_files": [
+    "src/semantic/knowledge-to-capability.json",
+    "scripts/validate-semantic.mjs",
+    "src/semantic-reasoning.js",
+    "src/semantic-atlas.js",
+    "src/chapters.json",
+    "AGENTS.md"
+  ],
+  "phases": [
+    {
+      "id": "C-0",
+      "priority": 0,
+      "title": "V22 reader journey and paired comprehension baseline",
+      "dataset": "Existing synthetic KYC scenario with 8 reader tasks and 4 misconception traps",
+      "metrics": [
+        "source_identification",
+        "authority_interpretation",
+        "task_completion",
+        "source_return",
+        "reader_comprehension"
+      ],
+      "critical_gates": [
+        "maintain_13_chapters",
+        "keep_V22_golden_scenes",
+        "not_new_graph_product"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "C-1",
+      "priority": 1,
+      "title": "Attributed synthetic change proposal overlay",
+      "proposal_files": [
+        "src/semantic/change-proposal-candidates.json",
+        "scripts/validate-change-proposals.mjs"
+      ],
+      "metrics": [
+        "valid_stable_object_links",
+        "unapproved_status_integrity",
+        "reasoned_proof_paths",
+        "correct_failure_behavior"
+      ],
+      "critical_gates": [
+        "no_mutation_of_policy_approval",
+        "deny_unknown_permission",
+        "unknown_test_not_pass",
+        "no_confidential_SEB_data"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "C-2",
+      "priority": 2,
+      "title": "Human comprehension and browser regression review",
+      "metrics": [
+        "reader_error_rate",
+        "time_to_source",
+        "mobile_navigation",
+        "browser_errors",
+        "claim_qualification_accuracy"
+      ],
+      "critical_gates": [
+        "human_readers_needed_for_comprehension",
+        "current_site_continuity",
+        "no_publication_without_classification_review"
+      ],
+      "status": "NOT_IMPLEMENTED"
+    }
+  ],
+  "architecture": "Derived UI over existing source IDs and semantic model, no new graph server or OOXML CRDT",
+  "approval": "No public Pages release, internal-bank use claim, or confidential content ingestion"
+}
